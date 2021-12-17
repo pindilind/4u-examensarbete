@@ -28,41 +28,46 @@ function App() {
 
       {/* <ScrollToTop /> */}
 
-      <Switch>
+      <div className="wrappsAllContent">
+        <div className="flexCenterAll ">
 
-        <Route exact path="/">
-          <StartPage />
-        </Route>
+          <Switch>
 
-        <Route exact path="/createAccount">
-          <CreateAccount />
-        </Route>
+            <Route exact path="/">
+              <StartPage />
+            </Route>
 
-        <Route exact path="/login">
-          <Login />
-        </Route>
+            <Route exact path="/createAccount">
+              <CreateAccount />
+            </Route>
 
-        <Route exact path="/cartPage">
-          <CartPage />
-        </Route>
+            <Route exact path="/login">
+              <Login />
+            </Route>
 
-        <Route exact path="/eventPage">
-          <EventPage />
-        </Route>
+            <Route exact path="/cartPage">
+              <CartPage />
+            </Route>
 
-        <Route exact path="/userHomePage">
-          <UserHomePage />
-        </Route>
+            <Route exact path="/eventPage">
+              <EventPage />
+            </Route>
 
-        <Route exact path="/userInfo">
-          <UserInfo />
-        </Route>
+            <Route exact path="/userHomePage">
+              <UserHomePage />
+            </Route>
 
-      </Switch>
+            <Route exact path="/userInfo">
+              <UserInfo />
+            </Route>
+
+          </Switch>
+        </div>
+      </div>
 
       {/* <Footer /> */}
 
-    </Router>
+    </Router >
   );
 }
 
