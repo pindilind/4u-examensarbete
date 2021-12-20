@@ -1,0 +1,63 @@
+/* .imgStartPage {
+  height: 100%;
+  width: 100%;
+ /*  border-radius: 1.880rem 1.880rem 0 0; */
+/* } */
+
+body, html {
+  height: 100%;
+  margin: 0;
+}
+
+.bg {
+  /* The image used */
+  background-image: url("../assets/bakgrund.png");
+
+  /* Full height */
+  height: 100%; 
+  width: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .centered {
+    position: absolute;
+    top: 45%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    color: #75A488;
+    font-size: 3rem;
+    /* background-color: #ffffff; */
+    font-weight: bolder;
+    @media screen and (max-width: 480px) {
+      left: 50%
+    }
+  }
+  
+  .centeredText {
+    position: absolute;
+    top: 52%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    color: #75A488;
+    font-size: 1.5rem;
+   /*  background-color: #ffffff; */
+    border-radius: 0.5rem;
+    @media screen and (max-width: 480px) {
+      left: 50%
+    }
+  }
+  
+  .centeredBtn {
+    position: absolute;
+    top: 60%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    @media screen and (max-width: 480px) {
+      left: 50%
+    }
+  }
+}
+

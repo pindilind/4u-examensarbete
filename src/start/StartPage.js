@@ -1,11 +1,18 @@
 import React from "react";
 
-import "./StyleStartPage.css";
+import Bakgrund from "../assets/bakgrund.png"
+import "./StyleStartPage.scss";
 
 function StartPage() {
   return (
+
     <>
-      <h1>StartPage</h1>
+      <div className="bg">
+        <div className="centered">LOGGA</div>
+        <div className="centeredText">Text Text Text</div>
+        <div className="centeredBtn"><button>Lets Start</button></div>
+     
+        </div>
     </>
   );
 }

@@ -5,8 +5,8 @@ import {
   Redirect
 } from "react-router-dom";
 
-import './App.css';
-import Header from "./header/Header";
+import './App.scss';
+import Header from "./header/HeaderLogga";
 
 import CreateAccount from "./login/CreateAccount";
 import Login from "./login/Login";
@@ -24,12 +24,12 @@ function App() {
   return (
 
     <Router>
-      <Header />
+      {/* <Header /> */}
 
       {/* <ScrollToTop /> */}
 
-      <div className="wrappsAllContent">
-        <div className="flexCenterAll ">
+      {/* <div className="wrappsAllContent">
+        <div className="flexCenterAll "> */}
 
           <Switch>
 
@@ -62,8 +62,8 @@ function App() {
             </Route>
 
           </Switch>
-        </div>
-      </div>
+       {/*  </div>
+      </div> */}
 
       {/* <Footer /> */}
 

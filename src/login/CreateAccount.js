@@ -1,10 +1,21 @@
 import React from "react";
 
+import '../App.scss';
+
+import HeaderLogga from "../header/HeaderLogga";
+
 function CreateAccount() {
   return (
 
-    <h1>CreateAccount</h1>
+    <>
+      <HeaderLogga />
+      <div className="wrappsAllContent">
+        <div className="flexCenterAll ">
+          <h1>CreateAccount</h1>
 
+        </div>
+      </div>
+    </>
   );
 }
 
