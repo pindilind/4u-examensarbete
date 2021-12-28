@@ -4,6 +4,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
+### `npm install`
+### `npm install @mui/materia`
+### `npm install react-router-dom@5.2.0`
+### `npm install sass`
+
+
 In the project directory, you can run:
 
 ### `npm start`
