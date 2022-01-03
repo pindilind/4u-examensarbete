@@ -1,6 +1,7 @@
 import React from "react";
 
 import HeaderInlogged from "../headers/HeaderInlogged";
+import Footer from "../footer/Footer";
 
 function UserHomePage() {
   return (
@@ -11,7 +12,7 @@ function UserHomePage() {
           <h1>userHomePage</h1>
         </div>
       </div>
-      
+      <Footer />
     </>
   );
 }

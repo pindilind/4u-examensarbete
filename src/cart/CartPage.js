@@ -4,6 +4,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
 import HeaderInlogged from "../headers/HeaderInlogged";
+import Footer from "../footer/Footer";
 
 import "../App.scss";
 import "./CartPageStyle.scss";
@@ -49,6 +50,8 @@ function CartPage() {
 
         </div>
       </div>
+
+      <Footer/>
 
     </>
 
