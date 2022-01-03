@@ -1,0 +1,17 @@
+.productDiv {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.priceDiv {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+
+  .totalPrice {
+    font-weight: bold;
+  }
+}
