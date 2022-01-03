@@ -1,10 +1,18 @@
 import React from "react";
 
+import HeaderInlogged from "../headers/HeaderInlogged";
+
 function UserHomePage() {
   return (
-
-    <h1>UserHomePage</h1>
-
+    <>
+      <HeaderInlogged />
+      <div className="wrappsAllContent">
+        <div className="flexCenterAll ">
+          <h1>userHomePage</h1>
+        </div>
+      </div>
+      
+    </>
   );
 }
 

@@ -1,0 +1,80 @@
+.mobile-container {
+  max-width: 480px;
+  margin: auto;
+}
+
+.header {
+  overflow: hidden;
+  background-color: #75A488;
+  position: fixed;
+  top: 0;
+  align-items: center;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  color: #ffffff;
+
+  .logo {
+    margin-top: 1rem;
+  }
+
+  .styling {
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    .justColumn {
+      display: flex;
+      flex-direction: column;
+
+      .styleGoodAfternoon {
+        margin-bottom: 0;
+        margin-top: 1rem;
+      }
+
+      .justMargin {
+        margin-top: 0;
+        margin-bottom: 0.2rem;
+      }
+    }
+
+    .icon {
+      font-size: 1.2rem;
+      color: #ffffff;
+    }
+  }
+
+  /*  .icon {
+    display: flex;
+    font-size: 1.9rem;
+    color:#ffffff;
+    align-self: flex-end;
+  } */
+  /* .icon {
+    font-size: 1.9rem;
+    color:#ffffff;
+  }
+  
+  .iconDrops {
+    font-size: 1.9rem;
+  }
+  
+  .color {
+    color:#ffffff;
+  }
+  
+  
+  .logoSvg {
+    height: auto;
+    width: 150px;
+  }
+  
+  .iconsHeader {
+    justify-content: space-between;
+    display: flex;
+    align-items: baseline;
+    font-size: 2rem;
+  } */
+}
