@@ -1,9 +1,20 @@
 import React from "react";
 
+import HeaderInlogged from "../headers/HeaderInlogged";
+
 function CartPage() {
   return (
 
-    <h1>CartPage</h1>
+    <>
+
+      <HeaderInlogged />
+      <div className="wrappsAllContent">
+        <div className="flexCenterAll ">
+          <h1>CartPage</h1>
+        </div>
+      </div>
+
+    </>
 
   );
 }

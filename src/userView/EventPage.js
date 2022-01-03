@@ -1,10 +1,21 @@
 import React from "react";
 
+import HeaderInlogged from "../headers/HeaderInlogged";
+
+import '../App.scss';
+
 function EventPage() {
   return (
+    <>
 
-    <h1>EventPage</h1>
+      <HeaderInlogged />
+      <div className="wrappsAllContent">
+        <div className="flexCenterAll ">
+          <h1>EventPage</h1>
+        </div>
+      </div>
 
+    </>
   );
 }
 

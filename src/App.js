@@ -7,7 +7,7 @@ import {
 } from "react-router-dom";
 
 import './App.scss';
-import Header from "./header/HeaderLogga";
+import Header from "./headers/HeaderLogga";
 
 import CreateAccount from "./login/CreateAccount";
 import Login from "./login/Login";

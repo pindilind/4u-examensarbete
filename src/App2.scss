@@ -18,16 +18,15 @@ body,
 }
 
 /* Vitbakrund med rund kant längst upp */
-.wrappsAllContent {
+.wrappsAllContentLogAndReg {
   width: 100%;
   background-color: #ffffff;
   border-radius: 1.875rem 1.875rem 0 0;
   flex: 1 0 auto;
   margin: 0;
-  margin-top: 3.2rem;
 
   /* Lägger allt innehåll i mitten */
-  .flexCenterAll {
+  .flexCenterAllLogAndReg {
     display: flex;
     flex-direction: column;
     align-items: center;
