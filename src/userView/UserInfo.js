@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import FormControlLabel from '@mui/material/FormControlLabel';
 
 import HeaderInlogged from "../headers/HeaderInlogged";
+import Footer from "../footer/Footer";
 
 function UserInfo() {
   return (
@@ -137,6 +138,8 @@ function UserInfo() {
 
         </div>
       </div>
+
+      <Footer />
     </>
 
   );
