@@ -1,6 +1,7 @@
 import React from "react";
 
 import HeaderInlogged from "../headers/HeaderInlogged";
+import ProductCardSmall from "../components/ProductCardSmall";
 
 function UserHomePage() {
   return (
@@ -8,7 +9,9 @@ function UserHomePage() {
       <HeaderInlogged />
       <div className="wrappsAllContent">
         <div className="flexCenterAll ">
-          <h1>userHomePage</h1>
+          <ProductCardSmall />
+          
+          
         </div>
       </div>
       

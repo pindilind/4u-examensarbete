@@ -1,6 +1,7 @@
 import React from "react";
 
 import HeaderInlogged from "../headers/HeaderInlogged";
+import ProductCardLarge from "../components/ProductCardLarge";
 
 import '../App.scss';
 
@@ -11,7 +12,8 @@ function EventPage() {
       <HeaderInlogged />
       <div className="wrappsAllContent">
         <div className="flexCenterAll ">
-          <h1>EventPage</h1>
+          <ProductCardLarge></ProductCardLarge>
+          {/* <h1>EventPage</h1> */}
         </div>
       </div>
 
