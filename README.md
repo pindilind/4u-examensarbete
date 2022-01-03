@@ -1,8 +1,16 @@
+Project name: Event 4U
+Team: Linda Gustafsson, Susan Isaksson
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
+
+### `npm install`
+### `npm install @mui/materia`
+### `npm install react-router-dom@5.2.0`
+### `npm install sass`
+
 
 In the project directory, you can run:
 
