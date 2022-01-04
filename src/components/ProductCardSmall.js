@@ -13,7 +13,8 @@ const useStyles = makeStyles({
         minWidth: 500,
         boxShadow: "none",
         backgroundColor: '#292B28',
-        color: '#6AB547',
+        // color: '#6AB547',
+        color: 'white',
         marginTop: '1rem',
         padding: '1',
       
@@ -26,7 +27,7 @@ const useStyles = makeStyles({
         display: 'flex',
         width: 100,
         height: 100,
-        backgroundColor: 'green'
+        backgroundColor: '#75A488',
     },
 
     boxStyle: {
@@ -37,6 +38,13 @@ const useStyles = makeStyles({
     cardBoxStyle: {
         height: 100,
         marginTop: 0,
+    },
+
+    typoStyle: {
+        fontFamily: "Arial",
+        fontWeight: "1",
+        fontSize: "0.6rem",
+        textAlign: "left",
     }
        
   });
@@ -54,10 +62,10 @@ export default function ProductCardSmall() {
        
             <CardContent className={classes.cardBoxStyle}>
                 
-                <Typography component="div" variant="h6" >
-                    Title
+                <Typography className={classes.typoStyle} >
+                    <h2>Title</h2>
                 </Typography>
-                <Typography component="div">
+                <Typography className={classes.typoStyle}>
                     A summary description of the event...
                 </Typography>
                 
@@ -65,6 +73,7 @@ export default function ProductCardSmall() {
             </CardContent>
 
         </Box>
+        
       </Card>
     
       
