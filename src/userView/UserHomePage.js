@@ -20,6 +20,8 @@ function UserHomePage() {
           <Avatar />
 
           {/* <ProductCardSmall /> */}
+
+          <Calender />
           <div className={"longAndSearchDiv"}>
             <div><LongMenu /></div>
             <div><Search /></div>

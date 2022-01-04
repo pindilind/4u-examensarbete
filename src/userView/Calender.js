@@ -1,23 +1,21 @@
-/* import React from "react";
-import TextField from '@mui/material/TextField';
-import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import LocalizationProvider from '@mui/lab/LocalizationProvider';
-import DatePicker from '@mui/lab/DatePicker';
+import React, { useState } from 'react';
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+import { makeStyles } from '@mui/styles';
 
-export default function BasicDatePicker() {
-  const [value, setValue] = React.useState(null);
+import './CalenderStyle.scss'
+
+function Calenders() {
+  const [value, onChange] = useState(new Date());
 
   return (
-    <LocalizationProvider dateAdapter={AdapterDateFns}>
-      <DatePicker
-        label="Basic example"
+    <div>
+      <Calendar
+        onChange={onChange}
         value={value}
-        onChange={(newValue) => {
-          setValue(newValue);
-        }}
-        renderInput={(params) => <TextField {...params} />}
       />
-    </LocalizationProvider>
+    </div>
   );
 }
- */
+
+export default Calenders;
