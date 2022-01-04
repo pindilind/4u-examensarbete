@@ -8,6 +8,7 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
+import LogoSmall from '../assets/LogoSmall.svg';
 
 import './HeaderInloggStyle.scss';
 
@@ -45,9 +46,9 @@ export default function ElevateAppBar(props) {
             <Typography component="div">
               <Link to="/">
                 <img
-                  className="logo"
-                  /* src={Logo} */
-                  alt="LOGGA"
+                  /* className="logo" */
+                  src={LogoSmall}
+                  alt="logo"
                 />
               </Link>
             </Typography>
