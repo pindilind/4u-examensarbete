@@ -3,7 +3,7 @@ import React from "react";
 import HeaderInlogged from "../headers/HeaderInlogged";
 
 import ProductCardSmall from "../components/ProductCardSmall";
-
+import KeepMountedModal from "../components/ProductModal";
 import Footer from "../footer/Footer";
 import Search from './Search';
 import Calender from "./Calender";
@@ -15,9 +15,14 @@ function UserHomePage() {
   return (
     <>
       <HeaderInlogged />
+          
       <div className={"wrappsAllContent"}>
         <div className={"flexCenterAll"}>
           <Avatar />
+          
+          <KeepMountedModal />
+          <KeepMountedModal />
+          <KeepMountedModal />    
 
           {/* <ProductCardSmall /> */}
 

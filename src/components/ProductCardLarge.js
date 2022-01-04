@@ -14,44 +14,47 @@ const useStylesLarge = makeStyles({
         maxWidth: 345,
         boxShadow: "none",
         backgroundColor: '#292B28',
-        color: '#6AB547',
+        color: '#75A488',
         marginTop: '1rem',
         padding: '1',
       
         '@media (max-width: 480px)' : {
             minWidth: 300,
+           
         }
     },
 
     cardMediaStyle: {
-        
-        
-       padding: 5,
-       margin: 12,
-        height: 220,
-        width: 320,
-   
-        backgroundColor: 'green',
+      padding: 5,
+      margin: 12,
+      height: 220,
+      width: 320,  
+      backgroundColor: '#75A488',
 
     },
 
     cardContentStyle: {
-        height: 220,
-        color: '#6AB547',
+        height: 220,      
+        textAlign: "center",
+        // color: '#75A488',
+        color: 'white',
     },
+
+   
 
     buttonStyle: {
         height: 20,
-        display: 'flex',
-        justifyContent: 'center',
- 
-        backgroundColor: '#6AB547',
+        backgroundColor: '#75A488',
         color: 'white',
         margin: 4,
-    
+    },
+
+    cardActionStyle: {
+      display: "flex",
+      flexDirection: "column",
+      alignItems: "center",
     }
-    
-       
+      
   });
 
 export default function ProductCardLarge() {
@@ -59,29 +62,28 @@ export default function ProductCardLarge() {
 
   return (
     <Card className={classes.cardStylingLarge}>
-      <CardActionArea>
+      <CardActionArea className={classes.cardActionStyle}>
         <CardMedia className={classes.cardMediaStyle}
           component="img"
           image=""
           alt=""
         />
         <CardContent className={classes.cardContentStyle}>
-          <Typography gutterBottom variant="h5" component="div">
+         
+          <Typography id="keep-mounted-modal-title" variant="h6" component="h2">
             Title
           </Typography>
-          <Typography variant="body2">
+        
+          <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
             A longer description of the Event
           </Typography>
         </CardContent>
-        <cardAction>
-        <Button className={classes.buttonStyle} >Add to cart</Button>
+        <cardAction className={classes.buttonDiv}>
+        <Button onClick={""} className={classes.buttonStyle} >Add to cart</Button>
+        
         </cardAction>
        
-      </CardActionArea>
-      
-
-       
-      
+      </CardActionArea>      
     </Card>
   );
 }
