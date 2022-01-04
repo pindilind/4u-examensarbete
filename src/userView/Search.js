@@ -7,11 +7,15 @@ import { FaSearch } from 'react-icons/fa';
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  backgroundColor: '#75A488',
   '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
+    backgroundColor: '#75A488',
   },
   marginLeft: 0,
+  backgroundColor: '#75A488',
+  /* borderColor: 'black',
+  borderStyle: 'solid',
+  borderWidth: 1, */
   width: '100%',
   [theme.breakpoints.up('sm')]: {
     marginLeft: theme.spacing(1),

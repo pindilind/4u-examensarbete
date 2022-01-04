@@ -1,0 +1,22 @@
+
+
+.longAndSearchDiv {
+  display: flex;
+  flex-direction: row-reverse;
+  margin-top: 2rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.scrolling-wrapper-flexbox {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  width: 100%;
+
+  .card {
+    flex: 0 0 auto;
+    background-color: #75A488;
+    margin: 1rem;
+  }
+}
