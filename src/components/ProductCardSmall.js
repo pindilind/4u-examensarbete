@@ -7,7 +7,7 @@ import { Box } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import '../api/test.json';
 import makeRequest from '../MakeRequest';
-import { sassFalse } from 'sass';
+
 
 const useStyles = makeStyles({
     cardStyling: {
@@ -22,7 +22,7 @@ const useStyles = makeStyles({
         padding: '1',
 
         '@media (max-width: 480px)': {
-            minWidth: 300,
+            minWidth: '100%',
         }
     },
 
@@ -62,27 +62,7 @@ export default function ProductCardSmall() {
     console.log(status)
 
     } */
-    constructor(props); {
-        super(props);
-
-        this.state = {
-            items: [],
-            DataisLoaded: false 
-        };
-    }
-
-    componentDidMount() {
-        fetch("http://localhost:3000/api/test.json")
-            .then((res) => res.json())
-            .then((json) => {
-                this.setState({
-                    items: json,
-                    DataisLoaded: true
-                });
-            })
-    }
-    
-
+  
 
   return (
     

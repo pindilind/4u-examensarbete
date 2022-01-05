@@ -1,19 +1,17 @@
 import React from 'react';
+
+import { BsCalendar2DateFill } from 'react-icons/bs';
+
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
-import ProductCardSmall from './ProductCardSmall';
-import ProductCardLarge from './ProductCardLarge';
+import Calender from './Calender';
 
 const style = {
   position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  // width: '100%',
-  // bgcolor: 'background.paper',
-  // border: '2px solid #000',
-  // boxShadow: 24,
   p: 4,
 
   '@media (max-width: 480px)' : {
@@ -29,7 +27,7 @@ export default function KeepMountedModal() {
 
   return (
     <div>
-      <Button onClick={handleOpen}><ProductCardSmall/> </Button>
+      <Button onClick={handleOpen}>Kalender <BsCalendar2DateFill/></Button>
       <Modal
         keepMounted
         open={open}
@@ -38,7 +36,7 @@ export default function KeepMountedModal() {
         aria-describedby="keep-mounted-modal-description"
       >
         <Box sx={style}>
-          <ProductCardLarge />
+          <Calender />
           <Button onClick={handleClose} >Close</Button>
         </Box>
       </Modal>
