@@ -46,7 +46,7 @@ export default function ElevateAppBar(props) {
             <Typography component="div">
               <Link to="/">
                 <img
-                  /* className="logo" */
+                  className={'logo'}
                   src={LogoSmall}
                   alt="logo"
                 />
