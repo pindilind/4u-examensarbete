@@ -4,7 +4,8 @@
  /*  border-radius: 1.880rem 1.880rem 0 0; */
 /* } */
 
-body, html {
+body,
+html {
   height: 100%;
   margin: 0;
 }
@@ -14,7 +15,7 @@ body, html {
   background-image: url("../assets/bakgrund.png");
 
   /* Full height */
-  height: 100%; 
+  height: 100%;
   width: 100%;
 
   /* Center and scale the image nicely */
@@ -22,42 +23,60 @@ body, html {
   background-repeat: no-repeat;
   background-size: cover;
 
-  .centered {
+  .board {
     position: absolute;
     top: 45%;
-    left: 20%;
-    transform: translate(-50%, -50%);
-    color: #75A488;
-    font-size: 3rem;
-    /* background-color: #ffffff; */
-    font-weight: bolder;
-    @media screen and (max-width: 480px) {
-      left: 50%
+    width: 100%;
+    background-color: rgba(71, 60, 60, 0.671);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    .centered {
+      display: flex;
+      justify-content: flex-start;
+    /*   position: absolute;
+      top: 45%;
+      left: 20%;
+      transform: translate(-50%, -50%); */
+      color: #75A488;
+      font-size: 3rem;
+      /* background-color: #ffffff; */
+      font-weight: bolder;
+
+      @media screen and (max-width: 480px) {
+        left: 50%;
+        font-size: 1.6rem;
+      }
     }
-  }
-  
-  .centeredText {
-    position: absolute;
-    top: 52%;
-    left: 20%;
-    transform: translate(-50%, -50%);
-    color: #75A488;
-    font-size: 1.5rem;
-   /*  background-color: #ffffff; */
-    border-radius: 0.5rem;
-    @media screen and (max-width: 480px) {
-      left: 50%
+
+    .centeredText {
+      // position: absolute;
+      /* top: 52%;
+      left: 20%;
+      transform: translate(-50%, -50%); */
+      color: #75A488;
+      font-size: 1.5rem;
+      /*  background-color: #ffffff; */
+      border-radius: 0.5rem;
+      margin-bottom: 0.5rem;
+      text-align: center;
+
+      @media screen and (max-width: 480px) {
+        left: 50%;
+        font-size: 1rem;
+        
+      }
     }
-  }
-  
-  .centeredBtn {
-    position: absolute;
-    top: 60%;
-    left: 20%;
-    transform: translate(-50%, -50%);
-    @media screen and (max-width: 480px) {
-      left: 50%
+
+    .centeredBtn {
+
+      margin-bottom: 0.5rem;
+
+      @media screen and (max-width: 480px) {
+        left: 50%
+      }
     }
   }
 }
-

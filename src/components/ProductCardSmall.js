@@ -5,6 +5,9 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Box } from '@mui/material';
 import { makeStyles } from '@mui/styles';
+import '../api/test.json';
+import makeRequest from '../MakeRequest';
+import { sassFalse } from 'sass';
 
 const useStyles = makeStyles({
     cardStyling: {
@@ -17,8 +20,8 @@ const useStyles = makeStyles({
         color: 'white',
         marginTop: '1rem',
         padding: '1',
-      
-        '@media (max-width: 480px)' : {
+
+        '@media (max-width: 480px)': {
             minWidth: 300,
         }
     },
@@ -52,6 +55,34 @@ const useStyles = makeStyles({
 
 export default function ProductCardSmall() {
     const classes = useStyles()
+    
+
+    /* async function getProducts() {
+    const status = await makeRequest("http://localhost:3000", "GET") 
+    console.log(status)
+
+    } */
+    constructor(props); {
+        super(props);
+
+        this.state = {
+            items: [],
+            DataisLoaded: false 
+        };
+    }
+
+    componentDidMount() {
+        fetch("http://localhost:3000/api/test.json")
+            .then((res) => res.json())
+            .then((json) => {
+                this.setState({
+                    items: json,
+                    DataisLoaded: true
+                });
+            })
+    }
+    
+
 
   return (
     
@@ -63,7 +94,10 @@ export default function ProductCardSmall() {
             <CardContent className={classes.cardBoxStyle}>
                 
                 <Typography className={classes.typoStyle} >
+
                     <h2>Title</h2>
+                {/* {getProducts()} */}
+                
                 </Typography>
                 <Typography className={classes.typoStyle}>
                     A summary description of the event...

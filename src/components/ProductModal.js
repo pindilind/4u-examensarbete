@@ -20,7 +20,6 @@ const style = {
     minWidth: 300,
   }
 
-
 };
 
 export default function KeepMountedModal() {
