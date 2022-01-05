@@ -6,8 +6,6 @@ import ProductCardLarge from "../components/ProductCardLarge";
 
 
 import Footer from "../footer/Footer";
-import Calender from "./Calender";
-
 import '../App.scss';
 
 function EventPage() {
@@ -20,8 +18,6 @@ function EventPage() {
       <ProductCardLarge />
          
           <h1>EventPage</h1>
-         {/*  <Calender /> */}
-
         </div>
       </div>
       <Footer />
