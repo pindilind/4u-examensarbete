@@ -5,6 +5,7 @@ import HeaderInlogged from "../headers/HeaderInlogged";
 import ProductCardSmall from "../components/ProductCardSmall";
 import KeepMountedModal from "../components/ProductModal";
 import CalenderModal from '../components/CalenderModal';
+import Caruselle from '../components/Caruselle';
 import '../App.scss';
 
 
@@ -19,27 +20,34 @@ function UserHomePage() {
   return (
     <>
       <HeaderInlogged />
-
       <div className={"wrappsAllContent"}>
         <div className={"flexCenterAll"}>
 
-          <div className={"longAndSearchDiv"}>
-            <div><LongMenu /></div>
-            <div><Search /></div>
+        <div className={"avatarUser"}>
+        <Avatar />
+        <div>
+          <h3>Good Afternoon</h3>
+          <h3>USER</h3>
+        </div>
           </div>
-          <Avatar />
 
-          <div className={"scrolling-wrapper-flexbox"}>
-            <div class="card"><h2>Card</h2></div>
-            <div class="card"><h2>Card</h2></div>
-            <div class="card"><h2>Card</h2></div>
-            <div class="card"><h2>Card</h2></div>
-            <div class="card"><h2>Card</h2></div>
-            <div class="card"><h2>Card</h2></div>
-            <div class="card"><h2>Card</h2></div>
-            <div class="card"><h2>Card</h2></div>
-            <div class="card"><h2>Card</h2></div>
+          <div className={"longAndSearchDiv"}>
+            {/* <LongMenu /> */}
+            {/* <Search /> */}
           </div>
+          <Caruselle />
+
+          {/* <div className={"scrolling-wrapper-flexbox"}>
+            <div class="card"><h2>Card</h2></div>
+            <div class="card"><h2>Card</h2></div>
+            <div class="card"><h2>Card</h2></div>
+            <div class="card"><h2>Card</h2></div>
+            <div class="card"><h2>Card</h2></div>
+            <div class="card"><h2>Card</h2></div>
+            <div class="card"><h2>Card</h2></div>
+            <div class="card"><h2>Card</h2></div>
+            <div class="card"><h2>Card</h2></div>
+          </div> */}
 
           <CalenderModal />
 

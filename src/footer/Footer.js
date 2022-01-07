@@ -18,22 +18,18 @@ export default function Footer() {
     <BottomNavigation sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} value={value} onChange={handleChange}>
 
       <BottomNavigationAction
-        label="Edit User"
         value="editUser"
         icon={<FaUserEdit />}
       />
       <BottomNavigationAction
-        label="Orders"
         value="orders"
         icon={<FaClipboardList />}
       />
       <BottomNavigationAction
-        label="Home"
         value="home"
         icon={<BsFillHouseDoorFill />}
       />
       <BottomNavigationAction 
-      label="LogOut" 
       value="logout" 
       icon={<FaDoorOpen />} />
     </BottomNavigation>
