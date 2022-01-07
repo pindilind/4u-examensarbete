@@ -7,10 +7,13 @@ export default function VariantAvatars() {
   return (
     <Stack direction="row" spacing={2}>
       <Avatar sx={{
-        marginTop: "2rem",
+        display:  'flex',
+        /* position: 'absolute', */
+        /* marginTop: "10rem", */
         bgcolor: "grey",
-        width: '6em',
-        height: '6em'
+        width: '4em',
+        height: '4em',
+        /* zIndex: 3, */
       }} variant="rounded">
       </Avatar>
     </Stack>
