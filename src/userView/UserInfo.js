@@ -7,6 +7,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 
 import HeaderInlogged from "../headers/HeaderInlogged";
 import Footer from "../footer/Footer";
+import '../App.scss';
 
 function UserInfo() {
   return (

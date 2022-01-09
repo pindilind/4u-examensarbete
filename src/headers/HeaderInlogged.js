@@ -9,6 +9,8 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 import LogoSmall from '../assets/LogoSmall.svg';
+import Search from '../userView/Search';
+import LongMenu from '../components/DropDown';
 
 import './HeaderInloggStyle.scss';
 
@@ -46,7 +48,7 @@ export default function ElevateAppBar(props) {
             <Typography component="div">
               <Link to="/">
                 <img
-                  /* className="logo" */
+                  className={'logo'}
                   src={LogoSmall}
                   alt="logo"
                 />
@@ -55,14 +57,16 @@ export default function ElevateAppBar(props) {
 
             <Typography className={'styling'} component="div">
               <div className={'justColumn'}>
-                <h4 className={'styleGoodAfternoon'}>Good Afternoon</h4>
-                <h4 className={'justMargin'}> USER</h4>
+                <Search />
+                {/* <h4 className={'styleGoodAfternoon'}>Good Afternoon</h4>
+                <h4 className={'justMargin'}> USER</h4> */}
               </div>
 
               <Link to="/cartPage">
                 <FaShoppingCart className={'icon'}
                 />
               </Link>
+              <LongMenu />
 
             </Typography>
 

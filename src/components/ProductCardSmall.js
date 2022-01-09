@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -7,114 +7,86 @@ import { Box } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 import '../api/test.json';
 import makeRequest from '../MakeRequest';
-import { sassFalse } from 'sass';
+
 
 const useStyles = makeStyles({
-    cardStyling: {
-        display: "flex",
-        overfloWrap: "anywhere",
-        minWidth: 500,
-        boxShadow: "none",
-        backgroundColor: '#292B28',
-        // color: '#6AB547',
-        color: 'white',
-        marginTop: '1rem',
-        padding: '1',
+  cardStyling: {
+    display: "flex",
+    overfloWrap: "anywhere",
+    minWidth: 500,
+    boxShadow: "none",
+    backgroundColor: '#292B28',
+    // color: '#6AB547',
+    color: 'white',
+    /* marginTop: '1rem', */
+    padding: '1',
 
-        '@media (max-width: 480px)': {
-            minWidth: 300,
-        }
-    },
-
-    cardMediaStyle: {
-        display: 'flex',
-        width: 100,
-        height: 100,
-        backgroundColor: '#75A488',
-    },
-
-    boxStyle: {
-        display: 'flex',
-        flexDirection: 'column',
-    },
-
-    cardBoxStyle: {
-        height: 100,
-        marginTop: 0,
-    },
-
-    typoStyle: {
-        fontFamily: "Arial",
-        fontWeight: "1",
-        fontSize: "0.6rem",
-        textAlign: "left",
+    '@media (max-width: 480px)': {
+      minWidth: '100%',
     }
-       
-  });
+  },
+
+  cardMediaStyle: {
+    display: 'flex',
+    width: 100,
+    height: 100,
+    backgroundColor: '#75A488',
+  },
+
+  boxStyle: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+
+  cardBoxStyle: {
+    height: 100,
+    marginTop: 0,
+  },
+
+  typoStyle: {
+    fontFamily: "Arial",
+    fontWeight: "1",
+    fontSize: "0.6rem",
+    textAlign: "left",
+  }
+
+});
 
 
 export default function ProductCardSmall() {
-    const classes = useStyles()
-    
+  const classes = useStyles()
 
-    /* async function getProducts() {
-    const status = await makeRequest("http://localhost:3000", "GET") 
-    console.log(status)
 
-    } */
-    constructor(props); {
-        super(props);
+  /* async function getProducts() {
+  const status = await makeRequest("http://localhost:3000", "GET") 
+  console.log(status)
 
-        this.state = {
-            items: [],
-            DataisLoaded: false 
-        };
-    }
-
-    componentDidMount() {
-        fetch("http://localhost:3000/api/test.json")
-            .then((res) => res.json())
-            .then((json) => {
-                this.setState({
-                    items: json,
-                    DataisLoaded: true
-                });
-            })
-    }
-    
+  } */
 
 
   return (
-    
-      <Card className={classes.cardStyling}>
-        <CardMedia className={classes.cardMediaStyle} />
 
-        <Box className={classes.boxStyle}>
-       
-            <CardContent className={classes.cardBoxStyle}>
-                
-                <Typography className={classes.typoStyle} >
+    <Card className={classes.cardStyling}>
+      <CardMedia className={classes.cardMediaStyle} />
 
-                    <h2>Title</h2>
-                {/* {getProducts()} */}
-                
-                </Typography>
-                <Typography className={classes.typoStyle}>
-                    A summary description of the event...
-                </Typography>
-                
-                
-            </CardContent>
+      <Box className={classes.boxStyle}>
 
-        </Box>
-        
-      </Card>
-    
-      
-    
-   
-    
+        <CardContent className={classes.cardBoxStyle}>
+
+          <Typography className={classes.typoStyle} >
+
+            <h2>Title</h2>
+            {/* {getProducts()} */}
+
+          </Typography>
+          <Typography className={classes.typoStyle}>
+            A summary description of the event...
+          </Typography>
+
+        </CardContent>
+
+      </Box>
+
+    </Card>
   );
 }
-
-
