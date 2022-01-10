@@ -17,7 +17,9 @@ import Caruselle from '../components/Caruselle';
 import '../App.scss';
 import './UserHomeStyle.scss';
 
-import data from '../api/test.json';
+import makeRequest from '../makeRequest';
+
+/* import data from '../api/test.json'; */
 
 import Footer from "../footer/Footer";
 import Search from './Search';
@@ -39,12 +41,12 @@ const useStyles = makeStyles({
 
     '@media (max-width: 480px)': {
       minWidth: '100%',
-      
+
     }
   },
 
   cardMediaStyle: {
-   
+
     width: 100,
     height: 100,
     backgroundColor: '#75A488',
@@ -64,7 +66,7 @@ const useStyles = makeStyles({
   },
 
   typoStyle: {
-    
+
     fontFamily: "Arial",
     fontWeight: "1",
     fontSize: "0.6rem",
@@ -84,7 +86,7 @@ const style = {
   // boxShadow: 24,
   p: 4,
 
-  '@media (max-width: 480px)' : {
+  '@media (max-width: 480px)': {
     minWidth: 300,
   }
 
@@ -94,23 +96,33 @@ const style = {
 function UserHomePage() {
   const classes = useStyles()
 
+  /* async function getAllProdcts() {
+
+    const status = await makeRequest(
+      "http://localhost:3005/",
+      "GET"
+    );
+
+    return status;
+  } */
+
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  console.log(data)
+  /* console.log(data) */
   return (
     <>
       <HeaderInlogged />
       <div className={"wrappsAllContent"}>
-      <div className={"flexCenterAll"}>
+        <div className={"flexCenterAll"}>
 
-        <div className={"avatarUser"}>
-        <Avatar />
-        <div>
-          <h3>Good Afternoon</h3>
-          <h3>USER</h3>
-        </div>
+          <div className={"avatarUser"}>
+            <Avatar />
+            <div>
+              <h3>Good Afternoon</h3>
+              <h3>USER</h3>
+            </div>
           </div>
 
           <div className={"longAndSearchDiv"}>
@@ -121,73 +133,60 @@ function UserHomePage() {
             <Caruselle />
           </div>
 
-          {/* <div className={"scrolling-wrapper-flexbox"}>
-            <div class="card"><h2>Card</h2></div>
-            <div class="card"><h2>Card</h2></div>
-            <div class="card"><h2>Card</h2></div>
-            <div class="card"><h2>Card</h2></div>
-            <div class="card"><h2>Card</h2></div>
-            <div class="card"><h2>Card</h2></div>
-            <div class="card"><h2>Card</h2></div>
-            <div class="card"><h2>Card</h2></div>
-            <div class="card"><h2>Card</h2></div>
-          </div> */}
           <div>
-          <CalenderModal />
+            <CalenderModal />
           </div>
           <div>
-          <KeepMountedModal />
-          </div>      
+            {/* <KeepMountedModal /> */}
+          </div>
 
-          {/* <ProductCardSmall /> */}
-          <div>
+           <ProductCardSmall />
+          {/* <div>
             <Button onClick={handleOpen}>
-              {data.map((data, key) => {
-                console.log(data)
-                
+             
+
                 return (
-                  
+
                   <Card className={classes.cardStyling}>
                     <CardMedia className={classes.cardMediaStyle}>
-                      {data.img}
+
                     </CardMedia>
 
-                      <Box className={classes.boxStyle}>
+                    <Box className={classes.boxStyle}>
 
-                        <CardContent className={classes.cardBoxStyle}>
+                      <CardContent className={classes.cardBoxStyle}>
 
-                            <Typography className={classes.typoStyle} >
-                              {data.productTitle} <br />
-                              {data.description}
-                            </Typography>
+                        <Typography className={classes.typoStyle} >
 
-                        </CardContent>
-                      </Box>
+                        </Typography>
+
+                      </CardContent>
+                    </Box>
                   </Card>
                 )
               })}
             </Button>
-          </div>
+          </div> */}
 
           <div>
             <Modal
-                keepMounted
-                open={open}
-                onClose={handleClose}
-                aria-labelledby="keep-mounted-modal-title"
-                aria-describedby="keep-mounted-modal-description"
-              >
-                <Box sx={style}>
-                  <ProductCardLarge />
-                  <Button onClick={handleClose} >Close</Button>
-                </Box>
+              keepMounted
+              open={open}
+              onClose={handleClose}
+              aria-labelledby="keep-mounted-modal-title"
+              aria-describedby="keep-mounted-modal-description"
+            >
+              <Box sx={style}>
+                <ProductCardLarge />
+                <Button onClick={handleClose} >Close</Button>
+              </Box>
             </Modal>
           </div>
-    </div>
-    </div>
+        </div>
+      </div>
     </>
 
-  
+
   );
 }
 
