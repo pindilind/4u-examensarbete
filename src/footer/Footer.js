@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
@@ -18,20 +19,28 @@ export default function Footer() {
     <BottomNavigation sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} value={value} onChange={handleChange}>
 
       <BottomNavigationAction
+        component={Link}
+        to="/userInfo"
         value="editUser"
         icon={<FaUserEdit />}
       />
       <BottomNavigationAction
+        component={Link}
+        to="/orderPage"
         value="orders"
         icon={<FaClipboardList />}
       />
       <BottomNavigationAction
+        component={Link}
+        to="/userHomePage"
         value="home"
         icon={<BsFillHouseDoorFill />}
       />
-      <BottomNavigationAction 
-      value="logout" 
-      icon={<FaDoorOpen />} />
+      <BottomNavigationAction
+        component={Link}
+        to="/"
+        value="logout"
+        icon={<FaDoorOpen />} />
     </BottomNavigation>
   );
 }
