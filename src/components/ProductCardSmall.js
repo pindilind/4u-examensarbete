@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import { Box } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 /* import '../api/test.json'; */
-import makeRequest from '../makeRequest';
+import MakeRequest from '../MakeRequest';
 
 
 const useStyles = makeStyles({
@@ -58,7 +58,7 @@ export default function ProductCardSmall() {
 
 
   async function getProducts() {
-  const status = await makeRequest("http://localhost:3005", "GET") 
+  const status = await MakeRequest("http://localhost:3005", "GET") 
 
   console.log(status)
 

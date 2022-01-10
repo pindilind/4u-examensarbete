@@ -17,7 +17,7 @@ import Caruselle from '../components/Caruselle';
 import '../App.scss';
 import './UserHomeStyle.scss';
 
-import makeRequest from '../makeRequest';
+import MakeRequest from '../MakeRequest';
 
 /* import data from '../api/test.json'; */
 
