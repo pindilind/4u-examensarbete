@@ -5,8 +5,8 @@ import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 import { Box } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-import '../api/test.json';
-import makeRequest from '../MakeRequest';
+/* import '../api/test.json'; */
+import makeRequest from '../makeRequest';
 
 
 const useStyles = makeStyles({
@@ -57,13 +57,14 @@ export default function ProductCardSmall() {
   const classes = useStyles()
 
 
-  /* async function getProducts() {
-  const status = await makeRequest("http://localhost:3000", "GET") 
+  async function getProducts() {
+  const status = await makeRequest("http://localhost:3005", "GET") 
+
   console.log(status)
 
-  } */
+  }
 
-
+  getProducts()
   return (
 
     <Card className={classes.cardStyling}>
@@ -76,7 +77,7 @@ export default function ProductCardSmall() {
           <Typography className={classes.typoStyle} >
 
             <h2>Title</h2>
-            {/* {getProducts()} */}
+        
 
           </Typography>
           <Typography className={classes.typoStyle}>

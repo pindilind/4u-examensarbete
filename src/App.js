@@ -14,6 +14,7 @@ import Login from "./login/Login";
 import StartPage from "./start/StartPage";
 
 import CartPage from "./cart/CartPage";
+import OrderPage from "./cart/OrderPage";
 
 import EventPage from "./userView/EventPage";
 import UserHomePage from "./userView/UserHomePage";
@@ -48,6 +49,10 @@ function App() {
 
             <Route exact path="/cartPage">
               <CartPage />
+            </Route>
+
+            <Route exact path="/orderPage">
+              <OrderPage />
             </Route>
 
             <Route exact path="/eventPage">

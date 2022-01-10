@@ -1,3 +1,5 @@
+/* STYLAR KUNDVAGNEN // CARTPAGE*/
+
 .productDiv {
   display: flex;
   justify-content: center;
@@ -14,4 +16,12 @@
   .totalPrice {
     font-weight: bold;
   }
+}
+
+/* STYLAR ORDERSIDAN // ORDERPAGE */
+
+.orderDiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
