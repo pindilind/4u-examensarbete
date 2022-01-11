@@ -29,7 +29,7 @@ export default function KeepMountedModal() {
 
   return (
     <div>
-      <Button onClick={handleOpen}><ProductCardSmall/> </Button>
+      <Button onClick={handleOpen}>{/* <ProductCardSmall/> */} </Button>
       <Modal
         keepMounted
         open={open}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -56,20 +56,37 @@ const useStyles = makeStyles({
 export default function ProductCardSmall() {
   const classes = useStyles()
 
-
   async function getProducts() {
-  const status = await MakeRequest("http://localhost:3005", "GET") 
+    const status = await MakeRequest("http://localhost:3005", "GET")
+    console.log(status)
 
-  console.log(status)
-
+    return status.map((status, key => {
+             
+    }))
   }
 
-  getProducts()
+  getProducts();
+
+  /* function renderTickets() {
+
+    return status.map(status => {
+      return (
+
+        <Link key={ticket.id} to={{
+          pathname: "/ticketDetails",
+          state: { ticket }
+        }}>
+          <TicketCard ticket={ticket} />
+
+        </Link>
+      );
+    });
+  } */
   return (
 
     <Card className={classes.cardStyling}>
       <CardMedia className={classes.cardMediaStyle} />
-
+      
       <Box className={classes.boxStyle}>
 
         <CardContent className={classes.cardBoxStyle}>
@@ -77,7 +94,6 @@ export default function ProductCardSmall() {
           <Typography className={classes.typoStyle} >
 
             <h2>Title</h2>
-        
 
           </Typography>
           <Typography className={classes.typoStyle}>
