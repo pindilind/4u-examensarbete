@@ -11,7 +11,8 @@ app.use(express.json());
 app.get("/", (req, res) => {
   let raw = fs.readFileSync("./database/productDB.json") //hämtar url till jsonfil
   let productList = JSON.parse(raw)
-  res.json(productList) 
+  res.json(Object.values(productList));
+  /* res.json(productList)  */
 });
 
 

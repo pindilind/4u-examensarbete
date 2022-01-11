@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from "react";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -16,9 +16,7 @@ const useStyles = makeStyles({
     minWidth: 500,
     boxShadow: "none",
     backgroundColor: '#292B28',
-    // color: '#6AB547',
     color: 'white',
-    /* marginTop: '1rem', */
     padding: '1',
 
     '@media (max-width: 480px)': {
@@ -53,41 +51,34 @@ const useStyles = makeStyles({
 });
 
 
-export default function ProductCardSmall() {
+export default function ProductCardSmall(props) {
   const classes = useStyles()
 
-
-  async function getProducts() {
-  const status = await MakeRequest("http://localhost:3005", "GET") 
-
-  console.log(status)
-
-  }
-
-  getProducts()
+  const product = props.product;
+ 
   return (
-
+      
     <Card className={classes.cardStyling}>
       <CardMedia className={classes.cardMediaStyle} />
-
+      
       <Box className={classes.boxStyle}>
 
         <CardContent className={classes.cardBoxStyle}>
-
-          <Typography className={classes.typoStyle} >
-
-            <h2>Title</h2>
         
-
+              
+        <Typography className={classes.typoStyle} >
+            {product.productTitle}
           </Typography>
           <Typography className={classes.typoStyle}>
-            A summary description of the event...
-          </Typography>
+            {product.description}
+          </Typography>        
 
         </CardContent>
 
       </Box>
 
     </Card>
-  );
+    )
+
+  
 }
