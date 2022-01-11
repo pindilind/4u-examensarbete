@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -80,10 +80,7 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  // width: '100%',
-  // bgcolor: 'background.paper',
-  // border: '2px solid #000',
-  // boxShadow: 24,
+
   p: 4,
 
   '@media (max-width: 480px)': {
@@ -96,21 +93,39 @@ const style = {
 function UserHomePage() {
   const classes = useStyles()
 
-  /* async function getAllProdcts() {
+  const [products, setProducts] = useState([]);
 
-    const status = await makeRequest(
-      "http://localhost:3005/",
-      "GET"
-    );
+  useEffect(() => {
 
-    return status;
-  } */
+    async function getProducts() {
+      const status = await MakeRequest("http://localhost:3005", "GET")
+      console.log(status)
+
+      return status
+    }
+
+    getProducts().then(result => {
+      console.log(result)
+      setProducts(result);
+
+    });
+
+  }, [setProducts]);
+
+  function renderProducts() {
+
+    return products.map(product => {
+      return (
+      <ProductCardSmall product={product} />
+      )
+    });
+  }
+
 
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
-  /* console.log(data) */
   return (
     <>
       <HeaderInlogged />
@@ -140,33 +155,7 @@ function UserHomePage() {
             {/* <KeepMountedModal /> */}
           </div>
 
-           <ProductCardSmall />
-          {/* <div>
-            <Button onClick={handleOpen}>
-             
-
-                return (
-
-                  <Card className={classes.cardStyling}>
-                    <CardMedia className={classes.cardMediaStyle}>
-
-                    </CardMedia>
-
-                    <Box className={classes.boxStyle}>
-
-                      <CardContent className={classes.cardBoxStyle}>
-
-                        <Typography className={classes.typoStyle} >
-
-                        </Typography>
-
-                      </CardContent>
-                    </Box>
-                  </Card>
-                )
-              })}
-            </Button>
-          </div> */}
+          {renderProducts()}
 
           <div>
             <Modal
