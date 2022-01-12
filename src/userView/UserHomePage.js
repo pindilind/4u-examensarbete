@@ -107,7 +107,7 @@ function UserHomePage() {
 
     async function getProducts() {
       const status = await MakeRequest("http://localhost:3005", "GET")
-      //console.log(status)
+      console.log(status)
 
       return status
     }
