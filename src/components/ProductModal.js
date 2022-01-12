@@ -5,6 +5,7 @@ import Button from '@mui/material/Button';
 import ProductCardSmall from './ProductCardSmall';
 import ProductCardLarge from './ProductCardLarge';
 
+
 const style = {
   position: 'absolute',
   top: '50%',

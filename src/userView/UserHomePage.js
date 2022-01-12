@@ -1,17 +1,11 @@
 import React, { useEffect, useState } from "react";
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { Box } from '@mui/material';
+
 import { makeStyles } from '@mui/styles';
-import Modal from '@mui/material/Modal';
-import Button from '@mui/material/Button';
+
 
 import HeaderInlogged from "../headers/HeaderInlogged";
 import ProductCardSmall from "../components/ProductCardSmall";
-import ProductCardLarge from "../components/ProductCardLarge";
-import KeepMountedModal from "../components/ProductModal";
+
 import CalenderModal from '../components/CalenderModal';
 import Caruselle from '../components/Caruselle';
 import '../App.scss';
@@ -25,11 +19,13 @@ import Footer from "../footer/Footer";
 import Search from './Search';
 import LongMenu from "../components/DropDown";
 import Avatar from "../components/Avatar";
+import { width } from "@mui/system";
 
 
 const useStyles = makeStyles({
   cardStyling: {
     display: "flex",
+    
     overfloWrap: "anywhere",
     minWidth: 500,
     boxShadow: "none",
@@ -71,7 +67,18 @@ const useStyles = makeStyles({
     fontWeight: "1",
     fontSize: "0.6rem",
     textAlign: "left",
+  },
+
+  renderProductDiv: {
+    display: 'flex',
+    flexDirection: 'column',
+    flexWrap: 'wrap',
+    width: '100%',
+    color: 'red',
+    fontSize: 1,
   }
+
+  
 
 });
 
@@ -90,6 +97,7 @@ const style = {
 };
 
 
+
 function UserHomePage() {
   const classes = useStyles()
 
@@ -99,7 +107,7 @@ function UserHomePage() {
 
     async function getProducts() {
       const status = await MakeRequest("http://localhost:3005", "GET")
-      console.log(status)
+      //console.log(status)
 
       return status
     }
@@ -117,6 +125,7 @@ function UserHomePage() {
     return products.map(product => {
       return (
       <ProductCardSmall product={product} />
+      
       )
     });
   }
@@ -152,27 +161,15 @@ function UserHomePage() {
             <CalenderModal />
           </div>
           <div>
-            {/* <KeepMountedModal /> */}
-          </div>
-
           {renderProducts()}
-
-          <div>
-            <Modal
-              keepMounted
-              open={open}
-              onClose={handleClose}
-              aria-labelledby="keep-mounted-modal-title"
-              aria-describedby="keep-mounted-modal-description"
-            >
-              <Box sx={style}>
-                <ProductCardLarge />
-                <Button onClick={handleClose} >Close</Button>
-              </Box>
-            </Modal>
           </div>
+
+        
+         
         </div>
+        
       </div>
+      
     </>
 
 

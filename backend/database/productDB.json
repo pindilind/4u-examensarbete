@@ -1,26 +1,43 @@
 [
   {
     "id": 1,
-    "img": "Bild-1",
+    "img": "morgan_alling_2022",
     "productTitle": "Morgan Alling - konsten att hantera besvärliga människor",
-    "description": "Text...."
+    "description": "Text....",
+    "categoriId": 1,
+    "date": "20220207",
+    "time": "1900",
+    "price": "650"
   },
   {
     "id": 2,
-    "img": "Bild-2",
+    "img": "dennis_tomas.jpg",
     "productTitle": "Tomas Lydahl & Dennis Westerberg - Psyket är alltid friskt, oförstörbart",
-    "description": "Text...."
+    "description": "Text....",
+    "categoriId": 1,
+    "date": "20220218",
+    "time": "1800",
+    "price": "850"
+
   },
   {
     "id": 3,
-    "img": "Bild-3",
+    "img": "tina_thorner_2016.jpg",
     "productTitle": "Tina Thörner talar om att allt faktiskt går, bara man tror på det och vill tillräckligt mycket",
-    "description": "Text...."
+    "description": "Text....",
+    "categoriId": 2,
+    "date": "20220220",
+    "time": "1700",
+    "price": "650"
   },
   {
     "id": 4,
-    "img": "Bild-4",
+    "img": "robert_gustafsson_1931.jpg",
     "productTitle": "Robert Gustafsson - från vaggan till deadline",
-    "description": "Text...."
+    "description": "Text....",
+    "categoriId": 2,
+    "date": "20220222",
+    "time": "1900",
+    "price": "850"
   }
 ]
