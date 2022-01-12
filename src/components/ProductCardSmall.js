@@ -3,10 +3,14 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Box } from '@mui/material';
+import Box from '@mui/material/Box';
+import Modal from '@mui/material/Modal';
+import Button from '@mui/material/Button';
+// import { Box } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 /* import '../api/test.json'; */
 import MakeRequest from '../MakeRequest';
+import ProductCardLarge from "./ProductCardLarge";
 
 
 const useStyles = makeStyles({
@@ -26,7 +30,7 @@ const useStyles = makeStyles({
 
   cardMediaStyle: {
     display: 'flex',
-    width: 100,
+    width: '40%',
     height: 100,
     backgroundColor: '#75A488',
   },
@@ -34,25 +38,34 @@ const useStyles = makeStyles({
   boxStyle: {
     display: 'flex',
     flexDirection: 'column',
+    width: '90%',
+
   },
 
   cardBoxStyle: {
     height: 100,
-    marginTop: 0,
+    margin: 1,
+    // marginTop: 0,
+    
   },
 
-  typoStyle: {
+  /* typoStyle: {
+    width: '60%',
     fontFamily: "Arial",
     fontWeight: "1",
     fontSize: "0.6rem",
     textAlign: "left",
-  }
+  } */
 
 });
 
 
 export default function ProductCardSmall(props) {
   const classes = useStyles()
+
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
   const product = props.product;
  
@@ -64,13 +77,23 @@ export default function ProductCardSmall(props) {
       <Box className={classes.boxStyle}>
 
         <CardContent className={classes.cardBoxStyle}>
-        
-              
         <Typography className={classes.typoStyle} >
-            {product.productTitle}
-          </Typography>
-          <Typography className={classes.typoStyle}>
-            {product.description}
+        
+        <Button onClick={handleOpen}>{product.productTitle}  </Button>
+            <Modal
+              keepMounted
+              open={open}
+              onClose={handleClose}
+              aria-labelledby="keep-mounted-modal-title"
+              aria-describedby="keep-mounted-modal-description"
+            >
+              <Box className={classes.boxStyle}>
+                <ProductCardLarge />
+                <Button onClick={handleClose} >Close</Button>
+              </Box>
+            </Modal>
+          
+           
           </Typography>        
 
         </CardContent>
