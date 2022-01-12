@@ -13,6 +13,8 @@ import MakeRequest from '../MakeRequest';
 import ProductCardLarge from "./ProductCardLarge";
 
 
+
+
 const useStyles = makeStyles({
   cardStyling: {
     display: "flex",
@@ -46,7 +48,7 @@ const useStyles = makeStyles({
     height: 100,
     margin: 1,
     // marginTop: 0,
-    
+
   },
 
   /* typoStyle: {
@@ -68,40 +70,48 @@ export default function ProductCardSmall(props) {
   const handleClose = () => setOpen(false);
 
   const product = props.product;
- 
+
   return (
-      
+
     <Card className={classes.cardStyling}>
-      <CardMedia className={classes.cardMediaStyle} />
-      
-      <Box className={classes.boxStyle}>
+      <CardMedia className={classes.cardMediaStyle}>
 
-        <CardContent className={classes.cardBoxStyle}>
+     {/*  <img
+        src={product.price_data.metadata.img}
+        alt="carImg"
+      />
+ */}
+    </CardMedia>
+
+    <Box className={classes.boxStyle}>
+
+      <CardContent className={classes.cardBoxStyle}>
+
         <Typography className={classes.typoStyle} >
-        
-        <Button onClick={handleOpen}>{product.productTitle}  </Button>
-            <Modal
-              keepMounted
-              open={open}
-              onClose={handleClose}
-              aria-labelledby="keep-mounted-modal-title"
-              aria-describedby="keep-mounted-modal-description"
-            >
-              <Box className={classes.boxStyle}>
-                <ProductCardLarge />
-                <Button onClick={handleClose} >Close</Button>
-              </Box>
-            </Modal>
-          
-           
-          </Typography>        
 
-        </CardContent>
+          <Button onClick={handleOpen}>{product.price_data.product_data.title}  </Button>
+          <Modal
+            keepMounted
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="keep-mounted-modal-title"
+            aria-describedby="keep-mounted-modal-description"
+          >
+            <Box className={classes.boxStyle}>
+              <ProductCardLarge />
+              <Button onClick={handleClose} >Close</Button>
+            </Box>
+          </Modal>
 
-      </Box>
 
-    </Card>
-    )
+        </Typography>
 
-  
+      </CardContent>
+
+    </Box>
+
+    </Card >
+  )
+
+
 }

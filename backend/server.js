@@ -9,7 +9,7 @@ app.use(express.json());
 
 //hämtar alla produkter
 app.get("/", (req, res) => {
-  let raw = fs.readFileSync("./database/productDB.json") //hämtar url till jsonfil
+  let raw = fs.readFileSync("./database/productDB2.json") //hämtar url till jsonfil
   let productList = JSON.parse(raw)
   res.json(Object.values(productList));
   /* res.json(productList)  */
