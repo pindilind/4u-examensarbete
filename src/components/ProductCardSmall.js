@@ -104,6 +104,11 @@ export default function ProductCardSmall(props) {
 
 
           </Typography>
+          <Typography>
+            Datum: {product.price_data.product_data.date} ||
+            Klockan: {product.price_data.product_data.time} ||
+            Pris: {product.price_data.unit_amount /100} kr
+          </Typography>
 
         </CardContent>
 
