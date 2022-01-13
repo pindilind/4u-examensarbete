@@ -15,42 +15,11 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 export default function CustomizedBadges(props) {
 
-  const [counter, setCounter] = useState(0);
- /*  const [ticket, setTicket] = useState(props.location.state.ticket); */
-
-  const handleCartCounterChange = (event) => {
-    setCounter(event.target.value + 1);
-  
-  };
-
-
-/* function updateCounter(cart) {
-  let amount = 0;
-  let counter = 0;
-
-  if (cart !== null) {
-
-      for (const key in cart) {
-          if (Object.hasOwnProperty.call(cart, key)) {
-              const cartRow = cart[key];
-              counter += cartRow.quantity
-              amount += cartRow.price_data.unit_amount * cartRow.quantity
-          }
-      }
-
-  }
-
-  /* document.getElementById("cartCounter").innerHTML = counter; */
-
-/* } */
-
-
-
   return (
     <IconButton aria-label="cart">
-      <StyledBadge badgeContent={counter}>
-      <FaShoppingCart /* className={'icon'} */
-                />
+      <StyledBadge badgeContent={props.counter}>
+        <FaShoppingCart /* className={'icon'} */
+        />
       </StyledBadge>
     </IconButton>
   );
