@@ -8,7 +8,6 @@ import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 // import { Box } from '@mui/material';
 import { makeStyles } from '@mui/styles';
-/* import '../api/test.json'; */
 import MakeRequest from '../MakeRequest';
 import ProductCardLarge from "./ProductCardLarge";
 
@@ -41,7 +40,7 @@ const useStyles = makeStyles({
     display: 'flex',
     flexDirection: 'column',
     width: '90%',
-
+    margin: 'auto'
   },
 
   cardBoxStyle: {
@@ -76,39 +75,39 @@ export default function ProductCardSmall(props) {
     <Card className={classes.cardStyling}>
       <CardMedia className={classes.cardMediaStyle}>
 
-     {/*  <img
+        {/*  <img
         src={product.price_data.metadata.img}
         alt="carImg"
       />
  */}
-    </CardMedia>
+      </CardMedia>
 
-    <Box className={classes.boxStyle}>
+      <Box className={classes.boxStyle}>
 
-      <CardContent className={classes.cardBoxStyle}>
+        <CardContent className={classes.cardBoxStyle}>
 
-        <Typography className={classes.typoStyle} >
+          <Typography className={classes.typoStyle} >
 
-          <Button onClick={handleOpen}>{product.price_data.product_data.title}  </Button>
-          <Modal
-            keepMounted
-            open={open}
-            onClose={handleClose}
-            aria-labelledby="keep-mounted-modal-title"
-            aria-describedby="keep-mounted-modal-description"
-          >
-            <Box className={classes.boxStyle}>
-              <ProductCardLarge />
-              <Button onClick={handleClose} >Close</Button>
-            </Box>
-          </Modal>
+            <Button onClick={handleOpen}>{product.price_data.product_data.title}  </Button>
+            <Modal
+              keepMounted
+              open={open}
+              onClose={handleClose}
+              aria-labelledby="keep-mounted-modal-title"
+              aria-describedby="keep-mounted-modal-description"
+            >
+              <Box className={classes.boxStyle}>
+                <ProductCardLarge product={product}/>
+                <Button onClick={handleClose} >Close</Button>
+              </Box>
+            </Modal>
 
 
-        </Typography>
+          </Typography>
 
-      </CardContent>
+        </CardContent>
 
-    </Box>
+      </Box>
 
     </Card >
   )

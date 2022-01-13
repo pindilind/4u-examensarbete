@@ -1,4 +1,4 @@
-import React from 'react';
+/* import React from 'react';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
@@ -11,7 +11,7 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  // width: '100%',
+  width: '100%',
   // bgcolor: 'background.paper',
   // border: '2px solid #000',
   // boxShadow: 24,
@@ -45,4 +45,4 @@ export default function KeepMountedModal() {
       </Modal>
     </div>
   );
-}
+} */
