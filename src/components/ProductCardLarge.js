@@ -7,60 +7,71 @@ import { Button, CardActionArea, CardActions } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 
 const useStylesLarge = makeStyles({
-    cardStylingLarge: {
-        display: "flex",
-        overfloWrap: "anywhere",
-        minWidth: 500,
-        maxWidth: 345,
-        boxShadow: "none",
-        backgroundColor: '#292B28',
-        color: '#75A488',
-        marginTop: '1rem',
-        padding: '1',
-      
-        '@media (max-width: 480px)' : {
-            minWidth: 300,
-           
-        }
-    },
+  cardStylingLarge: {
+    display: "flex",
+    overfloWrap: "anywhere",
+    maxWidth: '50%',
+    boxShadow: "none",
+    backgroundColor: '#292B28',
+    color: '#75A488',
+    marginTop: '2rem',
+    padding: '1',
+    margin: 'auto',
 
-    cardMediaStyle: {
-      padding: 5,
-      margin: 12,
-      height: 220,
-      width: 320,  
-      backgroundColor: '#75A488',
-
-    },
-
-    cardContentStyle: {
-        height: 220,      
-        textAlign: "center",
-        // color: '#75A488',
-        color: 'white',
-    },
-
-   
-
-    buttonStyle: {
-        height: 20,
-        backgroundColor: '#75A488',
-        color: 'white',
-        margin: 4,
-    },
-
-    cardActionStyle: {
-      display: "flex",
-      flexDirection: "column",
-      alignItems: "center",
+    '@media (max-width: 480px)': {
+      minWidth: '100%',
     }
-      
-  });
+  },
 
-export default function ProductCardLarge() {
-    const classes = useStylesLarge()
+  cardMediaStyle: {
+    height: 200,
+    width: '100%',
+    backgroundColor: '#75A488',
+    display: 'flex',
+  },
+
+  cardTitleStyle: {
+    height: 220,
+    textAlign: "center",
+    color: '#75A488',
+    display: 'flex',
+    flexDirection: 'column'
+  },
+
+  cardDescStyleOne: {
+    display: 'flex',
+    alignSelf: 'flex-start',
+    marginTop: '1rem',
+    fontWeight: 500,
+  },
+
+  cardDescStyleTwo: {
+    display: 'flex',
+    alignSelf: 'flex-start',
+    marginTop: '1rem',
+  },
+
+  cardActionStyle: {
+    display: "flex",
+    flexDirection: "column",
+    alignSelf: "center",
+  },
+
+  buttonStyle: {
+    height: 25,
+    padding: 1,
+  },
+
+});
+
+export default function ProductCardLarge(props) {
+  const classes = useStylesLarge()
+
+  const product = props.product;
+  console.log(product)
 
   return (
+
     <Card className={classes.cardStylingLarge}>
       <CardActionArea className={classes.cardActionStyle}>
         <CardMedia className={classes.cardMediaStyle}
@@ -68,22 +79,36 @@ export default function ProductCardLarge() {
           image=""
           alt=""
         />
-        <CardContent className={classes.cardContentStyle}>
-         
-          <Typography id="keep-mounted-modal-title" variant="h6" component="h2">
-            Title
+        <CardContent className={classes.cardTitleStyle}>
+
+          <Typography variant="h6">
+            {product.price_data.product_data.title}
           </Typography>
-        
-          <Typography id="keep-mounted-modal-description" sx={{ mt: 2 }}>
-            A longer description of the Event
+
+          <Typography className={classes.cardDescStyleOne}>
+            Information om eventet
           </Typography>
+
+          <Typography className={classes.cardDescStyleTwo}>
+            {product.description}
+          </Typography>
+
         </CardContent>
+
         <CardActions className={classes.buttonDiv}>
-        <Button onClick={""} className={classes.buttonStyle} >Add to cart</Button>
-        
+          <Button
+            className={classes.buttonStyle}
+            /* onClick={} */
+            size="small"
+            color="success"
+            variant="contained"
+            disableElevation>
+            Lägg till i varukorgen
+          </Button>
+
         </CardActions>
-       
-      </CardActionArea>      
+
+      </CardActionArea>
     </Card>
   );
 }
