@@ -12,6 +12,8 @@ import LogoSmall from '../assets/LogoSmall.svg';
 import Search from '../userView/Search';
 import LongMenu from '../components/DropDown';
 
+import CartCounter from '../components/CartCounter';
+
 import './HeaderInloggStyle.scss';
 
 
@@ -38,7 +40,9 @@ ElevationScroll.propTypes = {
 
 export default function ElevateAppBar(props) {
 
-
+  const product = props.product
+  console.log(product)
+  
   return (
     <React.Fragment>
       <ElevationScroll {...props}>
@@ -63,8 +67,9 @@ export default function ElevateAppBar(props) {
               </div>
 
               <Link to="/cartPage">
-                <FaShoppingCart className={'icon'}
-                />
+                <CartCounter product={product}/>
+                {/* <FaShoppingCart className={'icon'}
+                /> */}
               </Link>
               <LongMenu />
 

@@ -98,22 +98,22 @@ const style = {
 
 
 
-function UserHomePage() {
+function UserHomePage(props) {
   const classes = useStyles()
 
   const [products, setProducts] = useState([]);
+
+  const product = props.product;
 
   useEffect(() => {
 
     async function getProducts() {
       const status = await MakeRequest("http://localhost:3005", "GET")
-      console.log(status)
-
+  
       return status
     }
 
     getProducts().then(result => {
-      console.log(result)
       setProducts(result);
 
     });
@@ -137,7 +137,7 @@ function UserHomePage() {
 
   return (
     <>
-      <HeaderInlogged />
+      <HeaderInlogged product={product}/>
       <div className={"wrappsAllContent"}>
         <div className={"flexCenterAll"}>
 

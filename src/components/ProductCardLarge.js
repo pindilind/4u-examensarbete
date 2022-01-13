@@ -68,8 +68,7 @@ export default function ProductCardLarge(props) {
   const classes = useStylesLarge()
 
   const product = props.product;
-  console.log(product)
-
+  
   return (
 
     <Card className={classes.cardStylingLarge}>
