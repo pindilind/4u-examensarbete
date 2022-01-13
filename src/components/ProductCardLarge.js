@@ -6,6 +6,8 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import { makeStyles } from '@mui/styles';
 
+import CartCounter from './CartCounter';
+
 const useStylesLarge = makeStyles({
   cardStylingLarge: {
     display: "flex",
@@ -69,6 +71,51 @@ export default function ProductCardLarge(props) {
 
   const product = props.product;
   
+  const addProduct = async () => {
+
+  let cart = JSON.parse(localStorage.getItem("cart"));
+    console.log(cart)
+
+    if (cart == null) {
+        cart = {}
+    }
+
+    if (!cart) {
+        cart = product;
+    }
+
+    cart.quantity = cart.quantity || 0;
+    cart.quantity++;
+
+ updateCounter(cart);
+
+    localStorage.setItem("cart", JSON.stringify(cart))
+};
+
+
+
+ function updateCounter(cart) {
+  let amount = 0;
+  let counter = 0;
+
+  if (cart !== null) {
+
+      for (const key in cart) {
+          if (Object.hasOwnProperty.call(cart, key)) {
+              const cartRow = cart[key];
+              counter += cartRow.quantity
+              amount += cartRow.price_data.unit_amount * cartRow.quantity
+          }
+      }
+
+  }
+
+  /* document.getElementById("cartCounter").innerHTML = counter; */
+ /*  <CartCounter counter={counter} /> */
+  
+
+}
+  
   return (
 
     <Card className={classes.cardStylingLarge}>
@@ -97,7 +144,8 @@ export default function ProductCardLarge(props) {
         <CardActions className={classes.buttonDiv}>
           <Button
             className={classes.buttonStyle}
-            /* onClick={} */
+            product={product}
+            onClick={addProduct()}
             size="small"
             color="success"
             variant="contained"

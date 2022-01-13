@@ -15,60 +15,40 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 
 export default function CustomizedBadges(props) {
 
-  const [cartCounter, setCartCounter] = useState(0);
+  const [counter, setCounter] = useState(0);
+ /*  const [ticket, setTicket] = useState(props.location.state.ticket); */
 
   const handleCartCounterChange = (event) => {
-    setCartCounter(event.target.value);
+    setCounter(event.target.value + 1);
+  
   };
-  const product = props.product;
-  console.log(product)
-
-  /* const addProduct = async () => {
-    let cart = JSON.parse(localStorage.getItem("cart"));
-    console.log(cart)
-
-/* 
-    if (cart == null) {
-        cart = {}
-    }
-
-    if (!cart[productKey]) {
-        cart[productKey] = product;
-    }
 
 
-    cart[productKey].quantity = cart[productKey].quantity || 0;
-    cart[productKey].quantity++;
-
-    updateCounter(cart);
-
-    localStorage.setItem("cart", JSON.stringify(cart)) */
-/* };
-addProduct() */ 
 /* function updateCounter(cart) {
-    let amount = 0;
-    let counter = 0;
+  let amount = 0;
+  let counter = 0;
 
-    if (cart !== null) {
+  if (cart !== null) {
+
+      for (const key in cart) {
+          if (Object.hasOwnProperty.call(cart, key)) {
+              const cartRow = cart[key];
+              counter += cartRow.quantity
+              amount += cartRow.price_data.unit_amount * cartRow.quantity
+          }
+      }
+
+  }
+
+  /* document.getElementById("cartCounter").innerHTML = counter; */
+
+/* } */
 
 
-        for (const key in cart) {
-            if (Object.hasOwnProperty.call(cart, key)) {
-                const cartRow = cart[key];
-                counter += cartRow.quantity
-                amount += cartRow.price_data.unit_amount * cartRow.quantity
-            }
-        }
 
-    }
-
-    document.getElementById("cartCounter").innerHTML = counter;
-
-}
- */
   return (
     <IconButton aria-label="cart">
-      <StyledBadge badgeContent={4}>
+      <StyledBadge badgeContent={counter}>
       <FaShoppingCart /* className={'icon'} */
                 />
       </StyledBadge>

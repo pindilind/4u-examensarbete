@@ -41,7 +41,6 @@ ElevationScroll.propTypes = {
 export default function ElevateAppBar(props) {
 
   const product = props.product
-  console.log(product)
   
   return (
     <React.Fragment>
