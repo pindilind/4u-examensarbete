@@ -24,7 +24,7 @@ import { width } from "@mui/system";
 const useStyles = makeStyles({
   cardStyling: {
     display: "flex",
-    
+
     overfloWrap: "anywhere",
     minWidth: 500,
     boxShadow: "none",
@@ -77,7 +77,7 @@ const useStyles = makeStyles({
     fontSize: 1,
   }
 
-  
+
 
 });
 
@@ -98,9 +98,12 @@ const style = {
 
 
 function UserHomePage(props) {
+
   const classes = useStyles()
 
   const [products, setProducts] = useState([]);
+
+  const [counter, setCounter] = useState(0);
 
   const product = props.product;
 
@@ -108,7 +111,7 @@ function UserHomePage(props) {
 
     async function getProducts() {
       const status = await MakeRequest("http://localhost:3005", "GET")
-  
+
       return status
     }
 
@@ -119,21 +122,47 @@ function UserHomePage(props) {
 
   }, [setProducts]);
 
+
+  function updateCounter() {
+
+    let cart = JSON.parse(localStorage.getItem("cart"));
+
+    let amount = 0;
+    let counter = 0;
+
+    if (cart !== null) {
+
+      for (const key in cart) {
+        if (Object.hasOwnProperty.call(cart, key)) {
+          const cartRow = cart[key];
+          console.log(cartRow)
+          counter += cartRow.quantity
+          console.log(cartRow.quantity)
+          /* amount += cartRow.price_data.unit_amount * cartRow.quantity */
+        }
+      }
+      setCounter(counter);
+    }
+  }
+
+
   function renderProducts() {
 
     return products.map(product => {
       return (
-      <ProductCardSmall product={product} />
-      
+        <ProductCardSmall product={product} updateCounter={updateCounter}/>
+
       )
     });
   }
 
+  const [open, setOpen] = React.useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
 
-  
   return (
     <>
-      <HeaderInlogged product={product}/>
+      <HeaderInlogged product={product} counter={counter} />
       <div className={"wrappsAllContent"}>
         <div className={"flexCenterAll"}>
 
@@ -157,15 +186,15 @@ function UserHomePage(props) {
             <CalenderModal />
           </div>
           <div>
-          {renderProducts()}
+            {renderProducts()}
           </div>
-       
-        
-         
+
+
+
         </div>
-        
+
       </div>
-      
+
     </>
 
 

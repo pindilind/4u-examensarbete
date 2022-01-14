@@ -99,7 +99,7 @@ export default function ProductCardSmall(props) {
               aria-describedby="keep-mounted-modal-description"
             >
               <Box className={classes.boxStyle}>
-                <ProductCardLarge product={product}/>
+                <ProductCardLarge product={product} updateCounter={props.updateCounter}/>
                 <Button onClick={handleClose} >Close</Button>
               </Box>
             </Modal>

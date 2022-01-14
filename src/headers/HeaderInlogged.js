@@ -66,7 +66,7 @@ export default function ElevateAppBar(props) {
               </div>
 
               <Link to="/cartPage">
-                <CartCounter product={product}/>
+                <CartCounter counter={props.counter}/>
                 {/* <FaShoppingCart className={'icon'}
                 /> */}
               </Link>
