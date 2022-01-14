@@ -3,6 +3,7 @@ import Badge from '@mui/material/Badge';
 import { styled } from '@mui/material/styles';
 import IconButton from '@mui/material/IconButton';
 import { FaShoppingCart } from 'react-icons/fa';
+import { TiCogOutline } from "react-icons/ti";
 
 const StyledBadge = styled(Badge)(({ theme }) => ({
   '& .MuiBadge-badge': {
@@ -16,12 +17,13 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 export default function CustomizedBadges(props) {
 
   const [counter, setCounter] = useState(0);
+
  /*  const [ticket, setTicket] = useState(props.location.state.ticket); */
 
-  const handleCartCounterChange = (event) => {
+  /* const handleCartCounterChange = (event) => {
     setCounter(event.target.value + 1);
   
-  };
+  }; */
 
 
 /* function updateCounter(cart) {
@@ -47,11 +49,26 @@ export default function CustomizedBadges(props) {
 
 
   return (
-    <IconButton aria-label="cart">
-      <StyledBadge badgeContent={counter}>
+    <div>
+      {counter.length === 0 && <p>Cart: (empty)</p>}
+        {counter.length > 0 && <p>Cart: {counter.toString()}</p>}
+    <IconButton aria-label="cart"
+    onClick={() => {
+      setCounter([...counter + 1]);
+      
+  }}
+  >
+    
+
+      <StyledBadge badgeContent={setCounter}>
       <FaShoppingCart /* className={'icon'} */
                 />
       </StyledBadge>
     </IconButton>
+                </div>
   );
 }
+
+
+  
+ 

@@ -5,7 +5,6 @@ import { makeStyles } from '@mui/styles';
 
 import HeaderInlogged from "../headers/HeaderInlogged";
 import ProductCardSmall from "../components/ProductCardSmall";
-
 import CalenderModal from '../components/CalenderModal';
 import Caruselle from '../components/Caruselle';
 import '../App.scss';
@@ -131,10 +130,7 @@ function UserHomePage(props) {
   }
 
 
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
-
+  
   return (
     <>
       <HeaderInlogged product={product}/>
@@ -163,7 +159,7 @@ function UserHomePage(props) {
           <div>
           {renderProducts()}
           </div>
-
+       
         
          
         </div>
