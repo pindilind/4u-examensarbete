@@ -80,7 +80,6 @@ export default function ProductCardLarge(props) {
   const addProduct = async () => {
     
     let cart = JSON.parse(localStorage.getItem("cart"));
-    console.log(cart)
 
     if (cart == null) {
       cart = {}
