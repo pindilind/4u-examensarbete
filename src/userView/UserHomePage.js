@@ -5,7 +5,6 @@ import { makeStyles } from '@mui/styles';
 
 import HeaderInlogged from "../headers/HeaderInlogged";
 import ProductCardSmall from "../components/ProductCardSmall";
-
 import CalenderModal from '../components/CalenderModal';
 import Caruselle from '../components/Caruselle';
 import '../App.scss';
@@ -136,9 +135,7 @@ function UserHomePage(props) {
       for (const key in cart) {
         if (Object.hasOwnProperty.call(cart, key)) {
           const cartRow = cart[key];
-          console.log(cartRow)
           counter += cartRow.quantity
-          console.log(cartRow.quantity)
           /* amount += cartRow.price_data.unit_amount * cartRow.quantity */
         }
       }

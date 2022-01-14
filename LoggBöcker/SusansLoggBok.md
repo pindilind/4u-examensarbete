@@ -12,11 +12,11 @@ Samlas i Teams kl 09
 ### TORSDAG | 2021-12-30
 Eget arbete. Jag fokuserar på backend server och uppdaterar mig på vad skall behövas för att välja...
 ### MÅNDAG | 2022-01-03
-Morgonsamling kl 09 för genomgång och uppstart av veckan. Startade upp projektet i Visual Studio och fick lösa en hel del error, använde 'npm audit fix --force', och installationer av 'dependencies' som jag saknade. Började därefter med att skapa componenter för vårt produktkort, ett litet och ett större. 
+Morgonsamling kl 09 för genomgång och uppstart av veckan. Startade upp projektet i Visual Studio och fick lösa en hel del error, använde 'npm audit fix --force', och installationer av 'dependencies' som jag saknade. Började därefter med att skapa två componenter för vårt produktkort, ett litet och ett större. 
 
 ### TISDAG | 2022-01-04
 Morgonsamling kl 09 med genomgång av gårdagens arbete och vad vi planerar att göra idag. Vi skickar upp färdig kod till GitHub.
-Fm fortsatte jag med modalen för den större produktpresentationen och fick alla delar på plats. Efter lunch satt vi tillsammans med Startsidan och liveshare på Visual Studio och lade till en "list" med information. Vi gjorde även klart vår loggo 'Event4U' tillsammans i Figma. Sedan fortsatte vi på var sitt håll och mitt issue blev att skapa en json-fil med lite av våra event för att kunna testa produkter innan backend-delen när klar. Hade svårt att hitta rätt fetch-metod för att hämta in datan i json-filen. Får fortsätta imorgon.
+Fm fortsatte jag med modalen för den större produktpresentationen och fick alla delar på plats. Därefter skapade jag ytterligare en component Modal för att få ihop båda produktkorten då genom ett klick på produkten i det mindre kortet skulle öppna det större kortet med mer information och möjlighet att lägga-till-i-varukorgen.  Efter lunch satt vi tillsammans med Startsidan och liveshare på Visual Studio och lade till en "list" med information. Vi gjorde även klart vår loggo 'Event4U' tillsammans i Figma. Sedan fortsatte vi på var sitt håll och mitt issue blev att skapa en json-fil med lite av våra event för att kunna testa produkter innan backend-delen när klar. Hade svårt att hitta rätt fetch-metod för att hämta in datan i json-filen. Får fortsätta imorgon.
 
 ### ONSDAG | 2022-01-05
 Morgonsamling kl 09 med genomgång av gårdagens arbete och vad vi planerar att göra idag. Vi diskuterade lite om hur vår sida ska se ut och vad vi vill åstadkomma och hur vi ska göra det. Linda känner sig lite osäker med server-delen. Jag fortsatte att försöka hitta lösningen av renderingen av json-data, men kom inte i mål idag heller. På eftermiddagen satt jag med lite scrummaster-arbete och uppdaterade statistik med issues, poäng osv. Nästa steg blir diagrammet. 
@@ -32,16 +32,31 @@ Kl 13-ca 15 hade Henrik föreläsning om hosting som var bra och matnyttigt. Dä
 Satt lite extra för att lösa renderingen av "produkterna" från json-filen. Lyckades lösa det genom att inte använda componenterna ProductCardSmall och ProductCardLarge utan istället skriva koden i UserHomePage - och då fick jag det att funka. Troligtvis har componenten trasslat till det och blivit för inkapslad. Skön känsla att lösa utmaningen.
 
 ### MÅNDAG | 2022-01-10
-Linda hade ett LIA möte kl 09, så morgonmötet flyttades fram lite. Under tiden satte jag upp ett repository för vår server-del på GitHub, clonade till Fork och startade upp i VisualStudio - och bjöd in Linda. Behöver dock sätta reglerna för 'pullrequest/merge' - Linda får hjälpa mig. Därefter hade vi möte och insåg att båda låg efter med att skriva i dagboken, så vi tog en timme att uppdatera och komma ikapp innan vi fortsätter denna veckan med "server"-delen. 
+Linda hade ett LIA möte kl 09, så morgonmötet flyttades fram lite. Under tiden satte jag upp ett repository för vår server-del på GitHub, clonade till Fork och startade upp i VisualStudio - och bjöd in Linda. Behöver dock sätta reglerna för 'pullrequest/merge' - Linda får hjälpa mig. Därefter hade vi möte och bestämde då att inte använda mitt "nya" repository för backend utan skapa den i vårt projekt istället och startade upp det i projektet. Vi insåg att båda låg efter med att skriva i dagboken, så vi tog en timme att uppdatera och komma ikapp innan vi fortsätter denna veckan med "server"-delen. Jag skapade två json-filer för Product och för User, och lade till produkter i produkt-filen.
 
 ### TISDAG | 2022-01-11
-Morgonmöte kl 09
+Fm var jag ledig och vi flyttade "Morgonmötet" till kl 13.... Tillsammans lyckades vi lösa renderingen av produkter, då vi egentligen hade rätt kod men "makerequest" skull ha ett stort M.
 
 ### ONSDAG | 2022-01-12
-Morgonmöte kl 09
+Morgonmöte kl flyttades fram till kl 09.30. Vi livekodade tillsammans och dagens utmaning var att få ut bild i produktkortet, men img-taggen kräver något som vi missat. Lite frustrerande för vi har rätt kod, men vi missar något.
 
 ### TORSDAG | 2022-01-13
-Morgonmöte kl 09
+Morgonmöte kl 09. Jag hade under kvällen igår noterat att vi missat viss data i backend och produkt-filen och vi lade till denna information; kategori, datum, tid och pris. Lade sedan till denna information i det lilla produktkortet. Därefter satte vi dagens mål att få igång en "counter" för funktionen onclick=addProduct där antalet visas i headern vid "varukorg"-iconen, och att valen sparas i localstorage för att senare gå vidare till nästa steg som är Stripe. Under förmiddagen live kodade vi för att hitta lösning, men då vi inte kom vidare fortsatte vi på egen hand fram till lunch. 
 
 ### FREDAG | 2022-01-14
-Morgonmöte kl 09
+Lite senare morgonmöte idag, kl 09
+
+
+
+
+ {cart.length === 0 && <p>Cart: (empty)</p>}
+          {cart.length > 0 && <p>Cart: {cart.toString()}</p>}
+          <Button
+              onClick={() => {
+                  setCart([...cart, ` item ${itemIndex}`]);
+                  setItemIndex(itemIndex + 1);
+              }}
+              >
+                  Add to Cart
+          </Button>
+                  

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -66,9 +66,12 @@ const useStylesLarge = makeStyles({
 
 });
 
+
 export default function ProductCardLarge(props) {
 
   const classes = useStylesLarge()
+  const [cart, setCart] = useState([]);
+  const [itemIndex, setItemIndex] = useState(1);
 
   const product = props.product;
 
@@ -77,7 +80,6 @@ export default function ProductCardLarge(props) {
   const addProduct = async () => {
     
     let cart = JSON.parse(localStorage.getItem("cart"));
-    console.log(cart)
 
     if (cart == null) {
       cart = {}
@@ -117,6 +119,11 @@ export default function ProductCardLarge(props) {
           <Typography className={classes.cardDescStyleTwo}>
             {product.description}
           </Typography>
+          <Typography>
+          Datum: {product.price_data.product_data.date} ||
+            Klockan: {product.price_data.product_data.time} ||
+            Pris: {product.price_data.unit_amount /100} kr
+          </Typography>
 
         </CardContent>
 
@@ -129,7 +136,9 @@ export default function ProductCardLarge(props) {
             variant="contained"
             disableElevation>
             Lägg till i varukorgen
-          </Button>
+          </Button> 
+
+         
 
         </CardActions>
 
