@@ -74,6 +74,8 @@ export default function ProductCardSmall(props) {
 
     <Card className={classes.cardStyling}>
       <CardMedia className={classes.cardMediaStyle}>
+        
+  
 
         {/*  <img
         src={product.price_data.metadata.img}

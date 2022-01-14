@@ -5,7 +5,6 @@ import { makeStyles } from '@mui/styles';
 
 import HeaderInlogged from "../headers/HeaderInlogged";
 import ProductCardSmall from "../components/ProductCardSmall";
-
 import CalenderModal from '../components/CalenderModal';
 import Caruselle from '../components/Caruselle';
 import '../App.scss';
