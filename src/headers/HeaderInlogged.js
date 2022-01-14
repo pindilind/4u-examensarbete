@@ -40,7 +40,7 @@ ElevationScroll.propTypes = {
 
 export default function ElevateAppBar(props) {
 
-  const product = props.product
+  const product = props.product;
   
   return (
     <React.Fragment>
@@ -65,7 +65,7 @@ export default function ElevateAppBar(props) {
                 <h4 className={'justMargin'}> USER</h4> */}
               </div>
 
-              <Link to="/cartPage">
+              <Link product={product} counter={props.counter} to="/cartPage">
                 <CartCounter counter={props.counter}/>
                 {/* <FaShoppingCart className={'icon'}
                 /> */}
