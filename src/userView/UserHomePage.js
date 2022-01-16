@@ -120,6 +120,8 @@ function UserHomePage(props) {
 
     });
 
+    updateCounter();
+
   }, [setProducts]);
 
 
@@ -148,7 +150,7 @@ function UserHomePage(props) {
 
     return products.map(product => {
       return (
-        <ProductCardSmall product={product} updateCounter={updateCounter}/>
+        <ProductCardSmall product={product} updateCounter={updateCounter} />
 
       )
     });
