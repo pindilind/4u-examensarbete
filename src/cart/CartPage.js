@@ -46,9 +46,37 @@ function CartPage(props) {
 
    return cartArray.map(key => {
      console.log(key)
+     //unique key kan anges efter .map((item, index)=>( <p key={item.id}> {item.title})) = index som key kan vara osäker vid ändringar
 
       return (
-        <div key={key}>{key.key}</div>
+        <>
+        {/* <div key={key}>{key.key}</div> */}
+        <table>
+          <thead>
+
+          <tr>
+            <th>Produkt</th>
+            <th>Datum, tid</th>
+            
+            <th>Pris, kr</th>
+            <th>Antal</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>Morgan Alling </td>
+            <td>23 februari, kl 17</td>
+            <td>850:00</td>
+            <td>2</td>
+          
+          </tr>
+          </tbody>
+          <tfoot>
+            
+          </tfoot>
+        </table>
+        </>
+        
        
   
     ); 
@@ -75,17 +103,10 @@ function CartPage(props) {
 
           <Typography className={'priceDiv'} component="div">
 
-            <Typography >
-              Total amount incl. VAT
-            </Typography>
-
             <Typography className={'totalPrice'}>
-              122000 kr
-              
-              
-              
+              Summa, totalt att betala: 1 700 kr < br/>(moms ingår med 340 kr)
             </Typography>
-            {/* Lagt till rad 40-48 */}
+           
             <Typography>
               <Button onClick={() => {
                 setItemCount(Math.max(itemCount -1, 0));
