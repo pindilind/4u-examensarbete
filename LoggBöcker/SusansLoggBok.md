@@ -46,6 +46,8 @@ Morgonmöte kl 09. Jag hade under kvällen igår noterat att vi missat viss data
 ### FREDAG | 2022-01-14
 Lite senare morgonmöte idag, kl 09
 
+### SÖNDAG | 2022-01-16
+Satt nästan 6 timmar på söndag och försöka hitta lösningen på att rendera ut innehållet i varukorgen från localStorage. Känns som jag gör rätt men hittar inte rätt keys för att få ut rätt innehåll, är troligtvis innästat och jag hittar inte in till rätt värden. Till slut gav jag upp och la till innehåll i backend och productDB2 och "description" samt länk till youtube för 2 av våra 4 event. Tittade även igenom planeringen och uppdaterade på både Trello och GitHub.
 
 
 
