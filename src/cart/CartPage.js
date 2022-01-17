@@ -84,17 +84,13 @@ function CartPage(props) {
 
           <Typography className={'priceDiv'} component="div">
 
-            <Typography >
-              Total amount incl. VAT
-            </Typography>
-
             <Typography className={'totalPrice'}>
               122000 kr
 
 
 
             </Typography>
-            {/* Lagt till rad 40-48 */}
+           
             <Typography>
               <Button onClick={() => {
                 setItemCount(Math.max(itemCount - 1, 0));

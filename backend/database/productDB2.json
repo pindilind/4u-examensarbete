@@ -26,8 +26,10 @@
         "title": "Tomas Lydahl & Dennis Westerberg - Psyket är alltid friskt, oförstörbart",
         "date": "20220218",
         "time": "1800",
-        "images": "dennis_tomas.jpg",
         "categoryId": 1
+      },
+      "metadata": {
+          "image": "dennis_tomas.jpg"
       },
       "unit_amount": 85000
     }
@@ -43,8 +45,10 @@
         "title": "Tina Thörner talar om att allt faktiskt går, bara man tror på det och vill tillräckligt mycket",
         "date": "20220220",
         "time": "1700",
-        "images": "tina_thorner_2016.jpg",
         "categoryId": 2
+      },
+      "metadata": {
+        "images": "tina_thorner_2016.jpg"
       },
       "unit_amount": 65000
     }
@@ -60,8 +64,10 @@
         "title": "Robert Gustafsson - från vaggan till deadline",
         "date": "20220222",
         "time": "1900",
-        "images": "robert_gustafsson_1931.jpg",
         "categoryId": 2
+      },
+      "metadata": {
+        "images": "robert_gustafsson_1931.jpg"
       },
       "unit_amount": 85000
     }
