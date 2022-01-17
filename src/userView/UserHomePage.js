@@ -148,17 +148,13 @@ function UserHomePage(props) {
 
   function renderProducts() {
 
-    return products.map(product => {
+    return products.map((product, id) => {
       return (
-        <ProductCardSmall product={product} updateCounter={updateCounter} />
+        <ProductCardSmall key={product.id} product={product} updateCounter={updateCounter} />
 
       )
     });
   }
-
-  const [open, setOpen] = React.useState(false);
-  const handleOpen = () => setOpen(true);
-  const handleClose = () => setOpen(false);
 
   return (
     <>

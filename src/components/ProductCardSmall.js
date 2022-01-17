@@ -74,9 +74,11 @@ export default function ProductCardSmall(props) {
   return (
 
     <Card className={classes.cardStyling}>
-      <CardMedia className={classes.cardMediaStyle}>
+      <CardMedia className={classes.cardMediaStyle}
+        component="img"
+      >
 
-      {/*   <img
+        {/*   <img
           src={product.metadata.img}
           alt="carImg"
         /> */}
@@ -89,7 +91,7 @@ export default function ProductCardSmall(props) {
 
           <Typography className={classes.typoStyle} >
 
-            <Button onClick={handleOpen}>{product.price_data.product_data.title}  </Button>
+            <Button onClick={handleOpen}>{product.price_data.product_data.title} </Button>
             <Modal
               keepMounted
               open={open}
