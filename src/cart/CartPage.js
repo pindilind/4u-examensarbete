@@ -13,64 +13,73 @@ function CartPage(props) {
   // Lagt till rad 14-20
   const [itemCount, setItemCount] = useState(1);
 
+  const [counter, setCounter] = useState(0);
+
   const [cart, setCart] = useState([]);
   console.log(cart)
 
-  /* const customerId = useSelector(state => state.customer.id);
-  console.log(customerId) */
 
-  // const cartItems = props.product;
-  /* const cartItems = cart;
-  console.log(cartItems) */
+  function updateCounter() {
 
- 
-  
+    let cart = JSON.parse(localStorage.getItem("cart"));
+
+    let amount = 0;
+    let counter = 0;
+
+    if (cart !== null) {
+
+      for (const key in cart) {
+        if (Object.hasOwnProperty.call(cart, key)) {
+          const cartRow = cart[key];
+          counter += cartRow.quantity
+          /* amount += cartRow.price_data.unit_amount * cartRow.quantity */
+        }
+      }
+      setCounter(counter);
+    }
+  }
+
+
   useEffect(() => {
 
     async function getCartItem() {
       let cart = JSON.parse(localStorage.getItem("cart"));
-    
+      console.log(cart)
+
       return cart;
     }
-    
-   getCartItem().then(result => {
+
+    getCartItem().then(result => {
       setCart(result);
     });
 
+    updateCounter();
+
   }, [setCart]);
 
- function renderCart() {
-  let cart = JSON.parse(localStorage.getItem("cart"));
-  let cartArray = [cart]
-  /* console.log(cartArray) */
+  function renderCart() {
 
-   return cartArray.map(key => {
-     console.log(key)
+    let cartArray = Object.values(cart);
+
+    return cartArray.map(value => {
+      console.log(value)
 
       return (
-        <div key={key}>{key.key}</div>
-       
-  
-    ); 
-    
- });
- 
-}
-
+        <div key={value}>{value.price_data.product_data.title}</div>
+      );
+    });
+  }
 
   return (
-    
-
     <>
-
-      <HeaderInlogged />
+      <HeaderInlogged counter={counter} />
       <div className="wrappsAllContent">
         <div className="flexCenterAll ">
           <h1>Your Cart</h1>
 
           <Typography className={'productDiv'} component="div">
-            RENDERA COMPONENT HÄR 
-          {renderCart()} 
+            RENDERA COMPONENT HÄR
+            {renderCart()}
           </Typography>
 
           <Typography className={'priceDiv'} component="div">
@@ -81,14 +90,14 @@ function CartPage(props) {
 
             <Typography className={'totalPrice'}>
               122000 kr
-              
-              
-              
+
+
+
             </Typography>
             {/* Lagt till rad 40-48 */}
             <Typography>
               <Button onClick={() => {
-                setItemCount(Math.max(itemCount -1, 0));
+                setItemCount(Math.max(itemCount - 1, 0));
               }}
               >-</Button>
               <Button onClick={() => {
@@ -115,7 +124,7 @@ function CartPage(props) {
         </div>
       </div>
 
-      <Footer/>
+      <Footer />
 
     </>
 
@@ -124,6 +133,6 @@ function CartPage(props) {
 
 export default CartPage;
 
-// Hämta data från localstorage - 
-//kolla om cart är tom eller har item - 
+// Hämta data från localstorage -
+//kolla om cart är tom eller har item -
 //vad göra då? - visa i varukorgen
