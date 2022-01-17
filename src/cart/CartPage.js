@@ -112,7 +112,7 @@ function CartPage(props) {
               color="success"
               variant="contained"
               disableElevation>
-              Go To Payment
+              Checka ut
             </Button>
 
           </Typography>
