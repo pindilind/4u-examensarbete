@@ -148,15 +148,14 @@ function UserHomePage(props) {
 
   function renderProducts() {
 
-    return products.map(product => {
+    return products.map((product, id) => {
       return (
-        <ProductCardSmall product={product} updateCounter={updateCounter} />
+        <ProductCardSmall key={product.id} product={product} updateCounter={updateCounter} />
 
       )
     });
   }
 
-  
   return (
     <>
       <HeaderInlogged product={product} counter={counter} />
