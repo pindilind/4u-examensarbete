@@ -69,19 +69,18 @@ export default function ProductCardSmall(props) {
   const handleClose = () => setOpen(false);
 
   const product = props.product;
+  console.log(product.metadata.img)
 
   return (
 
     <Card className={classes.cardStyling}>
       <CardMedia className={classes.cardMediaStyle}>
-        
-  
 
-        {/*  <img
-        src={product.price_data.metadata.img}
-        alt="carImg"
-      />
- */}
+      {/*   <img
+          src={product.metadata.img}
+          alt="carImg"
+        /> */}
+
       </CardMedia>
 
       <Box className={classes.boxStyle}>
@@ -99,7 +98,7 @@ export default function ProductCardSmall(props) {
               aria-describedby="keep-mounted-modal-description"
             >
               <Box className={classes.boxStyle}>
-                <ProductCardLarge product={product} updateCounter={props.updateCounter}/>
+                <ProductCardLarge product={product} updateCounter={props.updateCounter} />
                 <Button onClick={handleClose} >Close</Button>
               </Box>
             </Modal>
@@ -109,7 +108,7 @@ export default function ProductCardSmall(props) {
           <Typography>
             Datum: {product.price_data.product_data.date} ||
             Klockan: {product.price_data.product_data.time} ||
-            Pris: {product.price_data.unit_amount /100} kr
+            Pris: {product.price_data.unit_amount / 100} kr
           </Typography>
 
         </CardContent>

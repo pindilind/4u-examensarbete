@@ -54,6 +54,10 @@ Vi har kommit fram till att vi ska släppa frontend ett tag och sammarbeta i bac
 
 ---
 
-**TORSDAG | 2022-01-14**<br>
+**FREDAG | 2022-01-14**<br>
+
+---
+
+**MÅNDAG | 2022-01-17**<br>
 
 ---

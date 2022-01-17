@@ -13,103 +13,87 @@ function CartPage(props) {
   // Lagt till rad 14-20
   const [itemCount, setItemCount] = useState(1);
 
+  const [counter, setCounter] = useState(0);
+
   const [cart, setCart] = useState([]);
   console.log(cart)
 
-  /* const customerId = useSelector(state => state.customer.id);
-  console.log(customerId) */
 
-  // const cartItems = props.product;
-  /* const cartItems = cart;
-  console.log(cartItems) */
+  function updateCounter() {
 
- 
-  
+    let cart = JSON.parse(localStorage.getItem("cart"));
+
+    let amount = 0;
+    let counter = 0;
+
+    if (cart !== null) {
+
+      for (const key in cart) {
+        if (Object.hasOwnProperty.call(cart, key)) {
+          const cartRow = cart[key];
+          counter += cartRow.quantity
+          /* amount += cartRow.price_data.unit_amount * cartRow.quantity */
+        }
+      }
+      setCounter(counter);
+    }
+  }
+
+
   useEffect(() => {
 
     async function getCartItem() {
       let cart = JSON.parse(localStorage.getItem("cart"));
-    
+      console.log(cart)
+
       return cart;
     }
-    
-   getCartItem().then(result => {
+
+    getCartItem().then(result => {
       setCart(result);
     });
 
+    updateCounter();
+
   }, [setCart]);
 
- function renderCart() {
-  let cart = JSON.parse(localStorage.getItem("cart"));
-  let cartArray = [cart]
-  /* console.log(cartArray) */
+  function renderCart() {
 
-   return cartArray.map(key => {
-     console.log(key)
-     //unique key kan anges efter .map((item, index)=>( <p key={item.id}> {item.title})) = index som key kan vara osäker vid ändringar
+    let cartArray = Object.values(cart);
+
+    return cartArray.map(value => {
+      console.log(value)
 
       return (
-        <>
-        {/* <div key={key}>{key.key}</div> */}
-        <table>
-          <thead>
-
-          <tr>
-            <th>Produkt</th>
-            <th>Datum, tid</th>
-            
-            <th>Pris, kr</th>
-            <th>Antal</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr>
-            <td>Morgan Alling </td>
-            <td>23 februari, kl 17</td>
-            <td>850:00</td>
-            <td>2</td>
-          
-          </tr>
-          </tbody>
-          <tfoot>
-            
-          </tfoot>
-        </table>
-        </>
-        
-       
-  
-    ); 
-    
- });
- 
-}
-
+        <div key={value}>{value.price_data.product_data.title}</div>
+      );
+    });
+  }
 
   return (
-    
-
     <>
-
-      <HeaderInlogged />
+      <HeaderInlogged counter={counter} />
       <div className="wrappsAllContent">
         <div className="flexCenterAll ">
           <h1>Your Cart</h1>
 
           <Typography className={'productDiv'} component="div">
-            RENDERA COMPONENT HÄR 
-          {renderCart()} 
+            RENDERA COMPONENT HÄR
+            {renderCart()}
           </Typography>
 
           <Typography className={'priceDiv'} component="div">
 
             <Typography className={'totalPrice'}>
-              Summa, totalt att betala: 1 700 kr < br/>(moms ingår med 340 kr)
+              122000 kr
+
+
+
             </Typography>
            
             <Typography>
               <Button onClick={() => {
-                setItemCount(Math.max(itemCount -1, 0));
+                setItemCount(Math.max(itemCount - 1, 0));
               }}
               >-</Button>
               <Button onClick={() => {
@@ -136,7 +120,7 @@ function CartPage(props) {
         </div>
       </div>
 
-      <Footer/>
+      <Footer />
 
     </>
 
@@ -145,6 +129,6 @@ function CartPage(props) {
 
 export default CartPage;
 
-// Hämta data från localstorage - 
-//kolla om cart är tom eller har item - 
+// Hämta data från localstorage -
+//kolla om cart är tom eller har item -
 //vad göra då? - visa i varukorgen

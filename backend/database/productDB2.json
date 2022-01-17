@@ -1,7 +1,9 @@
 {
   "1": {
-    "id": "001",
-    "description": "Text....Vad är det som gör att vissa människor är så svåra att hantera? Hur gör man när situationer blir obehagliga och spända? Varifrån kommer de och hur ser de ut? Skådespelaren, regissören och föreläsaren Morgan Alling föreläser på #DIKsessions och berättar hur man kan vända negativa erfarenheter till någonting bra och hur man löser konflikter med besvärliga människor – det kan handla om livskamrater, arbetskamrater, vänner, grannar eller kanske till och med dig själv. ",
+    "description": "Text....",
+    "metadata": {
+      "img": "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80"
+    },
     "price_data": {
       "currency": "sek",
       "product_data": {
@@ -10,15 +12,14 @@
         "time": "1900",
         "categoryId": 1
       },
-        "metadata": {
-          "image": "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80"
-      },
       "unit_amount": 85000
     }
   },
   "2": {
-    "id": "002",
-    "description": "Text....En banbrytande föreläsning om psykisk hälsa med Tomas Lydahl och Dennis Westerberg som introducerar och förklarar de nyupptäckta och livsförändrande principer som håller på att revolutionera hela det psykologiska fältet, och som ger oss människor ett större välmående, högre livskvalitet och mer framgång. Låt dig dock inte luras av den lättsamma och smått ironiska tonen. Inte heller av den breda skånska dialekten. Bortom all humor och kvickhet, finns nämligen ett viktigt och banbrytande budskap. Tomas Lydahl och Dennis Westerberg är båda författare och två av Sveriges mest inspirerande föreläsare. ",
+    "description": "Text....",
+    "metadata": {
+      "img": "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80"
+    },
     "price_data": {
       "currency": "sek",
       "product_data": {
@@ -34,8 +35,10 @@
     }
   },
   "3": {
-    "id": "003",
-    "description": "Text....Tina Thörner, kartläsare och rallysportprofil, damvärldsmästare tre gånger. Tina Thörner talar om att allt faktiskt går, bara man tror på det och vill det tillräckligt mycket. Med positivt tänkande skapar man sin egen lycka och dessutom ordnar man till självförtroendet.  Tina Thörner är som kartläsare en av de största profilerna inom rallysporten. Hon har varit damvärldsmästare i rally tre gånger, varit totaltvåa i Svenska rallyt och hon har vunnit Marocko Rally Raid. Hon arbetar som teamledare och PR-profil för Mitsubishi och tidigare med GM och Ford. Tina är även föreläsare och hon talar om att man kan bara man vill, förutsatt att man verkligen tror på det. Hon talar om hur man skapar sin egen lycka i livet, hur man odlar ett positivt tänkande och filar på sitt självförtroende. Tina talar även om vikten av att kunna ta konstruktiv kritik och att kunna ge feedback.  Tina Thörner är en otroligt öppen och ärlig person och enormt engagerande som föreläsare. Hon arbetar inom en av de mest mansdominerade branscher som finns och hon brukar säga att hon lärt sig massor, men att oj vad hon är tacksam för att hon är kvinna. Det gäller att våga vara den man är.  ",
+    "description": "Text....",
+    "metadata": {
+      "img": "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80"
+    },
     "price_data": {
       "currency": "sek",
       "product_data": {
@@ -51,8 +54,10 @@
     }
   },
   "4": {
-    "id": "004",
-    "description": "Text....Robert Gustafsson - skådespelare och komiker som har utsetts till Världens roligaste man av svenska folket i SVT:s program Folktoppen. Som liten ville Robert Gustafsson bli skrothandlare, men ödet ville annorlunda. Hans eget mod och nyfikenhet gjorde att han 'öppnade dörrar som andra trodde var stängda' och på så sätt öppnade sig helt andra möjligheter och han gjorde vissa avgörande vägval. Roberts föreläsning Från vaggan till deadline handlar om att våga! Och att tro på sig själv! Att våga öppna dörrar som verkar stängda, och att framför allt - våga se vad som finns bakom dörren! Roberts föreläsning Från vaggan till deadline handlar om att våga! Och att tro på sig själv! Att våga öppna dörrar som verkar stängda, och att framför allt - våga se vad som finns bakom dörren! Gå igenom den och se vad som väntar på andra sidan. Denna föreläsning är humoristisk, inspirerande, entusiasmerade och till viss del utmanar den sin publik att fundera på sin egen tillvaro.",
+    "description": "Text....",
+    "metadata": {
+      "img": "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80"
+    },
     "price_data": {
       "currency": "sek",
       "product_data": {
