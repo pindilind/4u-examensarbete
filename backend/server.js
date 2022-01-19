@@ -1,9 +1,10 @@
 require('dotenv').config('.env');
+/* const database = require('./database/userDB.json'); */
 
 const secretKey = process.env.STRIPE_SECRET_KEY;
 const stripe = require('stripe')(secretKey)
 const fs = require('fs');
-const express = require ('express');
+const express = require('express');
 const app = express();
 const cors = require('cors');
 const port = 3005;
@@ -30,20 +31,59 @@ app.get("/", (req, res) => {
 //Hämtar ut User
 app.get("/", (req, res) => {
   let raw = fs.readFileSync("./database/userDB.json") //hämtar url till jsonfil
+  console.log(raw)
   let userList = JSON.parse(raw)
   res.json(Object.values(userList));
   /* res.json(productCategoryList)  */
-});
 
+
+  /* let userList; */
+
+ /*  // check that there is a body in request
+  if (req.body) {
+    userList = req.body;
+  } else {
+    // TODO: is this the rigth status?
+    res.status(500);
+    return;
+  }
+  /* // get database
+  const db = await database.getDatabase();
+ 
+  // check that username is not already in use
+ /*  if (!checkUserNameAvailable(db, req.body.userName)) {
+    // TODO: is this the rigth status?
+    res.status(500).send({ message: 'Username is not available' })
+    return;
+  } */
+
+  /* const hash = await argon2.hash(req.body.password); */
+
+  // add new customer to database
+  /* customersHighestId++;
+  customers[customersHighestId] = {
+    id: customersHighestId,
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    userName: req.body.userName,
+    /* hashedPassword: hash, */
+   /*  email: req.body.email,
+    phoneNumber: req.body.phoneNumber,
+    cart: []
+  }; /* */
+
+
+});
+ 
 //Förberett för att lägga in nya produkter
-app.post('/', (req,res) => {
+app.post('/', (req, res) => {
   try {
     let raw = fs.readFileSync("./database/productDB2.json")
     let newProductInput = JSON.parse(raw)
     newProductInput.push(req.body)
     fs.writeFileSync("./database/productDB2.json", JSON.stringify(newProductInput))
     res.json(true)
-  } catch(err) {
+  } catch (err) {
     console.error(err)
     res.status(500).json(false)
   }
@@ -57,6 +97,7 @@ app.get('/api/admin/orders', async (req, res) => {
   const orderListDB = JSON.parse(raw)
   res.json(orderListDB)
 })
+
 
 
 //Varifierar köpet 
@@ -90,24 +131,23 @@ app.get('/api/admin/orders', async (req, res) => {
 
 
 // Ny session skapas
-app.post('/api/session/new', async (req, res) => {
-  console.log("Session OK")
+app.post('/create-checkout-session', async (req, res) => {
 
-  const session = await stripe.checkout.sessions.create(req.body.sessionId)({
-  
-      payment_method_types: ['card'],
-      line_items: req.body.line_items,
-      mode: "payment",
-      
-      success_url: 'http://localhost:3000/?session_id={CHECKOUT_SESSION_ID}',
-      cancel_url: "http://localhost:3000/",
+  const session = await stripe.checkout.sessions.create({
+
+    payment_method_types: ['card'],
+    line_items: req.body.line_items,
+    mode: "payment",
+
+    success_url: 'http://localhost:3000/?session_id={CHECKOUT_SESSION_ID}',
+    cancel_url: "http://localhost:3000/",
   });
   console.log(session)
 
- /*  res.redirect(303, session.url); */
+  /*  res.redirect(303, session.url); */
 
-   res.status(200).json({ id: session.id })
-}) 
+  res.status(200).json({ id: session.id })
+})
 
 // Implement 500 error route
 app.use(function (err, req, res, next) {
@@ -122,5 +162,5 @@ app.use(function (req, res, next) {
 
 // Visar vilken port som körs
 app.listen(port, () => {
-    console.log('Server listen on PORT: ' + port);
+  console.log('Server listen on PORT: ' + port);
 })

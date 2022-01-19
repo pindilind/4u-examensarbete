@@ -1,12 +1,16 @@
-
-POST http://localhost:3005/api/session/new
-Content-Type: application/json
-
-{
-    "line_items": "cart"
-}
+GET http://localhost:3005/
 
 ###
 
+POST http://localhost:3005/
+Content-Type: application/json
 
-
+{
+  "firstname": "Linda",
+  "lastname": "Gustafsson",
+  "userName": "userName",
+  "password": "userPassword",
+  "email": "hej@hejsan.se",
+  "phoneNumber": "0"
+}
+}
