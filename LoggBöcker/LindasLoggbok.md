@@ -40,24 +40,63 @@ Vi hade glömt att skapa en sida är kunder kan se sina ordrar. Även här är e
 Vi har kommit fram till att vi ska släppa frontend ett tag och sammarbeta i backend. Där har vi flest utmaningar. 
 
 **MÅNDAG | 2022-01-10**<br>
+Jippie! Vi fick till renderingen av produkter på sidan. Äntligen! 
+Som vi har kämpat. 
 
 ---
 
 **TISDAG | 2022-01-11**<br>
+Vi har valt att gå ifrån FrontEnd och ställer i stället in fokus på att få till rendering av information på ProductCardLarge för att sedan kunna lägga till produkter i varukorg och rendera på cartPage. Min uppgift idag var att få ut info på produktCardLarge vilket gick smidigare. Jag känner att jag börjar förstå ännu mer hur REACT fungerar vilket känns skönt. 
+
 
 ---
+
 **ONSDAG| 2022-01-12**<br>
+LiveKodning tillsammans med Susan. Dagens utmaning var att få ut våra produktbilder på korten. Vi trodde att det skulle bli enkelt, men har suttit i stort sätt hela dagen med detta. 
+Men vi kämpar på! 
 
 ---
 
 **TORSDAG | 2022-01-13**<br>
+Fokus på att få igång updateCartCounter som ska uppdatera en siffra vid kundkorgen i Headern. Lite klurigt, vi var nästan i mål när vi fick lite guidning på vägen. Vi har lyckats spara produkter till varukorgoen och Livekodat tillsammans idag. Vi kommer framåt sakta men säkert!
 
 ---
 
 **FREDAG | 2022-01-14**<br>
+Fokus har idag varit att renderera ut produkter som är tillagda i varukorgen. Än sä länge har vi bara produkterna i consolen, men lyckas inte med renderingen. Varför? Vi kämpar och kämpar men kommer ingen vart :( Förhoppningsvis är lyckan bättre nästa gång.
+
+---
+
+**SÖNDAG | 2022-01-16**<br>
+Satt några timmar och försökte lösa vårat problem med att rendera produkter till CartPage. Vi var nästan i mål på Fredagen 14/01. Det enda som saknades var en liten ynka rad, (let cartArray = Object.values(cart);). JOBBIGT!!
 
 ---
 
 **MÅNDAG | 2022-01-17**<br>
+Vecka 3, dag 1.
+Första dagen på vecka 3. Denna veckan ska vi framförallt fokusera på att få igång så att man kan göra betalning i Stripe. Vi har fått till koden men har lite problem att få till det sista. Vi är glada att vi har tidigare projekt med stripe, men att få till detta i REACT gör det svårare. 
+Vi ska kämpa på !
+
+---
+
+**TISDAG | 2022-01-18**<br>
+Dag 2 med Stripe. Livekodnig med Susan 
+Fortfarande strul att få kontkakt med Stripe tillsammans med REACT. Vi känner väl båda en liten typ av frustration när tiden rinner iväg. Förhoppningsvis går det bättre imorgon. Håller tummarna för det!
+
+---
+
+**ONSDAG| 2022-01-19**<br>
+
+
+---
+
+
+**TORSDAG | 2022-01-20**<br>
+
+
+---
+
+
+**FREDAG| 2022-01-21**<br>
 
 ---
