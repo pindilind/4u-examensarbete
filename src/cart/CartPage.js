@@ -1,29 +1,26 @@
 import React, { useEffect, useState } from "react";
 import { BrowserRouter as Route } from "react-router-dom";
-import {loadStripe} from '@stripe/stripe-js';
+import {loadStripe} from '@stripe/stripe-js'; 
 import {
-  
+  Stripe
   /* Elements, */
-  useStripe,
+  /*useStripe, */
   /* useElements, */
 } from '@stripe/react-stripe-js';
 
-
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-
 import HeaderInlogged from "../headers/HeaderInlogged";
 import Footer from "../footer/Footer";
-
 import "../App.scss";
 import "./CartPageStyle.scss";
 /* import Stripe from "../stripe/Stripe"; */
-import Checkout from "../stripe/Checkout"
+//import Checkout from "../stripe/Checkout"
 
 document.title = 'Varukorgen';
 
 export default function CartPage(props) {
-  //const stripePromise = loadStripe('pk_test_51KIrmMKydFVV4O5pbXcVA2jLQbS3wNlbptKM3U9V725b9pBtZNB8eaCajooBNfRl4QJ88SVIhgv61xnVZDnmY352003CBKMCVi'); 
+  //const stripe = loadStripe('pk_test_51KIrmMKydFVV4O5pbXcVA2jLQbS3wNlbptKM3U9V725b9pBtZNB8eaCajooBNfRl4QJ88SVIhgv61xnVZDnmY352003CBKMCVi'); 
 
   //const stripe = useStripe();
   /* const elements = useElements();  */
@@ -87,8 +84,24 @@ export default function CartPage(props) {
   
 
 //async function toCheckOut() {
+const toCheckOut = async () => {
+const stripe = await loadStripe('pk_test_51KIrmMKydFVV4O5pbXcVA2jLQbS3wNlbptKM3U9V725b9pBtZNB8eaCajooBNfRl4QJ88SVIhgv61xnVZDnmY352003CBKMCVi'); 
+console.log("clickad")
 
-  /* try {
+const response = await fetch('/api/session/new', {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({
+      line_items: Object.values(cart),
+  }),
+  
+});
+console.log(response)
+  const { id } = await response.json();
+    localStorage.setItem("session", id)
+
+    stripe.redirectToCheckout({ sessionId: id })
+  /*  try {
         
     if (!cart || Object.keys(cart).length === 0) {
         throw new Error("You cart is empty!");
@@ -108,8 +121,8 @@ export default function CartPage(props) {
 
 } catch (err) {
     console.log(err)
-} */
-
+}*/   
+} 
 
 
   return (
@@ -146,13 +159,13 @@ export default function CartPage(props) {
 
           <Typography className={'btnDiv'} component="div">
 
-              <Checkout />
+         
 
-            {/* <button
+            <button
             onClick={toCheckOut}
             > 
               Till Checkout
-            </button> */}
+            </button>
             {/* <Stripe /> */}
   
          
