@@ -1,1 +1,12 @@
-GET http://localhost:3005/
+
+POST http://localhost:3005/api/session/new
+Content-Type: application/json
+
+{
+    "line_items": "cart"
+}
+
+###
+
+
+

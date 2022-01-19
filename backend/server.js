@@ -1,7 +1,7 @@
-//require('dotenv').config('.env');
+require('dotenv').config('.env');
 
-//const secretKey = process.env.STRIPE_SECRET_KEY;
-//const stripe = require('stripe')(secretKey)
+const secretKey = process.env.STRIPE_SECRET_KEY;
+const stripe = require('stripe')(secretKey)
 const fs = require('fs');
 const express = require ('express');
 const app = express();
@@ -90,7 +90,8 @@ app.get('/api/admin/orders', async (req, res) => {
 
 
 // Ny session skapas
-/* app.post('/create-checkout-session', async (req, res) => {
+app.post('/api/session/new', async (req, res) => {
+  console.log("Session OK")
 
   const session = await stripe.checkout.sessions.create(req.body.sessionId)({
   
@@ -98,15 +99,16 @@ app.get('/api/admin/orders', async (req, res) => {
       line_items: req.body.line_items,
       mode: "payment",
       
-      success_url: 'http://localhost:3005/?session_id={CHECKOUT_SESSION_ID}',
-      cancel_url: "http://localhost:3005/",
+      success_url: 'http://localhost:3000/?session_id={CHECKOUT_SESSION_ID}',
+      cancel_url: "http://localhost:3000/",
   });
   console.log(session)
 
  /*  res.redirect(303, session.url); */
 
-  //res.status(200).json({ id: session.id })
-//} 
+   res.status(200).json({ id: session.id })
+}) 
+
 // Implement 500 error route
 app.use(function (err, req, res, next) {
   console.error(err.stack);
