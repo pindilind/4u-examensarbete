@@ -17,7 +17,7 @@ export default function Footer() {
 
     return (
 
-        <BottomNavigation sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, backgroundColor: "lightgreen" }} value={value} onChange={handleChange}>
+        <div sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, backgroundColor: "lightgreen" }} value={value} onChange={handleChange}>
             <>
                 <div>
                     <p>	&#169; Event4U <br/> 
@@ -28,7 +28,7 @@ export default function Footer() {
                 <div><br/>&nbsp; &nbsp; Om Event4U | Data- och integritetspolicy | Om cookies | Våra leveransvillkor</div>
             
             </>
-        </BottomNavigation>
+        </div>
 
     );
 }
