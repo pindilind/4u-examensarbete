@@ -1,3 +1,7 @@
+//require('dotenv').config('.env');
+
+//const secretKey = process.env.STRIPE_SECRET_KEY;
+//const stripe = require('stripe')(secretKey)
 const fs = require('fs');
 const express = require ('express');
 const app = express();
@@ -7,7 +11,7 @@ const port = 3005;
 app.use(cors());
 app.use('/', express.json('public'));
 
-//hämtar alla produkter
+//Hämtar alla produkter
 app.get("/", (req, res) => {
   let raw = fs.readFileSync("./database/productDB2.json") //hämtar url till jsonfil
   let productList = JSON.parse(raw)
@@ -15,7 +19,7 @@ app.get("/", (req, res) => {
   /* res.json(productList)  */
 });
 
-//hämtar ut produktkategorier
+//Hämtar ut produktkategorier
 app.get("/", (req, res) => {
   let raw = fs.readFileSync("./database/categoryDB.json") //hämtar url till jsonfil
   let productCategoryList = JSON.parse(raw)
@@ -23,7 +27,7 @@ app.get("/", (req, res) => {
   /* res.json(productCategoryList)  */
 });
 
-//hämtar ut User
+//Hämtar ut User
 app.get("/", (req, res) => {
   let raw = fs.readFileSync("./database/userDB.json") //hämtar url till jsonfil
   let userList = JSON.parse(raw)
@@ -31,7 +35,7 @@ app.get("/", (req, res) => {
   /* res.json(productCategoryList)  */
 });
 
-//förberett för att lägga in nya produkter
+//Förberett för att lägga in nya produkter
 app.post('/', (req,res) => {
   try {
     let raw = fs.readFileSync("./database/productDB2.json")
@@ -44,13 +48,65 @@ app.post('/', (req,res) => {
     res.status(500).json(false)
   }
   console.log(req.body)
+});
+
+// Hämtar filen från "products.json" - se även i server.post/verify
+app.get('/api/admin/orders', async (req, res) => {
+
+  const raw = fs.readFileSync('ordersDB.json')
+  const orderListDB = JSON.parse(raw)
+  res.json(orderListDB)
 })
 
 
+//Varifierar köpet 
+/* app.post('/api/session/verify', async (req, res) => {
+  const session = await stripe.checkout.sessions.retrieve(req.body.sessionId)
+    if (session.payment_status === 'paid') {
+
+      const key = session.payment_intent;
+
+      const raw = fs.readFileSync('ordersDB.json')
+      const orderListDB = JSON.parse(raw)
+      console.log(orderListDB)
+
+        if (!orderListDB[key]) {
+          orderListDB[key] = {
+            amount: session.amount_total,
+            customerId: session.customer,
+            customerEmail: session.customer_details.email,
+            metadata: session.metadata
+                    
+          }
+          res.status(200).json({ paid: true })
+          fs.writeFileSync('ordersDB.json', JSON.stringify(orderListDB))
+        } else {
+          res.status(200).json({ error: "Order already exist" })
+        }
+    } else {
+      res.status(200).json({ paid: false })
+    }
+}) */
 
 
+// Ny session skapas
+/* app.post('/create-checkout-session', async (req, res) => {
 
+  const session = await stripe.checkout.sessions.create(req.body.sessionId)({
+  
+      payment_method_types: ['card'],
+      line_items: req.body.line_items,
+      mode: "payment",
+      
+      success_url: 'http://localhost:3005/?session_id={CHECKOUT_SESSION_ID}',
+      cancel_url: "http://localhost:3005/",
+  });
+  console.log(session)
 
+ /*  res.redirect(303, session.url); */
+
+  //res.status(200).json({ id: session.id })
+//} 
 // Implement 500 error route
 app.use(function (err, req, res, next) {
   console.error(err.stack);
@@ -62,6 +118,7 @@ app.use(function (req, res, next) {
   res.status(404).send('Sorry we could not find that.');
 });
 
+// Visar vilken port som körs
 app.listen(port, () => {
     console.log('Server listen on PORT: ' + port);
 })
