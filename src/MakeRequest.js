@@ -1,6 +1,6 @@
 /* MAKEREQUEST FUNKTION FÖR ALLA FILER */
 
- export default async function makeRequest(url, method, body) {
+export default async function MakeRequest(url, method, body) {
 
   try {
     const response = await fetch(url, {
@@ -9,6 +9,8 @@
       body: JSON.stringify(body)
     });
     const result = await response.json();
+    console.log(result)
+    console.log(response)
     return result;
 
   } catch (err) {
