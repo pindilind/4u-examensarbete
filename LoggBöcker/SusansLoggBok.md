@@ -35,19 +35,23 @@ Satt lite extra för att lösa renderingen av "produkterna" från json-filen. Ly
 Linda hade ett LIA möte kl 09, så morgonmötet flyttades fram lite. Under tiden satte jag upp ett repository för vår server-del på GitHub, clonade till Fork och startade upp i VisualStudio - och bjöd in Linda. Behöver dock sätta reglerna för 'pullrequest/merge' - Linda får hjälpa mig. Därefter hade vi möte och bestämde då att inte använda mitt "nya" repository för backend utan skapa den i vårt projekt istället och startade upp det i projektet. Vi insåg att båda låg efter med att skriva i dagboken, så vi tog en timme att uppdatera och komma ikapp innan vi fortsätter denna veckan med "server"-delen. Jag skapade två json-filer för Product och för User, och lade till produkter i produkt-filen.
 
 ### TISDAG | 2022-01-11
-Fm var jag ledig och vi flyttade "Morgonmötet" till kl 13.... Tillsammans lyckades vi lösa renderingen av produkter, då vi egentligen hade rätt kod men "makerequest" skull ha ett stort M.
+Fm var jag ledig och vi flyttade "Morgonmötet" till kl 13.... Tillsammans lyckades vi lösa renderingen av produkter, då vi egentligen hade rätt kod men "makerequest" skull ha ett stort M. Lägger in datum, tid och pris på productCardSmall. 
 
 ### ONSDAG | 2022-01-12
-Morgonmöte kl flyttades fram till kl 09.30. Vi livekodade tillsammans och dagens utmaning var att få ut bild i produktkortet, men img-taggen kräver något som vi missat. Lite frustrerande för vi har rätt kod, men vi missar något.
+Morgonmöte kl flyttades fram till kl 09.30. Vi livekodade tillsammans och dagens utmaning var att få ut bild i produktkortet, men img-taggen kräver något som vi missat. Lite frustrerande för vi har rätt kod, men vi missar något?!?!
 
 ### TORSDAG | 2022-01-13
 Morgonmöte kl 09. Jag hade under kvällen igår noterat att vi missat viss data i backend och produkt-filen och vi lade till denna information; kategori, datum, tid och pris. Lade sedan till denna information i det lilla produktkortet. Därefter satte vi dagens mål att få igång en "counter" för funktionen onclick=addProduct där antalet visas i headern vid "varukorg"-iconen, och att valen sparas i localstorage för att senare gå vidare till nästa steg som är Stripe. Under förmiddagen live kodade vi för att hitta lösning, men då vi inte kom vidare fortsatte vi på egen hand fram till lunch. 
 
 ### FREDAG | 2022-01-14
-Lite senare morgonmöte idag, kl 09
+Lite senare morgonmöte ... rendera ut produkter från localstorage i varukorgen... live share tillsammans...
 
 ### SÖNDAG | 2022-01-16
 Satt nästan 6 timmar på söndag och försöka hitta lösningen på att rendera ut innehållet i varukorgen från localStorage. Känns som jag gör rätt men hittar inte rätt keys för att få ut rätt innehåll, är troligtvis innästat och jag hittar inte in till rätt värden. Till slut gav jag upp och la till innehåll i backend och productDB2 och "description" samt länk till youtube för 2 av våra 4 event. Tittade även igenom planeringen och uppdaterade på både Trello och GitHub.
+
+### MÅNDAG | 2022-01-17
+Linda skulle komma lite senare så jag börjar jobba med backend och databaserna och lägger till get-endpoint för produkterna, kategorier och user. När Linda ansluter bestämmer vi oss för att börja felsöka på userHomePage, productCardSmall och CartPage, lite rött i vår consol log, som egentligen inte stör outputen men inte ska vara där. Vi bokade även in en handledningstid på torsdag 20/1 kl 13.30 för att visa vår MVP. Vi gick igenom nästa Sprint(3) och satte upp mål för dagen och för veckan. Därefter började vi tillsammans med Stripe/betalfunktionen. Linda skapade vårt konto på Stripe och jag hade förberett backend. Vi jobbade på en lösning att komma vidare från Checkout-knappen till Stripe genom att titta på vårt tidigare Stripe-projekt. Men vi behöver göra om det för React och vi live sharade och kodade tillsammans. Vi fick inte ihop det riktigt och vi avslutade dagen med felsökning av backend då den crashade, till slut testade vi att "släcka" stripe-import/key överst i server.js i backend och då fick vi tillbaka backend. Imorgon fortsätter vi från denna punkt. 
+
 
 
 

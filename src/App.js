@@ -21,6 +21,7 @@ import UserHomePage from "./userView/UserHomePage";
 import UserInfo from "./userView/UserInfo";
 
 import Footer from "./footer/Footer";
+import "@stripe/stripe-js";
 
 function App() {
   return (

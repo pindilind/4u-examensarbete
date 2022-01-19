@@ -1,4 +1,14 @@
 import React, { useEffect, useState } from "react";
+import { BrowserRouter as Route } from "react-router-dom";
+import {loadStripe} from '@stripe/stripe-js';
+import {
+  
+  /* Elements, */
+  useStripe,
+  /* useElements, */
+} from '@stripe/react-stripe-js';
+
+
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
@@ -7,17 +17,21 @@ import Footer from "../footer/Footer";
 
 import "../App.scss";
 import "./CartPageStyle.scss";
+/* import Stripe from "../stripe/Stripe"; */
+import Checkout from "../stripe/Checkout"
+
 document.title = 'Varukorgen';
 
-function CartPage(props) {
-  // Lagt till rad 14-20
+export default function CartPage(props) {
+  //const stripePromise = loadStripe('pk_test_51KIrmMKydFVV4O5pbXcVA2jLQbS3wNlbptKM3U9V725b9pBtZNB8eaCajooBNfRl4QJ88SVIhgv61xnVZDnmY352003CBKMCVi'); 
+
+  //const stripe = useStripe();
+  /* const elements = useElements();  */
+   
   const [itemCount, setItemCount] = useState(1);
-
   const [counter, setCounter] = useState(0);
-
   const [cart, setCart] = useState([]);
   console.log(cart)
-
 
   function updateCounter() {
 
@@ -32,7 +46,7 @@ function CartPage(props) {
         if (Object.hasOwnProperty.call(cart, key)) {
           const cartRow = cart[key];
           counter += cartRow.quantity
-          /* amount += cartRow.price_data.unit_amount * cartRow.quantity */
+          amount += cartRow.price_data.unit_amount * cartRow.quantity
         }
       }
       setCounter(counter);
@@ -70,6 +84,34 @@ function CartPage(props) {
     });
   }
 
+  
+
+//async function toCheckOut() {
+
+  /* try {
+        
+    if (!cart || Object.keys(cart).length === 0) {
+        throw new Error("You cart is empty!");
+  
+    }
+    const response = await fetch('/create-checkout-session', {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+          line_items: Object.values(cart),
+      }),
+  });
+    const { id } = await response.json();
+    localStorage.setItem("session", id)
+  
+    stripe.redirectToCheckout({ sessionId: id })
+
+} catch (err) {
+    console.log(err)
+} */
+
+
+
   return (
     <>
       <HeaderInlogged counter={counter} />
@@ -86,8 +128,6 @@ function CartPage(props) {
 
             <Typography className={'totalPrice'}>
               122000 kr
-
-
 
             </Typography>
            
@@ -106,15 +146,16 @@ function CartPage(props) {
 
           <Typography className={'btnDiv'} component="div">
 
-            <Button
-              /* onClick={} */
-              size="small"
-              color="success"
-              variant="contained"
-              disableElevation>
-              Checka ut
-            </Button>
+              <Checkout />
 
+            {/* <button
+            onClick={toCheckOut}
+            > 
+              Till Checkout
+            </button> */}
+            {/* <Stripe /> */}
+  
+         
           </Typography>
 
         </div>
@@ -127,8 +168,3 @@ function CartPage(props) {
   );
 }
 
-export default CartPage;
-
-// Hämta data från localstorage -
-//kolla om cart är tom eller har item -
-//vad göra då? - visa i varukorgen
