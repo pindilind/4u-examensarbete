@@ -53,7 +53,17 @@ Satt nästan 6 timmar på söndag och försöka hitta lösningen på att rendera
 Linda skulle komma lite senare så jag börjar jobba med backend och databaserna och lägger till get-endpoint för produkterna, kategorier och user. När Linda ansluter bestämmer vi oss för att börja felsöka på userHomePage, productCardSmall och CartPage, lite rött i vår consol log, som egentligen inte stör outputen men inte ska vara där. Vi bokade även in en handledningstid på torsdag 20/1 kl 13.30 för att visa vår MVP. Vi gick igenom nästa Sprint(3) och satte upp mål för dagen och för veckan. Därefter började vi tillsammans med Stripe/betalfunktionen. Linda skapade vårt konto på Stripe och jag hade förberett backend. Vi jobbade på en lösning att komma vidare från Checkout-knappen till Stripe genom att titta på vårt tidigare Stripe-projekt. Men vi behöver göra om det för React och vi live sharade och kodade tillsammans. Vi fick inte ihop det riktigt och vi avslutade dagen med felsökning av backend då den crashade, till slut testade vi att "släcka" stripe-import/key överst i server.js i backend och då fick vi tillbaka backend. Imorgon fortsätter vi från denna punkt. 
 
 
+### TISDAG | 2022-01-18
+L
 
+### ONSDAG | 2022-01-19
+L
+
+### TORSDAG | 2022-01-20
+L
+
+### FREDAG | 2022-01-21
+L
 
  {cart.length === 0 && <p>Cart: (empty)</p>}
           {cart.length > 0 && <p>Cart: {cart.toString()}</p>}
