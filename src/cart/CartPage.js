@@ -5,10 +5,8 @@ import { useStripe } from '@stripe/react-stripe-js';
 
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-
 import HeaderInlogged from "../headers/HeaderInlogged";
 import Footer from "../footer/Footer";
-
 import "../App.scss";
 import "./CartPageStyle.scss";
 /* import Stripe from "../stripe/Stripe"; */

@@ -13,3 +13,4 @@ Content-Type: application/json
   "email": "hej@hejsan.se",
   "phoneNumber": "0"
 }
+}

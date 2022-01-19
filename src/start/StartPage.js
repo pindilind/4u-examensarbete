@@ -5,6 +5,7 @@ import { makeStyles } from '@mui/styles';
 
 import Bakgrund from "../assets/bakgrund.png"
 import "./StyleStartPage.scss";
+import Footer from "../footer/FooterStartPage"
 
 const useStyles = makeStyles({
   btnStyle: {
@@ -42,6 +43,9 @@ function StartPage() {
           </div>
         </div>
       </div>
+      <footer>
+        < Footer />
+      </footer>
     </>
   );
 }
