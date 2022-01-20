@@ -69,8 +69,7 @@ export default function ProductCardSmall(props) {
   const handleClose = () => setOpen(false);
 
   const product = props.product;
-  console.log(product.metadata.img)
-
+ 
   return (
 
     <Card className={classes.cardStyling}>
@@ -91,7 +90,7 @@ export default function ProductCardSmall(props) {
 
           <Typography className={classes.typoStyle} >
 
-            <Button onClick={handleOpen}>{product.price_data.product_data.title} </Button>
+            <Button onClick={handleOpen}>{product.price_data.product_data.name} </Button>
             <Modal
               keepMounted
               open={open}
@@ -107,11 +106,11 @@ export default function ProductCardSmall(props) {
 
 
           </Typography>
-          <Typography>
+        {/*   <Typography>
             Datum: {product.price_data.product_data.date} ||
             Klockan: {product.price_data.product_data.time} ||
             Pris: {product.price_data.unit_amount / 100} kr
-          </Typography>
+          </Typography> */}
 
         </CardContent>
 

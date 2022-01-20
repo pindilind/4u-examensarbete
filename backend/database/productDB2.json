@@ -1,77 +1,40 @@
 {
   "1": {
-    "id": 101,
     "description": "Text....",
-    "metadata": {
-      "img": "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80"
-    },
     "price_data": {
       "currency": "sek",
       "product_data": {
-        "title": "Morgan Alling - konsten att hantera besvärliga människor",
-        "date": "20220207",
-        "time": "1900",
-        "categoryId": 1
+        "name": "Morgan Alling - konsten att hantera besvärliga människor"
       },
       "unit_amount": 85000
     }
   },
   "2": {
-    "id": 102,
     "description": "Text....",
-    "metadata": {
-      "img": "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80"
-    },
     "price_data": {
       "currency": "sek",
       "product_data": {
-        "title": "Tomas Lydahl & Dennis Westerberg - Psyket är alltid friskt, oförstörbart",
-        "date": "20220218",
-        "time": "1800",
-        "categoryId": 1
-      },
-      "metadata": {
-          "image": "dennis_tomas.jpg"
+        "name": "Tomas Lydahl & Dennis Westerberg - Psyket är alltid friskt, oförstörbart"
       },
       "unit_amount": 85000
     }
   },
   "3": {
-    "id": 103,
     "description": "Text....",
-    "metadata": {
-      "img": "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80"
-    },
     "price_data": {
       "currency": "sek",
       "product_data": {
-        "title": "Tina Thörner talar om att allt faktiskt går, bara man tror på det och vill tillräckligt mycket",
-        "date": "20220220",
-        "time": "1700",
-        "categoryId": 2
-      },
-      "metadata": {
-        "images": "tina_thorner_2016.jpg"
+        "name": "Tina Thörner talar om att allt faktiskt går, bara man tror på det och vill tillräckligt mycket"
       },
       "unit_amount": 65000
     }
   },
   "4": {
-    "id": 104,
     "description": "Text....",
-    "metadata": {
-      "img": "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=2340&q=80"
-    },
     "price_data": {
       "currency": "sek",
       "product_data": {
-        "title": "Robert Gustafsson - från vaggan till deadline",
-        "date": "20220222",
-        "time": "1900",
-        "categoryId": 2
-      },
-      "metadata": {
-        "images": "robert_gustafsson_1931.jpg"
+        "name": "Robert Gustafsson - från vaggan till deadline"
       },
       "unit_amount": 85000
     }

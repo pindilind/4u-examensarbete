@@ -150,7 +150,7 @@ function UserHomePage(props) {
 
     return products.map((product, id) => {
       return (
-        <ProductCardSmall key={product.id} product={product} updateCounter={updateCounter} />
+        <ProductCardSmall key={id} product={product} updateCounter={updateCounter} />
 
       )
     });
@@ -184,8 +184,6 @@ function UserHomePage(props) {
           <div>
             {renderProducts()}
           </div>
-
-
 
         </div>
 

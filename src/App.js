@@ -5,6 +5,8 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
+import {loadStripe} from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
 
 import './App.scss';
 import Header from "./headers/HeaderLogga";
@@ -22,9 +24,17 @@ import UserHomePage from "./userView/UserHomePage";
 import UserInfo from "./userView/UserInfo";
 
 import Footer from "./footer/Footer";
-import "@stripe/stripe-js";
+
+
+const stripePromise = loadStripe('pk_test_51KIrmMKydFVV4O5pbXcVA2jLQbS3wNlbptKM3U9V725b9pBtZNB8eaCajooBNfRl4QJ88SVIhgv61xnVZDnmY352003CBKMCVi'); 
 
 function App() {
+
+  const options = {
+    // passing the client secret obtained from the server
+    clientSecret: '{{ CLIENT_SECRET }}',
+  };
+
   return (
 
     <Router>
@@ -35,23 +45,25 @@ function App() {
       {/* <div className="wrappsAllContent">
         <div className="flexCenterAll "> */}
 
-          <Switch>
+      <Switch>
 
-            <Route exact path="/">
-              <StartPage />
-            </Route>
+        <Route exact path="/">
+          <StartPage />
+        </Route>
 
-            <Route exact path="/createAccount">
-              <CreateAccount />
-            </Route>
+        <Route exact path="/createAccount">
+          <CreateAccount />
+        </Route>
 
-            <Route exact path="/login">
-              <Login />
-            </Route>
+        <Route exact path="/login">
+          <Login />
+        </Route>
 
-            <Route exact path="/cartPage">
-              <CartPage />
-            </Route>
+        <Route exact path="/cartPage">
+          <Elements stripe={stripePromise} options={options}>
+            <CartPage />
+          </Elements>
+        </Route>
 
             <Route exact path="/orderPageTest">
               <CollapsibleTable />
@@ -72,6 +84,24 @@ function App() {
 
           </Switch>
        {/*  </div>
+        <Route exact path="/orderPage">
+          <OrderPage />
+        </Route>
+
+        <Route exact path="/eventPage">
+          <EventPage />
+        </Route>
+
+        <Route exact path="/userHomePage">
+          <UserHomePage />
+        </Route>
+
+        <Route exact path="/userInfo">
+          <UserInfo />
+        </Route>
+
+      </Switch>
+      {/*  </div>
       </div> */}
 
       {/* <Footer /> */}

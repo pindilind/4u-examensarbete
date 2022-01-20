@@ -1,6 +1,7 @@
-import React from "react";
-
+import React from 'react';
 import { Link, Redirect } from "react-router-dom";
+/* import { useDispatch, useSelector } from 'react-redux'; */
+import { useState } from 'react';
 
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
@@ -11,9 +12,39 @@ import Checkbox from '@mui/material/Checkbox';
 
 import '../App2.scss';
 
+import MakeRequest from '../MakeRequest';
+
 import HeaderLogga from "../headers/HeaderLogga";
 
 function Login() {
+
+  const [userName, setUserName] = useState('');
+  const handleUserNameChange = (event) => {
+    setUserName(event.target.value);
+  };
+
+  const [password, setPassword] = useState('');
+  const handlePasswordChange = (event) => {
+    setPassword(event.target.value);
+  };
+
+  async function signIn() {
+    const status = await MakeRequest(
+      "http://localhost:3005",
+      "POST",
+      { userName, password }
+    );
+/* 
+    if (status.customerLogin === true) {
+
+      dispatch(customerLoggedIn(status.customer));
+
+      sessionStorage.setItem("userId", status.customer.id);
+    } else {
+     /*  setError(true); */
+    /* } */ 
+  }
+
   return (
     <>
       <HeaderLogga />
@@ -36,8 +67,8 @@ function Login() {
               <TextField
                 color="success"
                 label="UserName"
-                /* value={userName}
-                onChange={} */
+                value={userName}
+                onChange={handleUserNameChange}
                 size="small"
               />
 
@@ -46,8 +77,8 @@ function Login() {
                 type="password"
                 id="passwordInput"
                 label="Password"
-                /* value={password} */
-                /*  onChange={} */
+                value={password}
+                onChange={handlePasswordChange}
                 size="small"
               />
 
@@ -66,7 +97,7 @@ function Login() {
           </div >
 
           <Button
-            /*  onClick={signIn} */
+            onClick={signIn}
             size="small"
             color="success"
             variant="contained"
