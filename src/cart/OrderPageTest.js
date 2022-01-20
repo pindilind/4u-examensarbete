@@ -14,11 +14,12 @@ import Paper from '@mui/material/Paper';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 
-function createData(orderID, title, eventDate, link) {
+function createData(orderID, title, eventDate, eventStartTime, link) {
   return {
     orderID,
     title,
     eventDate,
+    eventStartTime,
     link,
         history: [
       {
@@ -59,9 +60,10 @@ function Row(props) {
         <TableCell component="th" scope="row">
           {row.orderID}
         </TableCell>
-        <TableCell align="right">{row.title}</TableCell>
-        <TableCell align="right">{row.eventDate}</TableCell>
-        <TableCell align="right">{row.link}</TableCell>
+        <TableCell align="left">{row.title}</TableCell>
+        <TableCell align="left">{row.eventDate}</TableCell>
+        <TableCell align="left">{row.eventStartTime}</TableCell>
+        <TableCell align="left">{row.link}</TableCell>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
@@ -73,23 +75,23 @@ function Row(props) {
               <Table size="small" aria-label="purchases">
                 <TableHead>
                   <TableRow>
-                    <TableCell>OrderDate</TableCell>
+                    <TableCell>orderDate</TableCell>
                     <TableCell>Status</TableCell>
-                    <TableCell align="right">Amount</TableCell>
-                    <TableCell align="right">Price</TableCell>
-                    <TableCell align="right">TotalPrice (kr)</TableCell>
+                    <TableCell align="left">Amount</TableCell>
+                    <TableCell align="left">Price</TableCell>
+                    <TableCell align="left">TotalPrice (kr)</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
                   {row.history.map((historyRow) => (
-                    <TableRow key={historyRow.orderDate}>
+                    <TableRow key={historyRow.date}>
                       <TableCell component="th" scope="row">
-                        {historyRow.orderDate}
+                        {historyRow.date}
                       </TableCell>
                       <TableCell>{historyRow.status}</TableCell>
-                      <TableCell align="right">{historyRow.amount}</TableCell>
-                      <TableCell align="right">{historyRow.price}</TableCell>
-                      <TableCell align="right">
+                      <TableCell align="left">{historyRow.amount}</TableCell>
+                      <TableCell align="left">{historyRow.price}</TableCell>
+                      <TableCell align="left">
                         {Math.round(historyRow.amount * row.price * 100) / 100}
                       </TableCell>
                     </TableRow>
@@ -103,30 +105,32 @@ function Row(props) {
     </React.Fragment>
   );
 }
-orderID,
-title,
-eventDate,
-link,
+
 Row.propTypes = {
   row: PropTypes.shape({
     title: PropTypes.string.isRequired,
     eventDate: PropTypes.string.isRequired,
+    eventStartTime: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
     history: PropTypes.arrayOf(
       PropTypes.shape({
-        amount: PropTypes.number.isRequired,
-        customerId: PropTypes.string.isRequired,
         date: PropTypes.string.isRequired,
+        status: PropTypes.string.isRequired,
+        amount: PropTypes.number.isRequired,
+        price: PropTypes.number.isRequired,
       }),
     ).isRequired,
-    name: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    protein: PropTypes.number.isRequired,
-  }).isRequired,
+    title: PropTypes.string.isRequired,
+    
+  })
 };
 
 const rows = [
-  createData('09878493', 'Morgan Alling', '2022-03-03', 'länk'),
+  createData('09878493', 'Morgan Alling', '2022-03-03', '18:00', 'https:/event4u.online'),
+  createData('09878856', 'Tina Thörner', '2022-04-13', '19:00', 'https:/event4u.online'),
+  createData('09878493', 'Robert Gustafsson', '2022-05-25', '19:30', 'https:/event4u.online'),
+
+
   
 ];
 
@@ -138,14 +142,15 @@ export default function CollapsibleTable() {
           <TableRow>
             <TableCell />
             <TableCell>Ordernummer</TableCell>
-            <TableCell align="right">Event titel</TableCell>
-            <TableCell align="right">Event datum</TableCell>
-            <TableCell align="right">Länk</TableCell>
+            <TableCell align="left">Event titel</TableCell>
+            <TableCell align="left">Event datum</TableCell>
+            <TableCell align="left">Event startid</TableCell>
+            <TableCell align="left">Länk</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
           {rows.map((row) => (
-            <Row key={row.name} row={row} />
+            <Row key={row.orderID} row={row} />
           ))}
         </TableBody>
       </Table>
