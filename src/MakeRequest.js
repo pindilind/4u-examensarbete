@@ -9,8 +9,6 @@ export default async function MakeRequest(url, method, body) {
       body: JSON.stringify(body)
     });
     const result = await response.json();
-    console.log(result)
-    console.log(response)
     return result;
 
   } catch (err) {

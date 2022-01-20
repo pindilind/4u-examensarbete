@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-/* import { BrowserRouter as Route } from "react-router-dom"; */
 
 import { useStripe } from '@stripe/react-stripe-js';
 
@@ -10,14 +9,12 @@ import Footer from "../footer/Footer";
 import "../App.scss";
 import "./CartPageStyle.scss";
 /* import Stripe from "../stripe/Stripe"; */
-import CheckOutForm from "../stripe/CheckOutForm";
 
 document.title = 'Varukorgen';
 
 export default function CartPage(props) {
 
   const stripe = useStripe();
-  /* const elements = useElements();  */
 
   const [itemCount, setItemCount] = useState(1);
   const [counter, setCounter] = useState(0);
@@ -70,17 +67,13 @@ export default function CartPage(props) {
       console.log(value)
 
       return (
-        <div key={value}>{value.price_data.product_data.title}</div>
+        <div key={value}>{value.price_data.product_data.name}</div>
       );
     });
   }
 
-
-
   async function toCheckOut() {
-    
-    console.log("klicka")
-    console.log(Object.values(cart))
+
     try {
 
       if (!cart || Object.keys(cart).length === 0) {
@@ -94,19 +87,18 @@ export default function CartPage(props) {
           line_items: Object.values(cart),
         }),
       });
+
       console.log(response)
       const { id } = await response.json();
       localStorage.setItem("session", id)
       console.log(id)
 
-      console.log(stripe)
       stripe.redirectToCheckout({ sessionId: id })
 
     } catch (err) {
       console.log(err)
     }
   }
-
 
   return (
     <>
@@ -142,14 +134,11 @@ export default function CartPage(props) {
 
           <Typography className={'btnDiv'} component="div">
 
-            <CheckOutForm />
-
-            {/* <Button
+            <Button
               onClick={toCheckOut}
             >
               Till Checkout
-            </Button> */}
-            {/* <Stripe /> */}
+            </Button>
 
 
           </Typography>

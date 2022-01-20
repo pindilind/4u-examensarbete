@@ -5,7 +5,7 @@ import {
   Route,
   Redirect
 } from "react-router-dom";
-import {loadStripe} from '@stripe/stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
 
 import './App.scss';
@@ -21,19 +21,16 @@ import OrderPage from "./cart/OrderPage";
 import EventPage from "./userView/EventPage";
 import UserHomePage from "./userView/UserHomePage";
 import UserInfo from "./userView/UserInfo";
+import CheckOutOk from "./stripe/CheckoutOk";
 
 import Footer from "./footer/Footer";
 
 
-const stripePromise = loadStripe('pk_test_51KIrmMKydFVV4O5pbXcVA2jLQbS3wNlbptKM3U9V725b9pBtZNB8eaCajooBNfRl4QJ88SVIhgv61xnVZDnmY352003CBKMCVi'); 
+const stripePromise = loadStripe('pk_test_51KIrmMKydFVV4O5pbXcVA2jLQbS3wNlbptKM3U9V725b9pBtZNB8eaCajooBNfRl4QJ88SVIhgv61xnVZDnmY352003CBKMCVi');
 
 function App() {
 
-  const options = {
-    // passing the client secret obtained from the server
-    clientSecret: '{{ CLIENT_SECRET }}',
-  };
-
+  
   return (
 
     <Router>
@@ -59,13 +56,17 @@ function App() {
         </Route>
 
         <Route exact path="/cartPage">
-          <Elements stripe={stripePromise} options={options}>
+          <Elements stripe={stripePromise}>
             <CartPage />
           </Elements>
         </Route>
 
         <Route exact path="/orderPage">
           <OrderPage />
+        </Route>
+
+        <Route exact path="/checkOutOk">
+          <CheckOutOk />
         </Route>
 
         <Route exact path="/eventPage">
