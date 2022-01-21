@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import { useStripe } from '@stripe/react-stripe-js';
 
 import Typography from '@mui/material/Typography';
@@ -8,7 +7,6 @@ import HeaderInlogged from "../headers/HeaderInlogged";
 import Footer from "../footer/Footer";
 import "../App.scss";
 import "./CartPageStyle.scss";
-/* import Stripe from "../stripe/Stripe"; */
 
 document.title = 'Varukorgen';
 
@@ -149,7 +147,6 @@ export default function CartPage(props) {
       <Footer />
 
     </>
-
   );
 }
 

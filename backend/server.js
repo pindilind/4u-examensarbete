@@ -1,5 +1,5 @@
-require('dotenv').config('.env');
-/* const database = require('./database/userDB.json'); */
+require('dotenv').config('.env'); 
+/* const database = require('./database/database'); */
 
 const secretKey = process.env.STRIPE_SECRET_KEY;
 const stripe = require('stripe')(secretKey)
@@ -10,7 +10,7 @@ const cors = require('cors');
 const port = 3005;
 
 app.use(cors());
-app.use("/backend", express.json('public'));
+app.use("/", express.json('public'));
 
 //Hämtar alla produkter
 app.get("/products", (req, res) => {
@@ -34,62 +34,60 @@ app.get('/users', async (req, res) => {
   console.log(raw)
   let userList = JSON.parse(raw)
   res.json(Object.values(userList));
-  console.log(userList)
+  console.log(userList);
   /* res.json(productCategoryList)  */
 
-
-  /* let userList; */
-
- /*  // check that there is a body in request
-  if (req.body) {
-    userList = req.body;
-  } else {
-    // TODO: is this the rigth status?
-    res.status(500);
-    return;
-  }
-  /* // get database
-  const db = await database.getDatabase();
- 
-  // check that username is not already in use
- /*  if (!checkUserNameAvailable(db, req.body.userName)) {
-    // TODO: is this the rigth status?
-    res.status(500).send({ message: 'Username is not available' })
-    return;
-  } */
-
-  /* const hash = await argon2.hash(req.body.password); */
-
-  // add new customer to database
-  /* customersHighestId++;
-  customers[customersHighestId] = {
-    id: customersHighestId,
-    firstname: req.body.firstname,
-    lastname: req.body.lastname,
-    userName: req.body.userName,
-    /* hashedPassword: hash, */
-   /*  email: req.body.email,
-    phoneNumber: req.body.phoneNumber,
-    cart: []
-  }; /* */
-
-
 });
- 
-//Förberett för att lägga in nya produkter
-/* app.post('/', (req, res) => {
+
+app.post ('/users/create', (req, res) => {
+
   try {
-    let raw = fs.readFileSync("./database/productDB2.json")
-    let newProductInput = JSON.parse(raw)
-    newProductInput.push(req.body)
-    fs.writeFileSync("./database/productDB2.json", JSON.stringify(newProductInput))
-    res.json(true)
+    let raw = fs.readFileSync("./database/userDB.json") //hämtar url till jsonfil
+    let userData = JSON.parse(raw)
+    console.log(userData)
+    
+    let newUser;
+
+    // check that there is a body in request
+    if (req.body) {
+      newUser = req.body;
+    } else {
+      res.status(500);
+      return;
+    }
+  
+    // check that username is not already in use
+   /*  if (!checkUserNameAvailable(req.body.userName)) {
+
+      res.status(500).send({ message: 'Username is not available' })
+      return;
+    } */
+  
+    /* const hash = await argon2.hash(req.body.password); */
+  
+    // add new customer to database
+    userData.highestId++;
+    userData[userData.highestId] = {
+      id: userData.highestId,
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+      userName: req.body.userName,
+      /* hashedPassword: hash, */
+      email: req.body.email,
+      phoneNumber: req.body.phoneNumber,
+    };
+  console.log(userData)
+  
+    // send a success message in response
+    fs.writeFileSync("./database/userDB.json", JSON.stringify(userData));
+    res.json(userData);
+
   } catch (err) {
     console.error(err)
     res.status(500).json(false)
   }
-  console.log(req.body)
-}); */
+  
+});
 
 // Hämtar filen från "products.json" - se även i server.post/verify
 app.get('/api/admin/orders', async (req, res) => {
