@@ -86,16 +86,22 @@ Fortfarande strul att få kontkakt med Stripe tillsammans med REACT. Vi känner 
 ---
 
 **ONSDAG| 2022-01-19**<br>
-
+Möte klockan 9.
+Ännu en dag med Stripe-strul. Tillslut fick vi se till att vi gjorde något annat och delade upp arbetet istället. Vi kände att vi redan lagt 1 vecka på bara stripe. Däremot tror vi att vi är nära att lyckas, det är något som saknas, något litet. 
+Jag satte mig och fixade funktionalietet för login/CreateAccount. Det enda som händer just nu är att värderna från inputfälten skickar upp information till databasen. Inget behandlas ännu, men imorgon kanske! 
 
 ---
-
 
 **TORSDAG | 2022-01-20**<br>
+Möte klockan 9.
+Vi delade upp arbetet idag igen, jag satt och fokuserade lite mer på Stripe idag igen på förmiddagen. 
+Idag var det deadline för att få upp våran sida live. Susan var grym och fixade detta! Hon lyckades hitta en trevlig domän och ett trevligt webbhotell. Fixade https och sedan gjorde våran EVENT4U LIVE! JIPPIE! 
 
+Möte med Henrik efter lunch, detta gick bra :) 
+
+På eftermidagen hände något fantastiskt....STRIPE BLEV KLART!!!!!!!!!!!!!!! :'D
 
 ---
-
 
 **FREDAG| 2022-01-21**<br>
 
