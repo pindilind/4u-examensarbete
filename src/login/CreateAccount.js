@@ -35,10 +35,10 @@ function CreateAccount() {
     setEmail(event.target.value);
   };
 
-  const [userName, setUserName] = useState('');
+  /* const [userName, setUserName] = useState('');
   const handleUserNameChange = (event) => {
     setUserName(event.target.value);
-  };
+  }; */
 
   const [passwordOne, setPasswordOne] = useState('');
   const handlePasswordOne = (event) => {
@@ -61,7 +61,7 @@ function CreateAccount() {
       const status = await MakeRequest(
         "http://localhost:3005",
         "POST",
-        { firstname, lastname, phoneNumber, email, userName, password: passwordOne }
+        { firstname, lastname, phoneNumber, email, password: passwordOne }
       );
       console.log(status)
 
@@ -124,13 +124,13 @@ function CreateAccount() {
                 color="success"
               />
 
-              <TextField
+              {/* <TextField
                 label="Username"
                 value={userName}
                 onChange={handleUserNameChange}
                 size="small"
                 color="success"
-              />
+              /> */}
 
               <TextField
                 label="Password"
