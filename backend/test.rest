@@ -8,7 +8,6 @@ Content-Type: application/json
 {
   "firstname": "Linda",
   "lastname": "Gustafsson",
-  "userName": "userName",
   "password": "userPassword",
   "email": "hej@hejsan.se",
   "phoneNumber": "0"
