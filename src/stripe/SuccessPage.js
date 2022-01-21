@@ -7,7 +7,7 @@ import Footer from "../footer/Footer";
 
 import "../App.scss";
 
-function CheckOutOk() {
+function SuccessPage() {
 
   async function verify() {
     try {
@@ -24,6 +24,7 @@ function CheckOutOk() {
           sessionId
         })
       });
+
       const { paid } = await response.json();
       return paid;
 
@@ -32,19 +33,18 @@ function CheckOutOk() {
       return false;
     }
   }
-  
-    const isVerified = verify();
 
-    if (localStorage.getItem('session')) {
-      if (isVerified) {
-        alert("Betalningen är mottagen. Tack för ditt köp!")
-        localStorage.removeItem("cart")
-        localStorage.removeItem('session')
-      } else {
-        alert("Betalningen är avbruten. Försök gärna igen!")
-      }
+  const isVerified = verify();
+
+  if (localStorage.getItem('session')) {
+    if (isVerified) {
+      localStorage.removeItem("cart")
+      localStorage.removeItem('session')
+    } else {
+      alert("Betalningen är avbruten. Försök gärna igen!")
     }
-  
+  }
+
 
   return (
 
@@ -69,4 +69,4 @@ function CheckOutOk() {
   );
 }
 
-export default CheckOutOk;
+export default SuccessPage;
