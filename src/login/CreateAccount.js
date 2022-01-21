@@ -35,10 +35,10 @@ function CreateAccount() {
     setEmail(event.target.value);
   };
 
-  /* const [userName, setUserName] = useState('');
+  const [userName, setUserName] = useState('');
   const handleUserNameChange = (event) => {
     setUserName(event.target.value);
-  }; */
+  };
 
   const [passwordOne, setPasswordOne] = useState('');
   const handlePasswordOne = (event) => {
@@ -54,14 +54,14 @@ function CreateAccount() {
 
   async function createAccount() {
 
-    if (passwordOne === passwordTwo) {
+   /*  if (passwordOne === passwordTwo) { */
 
       /* setPasswordError(false); */
 
       const status = await MakeRequest(
-        "http://localhost:3005",
+        "http://localhost:3005/users/create",
         "POST",
-        { firstname, lastname, phoneNumber, email, password: passwordOne }
+        { firstname, lastname, userName, phoneNumber, email, password: passwordOne }
       );
       console.log(status)
 
@@ -69,7 +69,7 @@ function CreateAccount() {
         setRedirect(true);
       } else {
         /* setUserAvailable(false); */
-      }
+   /*    } */
 
     //} else {
       /* setPasswordError(true); */
@@ -124,18 +124,18 @@ function CreateAccount() {
                 color="success"
               />
 
-              {/* <TextField
+              <TextField
                 label="Username"
                 value={userName}
                 onChange={handleUserNameChange}
                 size="small"
                 color="success"
-              /> */}
+              />
 
               <TextField
                 label="Password"
                 value={passwordOne}
-                onChange={passwordOne}
+                onChange={handlePasswordOne}
                 size="small"
                 color="success"
               />
@@ -143,14 +143,13 @@ function CreateAccount() {
               <TextField
                 label="Password"
                 value={passwordTwo}
-                onChange={passwordTwo}
+                onChange={handlePasswordTwo}
                 size="small"
                 color="success"
               />
 
             </Box>
-
-
+            
             <Button
               onClick={createAccount}
               size="small"
