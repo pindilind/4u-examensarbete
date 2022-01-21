@@ -10,30 +10,31 @@ const cors = require('cors');
 const port = 3005;
 
 app.use(cors());
-app.use('/', express.json('public'));
+app.use("/backend", express.json('public'));
 
 //Hämtar alla produkter
-app.get("/", (req, res) => {
+app.get("/products", (req, res) => {
   let raw = fs.readFileSync("./database/productDB2.json") //hämtar url till jsonfil
   let productList = JSON.parse(raw)
   res.json(Object.values(productList));
   /* res.json(productList)  */
-});
+}); 
 
 //Hämtar ut produktkategorier
-app.get("/", (req, res) => {
+app.get("/categories", (req, res) => {
   let raw = fs.readFileSync("./database/categoryDB.json") //hämtar url till jsonfil
   let productCategoryList = JSON.parse(raw)
   res.json(Object.values(productCategoryList));
-  /* res.json(productCategoryList)  */
+  /* res.json(productCategoryList) */ 
 });
 
 //Hämtar ut User
-app.get("/", (req, res) => {
+app.get('/users', async (req, res) => {
   let raw = fs.readFileSync("./database/userDB.json") //hämtar url till jsonfil
   console.log(raw)
   let userList = JSON.parse(raw)
   res.json(Object.values(userList));
+  console.log(userList)
   /* res.json(productCategoryList)  */
 
 

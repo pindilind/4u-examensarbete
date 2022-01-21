@@ -16,7 +16,8 @@ import Login from "./login/Login";
 import StartPage from "./start/StartPage";
 
 import CartPage from "./cart/CartPage";
-import OrderPage from "./cart/OrderPage";
+//import OrderPage from "./cart/OrderPage";
+import CollapsibleTable from "./cart/OrderPageTest";
 
 import EventPage from "./userView/EventPage";
 import UserHomePage from "./userView/UserHomePage";
@@ -61,6 +62,25 @@ function App() {
           </Elements>
         </Route>
 
+            <Route exact path="/orderPageTest">
+              <CollapsibleTable />
+              {/* <OrderPage /> */}
+            </Route>
+
+            <Route exact path="/eventPage">
+              <EventPage />
+            </Route>
+
+            <Route exact path="/userHomePage">
+              <UserHomePage />
+            </Route>
+
+            <Route exact path="/userInfo">
+              <UserInfo />
+            </Route>
+
+          </Switch>
+       {/*  </div>
         <Route exact path="/orderPage">
           <OrderPage />
         </Route>

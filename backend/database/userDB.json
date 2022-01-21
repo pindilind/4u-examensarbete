@@ -1,0 +1,20 @@
+[
+    {
+        "id": 10,
+        "firstname": "User",
+        "lastname": "User",
+        "phoneNumber": "012234423",
+        "email": "user.user@hem.com",
+        "password": "User123",
+        "role": "user"
+    },
+    {
+        "id": 20,
+        "firstname": "Admin",
+        "lastname": "Admin",
+        "phoneNumber": "075065606",
+        "email": "order@event4u.online",
+        "password": "Admin456",
+        "role": "admin"
+    }
+]

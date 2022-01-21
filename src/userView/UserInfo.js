@@ -1,15 +1,38 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import useFetch from "react-fetch-hook";
 
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import FormControlLabel from '@mui/material/FormControlLabel';
+import MakeRequest from '../MakeRequest';
 
 import HeaderInlogged from "../headers/HeaderInlogged";
 import Footer from "../footer/Footer";
 import '../App.scss';
 
 function UserInfo() {
+  const [users, setUsers] = useState([])
+
+    
+  useEffect(() => {
+
+    async function getUsers() {
+      const status = await MakeRequest("http://localhost:3005/users", "GET")
+
+      return status
+      
+    }
+
+    getUsers().then(result => {
+      setUsers(result);
+
+    });
+
+
+  }, [setUsers]);
+  
+
   return (
     <>
       <HeaderInlogged />
