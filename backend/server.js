@@ -77,7 +77,7 @@ app.get('/users', async (req, res) => {
 });
  
 //Förberett för att lägga in nya produkter
-app.post('/', (req, res) => {
+/* app.post('/', (req, res) => {
   try {
     let raw = fs.readFileSync("./database/productDB2.json")
     let newProductInput = JSON.parse(raw)
@@ -89,7 +89,7 @@ app.post('/', (req, res) => {
     res.status(500).json(false)
   }
   console.log(req.body)
-});
+}); */
 
 // Hämtar filen från "products.json" - se även i server.post/verify
 app.get('/api/admin/orders', async (req, res) => {
@@ -102,13 +102,13 @@ app.get('/api/admin/orders', async (req, res) => {
 
 
 //Varifierar köpet 
-/* app.post('/api/session/verify', async (req, res) => {
+app.post('/session/verify', async (req, res) => {
   const session = await stripe.checkout.sessions.retrieve(req.body.sessionId)
     if (session.payment_status === 'paid') {
 
       const key = session.payment_intent;
 
-      const raw = fs.readFileSync('ordersDB.json')
+      const raw = fs.readFileSync('./database/ordersDB.json')
       const orderListDB = JSON.parse(raw)
       console.log(orderListDB)
 
@@ -121,14 +121,14 @@ app.get('/api/admin/orders', async (req, res) => {
                     
           }
           res.status(200).json({ paid: true })
-          fs.writeFileSync('ordersDB.json', JSON.stringify(orderListDB))
+          fs.writeFileSync('./database/ordersDB.json', JSON.stringify(orderListDB))
         } else {
           res.status(200).json({ error: "Order already exist" })
         }
     } else {
       res.status(200).json({ paid: false })
     }
-}) */
+})
 
 
 // Ny session skapas
@@ -140,13 +140,10 @@ app.post('/create-checkout-session', async (req, res) => {
     line_items: req.body.line_items,
     mode: "payment",
 
-    success_url: 'http://localhost:3000/?session_id={CHECKOUT_SESSION_ID}',
+    success_url: 'http://localhost:3000/checkOutOk?session_id={CHECKOUT_SESSION_ID}',
     cancel_url: "http://localhost:3000/",
   });
-  console.log(session)
-
-  /*  res.redirect(303, session.url); */
-
+  
   res.status(200).json({ id: session.id })
 })
 
