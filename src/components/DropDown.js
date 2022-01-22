@@ -5,20 +5,12 @@ import MenuItem from '@mui/material/MenuItem';
 import { TiThMenu} from 'react-icons/ti';
 
 const options = [
-  'None',
-  'Atria',
-  'Callisto',
-  'Dione',
-  'Ganymede',
-  'Hangouts Call',
-  'Luna',
-  'Oberon',
-  'Phobos',
-  'Pyxis',
-  'Sedna',
-  'Titania',
-  'Triton',
-  'Umbriel',
+  'Alla event',
+  'Affärsutveckling',
+  'Inspiration',
+  'Psykologi',
+  'Underhållning',
+  'Vetenskap',
 ];
 
 const ITEM_HEIGHT = 48;
@@ -61,7 +53,7 @@ export default function LongMenu() {
         }}
       >
         {options.map((option) => (
-          <MenuItem key={option} selected={option === 'Pyxis'} onClick={handleClose}>
+          <MenuItem key={option} selected={option === 'Alla event'} onClick={handleClose}>
             {option}
           </MenuItem>
         ))}
