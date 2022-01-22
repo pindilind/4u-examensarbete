@@ -110,7 +110,7 @@ function UserHomePage(props) {
   useEffect(() => {
 
     async function getProducts() {
-      const status = await MakeRequest("http://localhost:3005", "GET")
+      const status = await MakeRequest("http://localhost:3005/products", "GET")
 
       return status
     }
