@@ -1,22 +1,21 @@
 const fs = require('fs.promises');
 
-// TODO: implement error handling and correct sync/async
 
 const getDatabase = async () => {
-  const raw = await fs.readFile('./userDB.json');
+  const raw = await fs.readFile('./database.js/');
   return JSON.parse(raw);
 }
 
 const saveDatabase = async (database) => {
   return await fs.writeFile(
-    './userDB.json',
+    './database.js',
     JSON.stringify(database, null, 2)
   );
 }
 
 module.exports = {getDatabase, saveDatabase};
 
-
+/* 
 /* const fs = require('fs.promises');
 
 const getProducts = async () => {
