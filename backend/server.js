@@ -1,5 +1,6 @@
-require('dotenv').config('.env'); 
-/* const database = require('./database/database'); */
+require('dotenv').config('.env');
+const argon2 = require('argon2');
+
 
 const secretKey = process.env.STRIPE_SECRET_KEY;
 const stripe = require('stripe')(secretKey)
@@ -39,7 +40,7 @@ app.get('/users', async (req, res) => {
 
 });
 
-app.post ('/users/create', (req, res) => {
+app.post ('/users/create', async (req, res) => {
 
   try {
     let raw = fs.readFileSync("./database/userDB.json") //hämtar url till jsonfil
@@ -57,13 +58,14 @@ app.post ('/users/create', (req, res) => {
     }
   
     // check that username is not already in use
-   /*  if (!checkUserNameAvailable(req.body.userName)) {
+  /*   if (!checkUserNameAvailable(req.body.userName)) {
 
       res.status(500).send({ message: 'Username is not available' })
       return;
     } */
   
-    /* const hash = await argon2.hash(req.body.password); */
+    const hash = await argon2.hash(req.body.password);
+    console.log(hash)
   
     // add new customer to database
     userData.highestId++;
@@ -72,7 +74,7 @@ app.post ('/users/create', (req, res) => {
       firstname: req.body.firstname,
       lastname: req.body.lastname,
       userName: req.body.userName,
-      /* hashedPassword: hash, */
+      hashedPassword: hash,
       email: req.body.email,
       phoneNumber: req.body.phoneNumber,
     };
@@ -138,8 +140,8 @@ app.post('/create-checkout-session', async (req, res) => {
     line_items: req.body.line_items,
     mode: "payment",
 
-    success_url: 'http://localhost:3000/checkOutOk?session_id={CHECKOUT_SESSION_ID}',
-    cancel_url: "http://localhost:3000/",
+    success_url: 'http://localhost:3000/succsessPage?session_id={CHECKOUT_SESSION_ID}',
+    cancel_url: "http://localhost:3000/cancelPage",
   });
   
   res.status(200).json({ id: session.id })

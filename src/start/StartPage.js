@@ -7,6 +7,7 @@ import Bakgrund from "../assets/bakgrund.png"
 import "./StyleStartPage.scss";
 import ModalAboutUs from "../components/AboutUs";
 import Footer from "../footer/FooterStartPage"
+import LogoTest from "../assets/LogoTest.svg";
 
 const useStyles = makeStyles({
   btnStyle: {
@@ -27,8 +28,18 @@ function StartPage() {
 
     <>
       <div className={"bg"}>
+      
         <div className={"board"}>
-          <div className={"centered"}>Välkommen till Event 4U!</div>
+          <div className={"centered"}>
+          
+          <img className={"imgTestStyle"}
+          src={LogoTest}
+          alt="logoTest"
+        />
+          
+          Välkommen till Event 4U!
+          
+          </div>
           <div className={"centeredText"}> Vi erbjuder digitala föreläsningar <br />​-  i realtid eller inspelade - <br /> ​för att Underhålla, Utveckla, Utbilda och Umgås.​ </div>
           <div>
             Skapa ett konto och se hela vårt utbud direkt, eller börja med att läsa lite mer här <ModalAboutUs />
@@ -36,7 +47,7 @@ function StartPage() {
           </div> 
           <div>
           </div>
-
+    
           <div className={"centeredBtn"}>
             <Button
               className={classes.btnStyle}

@@ -54,9 +54,9 @@ function CreateAccount() {
 
   async function createAccount() {
 
-   /*  if (passwordOne === passwordTwo) { */
+   /* if (passwordOne === passwordTwo) { 
 
-      /* setPasswordError(false); */
+      setPasswordError(false);  */
 
       const status = await MakeRequest(
         "http://localhost:3005/users/create",
