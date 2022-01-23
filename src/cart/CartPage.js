@@ -8,7 +8,7 @@ import Footer from "../footer/Footer";
 import "../App.scss";
 import "./CartPageStyle.scss";
 
-document.title = 'Varukorgen';
+//document.title = 'Varukorgen';
 
 export default function CartPage(props) {
 

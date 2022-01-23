@@ -15,9 +15,10 @@ import CreateAccount from "./login/CreateAccount";
 import Login from "./login/Login";
 import StartPage from "./start/StartPage";
 
-import CartPage from "./cart/CartPage";
+//import CartPage from "./cart/CartPage";
 //import OrderPage from "./cart/OrderPage";
 import CollapsibleTable from "./cart/OrderPageTest";
+import CartPageTest from "./cart/CartPageTest";
 
 import EventPage from "./userView/EventPage";
 import UserHomePage from "./userView/UserHomePage";
@@ -56,9 +57,10 @@ function App() {
           <Login />
         </Route>
 
-        <Route exact path="/cartPage">
+        <Route exact path="/cartPageTest">
           <Elements stripe={stripePromise}>
-            <CartPage />
+            <CartPageTest />
+            {/* <CartPage /> */}
           </Elements>
         </Route>
 

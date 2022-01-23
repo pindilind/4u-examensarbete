@@ -12,9 +12,9 @@ import "../App.scss";
 import "./CartPageStyle.scss";
 /* import Stripe from "../stripe/Stripe"; */
 
-document.title = 'Varukorgen';
+//document.title = 'Varukorgen';
 
-export default function CartPage(props) {
+export default function CartPageTest(props) {
 
   const stripe = useStripe();
 
