@@ -6,6 +6,7 @@ import { makeStyles } from '@mui/styles';
 import Bakgrund from "../assets/bakgrund.png"
 import "./StyleStartPage.scss";
 import Footer from "../footer/FooterStartPage"
+import LogoTest from "../assets/LogoTest.svg";
 
 const useStyles = makeStyles({
   btnStyle: {
@@ -26,8 +27,14 @@ function StartPage() {
 
     <>
       <div className={"bg"}>
+      
         <div className={"board"}>
-          <div className={"centered"}>Välkommen till Event 4U!</div>
+    
+        <div className={"centered"}><img className={"imgTestStyle"}
+          src={LogoTest}
+          alt="logoTest"
+        /></div> 
+          {/* <div className={"centered"}>Välkommen till Event 4U!</div> */}
           <div className={"centeredText"}> Vi erbjuder digitala föreläsningar <br />​-  i realtid eller inspelade - <br /> ​för att Underhålla, Utveckla, Utbilda och Umgås.​</div>
 
 

@@ -104,5 +104,8 @@ På eftermidagen hände något fantastiskt....STRIPE BLEV KLART!!!!!!!!!!!!!!! :
 ---
 
 **FREDAG| 2022-01-21**<br>
+Morgonmöte klockan 9.
+Japp, på nästa utmaning. Idag satsade vi på att försöka få kontakt med backend för att en kund ska kunna skapa ett konto på sin sida. Efter många om och men löste vi det på eftermiddagen och man kan nu skapa kunder. 
+Nästa steg blir att skapa login, och att man ska kunna se sina kunduppgifter. 
 
 ---
