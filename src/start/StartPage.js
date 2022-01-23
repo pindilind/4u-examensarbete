@@ -5,6 +5,7 @@ import { makeStyles } from '@mui/styles';
 
 import Bakgrund from "../assets/bakgrund.png"
 import "./StyleStartPage.scss";
+import ModalAboutUs from "../components/AboutUs";
 import Footer from "../footer/FooterStartPage"
 
 const useStyles = makeStyles({
@@ -28,8 +29,13 @@ function StartPage() {
       <div className={"bg"}>
         <div className={"board"}>
           <div className={"centered"}>Välkommen till Event 4U!</div>
-          <div className={"centeredText"}> Vi erbjuder digitala föreläsningar <br />​-  i realtid eller inspelade - <br /> ​för att Underhålla, Utveckla, Utbilda och Umgås.​</div>
-
+          <div className={"centeredText"}> Vi erbjuder digitala föreläsningar <br />​-  i realtid eller inspelade - <br /> ​för att Underhålla, Utveckla, Utbilda och Umgås.​ </div>
+          <div>
+            Skapa ett konto och se hela vårt utbud direkt, eller börja med att läsa lite mer här <ModalAboutUs />
+           
+          </div> 
+          <div>
+          </div>
 
           <div className={"centeredBtn"}>
             <Button
