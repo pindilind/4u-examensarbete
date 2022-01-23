@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
+
 import { useStripe } from '@stripe/react-stripe-js';
+
+import SpanningTable from "../components/CartTable";
 
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
@@ -7,10 +10,11 @@ import HeaderInlogged from "../headers/HeaderInlogged";
 import Footer from "../footer/Footer";
 import "../App.scss";
 import "./CartPageStyle.scss";
+/* import Stripe from "../stripe/Stripe"; */
 
 //document.title = 'Varukorgen';
 
-export default function CartPage(props) {
+export default function CartPageTest(props) {
 
   const stripe = useStripe();
 
@@ -98,55 +102,29 @@ export default function CartPage(props) {
     }
   }
 
-  return (
-    <>
-      <HeaderInlogged counter={counter} />
-      <div className="wrappsAllContent">
-        <div className="flexCenterAll ">
-          <h1>Your Cart</h1>
-
+    return (
+        <>
+        <HeaderInlogged counter={counter} />
+            <div className="wrappsAllContent">
+            <div className="flexCenterAll ">
+          <h2>Din varukorg</h2>
           <Typography className={'productDiv'} component="div">
-            RENDERA COMPONENT HÄR
-            {renderCart()}
+          
+            {/* {renderCart()} */}
+        <SpanningTable />
           </Typography>
+         <Typography className={'btnDiv'} component="div">
 
-          <Typography className={'priceDiv'} component="div">
-
-            <Typography className={'totalPrice'}>
-              122000 kr
-
-            </Typography>
-
-            <Typography>
-              <Button onClick={() => {
-                setItemCount(Math.max(itemCount - 1, 0));
-              }}
-              >-</Button>
-              <Button onClick={() => {
-                setItemCount(itemCount + 1);
-              }}
-              >+</Button>
-            </Typography>
-
-          </Typography>
-
-          <Typography className={'btnDiv'} component="div">
-
-            <Button
-              onClick={toCheckOut}
-            >
-              Till Checkout
-            </Button>
+         <Button
+           onClick={toCheckOut}
+           >
+           Till Checkout
+         </Button>
 
 
-          </Typography>
-
-        </div>
-      </div>
-
-      <Footer />
-
-    </>
-  );
+       </Typography>
+       </div>
+       </div>
+             </>
+    )
 }
-
