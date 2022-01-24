@@ -31,7 +31,7 @@ function StartPage() {
       
         <div className={"board"}>
           <div className={"centered"}>
-          
+        
           <img className={"imgTestStyle"}
           src={LogoTest}
           alt="logoTest"

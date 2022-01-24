@@ -4,6 +4,7 @@ import { useStripe } from '@stripe/react-stripe-js';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import HeaderInlogged from "../headers/HeaderInlogged";
+import CartTable from "../components/CartTable";
 import Footer from "../footer/Footer";
 import "../App.scss";
 import "./CartPageStyle.scss";
@@ -103,10 +104,10 @@ export default function CartPage(props) {
       <HeaderInlogged counter={counter} />
       <div className="wrappsAllContent">
         <div className="flexCenterAll ">
-          <h1>Your Cart</h1>
+          <h2>Din varukorg</h2>
 
           <Typography className={'productDiv'} component="div">
-            RENDERA COMPONENT HÄR
+            <CartTable />
             {renderCart()}
           </Typography>
 

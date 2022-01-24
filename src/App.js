@@ -14,10 +14,10 @@ import CreateAccount from "./login/CreateAccount";
 import Login from "./login/Login";
 import StartPage from "./start/StartPage";
 
-//import CartPage from "./cart/CartPage";
-//import OrderPage from "./cart/OrderPage";
-import CollapsibleTable from "./cart/OrderPageTest";
-import CartPageTest from "./cart/CartPageTest";
+import CartPage from "./cart/CartPage";
+
+import OrderPage from "./cart/OrderPage";
+
 import UserHomePage from "./userView/UserHomePage";
 import UserInfo from "./userView/UserInfo";
 import SuccsessPage from "./stripe/SuccessPage";
@@ -49,16 +49,14 @@ function App() {
           <Login />
         </Route>
 
-        <Route exact path="/cartPageTest">
+        <Route exact path="/cartPage">
           <Elements stripe={stripePromise}>
-            <CartPageTest />
-            {/* <CartPage /> */}
+            <CartPage /> 
           </Elements>
         </Route>
 
-        <Route exact path="/orderPageTest">
-          <CollapsibleTable />
-          {/* <OrderPage /> */}
+        <Route exact path="/orderPage">
+          <OrderPage />
         </Route>
 
         <Route exact path="/userHomePage">
