@@ -188,7 +188,9 @@ function UserHomePage(props) {
         </div>
 
       </div>
-
+      <footer>
+        < Footer />
+      </footer>
     </>
 
 
