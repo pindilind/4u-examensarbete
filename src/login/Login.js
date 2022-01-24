@@ -18,6 +18,7 @@ import HeaderLogga from "../headers/HeaderLogga";
 
 function Login() {
 
+
   const [userName, setUserName] = useState('');
   const handleUserNameChange = (event) => {
     setUserName(event.target.value);
@@ -30,20 +31,27 @@ function Login() {
 
   async function signIn() {
     const status = await MakeRequest(
-      "http://localhost:3005",
+      "http://localhost:3005/users/login",
       "POST",
       { userName, password }
     );
-/* 
+    console.log(status)
+
     if (status.customerLogin === true) {
 
-      dispatch(customerLoggedIn(status.customer));
-
-      sessionStorage.setItem("userId", status.customer.id);
+      //dispatch(customerLoggedIn(status.customer));
+      sessionStorage.setItem("userId", status.user.id);
+   
     } else {
-     /*  setError(true); */
-    /* } */ 
+      /*  setError(true); */
+    }
   }
+
+  /* REDIRECT INTE FÄRDIG */
+  
+  /* if (user.id) { 
+    return <Redirect to="/userHomePage" />
+    }; */
 
   return (
     <>

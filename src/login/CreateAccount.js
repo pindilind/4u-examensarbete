@@ -52,7 +52,7 @@ function CreateAccount() {
 
   /* const [passwordError, setPasswordError] = useState(false); */
 
-  async function createAccount() {
+  async function createAccount(props) {
 
    /* if (passwordOne === passwordTwo) { 
 
