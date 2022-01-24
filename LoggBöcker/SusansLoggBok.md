@@ -54,25 +54,32 @@ Linda skulle komma lite senare så jag börjar jobba med backend och databaserna
 
 
 ### TISDAG | 2022-01-18
-L
+Jag och Linda fortsatte med att få ihop Stripe-kopplingen med LiveShare i Visual Studio Code. Känslan är att vi är nästan där men inte riktit framme... frustrerande. 
 
 ### ONSDAG | 2022-01-19
 L
 
 ### TORSDAG | 2022-01-20
-L
+Morgonsamling kl 9 och jag presenterade mitt köp av domännamn och webbhotell MissHosting. Vi försökte även hitta sättet att deploya vår app. Jag blev lite frustrerad att "det ska vara så svårt..." och bad om att få titta på detta lite själv och försöka, ibland behöver jag lite mer lugn och ro och göra i min långsamma takt. Jag fixade det och vår app i vår första MVP ligger nu på https://event4u.online och jag meddelade HEnrik detta. Vi hade bokat handledartid med Henrik kl 13.30, tyvärr hade han missat detta och vi fick kontakt typ 13.40 och fick 5 minuter eftersom nästa grupp stod på tur kl 13.45. Vi hann visa sidan lite och nämna att vi hade lite problem att få till det sista i Stripe. Henrik ville då att vi skulle skicka vår kod till honom för lite hjälp. Linda lyckades fixa det sista efter mötet och jag meddelade Henric att vårt problem hade löst sig. 
 
 ### FREDAG | 2022-01-21
-L
+Samlades kl 9 och gick igenom vad vi gjort och pushade upp vår kod. Jag mådde inte så bra och kände vid kl 10 att jag behövde vila lite. Jag tittade lite på ... en liten stund. Vi återträffades kl 13 och då insåg jag att jag behövde vila lite mer och vi önskade varandra trevlig helg. Linda skulle fortsätta jobba och jag skulle ta igen denna dag under helgen. 
 
- {cart.length === 0 && <p>Cart: (empty)</p>}
-          {cart.length > 0 && <p>Cart: {cart.toString()}</p>}
-          <Button
-              onClick={() => {
-                  setCart([...cart, ` item ${itemIndex}`]);
-                  setItemIndex(itemIndex + 1);
-              }}
-              >
-                  Add to Cart
-          </Button>
-                  
+
+### LÖRDAG SÖNDAG | 2022-01-22+23
+Jobbade med komponenterna i CartPage och OrderPage för att få in tabeller för datan. Jobbade med en test-komponent för att inte förstöra ursprungliga filen. Det flöt på bra och med hårdkodad data funkar dessa komponenter på resp sida. Hittade också lösning på favicon och ändrade filtyp och ändrade färg från vit till svart (för synlighet) på vår logo och lade den som en favicon i public. Linda och jag har ett samtal och Linda visar förslag på ny bakgrund på startsidan och hon pushar upp.
+ 
+### MÅNDAG | 2022-01-24
+Morgonmöte kl 09 och jag hämtar ner det som Linda pushade upp igår och pushar upp mitt arbete. Därefter tittar vi på Trello och avslutar Sprint 3 och ser över planen för Sprint 4. Vi fortsätter och titta på GitHub och avslutar även där Sprint 3, några issues är ej klara och flyttas över till Sprint 4. Känslan är trots allt att vi är ganska bra i fas och borde klara uppgifter med de 2 veckor som är kvar till presentation och inlämning. Vi fortsatte att jobba på var sitt håll med saker vi påbörjat och inte var klara med. Jag avslutade mina test-komponenter för OrderPage och CartPage och flyttade över koden till respektive fil och pushade upp på GitHub. Nästa issue är att skapa en funktion som visar våra kategorier i en dropdownlist i headern och som filtrerar produkt efter kategori. Kom på att jag tänkt lite fel, det räcker ju inte att filtrera kategorierna utan dessa måste ju även kopplas till produkterna då det är produkterna som skall visas beroende på vilken kategori som väljs och tillhörighet.Eftermiddagen...
+
+### TISDAG | 2022-01-25
+Samla
+
+### ONSDAG | 2022-01-26
+Samla
+
+### TORSDAG | 2022-01-27
+Samla
+
+### FREDAG | 2022-01-28
+Samla
