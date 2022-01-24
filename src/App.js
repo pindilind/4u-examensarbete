@@ -45,7 +45,7 @@ function App() {
           <CreateAccount />
         </Route>
 
-        <Route exact path="/login">
+        <Route exact path="/login" component={Login}>
           <Login />
         </Route>
 
@@ -69,7 +69,7 @@ function App() {
 
 
 <Route exact path="/orderPage">
-          <OrderPage />
+          {/* <OrderPage /> */}
         </Route>
 
         <Route exact path="/succsessPage">
