@@ -3,6 +3,7 @@ import React from "react";
 import Typography from '@mui/material/Typography';
 
 import HeaderInlogged from "../headers/HeaderInlogged";
+import OrderTable from "../components/OrderTable";
 import Footer from "../footer/Footer";
 
 import "../App.scss";
@@ -19,9 +20,7 @@ function OrderPage() {
           <h1>Dina Ordrar</h1>
 
           <Typography className={'orderDiv'} component="div">
-              <div>Ordernummer</div>
-              <div>Titel</div>
-              <div>Antal</div> 
+              <OrderTable />
           </Typography>
 
         </div>

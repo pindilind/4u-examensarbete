@@ -26,7 +26,7 @@ export default function Footer() {
       />
       <BottomNavigationAction
         component={Link}
-        to="/orderPageTest"
+        to="/orderPage"
         value="orders"
         icon={<FaClipboardList />}
       />
