@@ -18,7 +18,10 @@ export default function CartPage(props) {
   const [itemCount, setItemCount] = useState(1);
   const [counter, setCounter] = useState(0);
   const [cart, setCart] = useState([]);
+  const [orders, setOrders] = useState([]);
   console.log(cart)
+  console.log(orders)
+
 
   function updateCounter() {
 
@@ -98,6 +101,20 @@ export default function CartPage(props) {
       console.log(err)
     }
   }
+
+  useEffect(() => {
+    async function getOrders() {
+     
+      let order = JSON.parse(localStorage.getItem("session"));
+      console.log(order)
+
+      return order;
+    }
+
+    getOrders().then(result => {
+      setOrders(result)
+    });
+  }, [setOrders]);
 
   return (
     <>
