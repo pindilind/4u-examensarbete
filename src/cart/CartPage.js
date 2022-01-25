@@ -16,9 +16,13 @@ export default function CartPage(props) {
   const stripe = useStripe();
 
   const [itemCount, setItemCount] = useState(1);
+
   const [counter, setCounter] = useState(0);
+
   const [cart, setCart] = useState([]);
+
   const [orders, setOrders] = useState([]);
+
   console.log(cart)
   console.log(orders)
 
@@ -47,6 +51,7 @@ export default function CartPage(props) {
   useEffect(() => {
 
     async function getCartItem() {
+
       let cart = JSON.parse(localStorage.getItem("cart"));
       console.log(cart)
 
@@ -80,8 +85,8 @@ export default function CartPage(props) {
 
       if (!cart || Object.keys(cart).length === 0) {
         throw new Error("You cart is empty!");
-
       }
+
       const response = await fetch('http://localhost:3005/create-checkout-session', {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -104,7 +109,7 @@ export default function CartPage(props) {
 
   useEffect(() => {
     async function getOrders() {
-     
+
       let order = JSON.parse(localStorage.getItem("session"));
       console.log(order)
 

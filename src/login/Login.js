@@ -18,6 +18,7 @@ import HeaderLogga from "../headers/HeaderLogga";
 
 function Login(props) {
 
+  const [userId, setUserId] = useState(null);
 
   const [userName, setUserName] = useState('');
   const handleUserNameChange = (event) => {
@@ -39,19 +40,19 @@ function Login(props) {
 
     if (status.customerLogin === true) {
 
-      //dispatch(customerLoggedIn(status.customer));
       sessionStorage.setItem("userId", status.user.id);
-   
+      setUserId(status.user.id)
+
     } else {
       /*  setError(true); */
     }
   }
 
   /* REDIRECT INTE FÄRDIG */
-  
-  /* if (user.id) { 
+
+  if (userId) {
     return <Redirect to="/userHomePage" />
-    }; */
+  };
 
   return (
     <>

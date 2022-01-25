@@ -127,8 +127,15 @@ export default function ProductCardLarge(props) {
 
         </CardContent>
 
-        <CardActions className={classes.buttonDiv}>
-          <Button
+        
+  
+
+         
+         {/*  <CardActions className={classes.buttonDiv}>
+        </CardActions> */}
+
+      </CardActionArea>
+      <Button
             className={classes.buttonStyle}
             onClick={addProduct}
             size="small"
@@ -137,12 +144,6 @@ export default function ProductCardLarge(props) {
             disableElevation>
             Lägg till i varukorgen
           </Button> 
-
-         
-
-        </CardActions>
-
-      </CardActionArea>
     </Card>
   );
 }

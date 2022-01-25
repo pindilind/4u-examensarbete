@@ -11,43 +11,44 @@ import HeaderInlogged from "../headers/HeaderInlogged";
 import Footer from "../footer/Footer";
 import '../App.scss';
 
-function UserInfo(props) {
-  const [users, setUsers] = useState([])
+function UserInfo() {
 
-  const user = props.users;
-  console.log(user)
-
-
-  const [firstname, setFirstnameChange] = useState(users.firstname);
+  const [firstname, setFirstnameChange] = useState('');
   const handleFirstnameChange = (event) => {
     setFirstnameChange(event.target.value);
     /* setSaved(false); */
   }
 
-  const [lastname, setLastnameChange] = useState(user.lastname);
+  const [lastname, setLastnameChange] = useState('');
   const handleLastnameChange = (event) => {
     setLastnameChange(event.target.value);
     /* setSaved(false); */
   }
 
-  const [phoneNumber, setPhoneNumberChange] = useState(user.phoneNumber);
+  const [phoneNumber, setPhoneNumberChange] = useState('');
   const handlePhoneNumberChange = (event) => {
     setPhoneNumberChange(event.target.value);
     /*  setSaved(false); */
   }
 
-  const [email, setEmailChange] = useState(user.email);
+  const [email, setEmailChange] = useState('');
   const handleEmailChange = (event) => {
     setEmailChange(event.target.value);
     /* setSaved(false); */
   }
 
-  const [passwordOne, setPasswordOne] = useState(user.password);
+  const [userName, setUserNameChange] = useState('');
+  const handleUserNameChange = (event) => {
+    setUserNameChange(event.target.value);
+    /* setSaved(false); */
+  }
+
+  const [passwordOne, setPasswordOne] = useState('');
   const handlePasswordOne = (event) => {
     setPasswordOne(event.target.value);
   };
 
-  const [passwordTwo, setPasswordTwo] = useState(user.password);
+  const [passwordTwo, setPasswordTwo] = useState('');
   const handlePasswordTwo = (event) => {
     setPasswordTwo(event.target.value);
   };
@@ -57,23 +58,32 @@ function UserInfo(props) {
 
   useEffect(() => {
 
-    async function getUsers() {
-      const status = await MakeRequest("http://localhost:3005/users", "GET")
+    async function getUser() {
+
+      const userId = sessionStorage.getItem("userId");
+      console.log(userId)
+
+      const status = await MakeRequest("http://localhost:3005/users?id=" + userId, "GET")
       console.log(status)
 
-      const userId = sessionStorage.getItem("userId", status.user.id);
-      console.log(userId)
-      return status
-
+      if (status) {
+        setFirstnameChange(status.firstname)
+        setLastnameChange(status.lastname)
+        setPhoneNumberChange(status.phoneNumber)
+        setEmailChange(status.email)
+        setUserNameChange(status.userName)
+      }
     }
 
-    getUsers().then(result => {
-      setUsers(result);
-      console.log(result)
-    });
+    getUser()
 
-
-  }, [setUsers]);
+  }, [
+    setFirstnameChange,
+    setLastnameChange,
+    setPhoneNumberChange,
+    setEmailChange,
+    setUserNameChange
+  ]);
 
 
   return (
@@ -144,7 +154,8 @@ function UserInfo(props) {
                 disabled
                 size="small"
                 label="Username"
-                /* value={} */
+                value={userName}
+                onChange={handleUserNameChange}
                 sx={{
                   '& > :not(style)': { width: '17rem' }
                 }}

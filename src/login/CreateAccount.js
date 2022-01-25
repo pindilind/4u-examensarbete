@@ -65,15 +65,19 @@ function CreateAccount(props) {
       );
       console.log(status)
 
-     /*  if (status.customerCreated === true) {
+      if (status.customerCreated === true) {
         setRedirect(true);
-      } else {
+      } /* else { */
         /* setUserAvailable(false); */
    /*    } */
 
     //} else {
       /* setPasswordError(true); */
     /* } */
+  }
+
+  if (redirect === true) {
+    return <Redirect to="/login" />;
   }
 
   return (
