@@ -21,6 +21,7 @@
     "express": "^4.17.2",
     "node-sass": "^7.0.1",
     "react": "^17.0.2",
+    "react-background-video-player": "^1.1.8",
     "react-bootstrap": "^2.1.0",
     "react-bootstrap-carousel": "^4.1.1",
     "react-calendar": "^3.5.0",

@@ -16,7 +16,7 @@ import MakeRequest from '../MakeRequest';
 
 import HeaderLogga from "../headers/HeaderLogga";
 
-function Login() {
+function Login(props) {
 
 
   const [userName, setUserName] = useState('');

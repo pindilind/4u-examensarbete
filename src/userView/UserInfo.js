@@ -11,27 +11,70 @@ import HeaderInlogged from "../headers/HeaderInlogged";
 import Footer from "../footer/Footer";
 import '../App.scss';
 
-function UserInfo() {
+function UserInfo(props) {
   const [users, setUsers] = useState([])
 
-    
+  const user = props.users;
+  console.log(user)
+
+
+  const [firstname, setFirstnameChange] = useState(users.firstname);
+  const handleFirstnameChange = (event) => {
+    setFirstnameChange(event.target.value);
+    /* setSaved(false); */
+  }
+
+  const [lastname, setLastnameChange] = useState(user.lastname);
+  const handleLastnameChange = (event) => {
+    setLastnameChange(event.target.value);
+    /* setSaved(false); */
+  }
+
+  const [phoneNumber, setPhoneNumberChange] = useState(user.phoneNumber);
+  const handlePhoneNumberChange = (event) => {
+    setPhoneNumberChange(event.target.value);
+    /*  setSaved(false); */
+  }
+
+  const [email, setEmailChange] = useState(user.email);
+  const handleEmailChange = (event) => {
+    setEmailChange(event.target.value);
+    /* setSaved(false); */
+  }
+
+  const [passwordOne, setPasswordOne] = useState(user.password);
+  const handlePasswordOne = (event) => {
+    setPasswordOne(event.target.value);
+  };
+
+  const [passwordTwo, setPasswordTwo] = useState(user.password);
+  const handlePasswordTwo = (event) => {
+    setPasswordTwo(event.target.value);
+  };
+
+  /* const [passwordError, setPasswordError] = useState(false); */
+
+
   useEffect(() => {
 
     async function getUsers() {
       const status = await MakeRequest("http://localhost:3005/users", "GET")
+      console.log(status)
 
+      const userId = sessionStorage.getItem("userId", status.user.id);
+      console.log(userId)
       return status
-      
+
     }
 
     getUsers().then(result => {
       setUsers(result);
-
+      console.log(result)
     });
 
 
   }, [setUsers]);
-  
+
 
   return (
     <>
@@ -54,9 +97,20 @@ function UserInfo() {
               <TextField
                 className="inputCustomerInfo"
                 label="Firstname"
-                /* value={firstName} */
+                value={firstname}
                 size="small"
-                /* onChange={} */
+                onChange={handleFirstnameChange}
+                sx={{
+                  '& > :not(style)': { width: '17rem' }
+                }}
+
+              />
+              <TextField
+                className="inputCustomerInfo"
+                label="Firstname"
+                value={lastname}
+                size="small"
+                onChange={handleLastnameChange}
                 sx={{
                   '& > :not(style)': { width: '17rem' }
                 }}
@@ -67,8 +121,8 @@ function UserInfo() {
                 label="Phonenumber"
                 color="success"
                 size="small"
-                /* value={phoneNumber}
-                onChange={} */
+                value={phoneNumber}
+                onChange={handlePhoneNumberChange}
                 sx={{
                   '& > :not(style)': { width: '17rem' }
                 }}
@@ -78,8 +132,8 @@ function UserInfo() {
                 label="Email"
                 color="success"
                 size="small"
-                /* value={email} */
-                /* onChange={} */
+                value={email}
+                onChange={handleEmailChange}
                 sx={{
                   '& > :not(style)': { width: '17rem' }
                 }}
@@ -102,8 +156,8 @@ function UserInfo() {
                 color="success"
                 id="passwordInputOne"
                 type="password"
-                /* value={passwordOne} */
-                /* onChange={} */
+                value={passwordOne}
+                onChange={handlePasswordOne}
                 autoComplete="current-password"
                 sx={{
                   '& > :not(style)': { width: '17rem' }
@@ -116,8 +170,8 @@ function UserInfo() {
                 color="success"
                 id="passwordInputTwo"
                 type="password"
-                /* value={passwordTwo} */
-                /* onChange={} */
+                value={passwordTwo}
+                onChange={handlePasswordTwo}
                 autoComplete="current-password"
                 sx={{
                   '& > :not(style)': { width: '17rem' }

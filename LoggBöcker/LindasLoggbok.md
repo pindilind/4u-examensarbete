@@ -103,9 +103,42 @@ På eftermidagen hände något fantastiskt....STRIPE BLEV KLART!!!!!!!!!!!!!!! :
 
 ---
 
-**FREDAG| 2022-01-21**<br>
+**FREDAG | 2022-01-21**<br>
 Morgonmöte klockan 9.
 Japp, på nästa utmaning. Idag satsade vi på att försöka få kontakt med backend för att en kund ska kunna skapa ett konto på sin sida. Efter många om och men löste vi det på eftermiddagen och man kan nu skapa kunder. 
 Nästa steg blir att skapa login, och att man ska kunna se sina kunduppgifter. 
+
+---
+
+**MÅNDAG | 2022-01-24**<br>
+Morgonmöte klockan 9.
+Lyckades få till inloggningen på sidan idag, samt att jag gjorde CancelPage för betalningar som inte gick igenom med Stripe. 
+Har problem med Redirect, att den inloggade ska komma till userHomePage. Något att titta på och ett issue uppe på Stripe. 
+Nu på eftermiddagen så har jag suttit med userInfo, men har ännu inte lyckats. Bättre lycka imorgon!
+---
+
+**TISDAG | 2022-01-25**<br>
+Morgonmöte klockan 9.
+
+---
+
+**ONSDAG | 2022-01-26**<br>
+Morgonmöte klockan 9.
+
+---
+
+**TORSDAG | 2022-01-27**<br>
+Morgonmöte klockan 9.
+
+---
+
+**FREDAG | 2022-01-28**<br>
+Morgonmöte klockan 9.
+
+
+---
+
+**TISDAG| 2022-01-21**<br>
+Morgonmöte klockan 9.
 
 ---

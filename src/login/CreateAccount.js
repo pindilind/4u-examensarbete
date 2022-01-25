@@ -11,7 +11,7 @@ import MakeRequest from '../MakeRequest';
 
 import HeaderLogga from '../headers/HeaderLogga';
 
-function CreateAccount() {
+function CreateAccount(props) {
 
   const [redirect, setRedirect] = useState(false);
 
