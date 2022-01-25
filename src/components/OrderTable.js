@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import Collapse from '@mui/material/Collapse';
@@ -13,30 +13,31 @@ import Typography from '@mui/material/Typography';
 import Paper from '@mui/material/Paper';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import MakeRequest from '../MakeRequest';
 
-function createData(orderID, title, eventDate, eventStartTime, link) {
+function createData(orderID, title, eventDate, eventStartTime, link, date, status, amount, price, totalPrice) {
   return {
     orderID,
     title,
     eventDate,
     eventStartTime,
     link,
-        history: [
+    history: [
       {
-        date: '2022-01-05',
-        status: 'paid',
-        amount: 2,
-        price: 850,
-        totalPrice: 850
-        
+        date,
+        status,
+        amount,
+        price,
+        totalPrice
+
       },
-      {
-        date: '2022-01-05',
-        status: 'paid',
-        amount: 2,
-        price: 850,
-        totalPrice: 1700
-      },
+      /*  {
+         date: '2022-02-05',
+         status: 'paid',
+         amount: 4,
+         price: 850,
+         totalPrice: 1700
+       }, */
     ],
   };
 }
@@ -119,20 +120,19 @@ Row.propTypes = {
         amount: PropTypes.number.isRequired,
         price: PropTypes.number.isRequired,
       }),
-    ).isRequired,
-    title: PropTypes.string.isRequired,
-    
+    )/* 
+     */
+
   })
 };
 
 const rows = [
-  createData('09878493', 'Morgan Alling', '2022-03-03', '18:00', 'https:/event4u.online'),
-  createData('09878856', 'Tina Thörner', '2022-04-13', '19:00', 'https:/event4u.online'),
-  createData('0987993', 'Robert Gustafsson', '2022-05-25', '19:30', 'https:/event4u.online'),
-
-
-  
+  // createData('09878493', 'Morgan Alling', '2022-03-03', '18:00', 'https:/event4u.online'),
+  /* createData('09878856', 'Tina Thörner', '2022-04-13', '19:00', 'https:/event4u.online'),
+  createData('0987993', 'Robert Gustafsson', '2022-05-25', '19:30', 'https:/event4u.online'), */
+  createData()
 ];
+
 
 export default function OrderTable() {
   return (

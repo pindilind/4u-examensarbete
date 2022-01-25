@@ -1,7 +1,6 @@
 require('dotenv').config('.env');
 const argon2 = require('argon2');
 
-
 const secretKey = process.env.STRIPE_SECRET_KEY;
 const stripe = require('stripe')(secretKey)
 const fs = require('fs');
@@ -133,15 +132,16 @@ app.post('/users/login', async (req, res) => {
 
 })
 
-// Hämtar filen från "products.json" - se även i server.post/verify
-app.get('/api/admin/orders', async (req, res) => {
+// Hämtar filen från "orders.json" - se även i server.post/verify
 
-  const raw = fs.readFileSync('ordersDB.json')
-  const orderListDB = JSON.parse(raw)
-  res.json(orderListDB)
+app.get('/orders', async (req, res) => {
+
+  let raw = fs.readFileSync('database/ordersDB.json')
+  console.log(raw)
+  let orderList = JSON.parse(raw);
+  res.json(orderList);
+  
 })
-
-
 
 // Varifierar köpet 
 app.post('/session/verify', async (req, res) => {
@@ -151,11 +151,11 @@ app.post('/session/verify', async (req, res) => {
     const key = session.payment_intent;
 
     const raw = fs.readFileSync('./database/ordersDB.json')
-    const orderListDB = JSON.parse(raw)
-    console.log(orderListDB)
+    const orderList = JSON.parse(raw)
+    console.log(orderList)
 
-    if (!orderListDB[key]) {
-      orderListDB[key] = {
+    if (!orderList[key]) {
+      orderList[key] = {
         amount: session.amount_total,
         customerId: session.customer,
         customerEmail: session.customer_details.email,
@@ -163,7 +163,7 @@ app.post('/session/verify', async (req, res) => {
 
       }
       res.status(200).json({ paid: true })
-      fs.writeFileSync('./database/ordersDB.json', JSON.stringify(orderListDB))
+      fs.writeFileSync('./database/ordersDB.json', JSON.stringify(orderList))
     } else {
       res.status(200).json({ error: "Order already exist" })
     }
