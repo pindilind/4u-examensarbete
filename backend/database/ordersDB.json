@@ -4,5 +4,11 @@
         "customerEmail": "test@test.se",
         "session.amount_total": 850,
         "metadata": ""
+    },
+    "pi_3KLk7oKydFVV4O5p11qNCuJs": {
+        "amount": 85000,
+        "customerId": "cus_L1njnCEXP6jAdT",
+        "customerEmail": "susan.isaksson@medieinstitutet.se",
+        "metadata": {}
     }
 }
