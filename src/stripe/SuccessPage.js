@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
-import Typography from '@mui/material/Typography';
+import { BsFillCheckCircleFill } from 'react-icons/bs';
 
 import HeaderInlogged from "../headers/HeaderInlogged";
 import Footer from "../footer/Footer";
@@ -10,29 +11,54 @@ import { makeStyles } from '@mui/styles';
 import "../App.scss";
 
 const useStyles = makeStyles({
-  cancelTitle: {
-    paddingTop: "1.5rem",
-    paddingRight: "1.5rem",
-    paddingLeft: "1.5rem",
-    fontWeight: "bold",
-
+  succIcon: {
+    display: "flex",
+    alignSelf: "center",
+    color: "#75A488",
+    marginTop: "2rem",
+    fontSize: "3rem"
+  },
+  succTitle: {
+    display: "flex",
+    fontWeight: "bold", 
+  
     '@media (max-width: 480px)': {
       minWidth: '100%',
     }
   },
-  cancelP: {
+  succP: {
+    display: "flex",
+    textAlign: "center",
+    margin: "auto"
+  },
+  succText: {
+    display: "flex",
+    textAlign: "center",
+    padding: "0.5rem",
+
+    '@media (max-width: 480px)': {
+      minWidth: '80%',
+    }
+
+  },
+  succP2: {
+    display: "flex",
+    textAlign: "center",
+    margin: "auto",
+  },
+  mvhP: {
     paddingRight: "1.5rem",
     paddingLeft: "1.5rem",
-    marginTop: 0,
+    paddingTop: "1rem",
+    fontWeight: "bold",
+    fontStyle: "italic",
   },
   emailDiv: {
     background: "#75A488",
     borderRadius: "1.5rem"
   },
   emailP: {
-    paddingRight: "1.5rem",
-    paddingLeft: "1.5rem",
-    paddingTop: "1rem",
+    padding: "0.7rem"
   },
 
 
@@ -87,14 +113,23 @@ function SuccessPage() {
       <div className="wrappsAllContent">
         <div className="flexCenterAll ">
 
+          <div><BsFillCheckCircleFill className={classes.succIcon} /></div>
           <div>
-            <h3 className={classes.cancelTitle}>Tack för ditt köp!</h3>
-            <p className={classes.cancelP}>Text Text TExt</p>
+            <h3 className={classes.succTitle}>Tack för ditt köp!</h3>
+            <p className={classes.succlP}>Ditt ordernummer: </p>
           </div>
-          <div className={classes.emailDiv}>
-            <p className={classes.emailP}>order@event4U.online</p>
+          <div className={classes.succText}>
+            <p className={classes.succlP2}>Länken till eventet hittar du bland dina tidigare ordrar.</p>
+            </div>
+          <div className={classes.mvhDiv}>
+            <p className={classes.mvhP}>Med vänliga hälsningar, Event4U.</p>
           </div>
 
+<Link to="/userHomePage">
+          <div className={classes.emailDiv}>
+            <p className={classes.emailP}>Gå till startsidan</p>
+          </div>
+          </Link>
         </div>
       </div>
 
