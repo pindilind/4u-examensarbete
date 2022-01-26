@@ -23,19 +23,6 @@ const TAX_RATE = 0.20;
   return `${num.toFixed(2)}`; 
 } */
 
-// const subTotal = this.state.value && this.state.value.reduce((amount, i) => amount + i, 0)
-
-function subTotal(cartItem) { 
-  return cartItem.map (({ amount }) => amount).reduce((amount, currentAmount) => {
-    return amount + currentAmount;
-  }); 
-  // (this.data.reduce((total, currentValue) => total = total + currentValue.price , 0)); 
-  
-  // return cartItem.map(({ price }) => price).reduce((value, currentValue) => value + currentValue, 0);
-  // return item.map(({ price }) => price).reduce((sum, i) => sum + i, 0); 
-}
-
-//const invoiceTotal = cartArray.reduce((value, currentValue) => value+currentValue)
 
 export default function CartPage(props) {
 
@@ -44,6 +31,7 @@ export default function CartPage(props) {
   const [itemCount, setItemCount] = useState(1);
 
   const [counter, setCounter] = useState(0);
+  const [amount, setAmount] = useState(0);
 
   const [cart, setCart] = useState([]);
 
@@ -72,6 +60,7 @@ export default function CartPage(props) {
       }
     }
       setCounter(counter);
+      setAmount(amount);
   }
 
   useEffect(() => {
@@ -93,13 +82,14 @@ export default function CartPage(props) {
   }, [setCart]);
 
   function renderCart() {
+
     
     let cartArray = Object.values(cart);
     console.log(cartArray)
     
     return cartArray.map((value, index) => {
       console.log(value)
-      
+    
       
            return (
         <>
@@ -109,9 +99,8 @@ export default function CartPage(props) {
             <TableCell align="left">23 februari, 2022</TableCell> 
             <TableCell align="left">18:30</TableCell> 
             <TableCell align="center">{value.quantity}</TableCell> 
-            <TableCell align="right">{(value.price_data.unit_amount/100)}</TableCell> 
-            {/* <TableCell align="right">{(Object.amount/100)}</TableCell>  */}
-            <TableCell align="right">{subTotal=(value.quantity * value.price_data.unit_amount/100)}</TableCell>   
+            <TableCell align="right">{(value.price_data.unit_amount/100)}</TableCell>  
+            <TableCell align="right">{(value.quantity * value.price_data.unit_amount/100)}</TableCell>
 
             <TableCell align="center"> 
               <Button onClick={() => {
@@ -205,18 +194,12 @@ export default function CartPage(props) {
               
           <TableRow>
             <TableCell>Moms ingår med (25%): </TableCell>
-            {/* <TableCell>510</TableCell>  */}
-            <TableCell align="right">{`${(TAX_RATE * subTotal).toFixed(0)} SEK`}</TableCell>
-            {/* <TableCell align="right">{(invoiceTaxes)}</TableCell>   */}
-            {/* <TableCell>{invoiceTotal}</TableCell> */}
+            <TableCell align="right">{`${(TAX_RATE * amount/100 ).toFixed(0)} SEK`}</TableCell> 
           </TableRow>
          
           <TableRow>
             <TableCell colSpan={2}>Total, SEK:</TableCell>
-            {/* <TableCell>{value.quantity * value.price_data.unit_amount/100}</TableCell> */}
-            <TableCell align="right">{(subTotal)}</TableCell> 
-            {/* <TableCell align="right">2550</TableCell>  */}
-            
+             <TableCell align="right">{(amount/100)}</TableCell>               
           </TableRow>
           </Table>
           </TableBody>
