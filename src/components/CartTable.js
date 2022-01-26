@@ -23,9 +23,9 @@ function ccyFormat(num) {
   return { desc, date, qty, unit, price };
 } */
 
-function subtotal(items) {
+/* function subtotal(items) {
   return items.map(({ price }) => price).reduce((sum, i) => sum + i, 0);
-}
+} */
 
 /*const rows = [
   createRow('Morgan Alling - konsten att hantera besvärliga människor','3 februari 2022, kl 19', 2, 850),
@@ -42,9 +42,9 @@ const invoiceTotal = invoiceTaxes + invoiceSubtotal;  */
 export default function CartTable(props) {
 
 const rows = props.order;
-const invoiceSubtotal = subtotal(rows);
+/* const invoiceSubtotal = subtotal(rows);
 const invoiceTaxes = TAX_RATE * invoiceSubtotal;
-const invoiceTotal = invoiceTaxes + invoiceSubtotal;
+const invoiceTotal = invoiceTaxes + invoiceSubtotal; */
 
   
 
@@ -78,7 +78,7 @@ const invoiceTotal = invoiceTaxes + invoiceSubtotal;
             </TableRow>
           ))}
 
-          <TableRow>
+          {/* <TableRow>
             <TableCell rowSpan={3} />
             <TableCell colSpan={2}>Subtotal</TableCell>
             <TableCell align="right">{ccyFormat(invoiceSubtotal)}</TableCell>
@@ -91,7 +91,7 @@ const invoiceTotal = invoiceTaxes + invoiceSubtotal;
           <TableRow>
             <TableCell colSpan={2}>Total</TableCell>
             <TableCell align="right">{ccyFormat(invoiceTotal)}</TableCell>
-          </TableRow>
+          </TableRow> */}
         </TableBody>
       </Table>
     </TableContainer>
