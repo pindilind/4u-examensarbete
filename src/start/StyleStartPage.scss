@@ -10,72 +10,63 @@ html {
   margin: 0;
 }
 
-/* body {
-    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
-}
-
-@keyframes gradient {
-    0% {
-        background-position: 0% 50%;
-    }
-    50% {
-        background-position: 100% 50%;
-    }
-    100% {
-        background-position: 0% 50%;
-    }
-}
- */
-
-
 .bg {
   
   /* The image used */
  /*  background-image: url("../assets/bakgrund.png"); */
 
   /* Full height */
-  height: 100%;
-  width: 100%;
-
+  /* width: 100vw;
+      height: 100vh;
+ */
   /* Center and scale the image nicely */
-  background-position: center;
+ /*  background-position: center;
   background-repeat: no-repeat;
-  background-size: cover;
+  background-size: cover; */
 
-  .imgTestStyle {
-    width: 30rem;
-  /*   display: flex;
-    align-self: center; */
+ /* .video {
+     object-fit: cover;
+      width: 100%;
+      height: 100%;
+      position: fixed;
+      float: right;
+  } */
 
-  }
+  
 
   .board {
     position: absolute;
     top: 30%;
     width: 100%;
-    /* background-color: rgba(71, 60, 60, 0.671); */
+    background-color: rgba(71, 60, 60, 0.308);
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
 
     .centered {
-      display: flex;
-      justify-content: flex-start;
+    /*   display: flex;
     /*   position: absolute;
       top: 45%;
       left: 20%;
       transform: translate(-50%, -50%); */
-      color: #75A488;
+      /* color: #ffffff;
       font-size: 3rem;
       /* background-color: #ffffff; */
-      font-weight: bolder;
+      /* font-weight: bolder; */ 
 
-      @media screen and (max-width: 480px) {
+      /* @media screen and (max-width: 480px) {
         left: 50%;
         font-size: 1.6rem;
+      } */
+
+      .imgTestStyle {
+        width: 30rem;
+  
+        @media screen and (max-width: 480px) {
+          width: 16rem;
+        }
+    
       }
     }
 
@@ -84,27 +75,42 @@ html {
       /* top: 52%;
       left: 20%;
       transform: translate(-50%, -50%); */
-      color: #75A488;
-      font-size: 1.5rem;
-      /*  background-color: #ffffff; */
-      border-radius: 0.5rem;
+      color: #ffffff;
+      font-size: 1.2rem;
       margin-bottom: 0.5rem;
       text-align: center;
 
       @media screen and (max-width: 480px) {
-        left: 50%;
-        font-size: 1rem;
-        
+        font-size: 0.8rem;
       }
     }
 
     .centeredBtn {
 
       margin-bottom: 0.5rem;
+      display: flex;
+      justify-content: center;
 
       @media screen and (max-width: 480px) {
         left: 50%
       }
+    }
+  }
+  .footerStyleStartPage {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 1rem;
+    color: #ffffff;
+
+    @media screen and (max-width: 480px) {
+      
+    }
+
+    .pStyleStartPage {
+      display: flex;
+      flex-direction: row;
     }
   }
 }
