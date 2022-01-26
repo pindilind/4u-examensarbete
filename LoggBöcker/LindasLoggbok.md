@@ -127,7 +127,9 @@ Imorgon funderar jag om jag ska ta upp lite ändringar med Kalendern som vi sagt
 
 **ONSDAG | 2022-01-26**<br>
 Morgonmöte klockan 9.
-
+Idag känner jag mig inte helt på topp. Något stressad trots att vi sakta men säkert kommer framåt , och något trött.
+Jag har mestadels suttit med stylingen idag. Irriterande att även den känns klurig när man försöker göra rätt. 
+Förhoppningsvis känns det lite bättre imorgon!
 
 ---
 
