@@ -8,7 +8,8 @@ import { FaClipboardList } from 'react-icons/fa';
 import { BsFillHouseDoorFill } from 'react-icons/bs';
 import { FaDoorOpen } from 'react-icons/fa';
 import ModalAboutUs from '../components/AboutUs';
-import DataIntegritetsPolicy from '../components/DataIntegritetsPolicy'
+import DataIntegritetsPolicy from '../components/DataIntegritetsPolicy';
+import CookieInfo from "../components/CookieInfo";
 
 export default function Footer() {
     const [value, setValue] = React.useState('recents');
@@ -20,18 +21,13 @@ export default function Footer() {
     return (
         
         
-        <div sx={{ position: 'fixed', bottom: 0, left: 0, right: 0, backgroundColor: "lightgreen" }} value={value} onChange={handleChange}>
-        <>
-        <div align="center">
-        <p>	&#169; Event4U <br/> 
-        Tel 012-23 45 67 | Email:<a href="mailto:order@event4u.online">order@event4u.online</a>  &nbsp;</p>
         
-        <div align="center" justifyContent="center"><br/>&nbsp; &nbsp; <ModalAboutUs /> | <DataIntegritetsPolicy /> | Om cookies | Våra leveransvillkor</div>
+        
+        <div> &#169; Event4U | Tel 012-23 45 67 | Email: <a href=" mailto:order@event4u.online"> order@event4u.online</a>  &nbsp; |
+        
+         <ModalAboutUs /> | <DataIntegritetsPolicy /> | <CookieInfo />
         </div>
-        
-        
-        </>
-    </div>
+    
     );
 
 }
