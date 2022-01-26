@@ -10,5 +10,29 @@
         "customerId": "cus_L1njnCEXP6jAdT",
         "customerEmail": "susan.isaksson@medieinstitutet.se",
         "metadata": {}
+    },
+    "pi_3KLmpkKydFVV4O5p2QLcvRSC": {
+        "amount": 85000,
+        "customerId": "cus_L1qXdhhd1h5uSW",
+        "customerEmail": "susan.isaksson@medieinstitutet.se",
+        "metadata": {}
+    },
+    "pi_3KLmyRKydFVV4O5p0XilcaDM": {
+        "amount": 170000,
+        "customerId": "cus_L1qgbRoCppi5GG",
+        "customerEmail": "susan.isaksson@medieinstitutet.se",
+        "metadata": {}
+    },
+    "pi_3KLnbRKydFVV4O5p02Mazm7F": {
+        "amount": 170000,
+        "customerId": "cus_L1rKJzaTgrlmOp",
+        "customerEmail": "susan.isaksson@medieinstitutet.se",
+        "metadata": {}
+    },
+    "pi_3KLss3KydFVV4O5p1oj8S9lT": {
+        "amount": 170000,
+        "customerId": "cus_L1wme18jRROSPB",
+        "customerEmail": "susan.isaksson@medieinstitutet.se",
+        "metadata": {}
     }
 }

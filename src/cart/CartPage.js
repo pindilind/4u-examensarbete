@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useStripe } from '@stripe/react-stripe-js';
 
+import Table from '@mui/material/Table';
+import TableHead from '@mui/material/TableHead'; 
+import TableRow from '@mui/material/TableRow'; 
+import TableCell from '@mui/material/TableCell'; 
+import TableBody from '@mui/material/TableBody'; 
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import HeaderInlogged from "../headers/HeaderInlogged";
@@ -10,6 +15,16 @@ import "../App.scss";
 import "./CartPageStyle.scss";
 
 //document.title = 'Varukorgen';
+//TODO Se över räkningen av momsen 25%/20% 
+const TAX_RATE = 0.25; 
+
+function ccyFormat(num) { 
+  return `${num.toFixed(2)}`; 
+}
+
+function subtotal(item) { 
+  return item.map(({ price }) => price).reduce((sum, i) => sum + i, 0); 
+} 
 
 export default function CartPage(props) {
 
@@ -39,10 +54,11 @@ export default function CartPage(props) {
           amount += cartRow.price_data.unit_amount * cartRow.quantity
         }
       }
-      setCounter(counter);
     }
-  }
+    
 
+      setCounter(counter);
+  }
 
   useEffect(() => {
 
@@ -64,18 +80,63 @@ export default function CartPage(props) {
   function renderCart() {
 
     let cartArray = Object.values(cart);
-
-    return cartArray.map(value => {
+    console.log(cartArray)
+    
+    return cartArray.map((value, index) => {
       console.log(value)
+      const invoiceSubtotal = subtotal(value); 
+      const invoiceTaxes = TAX_RATE * invoiceSubtotal; 
+      const invoiceTotal = invoiceTaxes + invoiceSubtotal; 
 
       return (
-        <div key={value}>{value.price_data.product_data.name}</div>
+        <>
+        <TableBody> 
+          <TableRow key={value.desc}> 
+            <TableCell>{value.price_data.product_data.name}</TableCell> 
+            <TableCell align="left">23 februari, 2022</TableCell> 
+            <TableCell align="left">18:30</TableCell> 
+            <TableCell align="left">{value.quantity}</TableCell> 
+            <TableCell align="left">{ccyFormat(value.price_data.unit_amount/100)}</TableCell> 
+            <TableCell align="right">{ccyFormat(value.price_data.unit_amount/100)}</TableCell> 
+            <TableCell align="center"> 
+              <Button onClick={() => {
+                  setItemCount(itemCount + 1);
+              }}
+                >+</Button>
+              <Button onClick={() => {
+                  setItemCount(Math.max(itemCount - 1, 0));
+              }}
+              >-</Button>
+            </TableCell> 
+
+          </TableRow> 
+          <TableRow>
+            <TableCell rowSpan={3} />
+            <TableCell colSpan={2}>Subtotal</TableCell>
+            <TableCell align="right">{ccyFormat(invoiceSubtotal)}</TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>Tax</TableCell>
+            <TableCell align="right">{`${(TAX_RATE * 100).toFixed(0)} %`}</TableCell>
+            <TableCell align="right">{ccyFormat(invoiceTaxes)}</TableCell> 
+          </TableRow>
+          <TableRow>
+            <TableCell colSpan={2}>Total</TableCell>
+            <TableCell align="right">{ccyFormat(invoiceTotal)}</TableCell>
+          </TableRow>
+    
+        </TableBody> 
+         </>
       );
     });
   }
-
+    
+  /* const invoiceSubtotal = subtotal(value); 
+  const invoiceTaxes = TAX_RATE * invoiceSubtotal; 
+  const invoiceTotal = invoiceTaxes + invoiceSubtotal;  */
+  
   async function toCheckOut() {
-
+    
     try {
 
       if (!cart || Object.keys(cart).length === 0) {
@@ -104,7 +165,7 @@ export default function CartPage(props) {
 
   useEffect(() => {
     async function getOrders() {
-     
+
       let order = JSON.parse(localStorage.getItem("session"));
       console.log(order)
 
@@ -123,31 +184,22 @@ export default function CartPage(props) {
         <div className="flexCenterAll ">
           <h2>Din varukorg</h2>
 
-          <Typography className={'productDiv'} component="div">
-            <CartTable />
-            {renderCart()}
-          </Typography>
-
-          <Typography className={'priceDiv'} component="div">
-
-            <Typography className={'totalPrice'}>
-              122000 kr
-
-            </Typography>
-
-            <Typography>
-              <Button onClick={() => {
-                setItemCount(Math.max(itemCount - 1, 0));
-              }}
-              >-</Button>
-              <Button onClick={() => {
-                setItemCount(itemCount + 1);
-              }}
-              >+</Button>
-            </Typography>
-
-          </Typography>
-
+          <>
+            <Table sx={{ minWidth: 350, maxWidth: 700 }} aria-label="spanning table">
+              <TableHead align="center">
+                <TableRow>
+                  <TableCell>Produkt/Event </TableCell>
+                  <TableCell align="left">Datum</TableCell>
+                  <TableCell align="left">Tid</TableCell>
+                  <TableCell align="left">Antal</TableCell>
+                  <TableCell align="left">Pris</TableCell>
+                  <TableCell align="right">Summa, kr</TableCell>
+                </TableRow>
+              </TableHead>
+              {renderCart()}
+            </Table>
+              </>
+              
           <Typography className={'btnDiv'} component="div">
 
             <Button
@@ -159,10 +211,9 @@ export default function CartPage(props) {
 
           </Typography>
 
-        </div>
-      </div>
-
       <Footer />
+      </div>
+      </div>
 
     </>
   );
