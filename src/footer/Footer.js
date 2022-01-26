@@ -8,7 +8,7 @@ import { FaClipboardList } from 'react-icons/fa';
 import { BsFillHouseDoorFill } from 'react-icons/bs';
 import { FaDoorOpen } from 'react-icons/fa';
 
-export default function Footer() {
+export default function FooterStartPage() {
   const [value, setValue] = React.useState('recents');
 
   const handleChange = (event, newValue) => {

@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useStripe } from '@stripe/react-stripe-js';
 
+import Table from '@mui/material/Table';
+import TableHead from '@mui/material/TableHead'; 
+import TableRow from '@mui/material/TableRow'; 
+import TableCell from '@mui/material/TableCell'; 
+import TableBody from '@mui/material/TableBody'; 
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import HeaderInlogged from "../headers/HeaderInlogged";
@@ -8,8 +13,29 @@ import CartTable from "../components/CartTable";
 import Footer from "../footer/Footer";
 import "../App.scss";
 import "./CartPageStyle.scss";
+import { subMilliseconds } from "date-fns";
 
 //document.title = 'Varukorgen';
+//Momssatsen är 25%, men eftersom vi räknar bakåt från totalsumman använder vi 20% 
+const TAX_RATE = 0.20; 
+
+/* function ccyFormat(num) { 
+  return `${num.toFixed(2)}`; 
+} */
+
+// const subTotal = this.state.value && this.state.value.reduce((amount, i) => amount + i, 0)
+
+function subTotal(cartItem) { 
+  return cartItem.map (({ amount }) => amount).reduce((amount, currentAmount) => {
+    return amount + currentAmount;
+  }); 
+  // (this.data.reduce((total, currentValue) => total = total + currentValue.price , 0)); 
+  
+  // return cartItem.map(({ price }) => price).reduce((value, currentValue) => value + currentValue, 0);
+  // return item.map(({ price }) => price).reduce((sum, i) => sum + i, 0); 
+}
+
+//const invoiceTotal = cartArray.reduce((value, currentValue) => value+currentValue)
 
 export default function CartPage(props) {
 
@@ -24,7 +50,7 @@ export default function CartPage(props) {
   const [orders, setOrders] = useState([]);
 
   console.log(cart)
-  console.log(orders)
+ 
 
 
   function updateCounter() {
@@ -41,12 +67,12 @@ export default function CartPage(props) {
           const cartRow = cart[key];
           counter += cartRow.quantity
           amount += cartRow.price_data.unit_amount * cartRow.quantity
+          console.log(amount)
         }
       }
-      setCounter(counter);
     }
+      setCounter(counter);
   }
-
 
   useEffect(() => {
 
@@ -67,20 +93,50 @@ export default function CartPage(props) {
   }, [setCart]);
 
   function renderCart() {
-
+    
     let cartArray = Object.values(cart);
-
-    return cartArray.map(value => {
+    console.log(cartArray)
+    
+    return cartArray.map((value, index) => {
       console.log(value)
+      
+      
+           return (
+        <>
+        <TableBody> 
+          <TableRow key={value.desc}> 
+            <TableCell>{value.price_data.product_data.name}</TableCell> 
+            <TableCell align="left">23 februari, 2022</TableCell> 
+            <TableCell align="left">18:30</TableCell> 
+            <TableCell align="center">{value.quantity}</TableCell> 
+            <TableCell align="right">{(value.price_data.unit_amount/100)}</TableCell> 
+            {/* <TableCell align="right">{(Object.amount/100)}</TableCell>  */}
+            <TableCell align="right">{subTotal=(value.quantity * value.price_data.unit_amount/100)}</TableCell>   
 
-      return (
-        <div key={value}>{value.price_data.product_data.name}</div>
+            <TableCell align="center"> 
+              <Button onClick={() => {
+                  setItemCount(itemCount + 1);
+              }}
+                >+</Button>
+              <Button onClick={() => {
+                  setItemCount(Math.max(itemCount - 1, 0));
+              }}
+              >-</Button>
+            </TableCell> 
+
+          </TableRow> 
+          
+          
+    
+        </TableBody> 
+         </>
       );
     });
   }
-
+    
+  
   async function toCheckOut() {
-
+    
     try {
 
       if (!cart || Object.keys(cart).length === 0) {
@@ -121,6 +177,8 @@ export default function CartPage(props) {
     });
   }, [setOrders]);
 
+  
+
   return (
     <>
       <HeaderInlogged counter={counter} />
@@ -128,31 +186,44 @@ export default function CartPage(props) {
         <div className="flexCenterAll ">
           <h2>Din varukorg</h2>
 
-          <Typography className={'productDiv'} component="div">
-            <CartTable />
-            {renderCart()}
-          </Typography>
+          <>
+          <TableBody>
 
-          <Typography className={'priceDiv'} component="div">
-
-            <Typography className={'totalPrice'}>
-              122000 kr
-
-            </Typography>
-
-            <Typography>
-              <Button onClick={() => {
-                setItemCount(Math.max(itemCount - 1, 0));
-              }}
-              >-</Button>
-              <Button onClick={() => {
-                setItemCount(itemCount + 1);
-              }}
-              >+</Button>
-            </Typography>
-
-          </Typography>
-
+            <Table sx={{ minWidth: 350, maxWidth: 800 }} aria-label="spanning table">
+              <TableHead align="center">
+                <TableRow>
+                  <TableCell>Produkt/Event </TableCell>
+                  <TableCell align="left">Datum</TableCell>
+                  <TableCell align="left">Tid</TableCell>
+                  <TableCell align="left">Antal</TableCell>
+                  <TableCell align="left">Pris</TableCell>
+                  <TableCell align="left">Summa</TableCell>
+                </TableRow>
+                
+              </TableHead>
+              {renderCart()}
+              
+          <TableRow>
+            <TableCell>Moms ingår med (25%): </TableCell>
+            {/* <TableCell>510</TableCell>  */}
+            <TableCell align="right">{`${(TAX_RATE * subTotal).toFixed(0)} SEK`}</TableCell>
+            {/* <TableCell align="right">{(invoiceTaxes)}</TableCell>   */}
+            {/* <TableCell>{invoiceTotal}</TableCell> */}
+          </TableRow>
+         
+          <TableRow>
+            <TableCell colSpan={2}>Total, SEK:</TableCell>
+            {/* <TableCell>{value.quantity * value.price_data.unit_amount/100}</TableCell> */}
+            <TableCell align="right">{(subTotal)}</TableCell> 
+            {/* <TableCell align="right">2550</TableCell>  */}
+            
+          </TableRow>
+          </Table>
+          </TableBody>
+          
+              </>
+              
+        
           <Typography className={'btnDiv'} component="div">
 
             <Button
@@ -164,10 +235,9 @@ export default function CartPage(props) {
 
           </Typography>
 
-        </div>
-      </div>
-
       <Footer />
+      </div>
+      </div>
 
     </>
   );

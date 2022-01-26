@@ -14,32 +14,40 @@ function ccyFormat(num) {
   return `${num.toFixed(2)}`;
 }
 
-function priceRow(qty, unit) {
+/* function priceRow(qty, unit) {
   return qty * unit;
-}
+} */
 
-function createRow(desc, date, qty, unit) {
+/* function createRow(desc, date, qty, unit) {
   const price = priceRow(qty, unit);
   return { desc, date, qty, unit, price };
-}
+} */
 
-function subtotal(items) {
+/* function subtotal(items) {
   return items.map(({ price }) => price).reduce((sum, i) => sum + i, 0);
-}
+} */
 
-const rows = [
+/*const rows = [
   createRow('Morgan Alling - konsten att hantera besvärliga människor','3 februari 2022, kl 19', 2, 850),
   createRow('Tomas Lydahl & Dennis Westerberg - Psyket är alltid friskt...', '8 februari 2022, kl 19', 4, 850),
   createRow('Tina Thörner - allt går faktiskt bra...','13 februari 2022, kl 19', 2, 850),
   createRow('Robert Gustafsson - från vaggan till deadline','3 mars 2022, kl 19', 2, 850),
 
-];
+]; */
 
-const invoiceSubtotal = subtotal(rows);
+/* const invoiceSubtotal = subtotal(rows);
 const invoiceTaxes = TAX_RATE * invoiceSubtotal;
-const invoiceTotal = invoiceTaxes + invoiceSubtotal;
+const invoiceTotal = invoiceTaxes + invoiceSubtotal;  */
 
-export default function CartTable() {
+export default function CartTable(props) {
+
+const rows = props.order;
+/* const invoiceSubtotal = subtotal(rows);
+const invoiceTaxes = TAX_RATE * invoiceSubtotal;
+const invoiceTotal = invoiceTaxes + invoiceSubtotal; */
+
+  
+
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 700 }} aria-label="spanning table">
@@ -70,7 +78,7 @@ export default function CartTable() {
             </TableRow>
           ))}
 
-          <TableRow>
+          {/* <TableRow>
             <TableCell rowSpan={3} />
             <TableCell colSpan={2}>Subtotal</TableCell>
             <TableCell align="right">{ccyFormat(invoiceSubtotal)}</TableCell>
@@ -78,12 +86,12 @@ export default function CartTable() {
           <TableRow>
             <TableCell>Tax</TableCell>
             <TableCell align="right">{`${(TAX_RATE * 100).toFixed(0)} %`}</TableCell>
-            <TableCell align="right">{ccyFormat(invoiceTaxes)}</TableCell>
+            <TableCell align="right">{ccyFormat(invoiceTaxes)}</TableCell> 
           </TableRow>
           <TableRow>
             <TableCell colSpan={2}>Total</TableCell>
             <TableCell align="right">{ccyFormat(invoiceTotal)}</TableCell>
-          </TableRow>
+          </TableRow> */}
         </TableBody>
       </Table>
     </TableContainer>
