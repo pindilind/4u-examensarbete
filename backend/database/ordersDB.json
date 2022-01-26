@@ -1,14 +1,1 @@
-{
-    "1": {
-        "customerId": 5,
-        "customerEmail": "test@test.se",
-        "session.amount_total": 850,
-        "metadata": ""
-    },
-    "pi_3KLk7oKydFVV4O5p11qNCuJs": {
-        "amount": 85000,
-        "customerId": "cus_L1njnCEXP6jAdT",
-        "customerEmail": "susan.isaksson@medieinstitutet.se",
-        "metadata": {}
-    }
-}
+{"1":{"customerId":5,"customerEmail":"test@test.se","session.amount_total":850,"metadata":""},"pi_3KLk7oKydFVV4O5p11qNCuJs":{"amount":85000,"customerId":"cus_L1njnCEXP6jAdT","customerEmail":"susan.isaksson@medieinstitutet.se","metadata":{}},"pi_3KLmpkKydFVV4O5p2QLcvRSC":{"amount":85000,"customerId":"cus_L1qXdhhd1h5uSW","customerEmail":"susan.isaksson@medieinstitutet.se","metadata":{}},"pi_3KLmyRKydFVV4O5p0XilcaDM":{"amount":170000,"customerId":"cus_L1qgbRoCppi5GG","customerEmail":"susan.isaksson@medieinstitutet.se","metadata":{}},"pi_3KLnbRKydFVV4O5p02Mazm7F":{"amount":170000,"customerId":"cus_L1rKJzaTgrlmOp","customerEmail":"susan.isaksson@medieinstitutet.se","metadata":{}},"pi_3KLss3KydFVV4O5p1oj8S9lT":{"amount":170000,"customerId":"cus_L1wme18jRROSPB","customerEmail":"susan.isaksson@medieinstitutet.se","metadata":{}},"pi_3KM8edKydFVV4O5p1FIzhtwl":{"amount":255000,"customerId":"cus_L2D5WIWWlX67WV","customerEmail":"susan.isaksson@medieinstitutet.se","metadata":{}}}

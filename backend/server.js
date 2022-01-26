@@ -11,6 +11,7 @@ const port = 3005;
 
 app.use(cors());
 app.use("/", express.json('public'));
+app.use("/images", express.static('images'));
 
 // Hämtar alla produkter
 app.get("/products", (req, res) => {
@@ -175,8 +176,7 @@ app.post('/session/verify', async (req, res) => {
         amount: session.amount_total,
         customerId: session.customer,
         customerEmail: session.customer_details.email,
-        metadata: session.metadata
-
+        metadata: session.metadata 
       }
       res.status(200).json({ paid: true })
       fs.writeFileSync('./database/ordersDB.json', JSON.stringify(orderList))

@@ -47,6 +47,7 @@ function StartPage() {
         />
       
           </div>
+          <div marginTop="20em"><h2>Välkommen till Event 4U!</h2></div>
           <div className={"centeredText"}> Vi erbjuder digitala föreläsningar <br />​-  i realtid eller inspelade - <br /> ​för att Underhålla, Utveckla, Utbilda och Umgås.​ </div>
           <div>
             Skapa ett konto och se hela vårt utbud direkt, eller börja med att läsa lite mer här <ModalAboutUs />
