@@ -16,7 +16,11 @@ export default function Footer() {
   };
 
   return (
-    <BottomNavigation sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} value={value} onChange={handleChange}>
+    
+    <BottomNavigation 
+    sx={{ position: 'fixed', bottom: 0, left: 0, right: 0 }} 
+    value={value} onChange={handleChange}
+    >
 
       <BottomNavigationAction
         component={Link}

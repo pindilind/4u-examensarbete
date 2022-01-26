@@ -11,7 +11,7 @@ import MakeRequest from '../MakeRequest';
 
 import HeaderLogga from '../headers/HeaderLogga';
 
-function CreateAccount() {
+function CreateAccount(props) {
 
   const [redirect, setRedirect] = useState(false);
 
@@ -65,15 +65,19 @@ function CreateAccount() {
       );
       console.log(status)
 
-     /*  if (status.customerCreated === true) {
+      if (status.customerCreated === true) {
         setRedirect(true);
-      } else {
+      } /* else { */
         /* setUserAvailable(false); */
    /*    } */
 
     //} else {
       /* setPasswordError(true); */
     /* } */
+  }
+
+  if (redirect === true) {
+    return <Redirect to="/login" />;
   }
 
   return (

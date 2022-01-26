@@ -12,26 +12,79 @@ import Footer from "../footer/Footer";
 import '../App.scss';
 
 function UserInfo() {
-  const [users, setUsers] = useState([])
 
-    
+  const [firstname, setFirstnameChange] = useState('');
+  const handleFirstnameChange = (event) => {
+    setFirstnameChange(event.target.value);
+    /* setSaved(false); */
+  }
+
+  const [lastname, setLastnameChange] = useState('');
+  const handleLastnameChange = (event) => {
+    setLastnameChange(event.target.value);
+    /* setSaved(false); */
+  }
+
+  const [phoneNumber, setPhoneNumberChange] = useState('');
+  const handlePhoneNumberChange = (event) => {
+    setPhoneNumberChange(event.target.value);
+    /*  setSaved(false); */
+  }
+
+  const [email, setEmailChange] = useState('');
+  const handleEmailChange = (event) => {
+    setEmailChange(event.target.value);
+    /* setSaved(false); */
+  }
+
+  const [userName, setUserNameChange] = useState('');
+  const handleUserNameChange = (event) => {
+    setUserNameChange(event.target.value);
+    /* setSaved(false); */
+  }
+
+  const [passwordOne, setPasswordOne] = useState('');
+  const handlePasswordOne = (event) => {
+    setPasswordOne(event.target.value);
+  };
+
+  const [passwordTwo, setPasswordTwo] = useState('');
+  const handlePasswordTwo = (event) => {
+    setPasswordTwo(event.target.value);
+  };
+
+  /* const [passwordError, setPasswordError] = useState(false); */
+
+
   useEffect(() => {
 
-    async function getUsers() {
-      const status = await MakeRequest("http://localhost:3005/users", "GET")
+    async function getUser() {
 
-      return status
-      
+      const userId = sessionStorage.getItem("userId");
+      console.log(userId)
+
+      const status = await MakeRequest("http://localhost:3005/users?id=" + userId, "GET")
+      console.log(status)
+
+      if (status) {
+        setFirstnameChange(status.firstname)
+        setLastnameChange(status.lastname)
+        setPhoneNumberChange(status.phoneNumber)
+        setEmailChange(status.email)
+        setUserNameChange(status.userName)
+      }
     }
 
-    getUsers().then(result => {
-      setUsers(result);
+    getUser()
 
-    });
+  }, [
+    setFirstnameChange,
+    setLastnameChange,
+    setPhoneNumberChange,
+    setEmailChange,
+    setUserNameChange
+  ]);
 
-
-  }, [setUsers]);
-  
 
   return (
     <>
@@ -54,9 +107,20 @@ function UserInfo() {
               <TextField
                 className="inputCustomerInfo"
                 label="Firstname"
-                /* value={firstName} */
+                value={firstname}
                 size="small"
-                /* onChange={} */
+                onChange={handleFirstnameChange}
+                sx={{
+                  '& > :not(style)': { width: '17rem' }
+                }}
+
+              />
+              <TextField
+                className="inputCustomerInfo"
+                label="Firstname"
+                value={lastname}
+                size="small"
+                onChange={handleLastnameChange}
                 sx={{
                   '& > :not(style)': { width: '17rem' }
                 }}
@@ -67,8 +131,8 @@ function UserInfo() {
                 label="Phonenumber"
                 color="success"
                 size="small"
-                /* value={phoneNumber}
-                onChange={} */
+                value={phoneNumber}
+                onChange={handlePhoneNumberChange}
                 sx={{
                   '& > :not(style)': { width: '17rem' }
                 }}
@@ -78,8 +142,8 @@ function UserInfo() {
                 label="Email"
                 color="success"
                 size="small"
-                /* value={email} */
-                /* onChange={} */
+                value={email}
+                onChange={handleEmailChange}
                 sx={{
                   '& > :not(style)': { width: '17rem' }
                 }}
@@ -90,7 +154,8 @@ function UserInfo() {
                 disabled
                 size="small"
                 label="Username"
-                /* value={} */
+                value={userName}
+                onChange={handleUserNameChange}
                 sx={{
                   '& > :not(style)': { width: '17rem' }
                 }}
@@ -102,8 +167,8 @@ function UserInfo() {
                 color="success"
                 id="passwordInputOne"
                 type="password"
-                /* value={passwordOne} */
-                /* onChange={} */
+                value={passwordOne}
+                onChange={handlePasswordOne}
                 autoComplete="current-password"
                 sx={{
                   '& > :not(style)': { width: '17rem' }
@@ -116,8 +181,8 @@ function UserInfo() {
                 color="success"
                 id="passwordInputTwo"
                 type="password"
-                /* value={passwordTwo} */
-                /* onChange={} */
+                value={passwordTwo}
+                onChange={handlePasswordTwo}
                 autoComplete="current-password"
                 sx={{
                   '& > :not(style)': { width: '17rem' }

@@ -31,12 +31,25 @@ app.get("/categories", (req, res) => {
 
 // Hämtar ut User
 app.get('/users', async (req, res) => {
+  // Hämtar
   let raw = fs.readFileSync("./database/userDB.json") //hämtar url till jsonfil
   console.log(raw)
-  let userList = JSON.parse(raw)
-  res.json(Object.values(userList));
-  console.log(userList);
-  /* res.json(productCategoryList)  */
+  let userList = JSON.parse(raw);
+
+  // Kollar om det finns ett ID
+  if (req.query.id) {
+    const user = userList[req.query.id]
+
+    // Skickar svar till frontend ( 1 användare )
+    res.json(user)
+
+  } else {
+
+    // Lämnar tillbaka svar ( hela listan med användare )
+    res.json(Object.values(userList));
+    console.log(userList);
+
+  }
 
 });
 
@@ -84,7 +97,10 @@ app.post('/users/create', async (req, res) => {
 
     // Skickar ett OK meddekande till respons
     fs.writeFileSync("./database/userDB.json", JSON.stringify(userData));
-    res.json(userData);
+    res.json({
+      message: `customer \'${userData.highestId}\' created.`,
+      customerCreated: true
+    });
 
   } catch (err) {
     console.error(err)
@@ -141,7 +157,7 @@ app.get('/orders', async (req, res) => {
   console.log(raw)
   let orderList = JSON.parse(raw);
   res.json(orderList);
-  
+
 })
 
 // Varifierar köpet 
