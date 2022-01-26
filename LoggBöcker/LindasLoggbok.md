@@ -119,11 +119,15 @@ Nu på eftermiddagen så har jag suttit med userInfo, men har ännu inte lyckats
 
 **TISDAG | 2022-01-25**<br>
 Morgonmöte klockan 9.
+Äntligen, informationen från den inloggade användaren finns på plats i UserInfo. Ett steg närmare. 
+Vi har haft problem med att rendera informationen från Stripe igen. Deras Object struktur är definitivt inte att leka med. 
+Imorgon funderar jag om jag ska ta upp lite ändringar med Kalendern som vi sagt att vi ska ha med i projektet. Förhoppningsvis tycker Susan samma som mig :)
 
 ---
 
 **ONSDAG | 2022-01-26**<br>
 Morgonmöte klockan 9.
+
 
 ---
 
