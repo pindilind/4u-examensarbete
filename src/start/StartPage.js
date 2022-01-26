@@ -68,9 +68,7 @@ function StartPage() {
           </div>
         </div>
       </div>
-      <footer>
-        < Footer />
-      </footer>
+     
     </>
   );
 }
