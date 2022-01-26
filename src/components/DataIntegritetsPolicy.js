@@ -43,9 +43,11 @@ export default function DataIntegritetsPolicy() {
 
     return (
         <div>
-            <button type="button" onClick={handleOpen}>
+            <p type="button" onClick={handleOpen}>
                 Data- och Integritetspolicy
-            </button>
+        
+      </p>
+            
             <StyledModal
                 aria-labelledby="unstyled-modal-title"
                 aria-describedby="unstyled-modal-description"
@@ -56,12 +58,8 @@ export default function DataIntegritetsPolicy() {
                 <Box sx={style}>
                     <h5 id="unstyled-modal-title">Event4U - DATA- OCH INTEGRITETSPOLICY </h5>
                     <p id="unstyled-modal-description">
-
-
                         Giltig från och med 2018-05-22 (senast uppdaterad 2020-01-26)
-
-                        Integritetspolicy - Event4U
-
+                       
                         Event4U har erfarenhet av att lagra och hantera data samt information om våra användare/medlemmar
                         och kunder. Det är naturligtvis viktigt för oss att du känner förtroende för att dessa uppgifter
                         hanteras på ett tryggt och bra sätt.
