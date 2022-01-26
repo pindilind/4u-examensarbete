@@ -2,7 +2,12 @@ import * as React from 'react';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { TiThMenu} from 'react-icons/ti';
+import { TiThMenu } from 'react-icons/ti';
+
+import "../headers/HeaderInloggStyle.scss";
+
+import { makeStyles } from '@mui/styles';
+
 
 const options = [
   'Alla event',
@@ -13,9 +18,20 @@ const options = [
   'Vetenskap',
 ];
 
+// hämta  alla , fltrerar med array på categoriID, lämna tillbaks och renderar
 const ITEM_HEIGHT = 48;
 
+const useStyles = makeStyles({
+  root: {
+    color: '#ffffff',
+  }
+
+});
+
 export default function LongMenu() {
+
+  const classes = useStyles()
+
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -28,6 +44,7 @@ export default function LongMenu() {
   return (
     <div>
       <IconButton
+      className={classes.root}
         aria-label="more"
         id="long-button"
         aria-controls={open ? 'long-menu' : undefined}
@@ -35,7 +52,7 @@ export default function LongMenu() {
         aria-haspopup="true"
         onClick={handleClick}
       >
-        <TiThMenu />
+        <TiThMenu className={classes.root} />
       </IconButton>
       <Menu
         id="long-menu"

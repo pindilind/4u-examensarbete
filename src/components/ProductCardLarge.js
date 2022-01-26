@@ -78,7 +78,7 @@ export default function ProductCardLarge(props) {
   const productKey = product.price_data.product_data.name;
 
   const addProduct = async () => {
-    
+
     let cart = JSON.parse(localStorage.getItem("cart"));
 
     if (cart == null) {
@@ -100,7 +100,7 @@ export default function ProductCardLarge(props) {
   return (
 
     <Card className={classes.cardStylingLarge}>
-      <CardActionArea className={classes.cardActionStyle}>
+      <div className={classes.cardActionStyle}>
         <CardMedia className={classes.cardMediaStyle}
           component="img"
           image=""
@@ -119,7 +119,7 @@ export default function ProductCardLarge(props) {
           <Typography className={classes.cardDescStyleTwo}>
             {product.description}
           </Typography>
-         {/*  <Typography>
+          {/*  <Typography>
           Datum: {product.price_data.product_data.date} ||
             Klockan: {product.price_data.product_data.time} ||
             Pris: {product.price_data.unit_amount /100} kr
@@ -127,15 +127,8 @@ export default function ProductCardLarge(props) {
 
         </CardContent>
 
-        
-  
-
-         
-         {/*  <CardActions className={classes.buttonDiv}>
-        </CardActions> */}
-
-      </CardActionArea>
-      <Button
+        <div className={classes.buttonDiv}>
+          <Button
             className={classes.buttonStyle}
             onClick={addProduct}
             size="small"
@@ -143,7 +136,11 @@ export default function ProductCardLarge(props) {
             variant="contained"
             disableElevation>
             Lägg till i varukorgen
-          </Button> 
+          </Button>
+        </div>
+
+
+      </div>
     </Card>
   );
 }

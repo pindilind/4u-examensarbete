@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
-import useFetch from "react-fetch-hook";
 
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
-import FormControlLabel from '@mui/material/FormControlLabel';
+
 import MakeRequest from '../MakeRequest';
 
 import HeaderInlogged from "../headers/HeaderInlogged";

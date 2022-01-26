@@ -1,11 +1,11 @@
 import React from "react";
 
-import { makeStyles } from '@mui/styles';
-
 import HeaderInlogged from "../headers/HeaderInlogged";
 import Footer from "../footer/Footer";
 
 import "../App.scss";
+
+import { makeStyles } from '@mui/styles';
 
 const useStyles = makeStyles({
   cancelTitle: {

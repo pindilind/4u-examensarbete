@@ -5,9 +5,42 @@ import Typography from '@mui/material/Typography';
 import HeaderInlogged from "../headers/HeaderInlogged";
 import Footer from "../footer/Footer";
 
+import { makeStyles } from '@mui/styles';
+
 import "../App.scss";
 
+const useStyles = makeStyles({
+  cancelTitle: {
+    paddingTop: "1.5rem",
+    paddingRight: "1.5rem",
+    paddingLeft: "1.5rem",
+    fontWeight: "bold",
+
+    '@media (max-width: 480px)': {
+      minWidth: '100%',
+    }
+  },
+  cancelP: {
+    paddingRight: "1.5rem",
+    paddingLeft: "1.5rem",
+    marginTop: 0,
+  },
+  emailDiv: {
+    background: "#75A488",
+    borderRadius: "1.5rem"
+  },
+  emailP: {
+    paddingRight: "1.5rem",
+    paddingLeft: "1.5rem",
+    paddingTop: "1rem",
+  },
+
+
+});
+
 function SuccessPage() {
+
+  const classes = useStyles()
 
   async function verify() {
     try {
@@ -53,11 +86,14 @@ function SuccessPage() {
       <HeaderInlogged />
       <div className="wrappsAllContent">
         <div className="flexCenterAll ">
-          <h1>Ditt köp gick igenom!</h1>
 
-          <Typography component="div">
-
-          </Typography>
+          <div>
+            <h3 className={classes.cancelTitle}>Tack för ditt köp!</h3>
+            <p className={classes.cancelP}>Text Text TExt</p>
+          </div>
+          <div className={classes.emailDiv}>
+            <p className={classes.emailP}>order@event4U.online</p>
+          </div>
 
         </div>
       </div>
