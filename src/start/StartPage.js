@@ -8,7 +8,8 @@ import PexelsVideo from "../assets/pexels-mikael-blomkvist-6561453.mp4";
 import ModalAboutUs from "../components/AboutUs";
 import FooterStartPage from "../footer/FooterStartPage"
 import CookieInfo from "../components/CookieInfo";
-import LogoTest from "../assets/LogoTest.svg";
+/* import LogoTest from "../assets/LogoTest.svg"; */
+import NewLogo from "../assets/newLogo.svg";
 
 import "./StyleStartPage.scss";
 import DataIntegritetsPolicy from "../components/DataIntegritetsPolicy";
@@ -55,7 +56,7 @@ function StartPage() {
           <div className={"centered"}>
 
             <img className={"imgTestStyle"}
-              src={LogoTest}
+              src={NewLogo}
               alt="logoTest"
             />
 
