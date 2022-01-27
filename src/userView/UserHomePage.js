@@ -14,6 +14,14 @@ import './UserHomeStyle.scss';
 
 import { makeStyles } from '@mui/styles';
 
+const options = [
+  'Alla event',
+  'Affärsutveckling',
+  'Inspiration',
+  'Psykologi',
+  'Underhållning',
+  'Vetenskap',
+];
 
 const useStyles = makeStyles({
   style: {
@@ -30,8 +38,10 @@ function UserHomePage(props) {
   const [products, setProducts] = useState([]);
 
   const [counter, setCounter] = useState(0);
+  const [categories, setCategories] = useState([]);
 
   const product = props.product;
+  
 
   useEffect(() => {
 
@@ -71,6 +81,26 @@ function UserHomePage(props) {
     }
   }
 
+ /*  function selectCategory(props) {
+    const category = options;
+    let choice = category;
+
+    console.log(category)
+    console.log(choice)
+  
+    if (choice === 'Alla event')
+      return (
+       console.log(choice)
+       );
+     if(choice === 'Affärsutveckling'){
+       return (
+         console.log(choice)
+       )
+     }
+    
+  } */
+  
+
 
   function renderProducts() {
 
@@ -100,6 +130,10 @@ function UserHomePage(props) {
           <div>
             <Caruselle />
           </div>
+         {/*  <div>
+            <h4>Kategori: </h4>{selectCategory()}
+           
+          </div> */}
 
           <div>
             {renderProducts()}
