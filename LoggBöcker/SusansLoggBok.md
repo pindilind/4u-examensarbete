@@ -79,7 +79,7 @@ Samla
 Samla
 
 ### TORSDAG | 2022-01-27
-Samla
+Morgonmöte kl 09. Idag var vårt mission att titta på vår orderdatabas och uppgifterna vi ville ha in där som även påverkar Stripe. Vi började med Stripe, som egentligen fungerade, men att vi saknar vissa uppgifter som vi vill skicka med. Hela dagen gick till att försöka hitta lösningen, vi kom fram 99% och fick inte rikigt ihop det. Men vi avslutar dagen med att ta tillbaka fungerande kod och se efter en annan lösning. Känslan är att hela dagen är lite bortkastad då vi egentligen inte kommit framåt och fått klart det vi tänkt. Frustration och trötthet!
 
 ### FREDAG | 2022-01-28
 Samla
