@@ -11,9 +11,6 @@ import { makeStyles } from '@mui/styles';
 import MakeRequest from '../MakeRequest';
 import ProductCardLarge from "./ProductCardLarge";
 
-
-
-
 const useStyles = makeStyles({
   cardStyling: {
     display: "flex",
@@ -69,7 +66,7 @@ export default function ProductCardSmall(props) {
   const handleClose = () => setOpen(false);
 
   const product = props.product;
- 
+
   return (
 
     <Card className={classes.cardStyling}>
@@ -77,10 +74,10 @@ export default function ProductCardSmall(props) {
         component="img"
       >
 
-        {/*   <img
-          src={product.metadata.img}
+        {/* <img
+          src={product.img}
           alt="carImg"
-        /> */}
+        />  */}
 
       </CardMedia>
 
@@ -90,7 +87,7 @@ export default function ProductCardSmall(props) {
 
           <Typography className={classes.typoStyle} >
 
-            <Button onClick={handleOpen}>{product.price_data.product_data.name} </Button>
+            <Button onClick={handleOpen}>{product.productTitle} </Button>
             <Modal
               keepMounted
               open={open}
@@ -106,7 +103,7 @@ export default function ProductCardSmall(props) {
 
 
           </Typography>
-        {/*   <Typography>
+          {/*   <Typography>
             Datum: {product.price_data.product_data.date} ||
             Klockan: {product.price_data.product_data.time} ||
             Pris: {product.price_data.unit_amount / 100} kr

@@ -1,25 +1,96 @@
 import React, { useEffect, useState } from "react";
 
-import HeaderInlogged from "../headers/HeaderInlogged";
-import ProductCardSmall from "../components/ProductCardSmall";
-import Caruselle from '../components/Caruselle';
-
-import MakeRequest from '../MakeRequest';
-
-import Footer from "../footer/Footer";
-import Avatar from "../components/Avatar";
-
-import '../App.scss';
-import './UserHomeStyle.scss';
-
 import { makeStyles } from '@mui/styles';
 
 
+import HeaderInlogged from "../headers/HeaderInlogged";
+import ProductCardSmall from "../components/ProductCardSmall";
+import CalenderModal from '../components/CalenderModal';
+import Caruselle from '../components/Caruselle';
+import '../App.scss';
+import './UserHomeStyle.scss';
+
+import MakeRequest from '../MakeRequest';
+
+/* import data from '../api/test.json'; */
+
+import Footer from "../footer/Footer";
+import Search from './Search';
+import LongMenu from "../components/DropDown";
+import Avatar from "../components/Avatar";
+
+
+
 const useStyles = makeStyles({
-  style: {
+  cardStyling: {
+    display: "flex",
+    overfloWrap: "anywhere",
+    minWidth: 500,
+    boxShadow: "none",
+    color: 'white',
+    /* marginTop: '1rem', */
+    padding: 1,
+
+    '@media (max-width: 480px)': {
+      minWidth: '100%',
+
+    }
+  },
+
+  cardMediaStyle: {
+
+    width: 100,
+    height: 100,
+    backgroundColor: '#75A488',
+  },
+
+  boxStyle: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+
+  cardBoxStyle: {
+    display: 'flex',
+    flexDirection: 'column',
+    flexWrap: 'wrap',
+    height: 110,
+    marginTop: 0,
+  },
+
+  typoStyle: {
+
+    fontFamily: "Arial",
+    fontWeight: "1",
+    fontSize: "0.6rem",
+    textAlign: "left",
+  },
+
+  renderProductDiv: {
+    display: 'flex',
+    flexDirection: 'column',
+    flexWrap: 'wrap',
+    width: '100%',
+    color: 'red',
+    fontSize: 1,
   }
 
+
+
 });
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+
+  p: 4,
+
+  '@media (max-width: 480px)': {
+    minWidth: 300,
+  }
+
+};
 
 
 
@@ -30,6 +101,8 @@ function UserHomePage(props) {
   const [products, setProducts] = useState([]);
 
   const [counter, setCounter] = useState(0);
+
+  const [amount, setAmount] = useState(0);
 
   const product = props.product;
 
@@ -64,10 +137,11 @@ function UserHomePage(props) {
         if (Object.hasOwnProperty.call(cart, key)) {
           const cartRow = cart[key];
           counter += cartRow.quantity
-          /* amount += cartRow.price_data.unit_amount * cartRow.quantity */
+          amount += cartRow.price * cartRow.quantity
         }
       }
       setCounter(counter);
+      setAmount(amount);
     }
   }
 
@@ -88,31 +162,30 @@ function UserHomePage(props) {
       <div className={"wrappsAllContent"}>
         <div className={"flexCenterAll"}>
 
-          <div className={"avatarUser"}>
-            <Avatar />
-
-            <div>
-              <h3>Good Afternoon</h3>
-              <h3>USER</h3>
-            </div>
+          <div className={"longAndSearchDiv"}>
+            <Search />
           </div>
 
-          <div>
+          <div className={"userTitle"}>
+            <h3>Good Afternoon</h3>
+            <h3>USER</h3>
+          </div>
+
+          <div className={"caruselleDiv"}>
             <Caruselle />
           </div>
+
 
           <div>
             {renderProducts()}
           </div>
 
         </div>
-
       </div>
-      <footer>
-        < Footer />
-      </footer>
-    </>
 
+      < Footer />
+
+    </>
 
   );
 }
