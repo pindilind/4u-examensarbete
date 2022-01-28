@@ -14,7 +14,6 @@ const useStylesLarge = makeStyles({
     overfloWrap: "anywhere",
     maxWidth: '50%',
     boxShadow: "none",
-    backgroundColor: '#292B28',
     color: '#75A488',
     marginTop: '2rem',
     padding: '1',
@@ -28,8 +27,8 @@ const useStylesLarge = makeStyles({
   cardMediaStyle: {
     height: 200,
     width: '100%',
-    backgroundColor: '#75A488',
     display: 'flex',
+    objectFit: 'cover',
   },
 
   cardTitleStyle: {
@@ -37,7 +36,8 @@ const useStylesLarge = makeStyles({
     textAlign: "center",
     color: '#75A488',
     display: 'flex',
-    flexDirection: 'column'
+    flexDirection: 'column',
+    overflow: 'auto',
   },
 
   cardDescStyleOne: {
@@ -59,6 +59,11 @@ const useStylesLarge = makeStyles({
     alignSelf: "center",
   },
 
+  buttonDiv: {
+    display: 'flex',
+    justifyContent: 'center',
+    marginBottom: '1rem',
+  },
   buttonStyle: {
     height: 25,
     padding: 1,
@@ -70,7 +75,9 @@ const useStylesLarge = makeStyles({
 export default function ProductCardLarge(props) {
 
   const classes = useStylesLarge()
+
   const [cart, setCart] = useState([]);
+
   const [itemIndex, setItemIndex] = useState(1);
 
   const product = props.product;
@@ -103,13 +110,19 @@ export default function ProductCardLarge(props) {
       <div className={classes.cardActionStyle}>
         <CardMedia className={classes.cardMediaStyle}
           component="img"
-          image=""
+          image={product.img}
           alt=""
         />
         <CardContent className={classes.cardTitleStyle}>
 
           <Typography variant="h6">
             {product.productTitle}
+          </Typography>
+
+          <Typography>
+            Datum: {product.date} ||
+            Klockan: {product.time} ||
+            Pris: {product.price} kr
           </Typography>
 
           <Typography className={classes.cardDescStyleOne}>
@@ -119,11 +132,6 @@ export default function ProductCardLarge(props) {
           <Typography className={classes.cardDescStyleTwo}>
             {product.description}
           </Typography>
-          {/*  <Typography>
-          Datum: {product.price_data.product_data.date} ||
-            Klockan: {product.price_data.product_data.time} ||
-            Pris: {product.price_data.unit_amount /100} kr
-          </Typography> */}
 
         </CardContent>
 

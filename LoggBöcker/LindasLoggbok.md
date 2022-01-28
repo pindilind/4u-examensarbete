@@ -135,12 +135,15 @@ Förhoppningsvis känns det lite bättre imorgon!
 
 **TORSDAG | 2022-01-27**<br>
 Morgonmöte klockan 9.
+Stripe-strul på morgonen. Vi bestämde oss för att göra om databasen för att få ut annan data än den stripe angiver. På eftermiddag/kväll fick vi löst det. En skön känsla! 
+Vi har bestämt att vi ska börja prioritera delar som är viktigare i projektet nu när det snart bara är en vecka kvar.
 
 ---
 
 **FREDAG | 2022-01-28**<br>
 Morgonmöte klockan 9.
-
+Dagen bestod av att få ut order id på SuccsessPage samt att göra klart orderPage. Jag lyckades tillslut få ut order id och susan blev nästan klar med orderpage. Det är något litet som saknas nu igen.
+Jag har renderat den nya informationen på sidan för respektive produkt. Skönt! 
 
 ---
 

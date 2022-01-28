@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "img": "morgan_alling_2022",
+    "img": "https://static.atikko.se/eventimages/img_c68bd3dbc7c58791ca5a84e12c920965.jpg",
     "productTitle": "Morgan Alling - konsten att hantera besvärliga människor",
     "description": "Text....",
     "categoriId": 1,
@@ -11,18 +11,17 @@
   },
   {
     "id": 2,
-    "img": "dennis_tomas.jpg",
+    "img": "https://images.squarespace-cdn.com/content/v1/5fd12fffd7a2de4664aad9fe/1639512331367-48ZPG4ZXW1W7P4WV44VD/Tomas+and+Dennis.jpg",
     "productTitle": "Tomas Lydahl & Dennis Westerberg - Psyket är alltid friskt, oförstörbart",
     "description": "Text....",
     "categoriId": 1,
     "date": "20220218",
     "time": "1800",
     "price": "850"
-
   },
   {
     "id": 3,
-    "img": "tina_thorner_2016.jpg",
+    "img": "https://www.talarforum.se/media/talarforum_se/img/40_21/1200x630/tina_thorner_1877.jpg",
     "productTitle": "Tina Thörner talar om att allt faktiskt går, bara man tror på det och vill tillräckligt mycket",
     "description": "Text....",
     "categoriId": 2,
@@ -32,7 +31,7 @@
   },
   {
     "id": 4,
-    "img": "robert_gustafsson_1931.jpg",
+    "img": "https://www.talarforum.se/media/talarforum_se/img/40_21/500x263/robert_gustafsson_1931.jpg",
     "productTitle": "Robert Gustafsson - från vaggan till deadline",
     "description": "Text....",
     "categoriId": 2,

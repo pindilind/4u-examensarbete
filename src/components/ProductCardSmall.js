@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -6,23 +6,22 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
-// import { Box } from '@mui/material';
+
 import { makeStyles } from '@mui/styles';
-import MakeRequest from '../MakeRequest';
+
 import ProductCardLarge from "./ProductCardLarge";
 
 const useStyles = makeStyles({
   cardStyling: {
     display: "flex",
     overfloWrap: "anywhere",
-    minWidth: 500,
     boxShadow: "none",
-    backgroundColor: '#292B28',
     color: 'white',
     padding: '1',
+    marginBottom: "1rem",
 
     '@media (max-width: 480px)': {
-      minWidth: '100%',
+      minWidth: '90%',
     }
   },
 
@@ -62,7 +61,9 @@ export default function ProductCardSmall(props) {
   const classes = useStyles()
 
   const [open, setOpen] = React.useState(false);
+
   const handleOpen = () => setOpen(true);
+
   const handleClose = () => setOpen(false);
 
   const product = props.product;
@@ -70,14 +71,12 @@ export default function ProductCardSmall(props) {
   return (
 
     <Card className={classes.cardStyling}>
+
       <CardMedia className={classes.cardMediaStyle}
         component="img"
+        src={product.img}
+        alt="carImg"
       >
-
-        {/* <img
-          src={product.img}
-          alt="carImg"
-        />  */}
 
       </CardMedia>
 
@@ -87,7 +86,9 @@ export default function ProductCardSmall(props) {
 
           <Typography className={classes.typoStyle} >
 
-            <Button onClick={handleOpen}>{product.productTitle} </Button>
+            <Button onClick={handleOpen}>
+              {product.productTitle}
+            </Button>
             <Modal
               keepMounted
               open={open}
@@ -103,11 +104,11 @@ export default function ProductCardSmall(props) {
 
 
           </Typography>
-          {/*   <Typography>
-            Datum: {product.price_data.product_data.date} ||
-            Klockan: {product.price_data.product_data.time} ||
-            Pris: {product.price_data.unit_amount / 100} kr
-          </Typography> */}
+          <Typography>
+            Datum: {product.date} ||
+            Klockan: {product.time} ||
+            Pris: {product.price} kr
+          </Typography>
 
         </CardContent>
 
