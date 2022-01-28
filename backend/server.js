@@ -155,7 +155,8 @@ app.get('/orders', async (req, res) => {
   let raw = fs.readFileSync('database/ordersDB.json')
   console.log(raw)
   let orderList = JSON.parse(raw);
-  res.json(orderList);
+  res.json(Object.values(orderList));
+  //res.json(orderList);
 
 })
 
