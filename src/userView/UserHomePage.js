@@ -20,6 +20,14 @@ import LongMenu from "../components/DropDown";
 import Avatar from "../components/Avatar";
 
 
+const options = [
+  'Alla event',
+  'Affärsutveckling',
+  'Inspiration',
+  'Psykologi',
+  'Underhållning',
+  'Vetenskap',
+];
 
 const useStyles = makeStyles({
   cardStyling: {
@@ -101,10 +109,12 @@ function UserHomePage(props) {
   const [products, setProducts] = useState([]);
 
   const [counter, setCounter] = useState(0);
+  const [categories, setCategories] = useState([]);
 
   const [amount, setAmount] = useState(0);
 
   const product = props.product;
+  
 
   useEffect(() => {
 
@@ -145,6 +155,26 @@ function UserHomePage(props) {
     }
   }
 
+ /*  function selectCategory(props) {
+    const category = options;
+    let choice = category;
+
+    console.log(category)
+    console.log(choice)
+  
+    if (choice === 'Alla event')
+      return (
+       console.log(choice)
+       );
+     if(choice === 'Affärsutveckling'){
+       return (
+         console.log(choice)
+       )
+     }
+    
+  } */
+  
+
 
   function renderProducts() {
 
@@ -174,6 +204,10 @@ function UserHomePage(props) {
           <div className={"caruselleDiv"}>
             <Caruselle />
           </div>
+         {/*  <div>
+            <h4>Kategori: </h4>{selectCategory()}
+           
+          </div> */}
 
 
           <div>

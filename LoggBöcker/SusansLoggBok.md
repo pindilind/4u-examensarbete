@@ -73,13 +73,13 @@ Jobbade med komponenterna i CartPage och OrderPage för att få in tabeller för
 Morgonmöte kl 09 och jag hämtar ner det som Linda pushade upp igår och pushar upp mitt arbete. Därefter tittar vi på Trello och avslutar Sprint 3 och ser över planen för Sprint 4. Vi fortsätter och titta på GitHub och avslutar även där Sprint 3, några issues är ej klara och flyttas över till Sprint 4. Känslan är trots allt att vi är ganska bra i fas och borde klara uppgifter med de 2 veckor som är kvar till presentation och inlämning. Vi fortsatte att jobba på var sitt håll med saker vi påbörjat och inte var klara med. Jag avslutade mina test-komponenter för OrderPage och CartPage och flyttade över koden till respektive fil och pushade upp på GitHub. Nästa issue är att skapa en funktion som visar våra kategorier i en dropdownlist i headern och som filtrerar produkt efter kategori. Kom på att jag tänkt lite fel, det räcker ju inte att filtrera kategorierna utan dessa måste ju även kopplas till produkterna då det är produkterna som skall visas beroende på vilken kategori som väljs och tillhörighet.Eftermiddagen...
 
 ### TISDAG | 2022-01-25
-Samla
+Samling och morgonmöte kl 09... Jag fick sluta kl 14 idag, men satt en stund på kvällen och letade text för data- och integritetspolicy, cookie-info. 
 
 ### ONSDAG | 2022-01-26
-Samla
+Morgonmöte kl 9 där vi gick igenom vad vi gjort och sedan pushade vi upp på gitHub. Vi diskuterade lite om att tänka om lite för att hinna och få ihop den app vi tänkt, det innebar att vi lägger både kalenderfunktionen och Nyhetsbrev som en framtida uppgradering. Vi tittade på våra issues/task på GitHub och tog beslutet att försöka göra klart sådant vi börjat med för att kunna bocka av färdiga saker. JAg tog tag i varukorgen som skall färdigställas med att få in valda produkter i tabellen samt en funktion som räknar ut totalsumman och anger hur mycket moms som ingår. Det tog fram till lunch och det var lite bökigt då jag inte fick tag på summan, men vi löste det tillsammans efter lunch med en setAmount. Ibland är det så frustrerande att inte komma i mål utan bara nästan vara i mål. Efter samlingen efter lunch så fortsatte vi att göra klart våra issues och jag tog på mig att fixa data- och integritetspolicy(GDPR), cookie-info och omOss. Vi avslutade dagen med en samling där vi visade vad vi gjort och pushade upp till gitHub. Imorgon ska vi titta på databasen för produkterna och hur vi ska få ihop data vi vill ha och som Stripe accepterar. 
 
 ### TORSDAG | 2022-01-27
-Samla
+Morgonmöte kl 09. Idag var vårt mission att titta på vår orderdatabas och uppgifterna vi ville ha in där som även påverkar Stripe. Vi började med Stripe, som egentligen fungerade, men att vi saknar vissa uppgifter som vi vill skicka med. Hela dagen gick till att försöka hitta lösningen, vi kom fram 99% och fick inte rikigt ihop det. Men vi avslutar dagen med att ta tillbaka fungerande kod och se efter en annan lösning. Känslan är att hela dagen är lite bortkastad då vi egentligen inte kommit framåt och fått klart det vi tänkt. Frustration och trötthet!
 
 ### FREDAG | 2022-01-28
 Samla
