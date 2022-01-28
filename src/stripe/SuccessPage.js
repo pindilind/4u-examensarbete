@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import { BsFillCheckCircleFill } from 'react-icons/bs';
 
 import HeaderInlogged from "../headers/HeaderInlogged";
 import Footer from "../footer/Footer";
+import MakeRequest from '../MakeRequest';
 
 import { makeStyles } from '@mui/styles';
 
@@ -20,8 +21,8 @@ const useStyles = makeStyles({
   },
   succTitle: {
     display: "flex",
-    fontWeight: "bold", 
-  
+    fontWeight: "bold",
+
     '@media (max-width: 480px)': {
       minWidth: '100%',
     }
@@ -68,42 +69,52 @@ function SuccessPage() {
 
   const classes = useStyles()
 
-  async function verify() {
-    try {
-      const sessionId = localStorage.getItem('session')
+  const [orderId, setOrderId] = useState('');
 
-      if (!sessionId) {
-        throw new Error("inget session ID");
+
+
+  useEffect(() => {
+
+    async function verify() {
+
+      try {
+        const sessionId = localStorage.getItem('session')
+
+        if (!sessionId) {
+          throw new Error("inget session ID");
+        }
+
+        const response = await fetch('http://localhost:3005/session/verify', {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            sessionId
+          })
+
+        });
+
+        const { paid, customerId } = await response.json();
+        setOrderId(customerId);
+
+        return paid;
+
+      } catch (err) {
+        console.log(err)
+        return false;
       }
-
-      const response = await fetch('http://localhost:3005/session/verify', {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          sessionId
-        })
-      });
-
-      const { paid } = await response.json();
-      return paid;
-
-    } catch (err) {
-      console.log(err)
-      return false;
     }
-  }
 
-  const isVerified = verify();
-
-  if (localStorage.getItem('session')) {
-    if (isVerified) {
-      localStorage.removeItem("cart")
-      localStorage.removeItem('session')
-    } else {
-      alert("Betalningen är avbruten. Försök gärna igen!")
+    if (localStorage.getItem('session')) {
+      const isVerified = verify();
+      if (isVerified) {
+        localStorage.removeItem("cart");
+        localStorage.removeItem('session');
+      } else {
+        alert("Betalningen är avbruten. Försök gärna igen!");
+      }
     }
-  }
 
+  }, [orderId]);
 
   return (
 
@@ -116,19 +127,19 @@ function SuccessPage() {
           <div><BsFillCheckCircleFill className={classes.succIcon} /></div>
           <div>
             <h3 className={classes.succTitle}>Tack för ditt köp!</h3>
-            <p className={classes.succlP}>Ditt ordernummer: </p>
+            <p className={classes.succlP}>Ditt ordernummer: {orderId} </p>
           </div>
           <div className={classes.succText}>
             <p className={classes.succlP2}>Länken till eventet hittar du bland dina tidigare ordrar.</p>
-            </div>
+          </div>
           <div className={classes.mvhDiv}>
             <p className={classes.mvhP}>Med vänliga hälsningar, Event4U.</p>
           </div>
 
-<Link to="/userHomePage">
-          <div className={classes.emailDiv}>
-            <p className={classes.emailP}>Gå till startsidan</p>
-          </div>
+          <Link to="/userHomePage">
+            <div className={classes.emailDiv}>
+              <p className={classes.emailP}>Gå till startsidan</p>
+            </div>
           </Link>
         </div>
       </div>

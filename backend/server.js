@@ -155,8 +155,9 @@ app.get('/orders', async (req, res) => {
   let raw = fs.readFileSync('database/ordersDB.json')
   console.log(raw)
   let orderList = JSON.parse(raw);
+
   res.json(Object.values(orderList));
-  //res.json(orderList);
+  console.log(orderList);
 
 })
 
@@ -164,6 +165,7 @@ app.get('/orders', async (req, res) => {
 app.post('/session/verify', async (req, res) => {
 
   const session = await stripe.checkout.sessions.retrieve(req.body.sessionId)
+
   if (session.payment_status === 'paid') {
 
     const key = session.payment_intent;
@@ -180,7 +182,7 @@ app.post('/session/verify', async (req, res) => {
         cart: session.metadata.cart,
         orderDate: new Date().toLocaleString(),
       }
-      res.status(200).json({ paid: true })
+      res.status(200).json({ paid: true, customerId: session.customer })
 
       fs.writeFileSync('./database/ordersDB.json', JSON.stringify(orderList));
 

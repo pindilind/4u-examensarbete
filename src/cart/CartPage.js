@@ -136,7 +136,7 @@ export default function CartPage(props) {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(
-         Object.values(cart),
+          Object.values(cart),
         ),
       });
 
