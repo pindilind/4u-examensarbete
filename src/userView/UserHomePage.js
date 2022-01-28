@@ -102,6 +102,8 @@ function UserHomePage(props) {
 
   const [counter, setCounter] = useState(0);
 
+  const [amount, setAmount] = useState(0);
+
   const product = props.product;
 
   useEffect(() => {
@@ -135,10 +137,11 @@ function UserHomePage(props) {
         if (Object.hasOwnProperty.call(cart, key)) {
           const cartRow = cart[key];
           counter += cartRow.quantity
-          /* amount += cartRow.price_data.unit_amount * cartRow.quantity */
+          amount += cartRow.price * cartRow.quantity
         }
       }
       setCounter(counter);
+      setAmount(amount);
     }
   }
 
