@@ -16,7 +16,8 @@ import StartPage from "./start/StartPage";
 
 import CartPage from "./cart/CartPage";
 
-import OrderPage from "./cart/OrderPage";
+// import OrderPage from "./cart/OrderPage";
+import OrderPageTest from "./cart/OrderPageTest";
 
 import UserHomePage from "./userView/UserHomePage";
 import UserInfo from "./userView/UserInfo";
@@ -56,8 +57,9 @@ function App() {
           </Elements>
         </Route>
 
-        <Route exact path="/orderPage">
-          <OrderPage />
+        <Route exact path="/orderPageTest">
+          {/* <OrderPage /> */}
+          <OrderPageTest />
         </Route>
 
         <Route exact path="/userHomePage">

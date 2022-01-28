@@ -9,7 +9,7 @@ import TableBody from '@mui/material/TableBody';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import HeaderInlogged from "../headers/HeaderInlogged";
-import CartTable from "../components/CartTable";
+//import CartTable from "../components/CartTable";
 import Footer from "../footer/Footer";
 import "../App.scss";
 import "./CartPageStyle.scss";
