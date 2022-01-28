@@ -75,7 +75,7 @@ export default function ProductCardLarge(props) {
 
   const product = props.product;
 
-  const productKey = product.price_data.product_data.name;
+  const productKey = product.productTitle;
 
   const addProduct = async () => {
 
@@ -109,7 +109,7 @@ export default function ProductCardLarge(props) {
         <CardContent className={classes.cardTitleStyle}>
 
           <Typography variant="h6">
-            {product.price_data.product_data.name}
+            {product.productTitle}
           </Typography>
 
           <Typography className={classes.cardDescStyleOne}>

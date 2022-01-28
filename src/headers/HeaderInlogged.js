@@ -6,7 +6,8 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
-import LogoUtanText from '../assets/LogoUtanText.svg';
+/* import LogoUtanText from '../assets/LogoUtanText.svg'; */
+import NewLogo from "../assets/newLogo.svg";
 import Search from '../userView/Search';
 import LongMenu from '../components/DropDownTest';
 
@@ -42,9 +43,33 @@ export default function ElevateAppBar(props) {
     <React.Fragment>
       <ElevationScroll {...props}>
         <AppBar>
-          <Toolbar className={'header'} component="div">
+          <div className={'header'}>
 
-            <Typography component="div">
+            <div className={'divOne'}>
+              <LongMenu id="colorIcons" />
+            </div>
+
+            <div className={'divTwo'}>
+              <img
+                className={'logo'}
+                src={NewLogo}
+                alt="logo"
+              />
+            </div>
+
+            
+              {/* <div className={'searchDiv'}>
+                <Search />
+              </div> */}
+
+              <div className={'counterDiv'}>
+                <Link product={product} counter={props.counter} to="/cartPage">
+                  <CartCounter counter={props.counter} />
+                </Link>
+              </div>
+          
+
+            {/* <Typography component="div">
               <Link to="/">
                 <img
                   className={'logo'}
@@ -55,10 +80,7 @@ export default function ElevateAppBar(props) {
             </Typography>
 
             <Typography className={'styling'} component="div">
-              {/* <div className={'justFlex'}>
-                Hej och välkommen!
-              </div> */}
-
+          
               <div className={'justColumn'}>
                 <Search />
               </div>
@@ -71,9 +93,9 @@ export default function ElevateAppBar(props) {
                 <LongMenu id="colorIcons" />
               </div>
 
-            </Typography>
+            </Typography> */}
 
-          </Toolbar>
+          </div>
         </AppBar>
       </ElevationScroll>
       <Toolbar />

@@ -15,7 +15,7 @@ app.use("/images", express.static('images'));
 
 // Hämtar alla produkter
 app.get("/products", (req, res) => {
-  let raw = fs.readFileSync("./database/productDB2.json") //hämtar url till jsonfil
+  let raw = fs.readFileSync("./database/productDB.json") //hämtar url till jsonfil
   let productList = JSON.parse(raw)
   res.json(Object.values(productList));
   /* res.json(productList)  */
@@ -150,7 +150,6 @@ app.post('/users/login', async (req, res) => {
 })
 
 // Hämtar filen från "orders.json" - se även i server.post/verify
-
 app.get('/orders', async (req, res) => {
 
   let raw = fs.readFileSync('database/ordersDB.json')
@@ -162,6 +161,7 @@ app.get('/orders', async (req, res) => {
 
 // Varifierar köpet 
 app.post('/session/verify', async (req, res) => {
+
   const session = await stripe.checkout.sessions.retrieve(req.body.sessionId)
   if (session.payment_status === 'paid') {
 
@@ -176,10 +176,13 @@ app.post('/session/verify', async (req, res) => {
         amount: session.amount_total,
         customerId: session.customer,
         customerEmail: session.customer_details.email,
-        metadata: session.metadata 
+        cart: session.metadata.cart,
+        orderDate: new Date().toLocaleString(),
       }
       res.status(200).json({ paid: true })
-      fs.writeFileSync('./database/ordersDB.json', JSON.stringify(orderList))
+
+      fs.writeFileSync('./database/ordersDB.json', JSON.stringify(orderList));
+
     } else {
       res.status(200).json({ error: "Order already exist" })
     }
@@ -192,11 +195,33 @@ app.post('/session/verify', async (req, res) => {
 // Ny session skapas
 app.post('/create-checkout-session', async (req, res) => {
 
+  const cart = req.body;
+
+  const lineItems = [];
+
+  cart.forEach((cartItem) => {
+    let lineItem = {
+      description: cartItem.description,
+      price_data: {
+        currency: "sek",
+        product_data: {
+          name: cartItem.productTitle,
+        },
+        unit_amount: cartItem.price * 100
+      },
+      quantity: cartItem.quantity
+    };
+    lineItems.push(lineItem)
+  });
+
   const session = await stripe.checkout.sessions.create({
 
     payment_method_types: ['card'],
-    line_items: req.body.line_items,
+    line_items: lineItems,
     mode: "payment",
+    metadata: {
+      cart: JSON.stringify(cart)
+    },
 
     success_url: 'http://localhost:3000/succsessPage?session_id={CHECKOUT_SESSION_ID}',
     cancel_url: "http://localhost:3000/cancelPage",

@@ -8,8 +8,10 @@ const Search = styled('div')(({ theme }) => ({
   position: 'relative',
   borderRadius: theme.shape.borderRadius,
   backgroundColor: '#75A488',
+  color: "#ffffff",
   '&:hover': {
     backgroundColor: '#75A488',
+    color: "#ffffff"
   },
   marginLeft: 0,
 }));
@@ -42,7 +44,7 @@ export default function SearchAppBar() {
               <FaSearch />
             </SearchIconWrapper>
             <StyledInputBase
-              placeholder="Search…"
+              placeholder="Sök..."
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
