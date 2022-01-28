@@ -62,9 +62,9 @@ export default function OrderPageTest(props) {
     console.log(orderArray)
 
     return orderArray.map((value, index) => {
-      let cart = JSON.parse(value.cart)
+     /*  let cart = JSON.parse(value.cart)
       console.log(JSON.parse(value.cart))
-      console.log(cart)
+      console.log(cart) */
 
       return (
         <>
