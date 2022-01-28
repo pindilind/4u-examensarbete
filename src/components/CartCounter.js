@@ -19,6 +19,7 @@ const StyledBadge = styled(Badge)(({ theme }) => ({
 const useStyles = makeStyles({
   root: {
     color: '#ffffff',
+    fontSize: "1.8rem"
   }
 
 });
