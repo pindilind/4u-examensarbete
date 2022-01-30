@@ -48,14 +48,17 @@ export default function ElevateAppBar(props) {
             <div className={'divOne'}>
               <LongMenu id="colorIcons" />
             </div>
+           
 
-            <div className={'divTwo'}>
-              <img
-                className={'logo'}
-                src={NewLogo}
-                alt="logo"
-              />
-            </div>
+            <Link to="/userHomePage">
+              <div className={'divTwo'}>
+                <img
+                  className={'logo'}
+                  src={NewLogo}
+                  alt="logo"
+                />
+              </div>
+            </Link>
 
             
               {/* <div className={'searchDiv'}>
