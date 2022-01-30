@@ -7,7 +7,8 @@
     "categoriId": 1,
     "date": "7 februari, 2022",
     "time": "19:00",
-    "price": "650"
+    "price": "650",
+    "link": "https://www.youtube.com/watch?v=kcyKEGiP0Xs"
   },
   {
     "id": 2,
@@ -17,7 +18,8 @@
     "categoriId": 1,
     "date": "18 februari, 2022",
     "time": "18:00",
-    "price": "850"
+    "price": "850",
+    "link": "https://www.youtube.com/watch?v=MvQrCE2y9Kk"
   },
   {
     "id": 3,
@@ -27,7 +29,8 @@
     "categoriId": 2,
     "date": "20 februari, 2022",
     "time": "17:00",
-    "price": "650"
+    "price": "650",
+    "link": ""
   },
   {
     "id": 4,
@@ -37,6 +40,7 @@
     "categoriId": 2,
     "date": "22 februari, 2022",
     "time": "19:00",
-    "price": "850"
+    "price": "850",
+    "link": ""
   }
 ]
