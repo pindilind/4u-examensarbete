@@ -1,8 +1,5 @@
 import React from "react";
 import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
@@ -13,47 +10,87 @@ import ProductCardLarge from "./ProductCardLarge";
 
 const useStyles = makeStyles({
   cardStyling: {
-    display: "flex",
-    overfloWrap: "anywhere",
-    boxShadow: "none",
-    color: 'white',
-    padding: '1',
+    color: 'black',
+    padding: 1,
     marginBottom: "1rem",
+    width: '90%',
 
     '@media (max-width: 480px)': {
-      minWidth: '90%',
+      width: '95%',
     }
   },
 
-  cardMediaStyle: {
-    display: 'flex',
-    width: '40%',
+  cardContent: {
     height: 100,
-    backgroundColor: '#75A488',
+    display: "flex",
+    justifyContent: 'space-around',
+    padding: 3,
   },
-
-  boxStyle: {
+  flexDirectionColumn: {
     display: 'flex',
     flexDirection: 'column',
     width: '90%',
-    margin: 'auto'
+
+    '@media (max-width: 480px)': {
+      padding: 0,
+      flexDirection: 'column',
+    }
   },
 
-  cardBoxStyle: {
-    height: 100,
-    margin: 1,
-    // marginTop: 0,
+  titleDiv: {
+    fontSize: "1.2rem",
+    justifyContent: "center",
+    display: "flex",
+    textAlign: 'center',
+    width: '95%',
+    marginTop: '-0.5rem',
 
+    '@media (max-width: 480px)': {
+      fontSize: '1rem',
+      padding: 0.6,
+      flexWrap: 'wrap'
+    }
   },
 
-  /* typoStyle: {
-    width: '60%',
-    fontFamily: "Arial",
-    fontWeight: "1",
-    fontSize: "0.6rem",
-    textAlign: "left",
-  } */
+  dateDiv: {
+    fontSize: "1.2rem",
+    fontWeight: "bold",
+    display: 'flex',
+    maxWidth: '20%',
+    maxHeight: 120,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: '1rem',
+    paddingInline: '1rem',
 
+    '@media (max-width: 480px)': {
+      padding: 0,
+      fontSize: "1rem",
+    }
+  },
+
+  datePriceStyle: {
+    fontWeight: "bold",
+    fontSize: "0.7rem",
+    textAlign: 'center',
+    marginBottom: '0.2rem',
+    padding: 0,
+    color: '#ffffff',
+    background: '#75A488',
+
+
+    '@media (max-width: 480px)': {
+      padding: 0,
+    }
+  },
+  p: {
+    marginButtom: 0,
+    marginTop: 0,
+  },
+
+  modalDiv: {
+    border: 'none',
+  }
 });
 
 
@@ -72,47 +109,38 @@ export default function ProductCardSmall(props) {
 
     <Card className={classes.cardStyling}>
 
-      <CardMedia className={classes.cardMediaStyle}
-        component="img"
-        src={product.img}
-        alt="carImg"
-      >
+      <div className={classes.cardContent}>
 
-      </CardMedia>
+        <div className={classes.dateDiv}>
+          <p>
+            {product.date}
+          </p>
+        </div>
 
-      <Box className={classes.boxStyle}>
+        <div className={classes.flexDirectionColumn}>
+          <div className={classes.datePriceStyle}>
+            <p>
+              Tid: {product.time} •
+              Pris: {product.price} kr
+            </p>
+          </div>
 
-        <CardContent className={classes.cardBoxStyle}>
-
-          <Typography className={classes.typoStyle} >
-
-            <Button onClick={handleOpen}>
+          <div className={classes.titleDiv}>
+            <p onClick={handleOpen}>
               {product.productTitle}
-            </Button>
+            </p>
             <Modal
               keepMounted
               open={open}
               onClose={handleClose}
-              aria-labelledby="keep-mounted-modal-title"
-              aria-describedby="keep-mounted-modal-description"
             >
-              <Box className={classes.boxStyle}>
                 <ProductCardLarge product={product} updateCounter={props.updateCounter} />
-                <Button onClick={handleClose} >Close</Button>
-              </Box>
             </Modal>
+          </div>
 
+        </div>
 
-          </Typography>
-          <Typography>
-            Datum: {product.date} ||
-            Klockan: {product.time} ||
-            Pris: {product.price} kr
-          </Typography>
-
-        </CardContent>
-
-      </Box>
+      </div>
 
     </Card >
   )

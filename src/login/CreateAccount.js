@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import { Redirect } from "react-router-dom";
 
-import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
 
 import '../App2.scss';
+import './CreateLoginUserInfoStyling.scss';
 
 import MakeRequest from '../MakeRequest';
 
@@ -54,25 +53,25 @@ function CreateAccount(props) {
 
   async function createAccount(props) {
 
-   /* if (passwordOne === passwordTwo) { 
+    /* if (passwordOne === passwordTwo) { 
+ 
+       setPasswordError(false);  */
 
-      setPasswordError(false);  */
+    const status = await MakeRequest(
+      "http://localhost:3005/users/create",
+      "POST",
+      { firstname, lastname, userName, phoneNumber, email, password: passwordOne }
+    );
+    console.log(status)
 
-      const status = await MakeRequest(
-        "http://localhost:3005/users/create",
-        "POST",
-        { firstname, lastname, userName, phoneNumber, email, password: passwordOne }
-      );
-      console.log(status)
-
-      if (status.customerCreated === true) {
-        setRedirect(true);
-      } /* else { */
-        /* setUserAvailable(false); */
-   /*    } */
+    if (status.customerCreated === true) {
+      setRedirect(true);
+    } /* else { */
+    /* setUserAvailable(false); */
+    /*    } */
 
     //} else {
-      /* setPasswordError(true); */
+    /* setPasswordError(true); */
     /* } */
   }
 
@@ -86,40 +85,43 @@ function CreateAccount(props) {
       <HeaderLogga />
       <div className="wrappsAllContentLogAndReg">
         <div className="flexCenterAllLogAndReg">
-          <>
-            <h1 className="titleRegisterAndLogin">Create Your Account</h1>
 
-            <Box
-              component="form"
-              sx={{
-                '& > :not(style)': { m: 1, width: '25ch' },
-              }}
-            >
+          <div className="displayFlexDiv">
+            <h1 className="titleRegisterAndLogin">Skapa konto</h1>
 
+            <div className="formDiv">
+
+              <div style={{ marginTop: 10 }}>
+                <TextField
+                  label="Förnamn"
+                  color="success"
+                  value={firstname}
+                  onChange={handleFirstnameChange}
+                  size="small"
+                />
+              </div>
+
+              <div style={{ marginTop: 10 }}>
               <TextField
-                label="Firstname"
-                color="success"
-                value={firstname}
-                onChange={handleFirstnameChange}
-                size="small"
-              />
-
-              <TextField
-                label="Lastname"
+                label="Efternamn"
                 color="success"
                 value={lastname}
                 onChange={handleLastnameChange}
                 size="small"
               />
+            </div>
 
+            <div style={{ marginTop: 10 }}>
               <TextField
-                label="Phonenumber"
+                label="Telefonnummer"
                 value={phoneNumber}
                 onChange={handlePhoneNumberChange}
                 size="small"
                 color="success"
               />
+            </div>
 
+            <div style={{ marginTop: 10 }}>
               <TextField
                 label="Email"
                 value={email}
@@ -127,45 +129,50 @@ function CreateAccount(props) {
                 size="small"
                 color="success"
               />
+            </div>
 
+            <div style={{ marginTop: 10 }}>
               <TextField
-                label="Username"
+                label="Användarnamn"
                 value={userName}
                 onChange={handleUserNameChange}
                 size="small"
                 color="success"
               />
+            </div>
 
+            <div style={{ marginTop: 10 }}>
               <TextField
-                label="Password"
+                label="Lösenord"
                 value={passwordOne}
                 onChange={handlePasswordOne}
                 size="small"
                 color="success"
               />
+            </div>
 
+            <div style={{ marginTop: 10 }}>
               <TextField
-                label="Password"
+                label="Lösenord"
                 value={passwordTwo}
                 onChange={handlePasswordTwo}
                 size="small"
                 color="success"
               />
+            </div>
 
-            </Box>
-            
-            <Button
-              onClick={createAccount}
-              size="small"
-              color="success"
-              variant="contained"
-              disableElevation>
-              Skapa konto
-            </Button>
-          </>
+          </div>
+
+          <button
+            onClick={createAccount}
+            className="btnStylingGeneral"
+            disableElevation>
+            Skapa konto
+          </button>
 
         </div>
       </div>
+    </div>
     </>
   );
 }

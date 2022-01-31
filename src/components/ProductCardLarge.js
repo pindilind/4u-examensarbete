@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import { Button, CardActionArea, CardActions } from '@mui/material';
+
 import { makeStyles } from '@mui/styles';
+
+import './CalenderStyle.scss';
 
 import CartCounter from './CartCounter';
 
@@ -14,37 +17,36 @@ const useStylesLarge = makeStyles({
     overfloWrap: "anywhere",
     maxWidth: '50%',
     boxShadow: "none",
-    color: '#75A488',
     marginTop: '2rem',
     padding: '1',
     margin: 'auto',
+    justifyContent: 'center',
 
     '@media (max-width: 480px)': {
-      minWidth: '100%',
+      minWidth: '90%',
+      marginTop: '0.5rem',
     }
   },
 
   cardMediaStyle: {
-    height: 200,
+    height: 250,
     width: '100%',
     display: 'flex',
     objectFit: 'cover',
+    '@media (max-width: 480px)': {
+      objectFit: 'cover',
+      height: 220,
+    }
   },
 
   cardTitleStyle: {
-    height: 220,
+    height: 200,
     textAlign: "center",
-    color: '#75A488',
+    color: '#000000',
     display: 'flex',
     flexDirection: 'column',
     overflow: 'auto',
-  },
-
-  cardDescStyleOne: {
-    display: 'flex',
-    alignSelf: 'flex-start',
-    marginTop: '1rem',
-    fontWeight: 500,
+    fontWeight: 'bold',
   },
 
   cardDescStyleTwo: {
@@ -62,19 +64,15 @@ const useStylesLarge = makeStyles({
   buttonDiv: {
     display: 'flex',
     justifyContent: 'center',
-    marginBottom: '1rem',
-  },
-  buttonStyle: {
-    height: 25,
-    padding: 1,
+    marginBottom: '0.5rem',
+    marginTop: '0.5rem',
   },
 
 });
 
-
 export default function ProductCardLarge(props) {
 
-  const classes = useStylesLarge()
+  const classes = useStylesLarge();
 
   const [cart, setCart] = useState([]);
 
@@ -120,14 +118,11 @@ export default function ProductCardLarge(props) {
           </Typography>
 
           <Typography>
-            Datum: {product.date} ||
-            Klockan: {product.time} ||
+            Datum: {product.date} •
+            Tid: {product.time} •
             Pris: {product.price} kr
           </Typography>
 
-          <Typography className={classes.cardDescStyleOne}>
-            Information om eventet
-          </Typography>
 
           <Typography className={classes.cardDescStyleTwo}>
             {product.description}
@@ -136,15 +131,13 @@ export default function ProductCardLarge(props) {
         </CardContent>
 
         <div className={classes.buttonDiv}>
-          <Button
-            className={classes.buttonStyle}
+
+          <button
             onClick={addProduct}
-            size="small"
-            color="success"
-            variant="contained"
+            className="btnStylingGeneralTwo"
             disableElevation>
             Lägg till i varukorgen
-          </Button>
+          </button>
         </div>
 
 

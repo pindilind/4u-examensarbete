@@ -12,12 +12,9 @@ import './UserHomeStyle.scss';
 
 import MakeRequest from '../MakeRequest';
 
-/* import data from '../api/test.json'; */
-
 import Footer from "../footer/Footer";
 import Search from './Search';
 import LongMenu from "../components/DropDown";
-import Avatar from "../components/Avatar";
 
 
 const options = [
@@ -29,62 +26,6 @@ const options = [
   'Vetenskap',
 ];
 
-const useStyles = makeStyles({
-  cardStyling: {
-    display: "flex",
-    overfloWrap: "anywhere",
-    minWidth: 500,
-    boxShadow: "none",
-    color: 'white',
-    /* marginTop: '1rem', */
-    padding: 1,
-
-    '@media (max-width: 480px)': {
-      minWidth: '100%',
-
-    }
-  },
-
-  cardMediaStyle: {
-
-    width: 100,
-    height: 100,
-    backgroundColor: '#75A488',
-  },
-
-  boxStyle: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
-
-  cardBoxStyle: {
-    display: 'flex',
-    flexDirection: 'column',
-    flexWrap: 'wrap',
-    height: 110,
-    marginTop: 0,
-  },
-
-  typoStyle: {
-
-    fontFamily: "Arial",
-    fontWeight: "1",
-    fontSize: "0.6rem",
-    textAlign: "left",
-  },
-
-  renderProductDiv: {
-    display: 'flex',
-    flexDirection: 'column',
-    flexWrap: 'wrap',
-    width: '100%',
-    color: 'red',
-    fontSize: 1,
-  }
-
-
-
-});
 
 const style = {
   position: 'absolute',
@@ -103,8 +44,6 @@ const style = {
 
 
 function UserHomePage(props) {
-
-  const classes = useStyles()
 
   const [products, setProducts] = useState([]);
 
@@ -191,28 +130,30 @@ function UserHomePage(props) {
       <div className={"wrappsAllContent"}>
         <div className={"flexCenterAll"}>
 
+
           <div className={"longAndSearchDiv"}>
             <Search />
           </div>
+
+          <Caruselle />
+        
+          {/*  <div>
+            <h4>Kategori: </h4>{selectCategory()}
+           
+          </div> */}
 
           <div className={"userTitle"}>
             <h3>Good Afternoon</h3>
             <h3>USER</h3>
           </div>
 
-          <div className={"caruselleDiv"}>
-            <Caruselle />
-          </div>
-          {/*  <div>
-            <h4>Kategori: </h4>{selectCategory()}
-           
-          </div> */}
-
-
           <div>
-            {renderProducts()}
-          </div>
+          <CalenderModal />
+            <div className="displayFlexDivAlign">
+              {renderProducts()}
+            </div>
 
+          </div>
         </div>
       </div>
 

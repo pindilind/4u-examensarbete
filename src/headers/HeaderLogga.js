@@ -3,7 +3,7 @@ import React from "react";
 import { Typography } from "@mui/material";
 import { makeStyles } from '@mui/styles';
 
-import Logo from '../assets/Logo.svg';
+import NewLogo from '../assets/newLogo.svg';
 
 const useStyles = makeStyles({
   headerLogga: {
@@ -13,7 +13,8 @@ const useStyles = makeStyles({
   },
   logoStyling: {
     marginTop: '1rem',
-    marginBottom: '0.5rem'
+    marginBottom: '0.5rem',
+    width: '17rem'
   }
 });
 
@@ -25,7 +26,7 @@ function HeaderLogga() {
     <Typography className={classes.headerLogga} component="div">
       <img
         className={classes.logoStyling}
-        src={Logo}
+        src={NewLogo}
         alt="logo" />
     </Typography>
 
