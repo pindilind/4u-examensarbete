@@ -1,8 +1,5 @@
 import React from "react";
 import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
@@ -13,8 +10,6 @@ import ProductCardLarge from "./ProductCardLarge";
 
 const useStyles = makeStyles({
   cardStyling: {
-    overfloWrap: "anywhere",
-    boxShadow: "none",
     color: 'black',
     padding: 1,
     marginBottom: "1rem",
@@ -27,14 +22,14 @@ const useStyles = makeStyles({
 
   cardContent: {
     height: 100,
-    /* flexDirection: 'row', */
     display: "flex",
-
+    justifyContent: 'space-around',
+    padding: 3,
   },
   flexDirectionColumn: {
     display: 'flex',
     flexDirection: 'column',
-    /* width: '90%', */
+    width: '90%',
 
     '@media (max-width: 480px)': {
       padding: 0,
@@ -44,12 +39,11 @@ const useStyles = makeStyles({
 
   titleDiv: {
     fontSize: "1.2rem",
-    /* justifyContent: "center", */
+    justifyContent: "center",
     display: "flex",
     textAlign: 'center',
-    /* minWidth: '100%', */
-    marginButtom: '0rem',
-    marginTop: '0rem',
+    width: '95%',
+    marginTop: '-0.5rem',
 
     '@media (max-width: 480px)': {
       fontSize: '1rem',
@@ -62,30 +56,40 @@ const useStyles = makeStyles({
     fontSize: "1.2rem",
     fontWeight: "bold",
     display: 'flex',
-    minWidth: '20%',
+    maxWidth: '20%',
+    maxHeight: 120,
     alignItems: 'center',
     justifyContent: 'center',
-    /* padding: '1rem', */
+    marginTop: '1rem',
+    paddingInline: '1rem',
 
     '@media (max-width: 480px)': {
       padding: 0,
+      fontSize: "1rem",
     }
   },
+
   datePriceStyle: {
     fontWeight: "bold",
     fontSize: "0.7rem",
     textAlign: 'center',
-    marginBottom: '0rem',
+    marginBottom: '0.2rem',
     padding: 0,
+    color: '#ffffff',
+    background: '#75A488',
+
 
     '@media (max-width: 480px)': {
       padding: 0,
     }
   },
-
   p: {
     marginButtom: 0,
     marginTop: 0,
+  },
+
+  modalDiv: {
+    border: 'none',
   }
 });
 
@@ -116,7 +120,7 @@ export default function ProductCardSmall(props) {
         <div className={classes.flexDirectionColumn}>
           <div className={classes.datePriceStyle}>
             <p>
-              Klockan: {product.time} •
+              Tid: {product.time} •
               Pris: {product.price} kr
             </p>
           </div>
@@ -129,13 +133,8 @@ export default function ProductCardSmall(props) {
               keepMounted
               open={open}
               onClose={handleClose}
-              aria-labelledby="keep-mounted-modal-title"
-              aria-describedby="keep-mounted-modal-description"
             >
-              <Box className={classes.boxStyle}>
                 <ProductCardLarge product={product} updateCounter={props.updateCounter} />
-                <Button onClick={handleClose} >Close</Button>
-              </Box>
             </Modal>
           </div>
 

@@ -190,10 +190,10 @@ export default function CartPage(props) {
             <div className="tableDiv">
 
               <TableBody sx={{
-                        display: 'flex',
-                        flexDirection: 'column',
-                      width: '100%',
-                      }}>
+                display: 'flex',
+                flexDirection: 'column',
+                width: '100%',
+              }}>
                 <Table>
                   <TableHead align="center">
                     <TableRow>
@@ -201,7 +201,7 @@ export default function CartPage(props) {
                         backgroundColor: '#75A488',
                         color: '#ffffff',
                         fontWeight: 'bold',
-                        
+
                       }}>Produkt/Event </TableCell>
 
                       <TableCell sx={{
@@ -210,7 +210,7 @@ export default function CartPage(props) {
                         fontWeight: 'bold',
                       }}>
                         Datum
-                        </TableCell>
+                      </TableCell>
 
                       <TableCell sx={{
                         backgroundColor: '#75A488',
@@ -234,7 +234,7 @@ export default function CartPage(props) {
                         fontWeight: 'bold',
                       }}>
                         Pris
-                        </TableCell>
+                      </TableCell>
 
                       <TableCell sx={{
                         backgroundColor: '#75A488',
@@ -254,18 +254,18 @@ export default function CartPage(props) {
                   </TableRow>
 
                   <TableRow sx={{
-                        backgroundColor: '#75A488',
-                        color: '#ffffff',
-                        fontWeight: 'bold',
-                      }}>
+                    backgroundColor: '#75A488',
+                    color: '#ffffff',
+                    fontWeight: 'bold',
+                  }}>
                     <TableCell sx={{
                       color: '#ffffff',
-                        fontWeight: 'bold',
-                      }} colSpan={2}>Total, SEK:</TableCell>
+                      fontWeight: 'bold',
+                    }} colSpan={2}>Total, SEK:</TableCell>
                     <TableCell sx={{
                       color: '#ffffff',
-                        fontWeight: 'bold',
-                      }}align="right">{(amount)} kr</TableCell>
+                      fontWeight: 'bold',
+                    }} align="right">{(amount)} kr</TableCell>
                   </TableRow>
                 </Table>
               </TableBody>
