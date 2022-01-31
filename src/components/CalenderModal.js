@@ -15,7 +15,7 @@ const style = {
   p: 4,
 
   '@media (max-width: 480px)' : {
-    minWidth: 300,
+    width: '90%'
   }
 
 };
@@ -32,13 +32,8 @@ export default function KeepMountedModal() {
         keepMounted
         open={open}
         onClose={handleClose}
-        aria-labelledby="keep-mounted-modal-title"
-        aria-describedby="keep-mounted-modal-description"
       >
-        <Box sx={style}>
           <Calender />
-          <Button onClick={handleClose} >Close</Button>
-        </Box>
       </Modal>
     </div>
   );
