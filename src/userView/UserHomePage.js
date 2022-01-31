@@ -29,62 +29,6 @@ const options = [
   'Vetenskap',
 ];
 
-const useStyles = makeStyles({
-  cardStyling: {
-    display: "flex",
-    overfloWrap: "anywhere",
-    minWidth: 500,
-    boxShadow: "none",
-    color: 'white',
-    /* marginTop: '1rem', */
-    padding: 1,
-
-    '@media (max-width: 480px)': {
-      minWidth: '100%',
-
-    }
-  },
-
-  cardMediaStyle: {
-
-    width: 100,
-    height: 100,
-    backgroundColor: '#75A488',
-  },
-
-  boxStyle: {
-    display: 'flex',
-    flexDirection: 'column',
-  },
-
-  cardBoxStyle: {
-    display: 'flex',
-    flexDirection: 'column',
-    flexWrap: 'wrap',
-    height: 110,
-    marginTop: 0,
-  },
-
-  typoStyle: {
-
-    fontFamily: "Arial",
-    fontWeight: "1",
-    fontSize: "0.6rem",
-    textAlign: "left",
-  },
-
-  renderProductDiv: {
-    display: 'flex',
-    flexDirection: 'column',
-    flexWrap: 'wrap',
-    width: '100%',
-    color: 'red',
-    fontSize: 1,
-  }
-
-
-
-});
 
 const style = {
   position: 'absolute',
@@ -103,8 +47,6 @@ const style = {
 
 
 function UserHomePage(props) {
-
-  const classes = useStyles()
 
   const [products, setProducts] = useState([]);
 
