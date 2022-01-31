@@ -13,47 +13,80 @@ import ProductCardLarge from "./ProductCardLarge";
 
 const useStyles = makeStyles({
   cardStyling: {
-    display: "flex",
     overfloWrap: "anywhere",
     boxShadow: "none",
-    color: 'white',
-    padding: '1',
+    color: 'black',
+    padding: 1,
     marginBottom: "1rem",
+    width: '90%',
 
     '@media (max-width: 480px)': {
-      minWidth: '90%',
+      width: '95%',
     }
   },
 
-  cardMediaStyle: {
-    display: 'flex',
-    width: '40%',
+  cardContent: {
     height: 100,
-    backgroundColor: '#75A488',
-  },
+    /* flexDirection: 'row', */
+    display: "flex",
 
-  boxStyle: {
+  },
+  flexDirectionColumn: {
     display: 'flex',
     flexDirection: 'column',
-    width: '90%',
-    margin: 'auto'
+    /* width: '90%', */
+
+    '@media (max-width: 480px)': {
+      padding: 0,
+      flexDirection: 'column',
+    }
   },
 
-  cardBoxStyle: {
-    height: 100,
-    margin: 1,
-    // marginTop: 0,
+  titleDiv: {
+    fontSize: "1.2rem",
+    /* justifyContent: "center", */
+    display: "flex",
+    textAlign: 'center',
+    /* minWidth: '100%', */
+    marginButtom: '0rem',
+    marginTop: '0rem',
 
+    '@media (max-width: 480px)': {
+      fontSize: '1rem',
+      padding: 0.6,
+      flexWrap: 'wrap'
+    }
   },
 
-  /* typoStyle: {
-    width: '60%',
-    fontFamily: "Arial",
-    fontWeight: "1",
-    fontSize: "0.6rem",
-    textAlign: "left",
-  } */
+  dateDiv: {
+    fontSize: "1.2rem",
+    fontWeight: "bold",
+    display: 'flex',
+    minWidth: '20%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    /* padding: '1rem', */
 
+    '@media (max-width: 480px)': {
+      padding: 0,
+    }
+  },
+  datePriceStyle: {
+    fontWeight: "bold",
+    fontSize: "0.7rem",
+    textAlign: 'center',
+    marginBottom: '0rem',
+    padding: 0,
+
+    '@media (max-width: 480px)': {
+      padding: 0,
+    }
+  },
+
+  p: {
+    marginButtom: 0,
+    marginTop: 0,
+  }
 });
 
 
@@ -72,23 +105,26 @@ export default function ProductCardSmall(props) {
 
     <Card className={classes.cardStyling}>
 
-      <CardMedia className={classes.cardMediaStyle}
-        component="img"
-        src={product.img}
-        alt="carImg"
-      >
+      <div className={classes.cardContent}>
 
-      </CardMedia>
+        <div className={classes.dateDiv}>
+          <p>
+            {product.date}
+          </p>
+        </div>
 
-      <Box className={classes.boxStyle}>
+        <div className={classes.flexDirectionColumn}>
+          <div className={classes.datePriceStyle}>
+            <p>
+              Klockan: {product.time} •
+              Pris: {product.price} kr
+            </p>
+          </div>
 
-        <CardContent className={classes.cardBoxStyle}>
-
-          <Typography className={classes.typoStyle} >
-
-            <Button onClick={handleOpen}>
+          <div className={classes.titleDiv}>
+            <p onClick={handleOpen}>
               {product.productTitle}
-            </Button>
+            </p>
             <Modal
               keepMounted
               open={open}
@@ -101,18 +137,11 @@ export default function ProductCardSmall(props) {
                 <Button onClick={handleClose} >Close</Button>
               </Box>
             </Modal>
+          </div>
 
+        </div>
 
-          </Typography>
-          <Typography>
-            Datum: {product.date} ||
-            Klockan: {product.time} ||
-            Pris: {product.price} kr
-          </Typography>
-
-        </CardContent>
-
-      </Box>
+      </div>
 
     </Card >
   )

@@ -5,7 +5,6 @@
     "productTitle": "Morgan Alling - konsten att hantera besvärliga människor",
     "description": "Text....",
     "categoriId": 1,
-    "date": "20220207",
     "time": "1900",
     "price": "650"
   },
@@ -15,17 +14,15 @@
     "productTitle": "Tomas Lydahl & Dennis Westerberg - Psyket är alltid friskt, oförstörbart",
     "description": "Text....",
     "categoriId": 1,
-    "date": "20220218",
     "time": "1800",
     "price": "850"
   },
   {
     "id": 3,
     "img": "https://www.talarforum.se/media/talarforum_se/img/40_21/1200x630/tina_thorner_1877.jpg",
-    "productTitle": "Tina Thörner talar om att allt faktiskt går, bara man tror på det och vill tillräckligt mycket",
+    "productTitle": "Tina Thörner talar om att allt faktiskt går, om man bara vill!",
     "description": "Text....",
     "categoriId": 2,
-    "date": "20220220",
     "time": "1700",
     "price": "650"
   },
@@ -35,7 +32,6 @@
     "productTitle": "Robert Gustafsson - från vaggan till deadline",
     "description": "Text....",
     "categoriId": 2,
-    "date": "20220222",
     "time": "1900",
     "price": "850"
   }

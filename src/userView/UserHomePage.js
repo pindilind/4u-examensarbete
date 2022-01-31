@@ -191,6 +191,7 @@ function UserHomePage(props) {
       <div className={"wrappsAllContent"}>
         <div className={"flexCenterAll"}>
 
+
           <div className={"longAndSearchDiv"}>
             <Search />
           </div>
@@ -201,21 +202,21 @@ function UserHomePage(props) {
           </div>
 
           <div className={"caruselleDiv"}>
-            <Caruselle />
+            {/* <Caruselle /> */}
           </div>
           {/*  <div>
             <h4>Kategori: </h4>{selectCategory()}
            
           </div> */}
 
+          <div >
+            <div className="displayFlexDivAlign">
+              {renderProducts()}
+            </div>
 
-          <div>
-            {renderProducts()}
           </div>
-
         </div>
       </div>
-
       < Footer />
 
     </>

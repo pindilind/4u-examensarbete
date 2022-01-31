@@ -4,9 +4,8 @@ import { Link } from "react-router-dom";
 import PropTypes from 'prop-types';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
-/* import LogoUtanText from '../assets/LogoUtanText.svg'; */
+
 import NewLogo from "../assets/newLogo.svg";
 import Search from '../userView/Search';
 import LongMenu from '../components/DropDownTest';
@@ -40,6 +39,7 @@ export default function ElevateAppBar(props) {
   const product = props.product;
 
   return (
+    
     <React.Fragment>
       <ElevationScroll {...props}>
         <AppBar>
@@ -57,43 +57,16 @@ export default function ElevateAppBar(props) {
               />
             </div>
 
-            
-              {/* <div className={'searchDiv'}>
+
+            {/* <div className={'searchDiv'}>
                 <Search />
               </div> */}
 
-              <div className={'counterDiv'}>
-                <Link product={product} counter={props.counter} to="/cartPage">
-                  <CartCounter counter={props.counter} />
-                </Link>
-              </div>
-          
-
-            {/* <Typography component="div">
-              <Link to="/">
-                <img
-                  className={'logo'}
-                  src={LogoUtanText}
-                  alt="logo"
-                />
+            <div className={'counterDiv'}>
+              <Link product={product} counter={props.counter} to="/cartPage">
+                <CartCounter counter={props.counter} />
               </Link>
-            </Typography>
-
-            <Typography className={'styling'} component="div">
-          
-              <div className={'justColumn'}>
-                <Search />
-              </div>
-
-              <div className={'justFlex'}>
-                <Link product={product} counter={props.counter} to="/cartPage">
-                  <CartCounter counter={props.counter} />
-                </Link>
-
-                <LongMenu id="colorIcons" />
-              </div>
-
-            </Typography> */}
+            </div>
 
           </div>
         </AppBar>

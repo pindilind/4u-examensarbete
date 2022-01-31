@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
 
-import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import Button from '@mui/material/Button';
 
 import MakeRequest from '../MakeRequest';
 
 import HeaderInlogged from "../headers/HeaderInlogged";
 import Footer from "../footer/Footer";
+
 import '../App.scss';
+import '../login/CreateLoginUserInfoStyling.scss';
+import './UserHomeStyle.scss';
 
 function UserInfo() {
 
@@ -92,76 +93,65 @@ function UserInfo() {
       <div className="wrappsAllContent">
         <div className="flexCenterAll ">
 
+          <div className="displayFlexDiv">
+            <h1 className="titleRegisterAndLogin">Din information</h1>
 
-          <div className="customer-info">
+            <div className="formDiv">
 
-            <Box
-              component="form"
-              sx={{
-                '& > :not(style)': { m: 1.1 },
-              }}
-            >
+              <div style={{ marginTop: 10 }}>
+                <TextField
+                  className="inputCustomerInfo"
+                  label="Förnamn"
+                  value={firstname}
+                  size="small"
+                  onChange={handleFirstnameChange}
+                />
+              </div>
 
+              <div style={{ marginTop: 10 }}>
+                <TextField
+                  className="inputCustomerInfo"
+                  label="Efternamn"
+                  value={lastname}
+                  size="small"
+                  onChange={handleLastnameChange}
+                />
+              </div>
 
-              <TextField
-                className="inputCustomerInfo"
-                label="Firstname"
-                value={firstname}
-                size="small"
-                onChange={handleFirstnameChange}
-                sx={{
-                  '& > :not(style)': { width: '17rem' }
-                }}
+              <div style={{ marginTop: 10 }}>
+                <TextField
+                  label="Telefonnummer"
+                  color="success"
+                  size="small"
+                  value={phoneNumber}
+                  onChange={handlePhoneNumberChange}
+                />
+              </div>
 
-              />
-              <TextField
-                className="inputCustomerInfo"
-                label="Firstname"
-                value={lastname}
-                size="small"
-                onChange={handleLastnameChange}
-                sx={{
-                  '& > :not(style)': { width: '17rem' }
-                }}
-
-              />
-
-              <TextField
-                label="Phonenumber"
-                color="success"
-                size="small"
-                value={phoneNumber}
-                onChange={handlePhoneNumberChange}
-                sx={{
-                  '& > :not(style)': { width: '17rem' }
-                }}
-              />
-
+              <div style={{ marginTop: 10 }}></div>
               <TextField
                 label="Email"
                 color="success"
                 size="small"
                 value={email}
                 onChange={handleEmailChange}
-                sx={{
-                  '& > :not(style)': { width: '17rem' }
-                }}
               />
+            </div>
 
+            <div style={{ marginTop: 10 }}>
               <TextField
                 color="success"
                 disabled
                 size="small"
-                label="Username"
+                label="Användarnamn"
                 value={userName}
                 onChange={handleUserNameChange}
-                sx={{
-                  '& > :not(style)': { width: '17rem' }
-                }}
               />
+            </div>
 
+            <div style={{ marginTop: 10 }}>
               <TextField
-                label="Password"
+                label="Lösenord"
                 size="small"
                 color="success"
                 id="passwordInputOne"
@@ -169,13 +159,12 @@ function UserInfo() {
                 value={passwordOne}
                 onChange={handlePasswordOne}
                 autoComplete="current-password"
-                sx={{
-                  '& > :not(style)': { width: '17rem' }
-                }}
               />
+            </div>
 
+            <div style={{ marginTop: 10 }}>
               <TextField
-                label="Password"
+                label="Lösenord"
                 size="small"
                 color="success"
                 id="passwordInputTwo"
@@ -183,47 +172,37 @@ function UserInfo() {
                 value={passwordTwo}
                 onChange={handlePasswordTwo}
                 autoComplete="current-password"
-                sx={{
-                  '& > :not(style)': { width: '17rem' }
-                }}
               />
-
-
-
-              <div className="formControllTwo">
-
-              </div>
-            </Box>
+            </div>
 
 
             <div className="btnDiv">
               <div>
 
-                <Button
+                <button
+                  className="btnStylingUserInfo"
                   /* onClick={} */
                   size="small"
-                  color="success"
                   variant="contained"
                   disableElevation>
-                  Save
-                </Button>
+                  Spara
+                </button>
 
               </div>
+
               <div>
 
-                <Button
+                <button
                   /*  onClick={} */
-                  color="error"
-                  variant="contained"
+                  className="btnStylingDelete"
                   disableElevation
                   size="small">
-                  Delete User
-                </Button>
+                  Radera användare
+                </button>
 
               </div>
             </div>
           </div>
-
         </div>
       </div>
 

@@ -1,4 +1,4 @@
-import React, { setState, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import Typography from '@mui/material/Typography';
 
@@ -10,8 +10,6 @@ import MakeRequest from "../MakeRequest";
 
 import "../App.scss";
 import "./CartPageStyle.scss";
-
-
 
 function OrderPage() {
 
