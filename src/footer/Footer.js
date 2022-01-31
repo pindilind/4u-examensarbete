@@ -47,9 +47,7 @@ export default function FooterStartPage() {
         icon={<FaDoorOpen />} />
     </BottomNavigation>
 
-    <div>
-      Helloo
-    </div>
+    
 
     </>
   );

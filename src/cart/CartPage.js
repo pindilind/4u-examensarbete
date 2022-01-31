@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useStripe } from '@stripe/react-stripe-js';
+import { Link } from "react-router-dom"
 
 import Table from '@mui/material/Table';
 import TableHead from '@mui/material/TableHead';
@@ -21,6 +22,10 @@ const TAX_RATE = 0.20;
 
 /* function ccyFormat(num) { 
   return `${num.toFixed(2)}`; 
+} */
+
+/* function subtotal(items) {
+  return items.map(({ amount }) => amount).reduce((sum, i) => sum + i, 0);
 } */
 
 
@@ -194,17 +199,25 @@ export default function CartPage(props) {
 
                 <TableRow>
                   <TableCell>Moms ingår med (25%): </TableCell>
-                  <TableCell align="right">{`${(TAX_RATE * amount).toFixed(0)} SEK`}</TableCell>
+                  <TableCell align="right">{`${(TAX_RATE * (amount * counter)).toFixed(0)} SEK`}</TableCell>
                 </TableRow>
 
                 <TableRow>
                   <TableCell colSpan={2}>Total, SEK:</TableCell>
-                  <TableCell align="right">{(amount)}</TableCell>
+                  <TableCell align="right">{(amount * counter)}</TableCell>
                 </TableRow>
               </Table>
             </TableBody>
 
           </>
+          <Typography>
+            <Link to="/userHomePage">
+            <Button>Fortsätt Handla</Button>
+            </Link>
+            <Button
+            >Töm varukorgen</Button>
+          </Typography>
+          
 
 
           <Typography className={'btnDiv'} component="div">

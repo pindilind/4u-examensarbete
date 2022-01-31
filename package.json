@@ -3,6 +3,7 @@
   "homepage": "https://event4u.online",
   "version": "0.1.0",
   "private": true,
+  
   "dependencies": {
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
@@ -32,6 +33,7 @@
     "react-router-dom": "^5.2.0",
     "sass": "^1.45.0",
     "stripe": "^8.198.0",
+    "type": "module",
     "web-vitals": "^1.1.2"
   },
   "devDependencies": {

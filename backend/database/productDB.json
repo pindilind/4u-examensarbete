@@ -3,40 +3,44 @@
     "id": 1,
     "img": "https://static.atikko.se/eventimages/img_c68bd3dbc7c58791ca5a84e12c920965.jpg",
     "productTitle": "Morgan Alling - konsten att hantera besvärliga människor",
-    "description": "Text....",
+    "description": "Vad är det som gör att vissa människor är så svåra att hantera? Hur gör man när situationer blir obehagliga och spända? Varifrån kommer de och hur ser de ut? Skådespelaren, regissören och föreläsaren Morgan Alling föreläser på #DIKsessions och berättar hur man kan vända negativa erfarenheter till någonting bra och hur man löser konflikter med besvärliga människor – det kan handla om livskamrater, arbetskamrater, vänner, grannar eller kanske till och med dig själv. ",
     "categoriId": 1,
-    "date": "20220207",
-    "time": "1900",
-    "price": "650"
+    "date": "7 februari, 2022",
+    "time": "19:00",
+    "price": "650",
+    "link": "https://www.youtube.com/watch?v=kcyKEGiP0Xs"
   },
   {
     "id": 2,
     "img": "https://images.squarespace-cdn.com/content/v1/5fd12fffd7a2de4664aad9fe/1639512331367-48ZPG4ZXW1W7P4WV44VD/Tomas+and+Dennis.jpg",
     "productTitle": "Tomas Lydahl & Dennis Westerberg - Psyket är alltid friskt, oförstörbart",
-    "description": "Text....",
+    "description": "En banbrytande föreläsning om psykisk hälsa med Tomas Lydahl och Dennis Westerberg som introducerar och förklarar de nyupptäckta och livsförändrande principer som håller på att revolutionera hela det psykologiska fältet, och som ger oss människor ett större välmående, högre livskvalitet och mer framgång. Låt dig dock inte luras av den lättsamma och smått ironiska tonen. Inte heller av den breda skånska dialekten. Bortom all humor och kvickhet, finns nämligen ett viktigt och banbrytande budskap. Tomas Lydahl och Dennis Westerberg är båda författare och två av Sveriges mest inspirerande föreläsare. ",
     "categoriId": 1,
-    "date": "20220218",
-    "time": "1800",
-    "price": "850"
+    "date": "18 februari, 2022",
+    "time": "18:00",
+    "price": "850",
+    "link": "https://www.youtube.com/watch?v=MvQrCE2y9Kk"
   },
   {
     "id": 3,
     "img": "https://www.talarforum.se/media/talarforum_se/img/40_21/1200x630/tina_thorner_1877.jpg",
     "productTitle": "Tina Thörner talar om att allt faktiskt går, bara man tror på det och vill tillräckligt mycket",
-    "description": "Text....",
+    "description": "Tina Thörner, kartläsare och rallysportprofil, damvärldsmästare tre gånger. Tina Thörner talar om att allt faktiskt går, bara man tror på det och vill det tillräckligt mycket. Med positivt tänkande skapar man sin egen lycka och dessutom ordnar man till självförtroendet.  Tina Thörner är som kartläsare en av de största profilerna inom rallysporten. Hon har varit damvärldsmästare i rally tre gånger, varit totaltvåa i Svenska rallyt och hon har vunnit Marocko Rally Raid. Hon arbetar som teamledare och PR-profil för Mitsubishi och tidigare med GM och Ford. Tina är även föreläsare och hon talar om att man kan bara man vill, förutsatt att man verkligen tror på det. Hon talar om hur man skapar sin egen lycka i livet, hur man odlar ett positivt tänkande och filar på sitt självförtroende. Tina talar även om vikten av att kunna ta konstruktiv kritik och att kunna ge feedback.  Tina Thörner är en otroligt öppen och ärlig person och enormt engagerande som föreläsare. Hon arbetar inom en av de mest mansdominerade branscher som finns och hon brukar säga att hon lärt sig massor, men att oj vad hon är tacksam för att hon är kvinna. Det gäller att våga vara den man är.  ",
     "categoriId": 2,
-    "date": "20220220",
-    "time": "1700",
-    "price": "650"
+    "date": "20 februari, 2022",
+    "time": "17:00",
+    "price": "650",
+    "link": ""
   },
   {
     "id": 4,
     "img": "https://www.talarforum.se/media/talarforum_se/img/40_21/500x263/robert_gustafsson_1931.jpg",
     "productTitle": "Robert Gustafsson - från vaggan till deadline",
-    "description": "Text....",
+    "description": "Robert Gustafsson - skådespelare och komiker som har utsetts till Världens roligaste man av svenska folket i SVT:s program Folktoppen. Som liten ville Robert Gustafsson bli skrothandlare, men ödet ville annorlunda. Hans eget mod och nyfikenhet gjorde att han 'öppnade dörrar som andra trodde var stängda' och på så sätt öppnade sig helt andra möjligheter och han gjorde vissa avgörande vägval. Roberts föreläsning Från vaggan till deadline handlar om att våga! Och att tro på sig själv! Att våga öppna dörrar som verkar stängda, och att framför allt - våga se vad som finns bakom dörren! Roberts föreläsning Från vaggan till deadline handlar om att våga! Och att tro på sig själv! Att våga öppna dörrar som verkar stängda, och att framför allt - våga se vad som finns bakom dörren! Gå igenom den och se vad som väntar på andra sidan. Denna föreläsning är humoristisk, inspirerande, entusiasmerade och till viss del utmanar den sin publik att fundera på sin egen tillvaro.",
     "categoriId": 2,
-    "date": "20220222",
-    "time": "1900",
-    "price": "850"
+    "date": "22 februari, 2022",
+    "time": "19:00",
+    "price": "850",
+    "link": ""
   }
 ]
