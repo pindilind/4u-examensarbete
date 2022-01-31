@@ -21,7 +21,7 @@ import Avatar from "../components/Avatar";
 
 
 const options = [
-  'Alla event',
+  'Alla kategorier',
   'Affärsutveckling',
   'Inspiration',
   'Psykologi',
