@@ -12,12 +12,9 @@ import './UserHomeStyle.scss';
 
 import MakeRequest from '../MakeRequest';
 
-/* import data from '../api/test.json'; */
-
 import Footer from "../footer/Footer";
 import Search from './Search';
 import LongMenu from "../components/DropDown";
-import Avatar from "../components/Avatar";
 
 
 const options = [
@@ -138,20 +135,20 @@ function UserHomePage(props) {
             <Search />
           </div>
 
-          <div className={"userTitle"}>
-            <h3>Good Afternoon</h3>
-            <h3>USER</h3>
-          </div>
-
-          <div className={"caruselleDiv"}>
-            {/* <Caruselle /> */}
-          </div>
+          <Caruselle />
+        
           {/*  <div>
             <h4>Kategori: </h4>{selectCategory()}
            
           </div> */}
 
-          <div >
+          <div className={"userTitle"}>
+            <h3>Good Afternoon</h3>
+            <h3>USER</h3>
+          </div>
+
+          <div>
+          <CalenderModal />
             <div className="displayFlexDivAlign">
               {renderProducts()}
             </div>
@@ -159,6 +156,7 @@ function UserHomePage(props) {
           </div>
         </div>
       </div>
+
       < Footer />
 
     </>

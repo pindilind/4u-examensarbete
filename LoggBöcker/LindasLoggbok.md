@@ -147,7 +147,7 @@ Jag har renderat den nya informationen på sidan för respektive produkt. Skönt
 
 ---
 
-**TISDAG| 2022-01-21**<br>
+**MÅNDAG | 2022-01-31**<br>
 Morgonmöte klockan 9.
 
 ---

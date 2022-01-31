@@ -5,7 +5,6 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
 
-
 import { makeStyles } from '@mui/styles';
 
 import './CalenderStyle.scss';
@@ -73,7 +72,7 @@ const useStylesLarge = makeStyles({
 
 export default function ProductCardLarge(props) {
 
-  const classes = useStylesLarge()
+  const classes = useStylesLarge();
 
   const [cart, setCart] = useState([]);
 
