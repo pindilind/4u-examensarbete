@@ -10,7 +10,7 @@ import { makeStyles } from '@mui/styles';
 
 
 const options = [
-  'Alla event',
+  'Alla kategorier',
   'Affärsutveckling',
   'Inspiration',
   'Psykologi',

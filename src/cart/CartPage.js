@@ -14,7 +14,6 @@ import HeaderInlogged from "../headers/HeaderInlogged";
 import Footer from "../footer/Footer";
 import "../App.scss";
 import "./CartPageStyle.scss";
-import { subMilliseconds } from "date-fns";
 
 //document.title = 'Varukorgen';
 //Momssatsen är 25%, men eftersom vi räknar bakåt från totalsumman använder vi 20% 

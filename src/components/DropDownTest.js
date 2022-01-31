@@ -5,7 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { TiThMenu} from 'react-icons/ti';
 
 const options = [
-  'Alla event',
+  'Alla kategorier',
   'Affärsutveckling',
   'Inspiration',
   'Psykologi',
