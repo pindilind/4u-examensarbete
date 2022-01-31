@@ -7,31 +7,42 @@ import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import TableBody from '@mui/material/TableBody';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
-import HeaderInlogged from "../headers/HeaderInlogged";
+import { Button } from '@mui/material';
+
 //import CartTable from "../components/CartTable";
+
+import HeaderInlogged from "../headers/HeaderInlogged";
 import Footer from "../footer/Footer";
+
 import "../App.scss";
 import "./CartPageStyle.scss";
-import { subMilliseconds } from "date-fns";
 
-//document.title = 'Varukorgen';
+import { makeStyles } from '@mui/styles';
+
+document.title = 'Varukorgen';
+
 //Momssatsen är 25%, men eftersom vi räknar bakåt från totalsumman använder vi 20% 
 const TAX_RATE = 0.20;
 
-/* function ccyFormat(num) { 
-  return `${num.toFixed(2)}`; 
-} */
+const useStyles = makeStyles({
+  overrides: {
+    MuiTableRow: {
+      backgroundColor: 'red',
 
-/* function subtotal(items) {
-  return items.map(({ amount }) => amount).reduce((sum, i) => sum + i, 0);
-} */
-
+      MuiTableCell: {
+        root: {
+          color: "blue"
+        },
+      },
+    }
+  },
+});
 
 export default function CartPage(props) {
 
   const stripe = useStripe();
+
+  const classes = useStyles()
 
   const [itemCount, setItemCount] = useState(1);
 
@@ -41,9 +52,6 @@ export default function CartPage(props) {
   const [cart, setCart] = useState([]);
 
   const [orders, setOrders] = useState([]);
-
-  console.log(cart)
-
 
 
   function updateCounter() {
@@ -102,31 +110,27 @@ export default function CartPage(props) {
 
       return (
         <>
-          <TableBody>
-            <TableRow key={value.desc}>
-              <TableCell>{value.productTitle}</TableCell>
-              <TableCell align="left">23 februari, 2022</TableCell>
-              <TableCell align="left">18:30</TableCell>
-              <TableCell align="center">{value.quantity}</TableCell>
-              <TableCell align="right">{(value.price)}</TableCell>
-              <TableCell align="right">{(value.quantity * value.price)}</TableCell>
+          <TableRow key={value.desc}>
+            <TableCell>{value.productTitle}</TableCell>
+            <TableCell align="left">{value.date}</TableCell>
+            <TableCell align="left">{value.time}</TableCell>
+            <TableCell align="center">{value.quantity}</TableCell>
+            <TableCell align="right">{(value.price)}</TableCell>
+            <TableCell align="right">{(value.quantity * value.price)}</TableCell>
 
-              <TableCell align="center">
-                <Button onClick={() => {
-                  setItemCount(itemCount + 1);
-                }}
-                >+</Button>
-                <Button onClick={() => {
-                  setItemCount(Math.max(itemCount - 1, 0));
-                }}
-                >-</Button>
-              </TableCell>
+            <TableCell align="center">
+              <Button onClick={() => {
+                setItemCount(itemCount + 1);
+              }}
+              >+</Button>
+              <Button onClick={() => {
+                setItemCount(Math.max(itemCount - 1, 0));
+              }}
+              >-</Button>
+            </TableCell>
 
-            </TableRow>
+          </TableRow>
 
-
-
-          </TableBody>
         </>
       );
     });
@@ -176,65 +180,116 @@ export default function CartPage(props) {
   return (
     <>
       <HeaderInlogged counter={counter} />
+
       <div className="wrappsAllContent">
         <div className="flexCenterAll ">
-          <h2>Din varukorg</h2>
 
-          <>
-            <TableBody>
+          <div className="displayFlexDiv">
+            <h1 className="titleRegisterAndLogin">Din varukorg</h1>
 
-              <Table sx={{ minWidth: 350, maxWidth: 800 }} aria-label="spanning table">
-                <TableHead align="center">
+            <div className="tableDiv">
+
+              <TableBody sx={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                      width: '100%',
+                      }}>
+                <Table>
+                  <TableHead align="center">
+                    <TableRow>
+                      <TableCell sx={{
+                        backgroundColor: '#75A488',
+                        color: '#ffffff',
+                        fontWeight: 'bold',
+                        
+                      }}>Produkt/Event </TableCell>
+
+                      <TableCell sx={{
+                        backgroundColor: '#75A488',
+                        color: '#ffffff',
+                        fontWeight: 'bold',
+                      }}>
+                        Datum
+                        </TableCell>
+
+                      <TableCell sx={{
+                        backgroundColor: '#75A488',
+                        color: '#ffffff',
+                        fontWeight: 'bold',
+                      }}>
+                        Tid
+                      </TableCell>
+
+                      <TableCell sx={{
+                        backgroundColor: '#75A488',
+                        color: '#ffffff',
+                        fontWeight: 'bold',
+                      }}>
+                        Antal
+                      </TableCell>
+
+                      <TableCell sx={{
+                        backgroundColor: '#75A488',
+                        color: '#ffffff',
+                        fontWeight: 'bold',
+                      }}>
+                        Pris
+                        </TableCell>
+
+                      <TableCell sx={{
+                        backgroundColor: '#75A488',
+                        color: '#ffffff',
+                        fontWeight: 'bold',
+                      }}>
+                        Summa
+                      </TableCell>
+                    </TableRow>
+
+                  </TableHead>
+                  {renderCart()}
+
                   <TableRow>
-                    <TableCell>Produkt/Event </TableCell>
-                    <TableCell align="left">Datum</TableCell>
-                    <TableCell align="left">Tid</TableCell>
-                    <TableCell align="left">Antal</TableCell>
-                    <TableCell align="left">Pris</TableCell>
-                    <TableCell align="left">Summa</TableCell>
+                    <TableCell>Moms ingår med (25%): </TableCell>
+                    <TableCell align="right">{`${(TAX_RATE * amount).toFixed(0)} SEK`}</TableCell>
                   </TableRow>
 
-                </TableHead>
-                {renderCart()}
+                  <TableRow sx={{
+                        backgroundColor: '#75A488',
+                        color: '#ffffff',
+                        fontWeight: 'bold',
+                      }}>
+                    <TableCell sx={{
+                      color: '#ffffff',
+                        fontWeight: 'bold',
+                      }} colSpan={2}>Total, SEK:</TableCell>
+                    <TableCell sx={{
+                      color: '#ffffff',
+                        fontWeight: 'bold',
+                      }}align="right">{(amount)} kr</TableCell>
+                  </TableRow>
+                </Table>
+              </TableBody>
 
-                <TableRow>
-                  <TableCell>Moms ingår med (25%): </TableCell>
-                  <TableCell align="right">{`${(TAX_RATE * (amount * counter)).toFixed(0)} SEK`}</TableCell>
-                </TableRow>
+            </div>
+          </div>
 
-                <TableRow>
-                  <TableCell colSpan={2}>Total, SEK:</TableCell>
-                  <TableCell align="right">{(amount * counter)}</TableCell>
-                </TableRow>
-              </Table>
-            </TableBody>
+          <div className={'btnDiv'} component="div">
 
-          </>
-          <Typography>
-            <Link to="/userHomePage">
-            <Button>Fortsätt Handla</Button>
-            </Link>
-            <Button
-            >Töm varukorgen</Button>
-          </Typography>
-          
-
-
-          <Typography className={'btnDiv'} component="div">
-
-            <Button
+            <button
+              className={'btnStylingCart'}
               onClick={toCheckOut}
             >
               Till Checkout
-            </Button>
+            </button>
 
 
-          </Typography>
+          </div>
 
-          <Footer />
         </div>
       </div>
 
+      <Footer />
+      {/* sx={{ minWidth: 350, maxWidth: 800 }}  */}
     </>
   );
 }
