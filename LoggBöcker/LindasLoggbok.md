@@ -149,5 +149,30 @@ Jag har renderat den nya informationen på sidan för respektive produkt. Skönt
 
 **MÅNDAG | 2022-01-31**<br>
 Morgonmöte klockan 9.
+I helgen och dag måndag 31/1 har fokuset för mig legat på att få så mycket frontend på plats som möjligt. Sidan har inte varit speciellt mobilanpassad innan då vi har tänkt att det är bättre att lägga den tiden på funktioner i början. Jag kom in i ett flow och stylade många sidor, som nu är färdiga. Det är bara CartPage och OrderPage kvar. Vi har kommit fram till att Mui INTE är något för oss...
+
+Lyckades få in våra kategorier i dropdown nu på kvällen. Nu ska rätt produkter renderas när rätt kategori välj. 
+
+!! STRIPE-STRUL !! 
+
+---
+
+**TISDAG | 2022-02-01**<br>
+Morgonmöte klockan 9.
+
+---
+
+**ONSDAG | 2022-02-02**<br>
+Morgonmöte klockan 9.
+
+---
+
+**TORSDAG | 2022-02-03**<br>
+Morgonmöte klockan 9.
+
+---
+
+**FREDAG | 2022-02-04**<br>
+INLÄMNING OCH REDOVISNING!
 
 ---

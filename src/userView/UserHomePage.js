@@ -14,17 +14,6 @@ import MakeRequest from '../MakeRequest';
 
 import Footer from "../footer/Footer";
 import Search from './Search';
-import LongMenu from "../components/DropDown";
-
-
-const options = [
-  'Alla kategorier',
-  'Affärsutveckling',
-  'Inspiration',
-  'Psykologi',
-  'Underhållning',
-  'Vetenskap',
-];
 
 
 const style = {
@@ -48,8 +37,6 @@ function UserHomePage(props) {
   const [products, setProducts] = useState([]);
 
   const [counter, setCounter] = useState(0);
-
-  const [categories, setCategories] = useState([]);
 
   const [amount, setAmount] = useState(0);
 
@@ -95,25 +82,6 @@ function UserHomePage(props) {
     }
   }
 
-  /*  function selectCategory(props) {
-     const category = options;
-     let choice = category;
- 
-     console.log(category)
-     console.log(choice)
-   
-     if (choice === 'Alla event')
-       return (
-        console.log(choice)
-        );
-      if(choice === 'Affärsutveckling'){
-        return (
-          console.log(choice)
-        )
-      }
-     
-   } */
-
   function renderProducts() {
 
     return products.map((product, id) => {
@@ -136,11 +104,6 @@ function UserHomePage(props) {
           </div>
 
           <Caruselle />
-        
-          {/*  <div>
-            <h4>Kategori: </h4>{selectCategory()}
-           
-          </div> */}
 
           <div className={"userTitle"}>
             <h3>Good Afternoon</h3>
@@ -148,7 +111,7 @@ function UserHomePage(props) {
           </div>
 
           <div>
-          <CalenderModal />
+            <CalenderModal />
             <div className="displayFlexDivAlign">
               {renderProducts()}
             </div>

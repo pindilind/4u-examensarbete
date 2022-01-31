@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
+
 import { makeStyles } from '@mui/styles';
 
-import './CalenderStyle.scss'
+import './CalenderStyle.scss';
 
 function Calenders() {
   const [value, onChange] = useState(new Date());

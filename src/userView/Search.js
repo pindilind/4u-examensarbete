@@ -37,17 +37,17 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function SearchAppBar() {
   return (
-    <Box sx={{ flexGrow: 1,}}>
-     
-          <Search>
-            <SearchIconWrapper>
-              <FaSearch />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Sök..."
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
+    <Box sx={{ flexGrow: 1, }}>
+
+      <Search>
+        <SearchIconWrapper>
+          <FaSearch />
+        </SearchIconWrapper>
+        <StyledInputBase
+          placeholder="Sök..."
+          inputProps={{ 'aria-label': 'search' }}
+        />
+      </Search>
     </Box>
   );
 }

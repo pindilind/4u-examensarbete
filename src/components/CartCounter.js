@@ -30,8 +30,7 @@ export default function CustomizedBadges(props) {
   return (
     <IconButton className={classes.root} aria-label="cart">
       <StyledBadge className={classes.root} badgeContent={props.counter}>
-        <FaShoppingCart /* className={'icon'} */
-        />
+        <FaShoppingCart />
       </StyledBadge>
     </IconButton>
   );
