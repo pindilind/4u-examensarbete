@@ -23,9 +23,6 @@ import CancelPage from "./stripe/CancelPage";
 import ScrollToTop from "./ScrollToTop";
 import CookieConsent, { Cookies } from "react-cookie-consent";
 
-
-/* import WithCookies from "./cookies/Cookies"; */
-
 import './App.scss';
 
 const stripePromise = loadStripe('pk_test_51KIrmMKydFVV4O5pbXcVA2jLQbS3wNlbptKM3U9V725b9pBtZNB8eaCajooBNfRl4QJ88SVIhgv61xnVZDnmY352003CBKMCVi');
