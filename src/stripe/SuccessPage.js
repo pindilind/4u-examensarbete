@@ -5,7 +5,6 @@ import { BsFillCheckCircleFill } from 'react-icons/bs';
 
 import HeaderInlogged from "../headers/HeaderInlogged";
 import Footer from "../footer/Footer";
-import MakeRequest from '../MakeRequest';
 
 import { makeStyles } from '@mui/styles';
 
