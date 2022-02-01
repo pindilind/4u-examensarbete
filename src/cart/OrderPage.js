@@ -9,6 +9,7 @@ import MakeRequest from "../MakeRequest";
 
 import "../App.scss";
 import "./CartPageStyle.scss";
+import { TableBody } from "@mui/material";
 
 
 
@@ -48,37 +49,61 @@ function OrderPage(props) {
         console.log(cart)
         /* let cart = JSON.parse(orders.cart);
         console.log(JSON.parse(orders.cart)); */
-      
-      return (
-        <>
-        <div>
+
+        return (
+          <>
+            <div>
 
 
-        <tr style={{
-                  width: "100%",
-                  display: "flex",
-                  justifyContent: "space-between"
-                }}>
-            <td>{orders.customerId}</td>
-            <td>{cart.productTitle}</td>
-            <td>{cart.date}</td>
-            <td>{cart.time}</td>
-            <td>{cart.link}</td>
-          </tr>
+              <tr key={orders.orderID} style={{
+                width: "100%",
+                display: "flex",
+                justifyContent: "space-between"
+              }}>
+                <td>{orders.customerId}</td>
+                <td>{cart.productTitle}</td>
+                <td>{cart.date}</td>
+                <td>{cart.time}</td>
+                <td>{cart.link}</td>
+              </tr>
 
-          {/* <tr>
-            <td>{orders.orderDate}</td>
-            <td>Betald</td>
-            <td>{cart.quantity}</td>
-            <td>{cart.price}</td>
-            <td>{cart.quantity * cart.price}</td>
-          </tr> */} 
-        
-        </div>
-        </>
-      
-      );
-    });
+
+              {/*här kommer colaps-delen */}
+              <tr>
+                <div>OrderInformation</div>
+                <table>
+
+                  <tablehead>
+                    <tr>
+                      <th>Orderdatum</th>
+                      <th>Status</th>
+                      <th>Antal</th>
+                      <th>Pris</th>
+                      <th>Totalt pris</th>
+                    </tr>
+
+                  </tablehead>
+
+                <tr>
+
+                  <tablebody>
+                    <tr>
+                      <td>{orders.orderDate}</td>
+                      <td>Betald</td>
+                      <td>{cart.quantity}</td>
+                      <td>{cart.price}</td>
+                      <td>{cart.quantity * cart.price}</td>
+
+                    </tr>
+                  </tablebody>
+                </tr>
+                </table>
+              </tr>
+            </div>
+          </>
+
+        );
+      });
     });
   }
 
@@ -103,31 +128,36 @@ function OrderPage(props) {
                   backgroundColor: '#75A488',
                   color: '#ffffff',
                   fontWeight: 'bold',
-                  
+
                 }}>
 
-                <tr style={{
-                  width: "100%",
-                  display: "flex",
-                  justifyContent: "space-between"
-                }}>
-                  <th>Ordernummer </th>
-                  <th>Event titel</th>
-                  <th>Event datum</th>
-                  <th>Event starttid</th>
-                  <th>Länk till event</th>
-                </tr>
-                
-               {/* <tr>
+                  <tr style={{
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "space-between"
+                  }}>
+                    <th>Ordernummer </th>
+                    <th>Event titel</th>
+                    <th>Event datum</th>
+                    <th>Event starttid</th>
+                    <th>Länk till event</th>
+                  </tr>
+
+                  {/* <tr>
                   <th>Orderdatum</th>
                   <th>Orderstatus</th>
                   <th>Antal</th>
                   <th>Pris</th>
                   <th>Total, s:a</th>
                 </tr>  */}
-        
+
                 </tablehead>
-                {renderOrder()}
+                <TableBody>
+                  {orders.map((order) => (
+                    <orders key={order.orderID} row={order} />
+                  ))}
+                  {renderOrder()}
+                </TableBody>
               </table>
             </div>
 
