@@ -3,7 +3,6 @@
   "homepage": "https://event4u.online",
   "version": "0.1.0",
   "private": true,
-  
   "dependencies": {
     "@emotion/react": "^11.7.1",
     "@emotion/styled": "^11.6.0",
@@ -26,6 +25,8 @@
     "react-bootstrap": "^2.1.0",
     "react-bootstrap-carousel": "^4.1.1",
     "react-calendar": "^3.5.0",
+    "react-cookie": "^4.1.1",
+    "react-cookie-consent": "^7.2.1",
     "react-dom": "^17.0.2",
     "react-fetch-hook": "^1.8.5",
     "react-icons": "^4.3.1",
