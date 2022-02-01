@@ -43,33 +43,31 @@ function OrderPage(props) {
     return orderArray.map((orders) => {
       let cart = JSON.parse(orders.cart);
       console.log(orders)
-      
+
       return cart.map((cart) => {
         console.log(cart)
-        /* let cart = JSON.parse(orders.cart);
-        console.log(JSON.parse(orders.cart)); */
-      
-      return (
-        <>
-          <tr>
-            <td>{orders.customerId}</td>
-            <td>{cart.productTitle}</td>
-            <td>{cart.date}</td>
-            <td>{cart.time}</td>
-            <td>{cart.link}</td>
-          </tr>
 
-          <tr>
-            <td>{orders.orderDate}</td>
-            <td>Betald</td>
-            <td>{cart.quantity}</td>
-            <td>{cart.price}</td>
-            <td>{cart.quantity * cart.price}</td>
-          </tr>
-        </>
-      
-      );
-    });
+        return (
+          <>
+            <tr>
+              <td>{orders.customerId}</td>
+              <td>{cart.productTitle}</td>
+              <td>{cart.date}</td>
+              <td>{cart.time}</td>
+              <td>{cart.link}</td>
+            </tr>
+
+            <tr>
+              <td>{orders.orderDate}</td>
+              <td>Betald</td>
+              <td>{cart.quantity}</td>
+              <td>{cart.price}</td>
+              <td>{cart.quantity * cart.price}</td>
+            </tr>
+          </>
+
+        );
+      });
     });
   }
 
@@ -103,7 +101,6 @@ function OrderPage(props) {
               </table>
             </div>
 
-            {/* <OrderTable /> */}
           </Typography>
 
         </div>
