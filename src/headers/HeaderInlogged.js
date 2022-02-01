@@ -45,7 +45,7 @@ export default function ElevateAppBar(props) {
           <div className={'header'}>
 
             <div className={'divOne'}>
-              <LongMenu id="colorIcons" />
+              <LongMenu product={product} id="colorIcons" />
             </div>
 
 

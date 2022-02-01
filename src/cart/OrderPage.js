@@ -11,8 +11,6 @@ import "../App.scss";
 import "./CartPageStyle.scss";
 import { TableBody } from "@mui/material";
 
-
-
 function OrderPage(props) {
 
   const [orders, setOrders] = useState([]);
