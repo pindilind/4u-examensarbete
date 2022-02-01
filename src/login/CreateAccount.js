@@ -102,77 +102,77 @@ function CreateAccount(props) {
               </div>
 
               <div style={{ marginTop: 10 }}>
-              <TextField
-                label="Efternamn"
-                color="success"
-                value={lastname}
-                onChange={handleLastnameChange}
-                size="small"
-              />
+                <TextField
+                  label="Efternamn"
+                  color="success"
+                  value={lastname}
+                  onChange={handleLastnameChange}
+                  size="small"
+                />
+              </div>
+
+              <div style={{ marginTop: 10 }}>
+                <TextField
+                  label="Telefonnummer"
+                  value={phoneNumber}
+                  onChange={handlePhoneNumberChange}
+                  size="small"
+                  color="success"
+                />
+              </div>
+
+              <div style={{ marginTop: 10 }}>
+                <TextField
+                  label="Email"
+                  value={email}
+                  onChange={handleEmailChange}
+                  size="small"
+                  color="success"
+                />
+              </div>
+
+              <div style={{ marginTop: 10 }}>
+                <TextField
+                  label="Användarnamn"
+                  value={userName}
+                  onChange={handleUserNameChange}
+                  size="small"
+                  color="success"
+                />
+              </div>
+
+              <div style={{ marginTop: 10 }}>
+                <TextField
+                  label="Lösenord"
+                  value={passwordOne}
+                  onChange={handlePasswordOne}
+                  size="small"
+                  color="success"
+                />
+              </div>
+
+              <div style={{ marginTop: 10 }}>
+                <TextField
+                  label="Lösenord"
+                  value={passwordTwo}
+                  onChange={handlePasswordTwo}
+                  size="small"
+                  color="success"
+                />
+              </div>
+
             </div>
 
-            <div style={{ marginTop: 10 }}>
-              <TextField
-                label="Telefonnummer"
-                value={phoneNumber}
-                onChange={handlePhoneNumberChange}
-                size="small"
-                color="success"
-              />
-            </div>
-
-            <div style={{ marginTop: 10 }}>
-              <TextField
-                label="Email"
-                value={email}
-                onChange={handleEmailChange}
-                size="small"
-                color="success"
-              />
-            </div>
-
-            <div style={{ marginTop: 10 }}>
-              <TextField
-                label="Användarnamn"
-                value={userName}
-                onChange={handleUserNameChange}
-                size="small"
-                color="success"
-              />
-            </div>
-
-            <div style={{ marginTop: 10 }}>
-              <TextField
-                label="Lösenord"
-                value={passwordOne}
-                onChange={handlePasswordOne}
-                size="small"
-                color="success"
-              />
-            </div>
-
-            <div style={{ marginTop: 10 }}>
-              <TextField
-                label="Lösenord"
-                value={passwordTwo}
-                onChange={handlePasswordTwo}
-                size="small"
-                color="success"
-              />
-            </div>
+            <button
+              onClick={createAccount}
+              className="btnStylingGeneral"
+              disableElevation>
+              Skapa konto
+            </button>
 
           </div>
-
-          <button
-            onClick={createAccount}
-            className="btnStylingGeneral"
-            disableElevation>
-            Skapa konto
-          </button>
-
         </div>
       </div>
-    </div>
     </>
   );
 }
