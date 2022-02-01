@@ -112,38 +112,21 @@ export default function CartPage(props) {
       return (
         <>
           <tr key={value.desc}>
-            {/* <td>{orders.customerId}</td> */}
             <td>{value.productTitle}</td>
             <td>{value.date}</td>
             <td>{value.time}</td>
             <td>{cart.link}</td>
+            <td>{(counter)}</td>
+            <td>{(value.price)}</td>
+            <td>{(counter * value.price)}</td>
+
+            <Button onClick={() => setCounter(counter + 1)}>+</Button> 
+            <Button onClick={() => setCounter(Math.max(counter - 1, 1))}>-</Button> 
           </tr>
 
           <tr>
-            {/* <td>{orders.orderDate}</td>
-            <td>Betald</td> */}
-            <td>{value.quantity}</td>
-            <td>{(value.price)}</td>
-            <td>{(value.quantity * value.price)}</td>
+           
           </tr>
-
-          {/* <TableRow key={value.desc}>
-            <TableCell>{value.productTitle}</TableCell>
-            <TableCell align="left">{value.date}</TableCell>
-            <TableCell align="left">{value.time}</TableCell>
-            <TableCell align="center">{(counter)}</TableCell>
-            <TableCell align="right">{(value.price)}</TableCell>
-            <TableCell align="right">{(counter * value.price)}</TableCell>
-
-            <TableCell align="center">
-            <Button onClick={() => setCounter(counter + 1)}>+</Button> 
-            <Button onClick={() => setCounter(Math.max(counter - 1, 1))}>-</Button> 
-              
-              
-            </TableCell>
-
-          </TableRow>
- */}
         </>
       );
     });
@@ -204,107 +187,60 @@ export default function CartPage(props) {
 
             <div classes="orderTable">
               <table>
-                <tr>
-                  {/* <th>Ordernummer </th> */}
-                  <th>Produkt/Titel</th>
+                <tr style={{
+                    width: "100%",
+                    backgroundColor: '#75A488',
+                    color: '#ffffff',
+                    fontWeight: 'bold'
+                  }}>
+                  
+                  <th >
+                    Produkt/Titel
+                  </th>
                   <th>Datum</th>
                   <th>Tid</th>
-                </tr>
-                {renderCart()}
-                <tr>
-                  {/* <th>Orderdatum</th>
-                  <th>Orderstatus</th> */}
                   <th>Antal</th>
                   <th>Pris</th>
                   <th>Total, s:a</th>
                 </tr>
-
-              </table>
-            </div>
-
-
-             {/*  <TableBody sx={{
-                display: 'flex',
-                flexDirection: 'column',
-                width: '100%',
-              }}>
-                <Table>
-                  <TableHead align="center">
-                    <TableRow>
-                      <TableCell sx={{
-                        backgroundColor: '#75A488',
-                        color: '#ffffff',
-                        fontWeight: 'bold',
-
-                      }}>Produkt/Event </TableCell>
-
-                      <TableCell sx={{
-                        backgroundColor: '#75A488',
-                        color: '#ffffff',
-                        fontWeight: 'bold',
-                      }}>
-                        Datum
-                      </TableCell>
-
-                      <TableCell sx={{
-                        backgroundColor: '#75A488',
-                        color: '#ffffff',
-                        fontWeight: 'bold',
-                      }}>
-                        Tid
-                      </TableCell>
-
-                      <TableCell sx={{
-                        backgroundColor: '#75A488',
-                        color: '#ffffff',
-                        fontWeight: 'bold',
-                      }}>
-                        Antal
-                      </TableCell>
-
-                      <TableCell sx={{
-                        backgroundColor: '#75A488',
-                        color: '#ffffff',
-                        fontWeight: 'bold',
-                      }}>
-                        Pris
-                      </TableCell>
-
-                      <TableCell sx={{
-                        backgroundColor: '#75A488',
-                        color: '#ffffff',
-                        fontWeight: 'bold',
-                      }}>
-                        Summa
-                      </TableCell>
-                    </TableRow>
-
-                  </TableHead>
-                  {renderCart()}
-
-                  <TableRow>
-                    <TableCell>Moms ingår med (25%): </TableCell>
-                    <TableCell align="right">{`${(TAX_RATE * amount).toFixed(0)} SEK`}</TableCell>
-                  </TableRow>
-
-                  <TableRow sx={{
+                {renderCart()}
+                <tr>
+                  <td>Moms ingår med (25%): {`${(TAX_RATE * 650).toFixed(0)} SEK`}</td>
+                </tr>
+                <tr style={{
                     backgroundColor: '#75A488',
                     color: '#ffffff',
                     fontWeight: 'bold',
                   }}>
-                    <TableCell sx={{
+                    <td style={{
                       color: '#ffffff',
                       fontWeight: 'bold',
-                    }} colSpan={2}>Total, SEK:</TableCell>
-                    <TableCell sx={{
+                    }} > Totalt pris att betala:
+                    </td>
+                     <td style={{
                       color: '#ffffff',
                       fontWeight: 'bold',
-                    }} align="right">{(amount)} kr</TableCell>
-                  </TableRow>
-                </Table>
-              </TableBody>
- */}
+                    }} > 
+                    {`${(counter * 650).toFixed(0)} SEK`}
+                   </td>
+                </tr>
+              </table>
             </div>
+
+                 
+            </div>
+          </div>
+          <div style={{
+            display: "flex",
+            marginTop: "2em",
+          }}>
+      
+              <Link to="/userHomePage">
+                <button>Fortsätt handla</button>
+              </Link>
+            
+              <button>Töm varukorgen</button>
+            
           </div>
 
           <div className={'btnDiv'} component="div">
