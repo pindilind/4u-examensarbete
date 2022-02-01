@@ -2,14 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useStripe } from '@stripe/react-stripe-js';
 import { Link } from "react-router-dom"
 
-import Table from '@mui/material/Table';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import TableCell from '@mui/material/TableCell';
-import TableBody from '@mui/material/TableBody';
 import { Button } from '@mui/material';
-
-//import CartTable from "../components/CartTable";
 
 import HeaderInlogged from "../headers/HeaderInlogged";
 import Footer from "../footer/Footer";
@@ -25,17 +18,33 @@ document.title = 'Varukorgen';
 const TAX_RATE = 0.20;
 
 const useStyles = makeStyles({
-  overrides: {
-    MuiTableRow: {
-      backgroundColor: 'red',
+  table: {
+    width: '100%',
 
-      MuiTableCell: {
-        root: {
-          color: "blue"
-        },
-      },
-    }
   },
+  cartTableHead: {
+    width: "100%",
+    backgroundColor: '#75A488',
+    color: '#ffffff',
+    fontWeight: 'bold',
+
+    '@media (max-width: 480px)': {
+      minWidth: '100%',
+    },
+  },
+  cartValuesTr: {
+    backgroundColor: 'red',
+    color: '#ffffff',
+    fontWeight: 'bold',
+  },
+  cartValues: {
+    width: "20%",
+    marginTop: '1rem',
+    backgroundColor: 'blue',
+  }
+
+
+
 });
 
 export default function CartPage(props) {
@@ -111,21 +120,23 @@ export default function CartPage(props) {
 
       return (
         <>
-          <tr key={value.desc}>
-            <td>{value.productTitle}</td>
-            <td>{value.date}</td>
-            <td>{value.time}</td>
-            <td>{cart.link}</td>
-            <td>{(counter)}</td>
-            <td>{(value.price)}</td>
-            <td>{(counter * value.price)}</td>
+          <tr key={value.desc} className={classes.cartValuesTr}>
+            <td className={classes.cartValues}>{value.productTitle}</td>
+            <td className={classes.cartValues}>{value.date}</td>
+            <td className={classes.cartValues}>{value.time}</td>
+            <td className={classes.cartValues}>{cart.link}</td>
+            <td className={classes.cartValues}>{(counter)}</td>
+            <td className={classes.cartValues}>{(value.price)}</td>
+            <td className={classes.cartValues}>{(counter * value.price)}</td>
 
-            <Button onClick={() => setCounter(counter + 1)}>+</Button> 
-            <Button onClick={() => setCounter(Math.max(counter - 1, 1))}>-</Button> 
+            <td className={classes.cartValues}>
+            <Button onClick={() => setCounter(counter + 1)}>+</Button>
+            <Button onClick={() => setCounter(Math.max(counter - 1, 1))}>-</Button>
+            </td>
           </tr>
 
           <tr>
-           
+
           </tr>
         </>
       );
@@ -183,17 +194,9 @@ export default function CartPage(props) {
           <div className="displayFlexDiv">
             <h1 className="titleRegisterAndLogin">Din varukorg</h1>
 
-            <div className="tableDiv">
-
             <div classes="orderTable">
-              <table>
-                <tr style={{
-                    width: "100%",
-                    backgroundColor: '#75A488',
-                    color: '#ffffff',
-                    fontWeight: 'bold'
-                  }}>
-                  
+              <table className={classes.table}>
+                <tr className={classes.cartTableHead}>
                   <th >
                     Produkt/Titel
                   </th>
@@ -208,39 +211,37 @@ export default function CartPage(props) {
                   <td>Moms ingår med (25%): {`${(TAX_RATE * 650).toFixed(0)} SEK`}</td>
                 </tr>
                 <tr style={{
-                    backgroundColor: '#75A488',
+                  backgroundColor: '#75A488',
+                  color: '#ffffff',
+                  fontWeight: 'bold',
+                }}>
+                  <td style={{
                     color: '#ffffff',
                     fontWeight: 'bold',
-                  }}>
-                    <td style={{
-                      color: '#ffffff',
-                      fontWeight: 'bold',
-                    }} > Totalt pris att betala:
-                    </td>
-                     <td style={{
-                      color: '#ffffff',
-                      fontWeight: 'bold',
-                    }} > 
+                  }} > Totalt pris att betala:
+                  </td>
+                  <td style={{
+                    color: '#ffffff',
+                    fontWeight: 'bold',
+                  }} >
                     {`${(counter * 650).toFixed(0)} SEK`}
-                   </td>
+                  </td>
                 </tr>
               </table>
             </div>
 
-                 
-            </div>
           </div>
           <div style={{
             display: "flex",
             marginTop: "2em",
           }}>
-      
-              <Link to="/userHomePage">
-                <button>Fortsätt handla</button>
-              </Link>
-            
-              <button>Töm varukorgen</button>
-            
+
+            <Link to="/userHomePage">
+              <button>Fortsätt handla</button>
+            </Link>
+
+            <button>Töm varukorgen</button>
+
           </div>
 
           <div className={'btnDiv'} component="div">

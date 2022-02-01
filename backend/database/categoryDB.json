@@ -1,22 +1,22 @@
 [
-    {
-      "categoriId": "1",
-      "title": "Psykologi"
-    },
-    {
-        "categoriId": "2",
-        "title": "Inspiration"
-    },
-    {
-        "categoriId": "3",
-        "title": "Affärsutveckling"
-    },
-    {
-        "categoriId": "4",
-        "title": "Underhållning"
-    },
-    {
-        "categoriId": "8",
-        "title": "Vetenskap"
-    }
+  {
+    "categoriId": "1",
+    "title": "Psykologi"
+  },
+  {
+    "categoriId": "2",
+    "title": "Inspiration"
+  },
+  {
+    "categoriId": "3",
+    "title": "Affärsutveckling"
+  },
+  {
+    "categoriId": "4",
+    "title": "Underhållning"
+  },
+  {
+    "categoriId": "5",
+    "title": "Vetenskap"
+  }
 ]

@@ -10,8 +10,6 @@ import MakeRequest from "../MakeRequest";
 import "../App.scss";
 import "./CartPageStyle.scss";
 
-
-
 function OrderPage(props) {
 
   const [orders, setOrders] = useState([]);
@@ -48,37 +46,37 @@ function OrderPage(props) {
         console.log(cart)
         /* let cart = JSON.parse(orders.cart);
         console.log(JSON.parse(orders.cart)); */
-      
-      return (
-        <>
-        <div>
+
+        return (
+          <>
+            <div>
 
 
-        <tr style={{
-                  width: "100%",
-                  display: "flex",
-                  justifyContent: "space-between"
-                }}>
-            <td>{orders.customerId}</td>
-            <td>{cart.productTitle}</td>
-            <td>{cart.date}</td>
-            <td>{cart.time}</td>
-            <td>{cart.link}</td>
-          </tr>
+              <tr style={{
+                width: "100%",
+                display: "flex",
+                justifyContent: "space-between"
+              }}>
+                <td>{orders.customerId}</td>
+                <td>{cart.productTitle}</td>
+                <td>{cart.date}</td>
+                <td>{cart.time}</td>
+                <td>{cart.link}</td>
+              </tr>
 
-          {/* <tr>
+              {/* <tr>
             <td>{orders.orderDate}</td>
             <td>Betald</td>
             <td>{cart.quantity}</td>
             <td>{cart.price}</td>
             <td>{cart.quantity * cart.price}</td>
-          </tr> */} 
-        
-        </div>
-        </>
-      
-      );
-    });
+          </tr> */}
+
+            </div>
+          </>
+
+        );
+      });
     });
   }
 
@@ -103,29 +101,29 @@ function OrderPage(props) {
                   backgroundColor: '#75A488',
                   color: '#ffffff',
                   fontWeight: 'bold',
-                  
+
                 }}>
 
-                <tr style={{
-                  width: "100%",
-                  display: "flex",
-                  justifyContent: "space-between"
-                }}>
-                  <th>Ordernummer </th>
-                  <th>Event titel</th>
-                  <th>Event datum</th>
-                  <th>Event starttid</th>
-                  <th>Länk till event</th>
-                </tr>
-                
-               {/* <tr>
+                  <tr style={{
+                    width: "100%",
+                    display: "flex",
+                    justifyContent: "space-between"
+                  }}>
+                    <th>Ordernummer </th>
+                    <th>Event titel</th>
+                    <th>Event datum</th>
+                    <th>Event starttid</th>
+                    <th>Länk till event</th>
+                  </tr>
+
+                  {/* <tr>
                   <th>Orderdatum</th>
                   <th>Orderstatus</th>
                   <th>Antal</th>
                   <th>Pris</th>
                   <th>Total, s:a</th>
                 </tr>  */}
-        
+
                 </tablehead>
                 {renderOrder()}
               </table>
