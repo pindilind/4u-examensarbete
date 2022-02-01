@@ -6,7 +6,6 @@ import { makeStyles } from '@mui/styles';
 
 import PexelsVideo from "../assets/pexels-mikael-blomkvist-6561453.mp4";
 import ModalAboutUs from "../components/AboutUs";
-import FooterStartPage from "../footer/FooterStartPage"
 import CookieInfo from "../components/CookieInfo";
 /* import LogoTest from "../assets/LogoTest.svg"; */
 import NewLogo from "../assets/newLogo.svg";
@@ -79,8 +78,7 @@ function StartPage() {
 
         <div className={"footerStyleStartPage"}>
           <div className={"pStyleStartPage"}>
-            {/* <FooterStartPage /> */}
-            &#169; Event4U | Tel 012-23 45 67 | Email: <a href= " mailto:order@event4u.online " > order@event4u.online</a> | <ModalAboutUs /> | <CookieInfo /> | <DataIntegritetsPolicy /> 
+            &#169; Event4U | Tel 012-23 45 67 | Email: <a href=" mailto:order@event4u.online " > order@event4u.online</a> | <ModalAboutUs /> | <CookieInfo /> | <DataIntegritetsPolicy />
           </div>
         </div>
       </div>

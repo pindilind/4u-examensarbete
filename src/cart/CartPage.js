@@ -111,7 +111,23 @@ export default function CartPage(props) {
 
       return (
         <>
-          <TableRow key={value.desc}>
+          <tr key={value.desc}>
+            {/* <td>{orders.customerId}</td> */}
+            <td>{value.productTitle}</td>
+            <td>{value.date}</td>
+            <td>{value.time}</td>
+            <td>{cart.link}</td>
+          </tr>
+
+          <tr>
+            {/* <td>{orders.orderDate}</td>
+            <td>Betald</td> */}
+            <td>{value.quantity}</td>
+            <td>{(value.price)}</td>
+            <td>{(value.quantity * value.price)}</td>
+          </tr>
+
+          {/* <TableRow key={value.desc}>
             <TableCell>{value.productTitle}</TableCell>
             <TableCell align="left">{value.date}</TableCell>
             <TableCell align="left">{value.time}</TableCell>
@@ -127,7 +143,7 @@ export default function CartPage(props) {
             </TableCell>
 
           </TableRow>
-
+ */}
         </>
       );
     });
@@ -186,7 +202,28 @@ export default function CartPage(props) {
 
             <div className="tableDiv">
 
-              <TableBody sx={{
+            <div classes="orderTable">
+              <table>
+                <tr>
+                  {/* <th>Ordernummer </th> */}
+                  <th>Produkt/Titel</th>
+                  <th>Datum</th>
+                  <th>Tid</th>
+                </tr>
+                {renderCart()}
+                <tr>
+                  {/* <th>Orderdatum</th>
+                  <th>Orderstatus</th> */}
+                  <th>Antal</th>
+                  <th>Pris</th>
+                  <th>Total, s:a</th>
+                </tr>
+
+              </table>
+            </div>
+
+
+             {/*  <TableBody sx={{
                 display: 'flex',
                 flexDirection: 'column',
                 width: '100%',
@@ -266,7 +303,7 @@ export default function CartPage(props) {
                   </TableRow>
                 </Table>
               </TableBody>
-
+ */}
             </div>
           </div>
 

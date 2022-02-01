@@ -7,8 +7,7 @@ import Toolbar from '@mui/material/Toolbar';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 
 import NewLogo from "../assets/newLogo.svg";
-import Search from '../userView/Search';
-import LongMenu from '../components/DropDownTest';
+import LongMenu from '../components/DropDown';
 
 import CartCounter from '../components/CartCounter';
 
@@ -39,7 +38,7 @@ export default function ElevateAppBar(props) {
   const product = props.product;
 
   return (
-    
+
     <React.Fragment>
       <ElevationScroll {...props}>
         <AppBar>
@@ -48,7 +47,7 @@ export default function ElevateAppBar(props) {
             <div className={'divOne'}>
               <LongMenu id="colorIcons" />
             </div>
-           
+
 
             <Link to="/userHomePage">
               <div className={'divTwo'}>
@@ -59,11 +58,6 @@ export default function ElevateAppBar(props) {
                 />
               </div>
             </Link>
-
-
-            {/* <div className={'searchDiv'}>
-                <Search />
-              </div> */}
 
             <div className={'counterDiv'}>
               <Link product={product} counter={props.counter} to="/cartPage">

@@ -43,7 +43,7 @@ function OrderPage(props) {
     return orderArray.map((orders) => {
       let cart = JSON.parse(orders.cart);
       console.log(orders)
-      
+
       return cart.map((cart) => {
         console.log(cart)
         /* let cart = JSON.parse(orders.cart);
@@ -131,7 +131,6 @@ function OrderPage(props) {
               </table>
             </div>
 
-            {/* <OrderTable /> */}
           </Typography>
 
         </div>

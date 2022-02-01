@@ -1,22 +1,18 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link } from "react-router-dom";
+
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { TiThMenu } from 'react-icons/ti';
 
-import "../headers/HeaderInloggStyle.scss";
-
 import { makeStyles } from '@mui/styles';
 
+import "../headers/HeaderInloggStyle.scss";
 
-const options = [
-  'Alla kategorier',
-  'Affärsutveckling',
-  'Inspiration',
-  'Psykologi',
-  'Underhållning',
-  'Vetenskap',
-];
+import MakeRequest from '../MakeRequest';
+
+
 
 // hämta  alla , fltrerar med array på categoriID, lämna tillbaks och renderar
 const ITEM_HEIGHT = 48;
@@ -30,9 +26,11 @@ const useStyles = makeStyles({
 
 export default function LongMenu() {
 
-  const classes = useStyles()
+  const classes = useStyles();
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [categories, setCategories] = useState([]);
+
+  const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -40,6 +38,32 @@ export default function LongMenu() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  useEffect(() => {
+
+    async function getCategories() {
+      const status = await MakeRequest("http://localhost:3005/categories", "GET")
+      console.log(status)
+      return status
+    }
+
+    getCategories().then(result => {
+      setCategories(result);
+
+    });
+
+
+  }, [setCategories]);
+
+  /* const options = [
+    'Alla kategorier',
+    'Affärsutveckling',
+    'Inspiration',
+    'Psykologi',
+    'Underhållning',
+    'Vetenskap',
+  ]; */
+
 
   return (
     <div>
@@ -69,9 +93,9 @@ export default function LongMenu() {
           },
         }}
       >
-        {options.map((option) => (
-          <MenuItem key={option} selected={option === 'Alla event'} onClick={handleClose}>
-            {option}
+        {categories.map((categorie) => (
+          <MenuItem key={categorie} selected={categorie === 'Alla event'} onClick={handleClose}>
+            {categorie.title}
           </MenuItem>
         ))}
       </Menu>
