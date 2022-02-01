@@ -24,13 +24,21 @@ const useStyles = makeStyles({
 
 });
 
-export default function LongMenu() {
+export default function LongMenu(props) {
 
   const classes = useStyles();
+
+  /* const product = props.product;
+  console.log(product); */
+
+  const [products, setProducts] = useState([]);
+
+  const [filter, setFilter] = useState("all");
 
   const [categories, setCategories] = useState([]);
 
   const [anchorEl, setAnchorEl] = useState(null);
+
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -39,66 +47,83 @@ export default function LongMenu() {
     setAnchorEl(null);
   };
 
+  //LISTAR VÅRA KATEGORIER I DROPDOWN
   useEffect(() => {
 
     async function getCategories() {
-      const status = await MakeRequest("http://localhost:3005/categories", "GET")
-      console.log(status)
-      return status
+      const cat = await MakeRequest("http://localhost:3005/categories", "GET")
+      console.log(cat)
+      return cat
     }
 
-    getCategories().then(result => {
-      setCategories(result);
-
+    getCategories().then(resultCat => {
+      setCategories(resultCat);
+      setFilter(resultCat);
     });
 
 
-  }, [setCategories]);
+  }, [setCategories, setFilter]);
 
-  /* const options = [
-    'Alla kategorier',
-    'Affärsutveckling',
-    'Inspiration',
-    'Psykologi',
-    'Underhållning',
-    'Vetenskap',
-  ]; */
+  useEffect(() => {
+
+    async function getProducts() {
+      const prod = await MakeRequest("http://localhost:3005/products", "GET")
+      console.log(prod)
+      return prod
+    }
+
+    getProducts().then(resultProd => {
+      setProducts(resultProd);
+      console.log(resultProd)
+
+    });
+
+  }, [setProducts]);
 
 
+  function filterObjets() {
+    products.filter(products => products.categories === 1).map(filteredProducts => ( 
+    {filteredProducts} 
+    ))
+  }
+
+     
   return (
-    <div>
-      <IconButton
-      className={classes.root}
-        aria-label="more"
-        id="long-button"
-        aria-controls={open ? 'long-menu' : undefined}
-        aria-expanded={open ? 'true' : undefined}
-        aria-haspopup="true"
-        onClick={handleClick}
-      >
-        <TiThMenu className={classes.root} />
-      </IconButton>
-      <Menu
-        id="long-menu"
-        MenuListProps={{
-          'aria-labelledby': 'long-button',
-        }}
-        anchorEl={anchorEl}
-        open={open}
-        onClose={handleClose}
-        PaperProps={{
-          style: {
-            maxHeight: ITEM_HEIGHT * 4.5,
-            width: '20ch',
-          },
-        }}
-      >
-        {categories.map((categorie) => (
-          <MenuItem key={categorie} selected={categorie === 'Alla event'} onClick={handleClose}>
-            {categorie.title}
-          </MenuItem>
-        ))}
-      </Menu>
-    </div>
-  );
-}
+      <div>
+        {filterObjets()}
+        <IconButton
+          className={classes.root}
+          aria-label="more"
+          id="long-button"
+          aria-controls={open ? 'long-menu' : undefined}
+          aria-expanded={open ? 'true' : undefined}
+          aria-haspopup="true"
+          onClick={handleClick}
+        >
+          <TiThMenu className={classes.root} />
+        </IconButton>
+        <Menu
+          id="long-menu"
+          MenuListProps={{
+            'aria-labelledby': 'long-button',
+          }}
+          anchorEl={anchorEl}
+          open={open}
+          onClose={handleClose}
+          PaperProps={{
+            style: {
+              maxHeight: ITEM_HEIGHT * 4.5,
+              width: '20ch',
+            },
+          }}
+        >
+          {categories.map((categorie) => (
+            <MenuItem key={categorie.id} onClick={handleClose}>
+              {categorie.title}
+            </MenuItem>
+          ))}
+
+        </Menu>
+      </div>
+    );
+  }
