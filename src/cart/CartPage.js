@@ -67,8 +67,9 @@ export default function CartPage(props) {
         if (Object.hasOwnProperty.call(cart, key)) {
           const cartRow = cart[key];
           counter += cartRow.quantity
-          amount += cartRow.price * cartRow.quantity
+          amount += cartRow.price * cartRow.counter
           console.log(amount)
+          console.log(counter)
         }
       }
     }
@@ -130,19 +131,15 @@ export default function CartPage(props) {
             <TableCell>{value.productTitle}</TableCell>
             <TableCell align="left">{value.date}</TableCell>
             <TableCell align="left">{value.time}</TableCell>
-            <TableCell align="center">{value.quantity}</TableCell>
+            <TableCell align="center">{(counter)}</TableCell>
             <TableCell align="right">{(value.price)}</TableCell>
-            <TableCell align="right">{(value.quantity * value.price)}</TableCell>
+            <TableCell align="right">{(counter * value.price)}</TableCell>
 
             <TableCell align="center">
-              <Button onClick={() => {
-                setItemCount(itemCount + 1);
-              }}
-              >+</Button>
-              <Button onClick={() => {
-                setItemCount(Math.max(itemCount - 1, 0));
-              }}
-              >-</Button>
+            <Button onClick={() => setCounter(counter + 1)}>+</Button> 
+            <Button onClick={() => setCounter(Math.max(counter - 1, 1))}>-</Button> 
+              
+              
             </TableCell>
 
           </TableRow>

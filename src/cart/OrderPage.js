@@ -46,28 +46,39 @@ function OrderPage(props) {
 
       return cart.map((cart) => {
         console.log(cart)
+        /* let cart = JSON.parse(orders.cart);
+        console.log(JSON.parse(orders.cart)); */
+      
+      return (
+        <>
+        <div>
 
-        return (
-          <>
-            <tr>
-              <td>{orders.customerId}</td>
-              <td>{cart.productTitle}</td>
-              <td>{cart.date}</td>
-              <td>{cart.time}</td>
-              <td>{cart.link}</td>
-            </tr>
 
-            <tr>
-              <td>{orders.orderDate}</td>
-              <td>Betald</td>
-              <td>{cart.quantity}</td>
-              <td>{cart.price}</td>
-              <td>{cart.quantity * cart.price}</td>
-            </tr>
-          </>
+        <tr style={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "space-between"
+                }}>
+            <td>{orders.customerId}</td>
+            <td>{cart.productTitle}</td>
+            <td>{cart.date}</td>
+            <td>{cart.time}</td>
+            <td>{cart.link}</td>
+          </tr>
 
-        );
-      });
+          {/* <tr>
+            <td>{orders.orderDate}</td>
+            <td>Betald</td>
+            <td>{cart.quantity}</td>
+            <td>{cart.price}</td>
+            <td>{cart.quantity * cart.price}</td>
+          </tr> */} 
+        
+        </div>
+        </>
+      
+      );
+    });
     });
   }
 
@@ -81,23 +92,42 @@ function OrderPage(props) {
 
           <Typography className={'orderDiv'} component="div">
             <div classes="orderTable">
-              <table>
-                <tr>
+              <table >
+                <tablehead style={{
+                  width: "100%",
+                  outerHeight: "8em",
+                  display: "flex",
+                  justifyContent: "space-around",
+                  padding: "1em",
+                  alignItems: "center",
+                  backgroundColor: '#75A488',
+                  color: '#ffffff',
+                  fontWeight: 'bold',
+                  
+                }}>
+
+                <tr style={{
+                  width: "100%",
+                  display: "flex",
+                  justifyContent: "space-between"
+                }}>
                   <th>Ordernummer </th>
                   <th>Event titel</th>
                   <th>Event datum</th>
                   <th>Event starttid</th>
                   <th>Länk till event</th>
                 </tr>
-                {renderOrder()}
-                <tr>
+                
+               {/* <tr>
                   <th>Orderdatum</th>
                   <th>Orderstatus</th>
                   <th>Antal</th>
                   <th>Pris</th>
                   <th>Total, s:a</th>
-                </tr>
-
+                </tr>  */}
+        
+                </tablehead>
+                {renderOrder()}
               </table>
             </div>
 
