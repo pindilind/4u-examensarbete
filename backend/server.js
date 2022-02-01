@@ -172,14 +172,14 @@ app.post('/session/verify', async (req, res) => {
 
     const raw = fs.readFileSync('./database/ordersDB.json')
     const orderList = JSON.parse(raw)
-    console.log(orderList)
+    console.log(req.body.cart)
 
     if (!orderList[key]) {
       orderList[key] = {
         amount: session.amount_total,
         customerId: session.customer,
         customerEmail: session.customer_details.email,
-        cart: session.metadata.cart,
+        cart: req.body.cart,
         orderDate: new Date().toLocaleString(),
       }
       res.status(200).json({ paid: true, customerId: session.customer })
@@ -223,7 +223,6 @@ app.post('/create-checkout-session', async (req, res) => {
     line_items: lineItems,
     mode: "payment",
     metadata: {
-      cart: JSON.stringify(cart)
     },
 
     success_url: 'http://localhost:3000/succsessPage?session_id={CHECKOUT_SESSION_ID}',
