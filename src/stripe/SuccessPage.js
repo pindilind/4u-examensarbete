@@ -77,7 +77,9 @@ function SuccessPage() {
     async function verify() {
 
       try {
-        const sessionId = localStorage.getItem('session')
+        const sessionId = localStorage.getItem('session');
+        const cart = JSON.parse(localStorage.getItem('cart'));
+        
 
         if (!sessionId) {
           throw new Error("inget session ID");
@@ -87,9 +89,8 @@ function SuccessPage() {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            sessionId
+            sessionId, cart: Object.values(cart)
           })
-
         });
 
         const { paid, customerId } = await response.json();
