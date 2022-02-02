@@ -27,7 +27,7 @@ app.get("/categories", (req, res) => {
   let raw = fs.readFileSync("./database/categoryDB.json") //hämtar url till jsonfil
   let productCategoryList = JSON.parse(raw)
   res.json(Object.values(productCategoryList));
-  /* res.json(productCategoryList) */
+  console.log(productCategoryList);
 });
 
 // Hämtar ut User

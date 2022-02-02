@@ -60,15 +60,10 @@ export default function CartPage(props) {
 
   const classes = useStyles()
 
-  const [itemCount, setItemCount] = useState(1);
-
   const [counter, setCounter] = useState(0);
   const [amount, setAmount] = useState(0);
 
   const [cart, setCart] = useState([]);
-
-  const [orders, setOrders] = useState([]);
-
 
   function updateCounter() {
 
@@ -83,14 +78,14 @@ export default function CartPage(props) {
         if (Object.hasOwnProperty.call(cart, key)) {
           const cartRow = cart[key];
           counter += cartRow.quantity
-          amount += cartRow.price * cartRow.counter
-          console.log(amount)
-          console.log(counter)
+          amount += cartRow.price * cartRow.quantity
+
         }
       }
     }
     setCounter(counter);
     setAmount(amount);
+
   }
 
   useEffect(() => {
@@ -98,22 +93,21 @@ export default function CartPage(props) {
     async function getCartItem() {
 
       let cart = JSON.parse(localStorage.getItem("cart"));
-      console.log(cart)
 
       if (!cart || Object.keys(cart).length === 0) {
         throw new Error("You cart is empty!");
       }
+      setCart(cart);
 
       return cart;
     }
 
-    getCartItem().then(result => {
-      setCart(result);
-    });
+    getCartItem();
 
     updateCounter();
 
   }, [setCart]);
+
 
   function renderCart() {
 
@@ -123,18 +117,43 @@ export default function CartPage(props) {
 
       return (
 
-        <tr key={value.desc} className={classes.cartValuesTr}>
+        <tr key={index} className={classes.cartValuesTr}>
           <td className={classes.cartValues}>{value.productTitle}</td>
           <td className={classes.cartValues}>{value.date}</td>
           <td className={classes.cartValues}>{value.time}</td>
-          <td className={classes.cartValues}>{cart.link}</td>
-          <td className={classes.cartValues}>{(counter)}</td>
-          <td className={classes.cartValues}>{(value.price)}</td>
-          <td className={classes.cartValues}>{(counter * value.price)}</td>
+          <td className={classes.cartValues}>{value.quantity}</td>
+          <td className={classes.cartValues}>{value.price}</td>
+          <td className={classes.cartValues}>{value.quantity * value.price}</td>
 
           <td className={classes.cartValues}>
-            <Button onClick={() => setCounter(counter + 1)}>+</Button>
-            <Button onClick={() => setCounter(Math.max(counter - 1, 1))}>-</Button>
+            <Button onClick={() => {
+              const key = value.productTitle;
+
+              cart[key].quantity = cart[key].quantity || 0;
+              cart[key].quantity++;
+
+              localStorage.setItem("cart", JSON.stringify(cart));
+              setCart(Object.assign({}, cart));
+
+              updateCounter();
+
+            }}>+</Button>
+
+            <Button onClick={() => {
+              const key = value.productTitle;
+
+              cart[key].quantity = cart[key].quantity || 0;
+              cart[key].quantity--;
+
+              if (cart[key].quantity === 0) {
+                delete cart[key]
+              }
+
+              localStorage.setItem("cart", JSON.stringify(cart));
+              setCart(Object.assign({}, cart));
+
+              updateCounter();
+            }} >-</Button>
           </td>
         </tr>
 
@@ -166,21 +185,6 @@ export default function CartPage(props) {
     }
   }
 
-  useEffect(() => {
-    async function getOrders() {
-
-      let order = JSON.parse(localStorage.getItem("session"));
-
-      return order;
-    }
-
-    getOrders().then(result => {
-      setOrders(result)
-    });
-  }, [setOrders]);
-
-
-
   return (
     <>
       <HeaderInlogged counter={counter} />
@@ -210,17 +214,20 @@ export default function CartPage(props) {
                 {renderCart()}
               </tbody>
 
-              <tr>
-                <td>Moms ingår med (25%): {`${(TAX_RATE * 650).toFixed(0)} SEK`}</td>
-              </tr>
-              <tr>
-                <td>
-                  Totalt pris att betala:
-                </td>
-                <td>
-                  {`${(counter * 650).toFixed(0)} SEK`}
-                </td>
-              </tr>
+              <tfoot>
+                <tr>
+                  <td>Moms ingår med (25%): {`${TAX_RATE * amount} SEK`}</td>
+                </tr>
+                <tr>
+                  <td>
+                    Totalt pris att betala:
+                  </td>
+                  <td>
+                    {`${amount} SEK`}
+                  </td>
+                </tr>
+              </tfoot>
+
             </table>
 
           </div>

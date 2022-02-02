@@ -79,7 +79,7 @@ function SuccessPage() {
       try {
         const sessionId = localStorage.getItem('session');
         const cart = JSON.parse(localStorage.getItem('cart'));
-        
+
 
         if (!sessionId) {
           throw new Error("inget session ID");
@@ -127,6 +127,8 @@ function SuccessPage() {
           <div><BsFillCheckCircleFill className={classes.succIcon} /></div>
           <div>
             <h3 className={classes.succTitle}>Tack för ditt köp!</h3>
+          </div>
+          <div>
             <p className={classes.succlP}>Ditt ordernummer: {orderId} </p>
           </div>
           <div className={classes.succText}>
