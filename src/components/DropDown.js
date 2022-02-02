@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from "react-router-dom";
 
+import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -24,16 +25,9 @@ const useStyles = makeStyles({
 
 });
 
-export default function LongMenu(props) {
+export default function DropDown(props) {
 
   const classes = useStyles();
-
-  /* const product = props.product;
-  console.log(product); */
-
-  const [products, setProducts] = useState([]);
-
-  const [filter, setFilter] = useState("all");
 
   const [categories, setCategories] = useState([]);
 
@@ -47,83 +41,58 @@ export default function LongMenu(props) {
     setAnchorEl(null);
   };
 
-  //LISTAR VÅRA KATEGORIER I DROPDOWN
+  // LISTAR VÅRA KATEGORIER I DROPDOWN
   useEffect(() => {
 
     async function getCategories() {
       const cat = await MakeRequest("http://localhost:3005/categories", "GET")
-      console.log(cat)
+      setCategories(cat);
       return cat
     }
 
-    getCategories().then(resultCat => {
-      setCategories(resultCat);
-      setFilter(resultCat);
-    });
+    getCategories()
 
+  }, [setCategories]);
+  
 
-  }, [setCategories, setFilter]);
-
-  useEffect(() => {
-
-    async function getProducts() {
-      const prod = await MakeRequest("http://localhost:3005/products", "GET")
-      console.log(prod)
-      return prod
-    }
-
-    getProducts().then(resultProd => {
-      setProducts(resultProd);
-      console.log(resultProd)
-
-    });
-
-  }, [setProducts]);
-
-
-  function filterObjets() {
-    products.filter(products => products.categories === 1).map(filteredProducts => ( 
-    {filteredProducts} 
-    ))
-  }
-
-     
   return (
-      <div>
-        {filterObjets()}
-        <IconButton
-          className={classes.root}
-          aria-label="more"
-          id="long-button"
-          aria-controls={open ? 'long-menu' : undefined}
-          aria-expanded={open ? 'true' : undefined}
-          aria-haspopup="true"
-          onClick={handleClick}
-        >
-          <TiThMenu className={classes.root} />
-        </IconButton>
-        <Menu
-          id="long-menu"
-          MenuListProps={{
-            'aria-labelledby': 'long-button',
-          }}
-          anchorEl={anchorEl}
-          open={open}
-          onClose={handleClose}
-          PaperProps={{
-            style: {
-              maxHeight: ITEM_HEIGHT * 4.5,
-              width: '20ch',
-            },
-          }}
-        >
-          {categories.map((categorie) => (
-            <MenuItem key={categorie.id} onClick={handleClose}>
-              {categorie.title}
-            </MenuItem>
-          ))}
+    <div>
+      <IconButton
+        className={classes.root}
+        aria-label="more"
+        id="long-button"
+        aria-controls={open ? 'long-menu' : undefined}
+        aria-expanded={open ? 'true' : undefined}
+        aria-haspopup="true"
+        onClick={handleClick}
+      >
+        <TiThMenu className={classes.root} />
+      </IconButton>
+      <Menu
+        id="long-menu"
+        MenuListProps={{
+          'aria-labelledby': 'long-button',
+        }}
+        anchorEl={anchorEl}
+        open={open}
+        onClose={handleClose}
+        PaperProps={{
+          style: {
+            maxHeight: ITEM_HEIGHT * 4.5,
+            width: '20ch',
+          },
+        }}
+      >
+        {categories.map((categorie) => (
 
-        </Menu>
-      </div>
-    );
-  }
+          <MenuItem key={categorie.categoriId} onClick={handleClose}>
+            <Link to={{ pathname: "/userHomePage", state: { categoriId: categorie.categoriId } }} >
+              {categorie.title}
+            </Link>
+          </MenuItem>
+        ))}
+
+      </Menu>
+    </div>
+  );
+}
