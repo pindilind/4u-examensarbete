@@ -12,6 +12,7 @@ import NewLogo from "../assets/newLogo.svg";
 
 import "./StyleStartPage.scss";
 import DataIntegritetsPolicy from "../components/DataIntegritetsPolicy";
+import ModalVillkor from "../components/Villkor";
 
 const useStyles = makeStyles({
   btnStyle: {
@@ -78,7 +79,7 @@ function StartPage() {
 
         <div className={"footerStyleStartPage"}>
           <div className={"pStyleStartPage"}>
-            &#169; Event4U | Tel 012-23 45 67 | Email: <a href=" mailto:order@event4u.online " > order@event4u.online</a> | <ModalAboutUs /> | <CookieInfo /> | <DataIntegritetsPolicy />
+            &#169; Event4U | Tel 012-23 45 67 | Email: <a href=" mailto:order@event4u.online " > order@event4u.online</a> | <ModalAboutUs /> | <CookieInfo /> | <DataIntegritetsPolicy /> | <ModalVillkor />
           </div>
         </div>
       </div>

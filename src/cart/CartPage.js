@@ -12,7 +12,7 @@ import "./CartPageStyle.scss";
 
 import { makeStyles } from '@mui/styles';
 
-document.title = 'Varukorgen';
+//document.title = 'Varukorgen';
 
 //Momssatsen är 25%, men eftersom vi räknar bakåt från totalsumman använder vi 20% 
 const TAX_RATE = 0.20;
