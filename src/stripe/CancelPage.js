@@ -13,6 +13,7 @@ const useStyles = makeStyles({
     paddingRight: "1.5rem",
     paddingLeft: "1.5rem",
     fontWeight: "bold",
+    marginTop: "2rem",
 
     '@media (max-width: 480px)': {
       minWidth: '100%',
@@ -55,7 +56,7 @@ function CancelPage() {
             <p className={classes.cancelP}>Det verkar som att köptet inte gick att genomföra. Kontakta oss, eller försök igen.</p>
           </div>
           <div className={classes.emailDiv}>
-            <p className={classes.emailP}>order@event4U.online</p>
+            <p className={classes.emailP}><a href=" mailto:order@event4u.online " > order@event4u.online</a></p>
           </div>
 
         </div>

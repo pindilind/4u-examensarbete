@@ -6,8 +6,13 @@ import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import useScrollTrigger from '@mui/material/useScrollTrigger';
 
+import ModalAboutUs from "../components/AboutUs";
+import CookieInfo from "../components/CookieInfo";
+import DataIntegritetsPolicy from "../components/DataIntegritetsPolicy";
+import ModalVillkor from "../components/Villkor";
+
 import NewLogo from "../assets/newLogo.svg";
-import LongMenu from '../components/DropDown';
+import DropDown from '../components/DropDown';
 
 import CartCounter from '../components/CartCounter';
 
@@ -40,12 +45,14 @@ export default function ElevateAppBar(props) {
   return (
 
     <React.Fragment>
+
       <ElevationScroll {...props}>
         <AppBar>
+
           <div className={'header'}>
 
             <div className={'divOne'}>
-              <LongMenu product={product} id="colorIcons" />
+              <DropDown id="colorIcons" />
             </div>
 
 
@@ -65,7 +72,19 @@ export default function ElevateAppBar(props) {
               </Link>
             </div>
 
+
           </div>
+
+          <div style={{
+            background: '#75A488',
+            display: "flex",
+            flexDirection: 'row',
+            justifyContent: 'center',
+            fontSize: '0.8rem',
+            '@media (maxWidth: 480px)': {
+              fontSize: '0.4rem',
+            }
+          }}><ModalAboutUs /> | <CookieInfo /> | <DataIntegritetsPolicy /> | <ModalVillkor /></div>
         </AppBar>
       </ElevationScroll>
       <Toolbar />

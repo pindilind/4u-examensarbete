@@ -34,7 +34,6 @@ function App() {
   return (
 
     <Router>
-
       <ScrollToTop />
 
       <Switch>
@@ -67,9 +66,7 @@ function App() {
           <OrderPage />
         </Route>
 
-        <Route exact path="/userHomePage">
-          <UserHomePage />
-        </Route>
+        <Route exact path="/userHomePage" component={UserHomePage} />
 
         <Route exact path="/userInfo">
           <UserInfo />

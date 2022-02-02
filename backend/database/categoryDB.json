@@ -1,26 +1,26 @@
 [
   {
-    "categoriId": "0",
+    "categoriId": 0,
     "title": "Alla kategorier"
   },
   {
-    "categoriId": "1",
+    "categoriId": 1,
     "title": "Psykologi"
   },
   {
-    "categoriId": "2",
+    "categoriId": 2,
     "title": "Inspiration"
   },
   {
-    "categoriId": "3",
+    "categoriId": 3,
     "title": "Affärsutveckling"
   },
   {
-    "categoriId": "4",
+    "categoriId": 4,
     "title": "Underhållning"
   },
   {
-    "categoriId": "5",
+    "categoriId": 5,
     "title": "Vetenskap"
   }
 ]

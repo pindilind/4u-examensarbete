@@ -31,8 +31,6 @@ const style = {
 
 };
 
-
-
 function UserHomePage(props) {
 
   const [products, setProducts] = useState([]);
@@ -40,10 +38,18 @@ function UserHomePage(props) {
   const [counter, setCounter] = useState(0);
 
   const [amount, setAmount] = useState(0);
+  
+  const [categoriId, setCategoriId] = useState(0)
 
   const product = props.product;
+  /* const categoriId = JSON.parse(props.location.state.categoriId); */
 
-
+  useEffect(() => {
+    if(props.location.state && props.location.state.categoriId) {
+    setCategoriId(JSON.parse(props.location.state.categoriId));
+    }
+  }, [setCategoriId, props])
+  
   useEffect(() => {
 
     async function getProducts() {
@@ -83,12 +89,27 @@ function UserHomePage(props) {
     }
   }
 
+
   function renderProducts() {
 
-    return products.map((product, id) => {
+    let filteredProducts;
+   
+    if (categoriId) {
+      filteredProducts = products.filter(product => {
+       
+        if (product.categoriId.indexOf(categoriId) >= 0) {
+          return true;
+        } else {
+          return false;
+        }
+      })
+    } else {
+      filteredProducts = products;
+    }
+  
+    return filteredProducts.map((product, id) => {
       return (
         <ProductCardSmall key={id} product={product} updateCounter={updateCounter} />
-
       )
     });
   }
@@ -112,7 +133,7 @@ function UserHomePage(props) {
           </div>
 
           <div>
-            <CalenderModal />
+            {/* <CalenderModal /> */}
             <div className="displayFlexDivAlign">
               {renderProducts()}
             </div>

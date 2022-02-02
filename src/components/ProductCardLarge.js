@@ -109,7 +109,7 @@ export default function ProductCardLarge(props) {
         <CardMedia className={classes.cardMediaStyle}
           component="img"
           image={product.img}
-          alt=""
+          alt="product"
         />
         <CardContent className={classes.cardTitleStyle}>
 

@@ -23,17 +23,13 @@ function OrderPage(props) {
     async function getOrders() { 
 
       const status = await MakeRequest("http://localhost:3005/orders", "GET"); 
-
+      setOrders(status);
       return status 
 
     } 
 
-    getOrders().then(result => { 
-
-      setOrders(result); 
-
-    }); 
-
+    getOrders();
+    
    }, [setOrders]); 
 
   console.log(orders); 
