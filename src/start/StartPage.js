@@ -28,8 +28,8 @@ const useStyles = makeStyles({
     width: '100vh',
     margin: 'auto',
     overflow: 'hidden',
-    Ofilter: 'blur(15px)',
-    filter: 'blur(15px)',
+    Ofilter: 'blur(10px)',
+    filter: 'blur(10px)',
 
     '@media (max-width: 780px)': {
       width: '100vh',
@@ -66,17 +66,19 @@ function StartPage() {
             </div>
 
             <div className={"centeredText"}> Vi erbjuder digitala föreläsningar <br />​-  i realtid eller inspelade - <br /> ​för att Underhålla, Utveckla, Utbilda och Umgås.​ </div>
-            <div className={"centeredText"}>
-              Skapa ett konto och se hela vårt utbud direkt, eller börja med att läsa lite mer här <ModalAboutUs />
+            <div className={"centeredTextTwo"}>
+              Skapa ett konto och se hela vårt utbud direkt, eller läs mer längre ner på sidan. 
             </div>
             <div>
             </div>
 
             <div className={"centeredBtn"}>
-              <Link underline="none" to="/login">
-                <p className={classes.btnStyle}>
+              <Link style={{
+                textDecoration: 'none',
+              }} to="/login">
+                <button to="/login" className="btnStylingStart">
                   Klicka här för att börja utvecklas!
-                </p>
+                </button>
               </Link>
             </div>
           </div>
@@ -84,7 +86,7 @@ function StartPage() {
 
         <div className={"footerStyleStartPage"}>
           <div className={"pStyleStartPage"}>
-            &#169; Event4U | Tel 0705-69 40 64 | Email: <a href=" mailto:order@event4u.online " > order@event4u.online</a> | <ModalAboutUs /> | <CookieInfo /> | <DataIntegritetsPolicy /> | <ModalVillkor />
+            &#169; Event4U | Tel 0705-69 40 64 | Email: <a style={{ textDecoration: 'none', color: '#ffffff'}} href=" mailto:order@event4u.online " > order@event4u.online</a> | <ModalAboutUs /> | <CookieInfo /> | <DataIntegritetsPolicy /> | <ModalVillkor />
           </div>
         </div>
       </div>
