@@ -4,7 +4,6 @@
 }
 
 .header {
-  margin-top: 1.5rem;
   padding: 1rem;
   overflow: hidden;
   background-color: #75A488;
@@ -17,7 +16,8 @@
   justify-content: space-between;
   width: 100%;
   color: #ffffff;
-  
+  margin-top: 1rem;
+
   @media screen and (max-width: 480px) {}
 
   .logo {
@@ -58,16 +58,35 @@
 
   }
 
-  .infoDiv {
-  padding: 1rem;
-  overflow: hidden;
-  background-color: #75A488;
-  position: fixed;
-  top: 0;
-  flex-direction: row;
-  display: flex;
-  width: 100%;
-  color: #ffffff;
+  /*  .icon {
+    display: flex;
+    font-size: 1.9rem;
+    color:#ffffff;
+    align-self: flex-end;
+  } */
+  /* .icon {
+    font-size: 1.9rem;
+    color:#ffffff;
   }
-
+  
+  .iconDrops {
+    font-size: 1.9rem;
+  }
+  
+  .color {
+    color:#ffffff;
+  }
+  
+  
+  .logoSvg {
+    height: auto;
+    width: 150px;
+  }
+  
+  .iconsHeader {
+    justify-content: space-between;
+    display: flex;
+    align-items: baseline;
+    font-size: 2rem;
+  } */
 }

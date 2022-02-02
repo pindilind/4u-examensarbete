@@ -2,15 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useStripe } from '@stripe/react-stripe-js';
 import { Link } from "react-router-dom"
 
-import { Button } from '@mui/material';
-
 import HeaderInlogged from "../headers/HeaderInlogged";
 import Footer from "../footer/Footer";
 
+import { makeStyles } from '@mui/styles';
+
 import "../App.scss";
 import "./CartPageStyle.scss";
-
-import { makeStyles } from '@mui/styles';
 
 //document.title = 'Varukorgen';
 
@@ -18,40 +16,72 @@ import { makeStyles } from '@mui/styles';
 const TAX_RATE = 0.20;
 
 const useStyles = makeStyles({
-  table: {
+  renderCartDiv: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-around',
     width: '100%',
-  },
-  cartTableHead: {
-    width: "100%",
-    backgroundColor: '#75A488',
-    color: '#ffffff',
-    fontWeight: 'bold',
 
     '@media (max-width: 480px)': {
-      minWidth: '100%',
-    },
-    tBody: {
-      width: '100%',
-    },
-    cartTableHeadValue: {
-
+      flexDirection: 'column',
+      alignItems: 'center',
     }
   },
-  cartValuesTr: {
-    backgroundColor: 'red',
+
+  valuesDiv: {
+    alignItems: 'center',
+    display: 'flex',
+    flexDirection: 'column',
+    width: '30%',
+    backgroundColor: '#75A488',
     color: '#ffffff',
+    '@media (max-width: 480px)': {
+      width: '90%',
+      marginBottom: '0.7rem'
+    }
+  },
+
+  cartValuesTitel: {
     fontWeight: 'bold',
+    width: '100%',
+    padding: '0.5rem',
+    alignSelf: 'center',
   },
   cartValues: {
-    width: "20%",
-    margin: 0,
-    padding: 0,
+    width: '100%',
+    textAlign: 'center',
+  },
+  btnQuantDiv: {
+    display: 'flex',
+    flexDirection: 'row',
+    alignSelf: 'center',
+    alignItems: 'center',
+    fontWeight: 'bold',
+    fontSize: '3rem',
+  },
+  cartValuesQutant: {
+    fontSize: '1rem',
+    fontWeight: 'bold',
+    width: '3rem',
+    textAlign: 'center'
+  },
+  momsTotalPriceDiv: {
     marginTop: '1rem',
-    backgroundColor: 'blue',
-  }
-
-
-
+    display: 'flex',
+    flexDirection: 'column',
+    textAlign: 'center',
+  },
+  moms: {
+    fontWeight: 'bold',
+  },
+  totalPriceDiv: {
+    fontWeight: 'bold',
+    fontSize: '1.5rem',
+    '@media (max-width: 480px)': {
+      fontSize: '1.3rem',
+    }
+  },
+ 
 });
 
 export default function CartPage(props) {
@@ -117,29 +147,16 @@ export default function CartPage(props) {
 
       return (
 
-        <tr key={index} className={classes.cartValuesTr}>
-          <td className={classes.cartValues}>{value.productTitle}</td>
-          <td className={classes.cartValues}>{value.date}</td>
-          <td className={classes.cartValues}>{value.time}</td>
-          <td className={classes.cartValues}>{value.quantity}</td>
-          <td className={classes.cartValues}>{value.price}</td>
-          <td className={classes.cartValues}>{value.quantity * value.price}</td>
+        <div key={index} className={classes.valuesDiv}>
+          <div className={classes.cartValuesTitel}>{value.productTitle}</div>
+          <div className={classes.cartValues}>Datum: {value.date}</div>
+          <div className={classes.cartValues}>Tid: {value.time}</div>
+          <div className={classes.cartValues}>Pris: {value.price}</div>
+          <div className={classes.cartValues}>Totalt Pris: {value.quantity * value.price} kr</div>
 
-          <td className={classes.cartValues}>
-            <Button onClick={() => {
-              const key = value.productTitle;
+          <div className={classes.btnQuantDiv}>
 
-              cart[key].quantity = cart[key].quantity || 0;
-              cart[key].quantity++;
-
-              localStorage.setItem("cart", JSON.stringify(cart));
-              setCart(Object.assign({}, cart));
-
-              updateCounter();
-
-            }}>+</Button>
-
-            <Button onClick={() => {
+            <button className="btnStylingPlusAndMinus" onClick={() => {
               const key = value.productTitle;
 
               cart[key].quantity = cart[key].quantity || 0;
@@ -153,10 +170,25 @@ export default function CartPage(props) {
               setCart(Object.assign({}, cart));
 
               updateCounter();
-            }} >-</Button>
-          </td>
-        </tr>
+            }} >-</button>
 
+            <div className={classes.cartValuesQutant}>{value.quantity}</div>
+
+            <button className="btnStylingPlusAndMinus" onClick={() => {
+              const key = value.productTitle;
+
+              cart[key].quantity = cart[key].quantity || 0;
+              cart[key].quantity++;
+
+              localStorage.setItem("cart", JSON.stringify(cart));
+              setCart(Object.assign({}, cart));
+
+              updateCounter();
+
+            }}>+</button>
+
+          </div>
+        </div>
       );
     });
   }
@@ -191,60 +223,32 @@ export default function CartPage(props) {
 
       <div className="wrappsAllContent">
         <div className="flexCenterAll ">
+          <h1 className="titleRegisterAndLogin">Din varukorg</h1>
 
-          <div className="displayFlexDiv">
-            <h1 className="titleRegisterAndLogin">Din varukorg</h1>
+          <div>
 
-            <table className={classes.table}>
-              <thead className={classes.cartTableHead}>
-                <tr>
-                  <th className={classes.cartTableHeadValue}>
-                    Titel
-                  </th>
-                  <th className={classes.cartTableHeadValue}>Datum</th>
-                  <th className={classes.cartTableHeadValue}>Tid</th>
-                  <th className={classes.cartTableHeadValue}>Antal</th>
-                  <th className={classes.cartTableHeadValue}>Pris</th>
-                  <th className={classes.cartTableHeadValue}>Total, s:a</th>
+            <div className={classes.renderCartDiv}>
+              {renderCart()}
+            </div>
 
-                </tr>
-              </thead>
-
-              <tbody className={classes.tBody}>
-                {renderCart()}
-              </tbody>
-
-              <tfoot>
-                <tr>
-                  <td>Moms ingår med (25%): {`${TAX_RATE * amount} SEK`}</td>
-                </tr>
-                <tr>
-                  <td>
-                    Totalt pris att betala:
-                  </td>
-                  <td>
-                    {`${amount} SEK`}
-                  </td>
-                </tr>
-              </tfoot>
-
-            </table>
 
           </div>
-          <div style={{
-            display: "flex",
-            marginTop: "2em",
-          }}>
+          <div className={classes.momsTotalPriceDiv}>
+            <div className={classes.moms}>Moms ingår med (25%): {`${TAX_RATE * amount} SEK`}</div>
+            <div className={classes.totalPriceDiv}>Totalt pris att betala: {`${amount} SEK`}</div>
+          </div>
+
+          <div className={'btnDivOne'}>
 
             <Link to="/userHomePage">
-              <button>Fortsätt handla</button>
+              <button className={'btnStylingCartYes'}>Fortsätt handla</button>
             </Link>
 
-            <button>Töm varukorgen</button>
+            <button className={'btnStylingCartYes'}>Töm varukorgen</button>
 
           </div>
 
-          <div className={'btnDiv'} component="div">
+          <div className={'btnDivTwo'}>
 
             <button
               className={'btnStylingCart'}
@@ -253,14 +257,13 @@ export default function CartPage(props) {
               Till Checkout
             </button>
 
-
           </div>
 
         </div>
       </div>
 
       <Footer />
-      {/* sx={{ minWidth: 350, maxWidth: 800 }}  */}
+
     </>
   );
 }

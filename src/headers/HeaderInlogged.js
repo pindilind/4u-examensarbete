@@ -12,7 +12,7 @@ import DataIntegritetsPolicy from "../components/DataIntegritetsPolicy";
 import ModalVillkor from "../components/Villkor";
 
 import NewLogo from "../assets/newLogo.svg";
-import DropDown from '../components/DropDown';
+import LongMenu from '../components/DropDown';
 
 import CartCounter from '../components/CartCounter';
 
@@ -45,14 +45,12 @@ export default function ElevateAppBar(props) {
   return (
 
     <React.Fragment>
-
       <ElevationScroll {...props}>
         <AppBar>
-
           <div className={'header'}>
 
             <div className={'divOne'}>
-              <DropDown id="colorIcons" />
+              <LongMenu product={product} id="colorIcons" />
             </div>
 
 
@@ -72,18 +70,14 @@ export default function ElevateAppBar(props) {
               </Link>
             </div>
 
-
           </div>
-
           <div style={{
             background: '#75A488',
             display: "flex",
             flexDirection: 'row',
             justifyContent: 'center',
-            fontSize: '0.8rem',
-            '@media (maxWidth: 480px)': {
-              fontSize: '0.4rem',
-            }
+            color: '#ffff',
+            fontSize: '0.68rem',
           }}><ModalAboutUs /> | <CookieInfo /> | <DataIntegritetsPolicy /> | <ModalVillkor /></div>
         </AppBar>
       </ElevationScroll>

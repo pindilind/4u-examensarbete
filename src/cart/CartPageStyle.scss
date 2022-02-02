@@ -1,16 +1,8 @@
 /* STYLAR KUNDVAGNEN // CARTPAGE*/
-.displayFlexDiv {
-  margin-top: 2rem;
-  
-  .tableDiv {
-    display: flex;
-  }
-}
 
-.btnDiv {
-  display: flex;
-  flex-direction: row;
-  margin-top: 5rem;
+
+.btnDivTwo {
+  margin-top: 0.5rem;
 
   .btnStylingCart {
     display: flex;
@@ -37,6 +29,66 @@
       display: block;
       margin: 0.2em auto;
     }
+  }
+}
+
+.btnDivOne {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: row;
+
+  .btnStylingCartYes {
+    display: flex;
+    justify-content: center;
+    padding: 0.3em 1.2em;
+    margin: 0 0.1em 0.1em 0;
+    border: 0.16em solid rgba(255, 255, 255, 0);
+    border-radius: 2em;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: #FFFFFF;
+    text-align: center;
+    transition: all 0.2s;
+    background-color: #75A488;
+  }
+
+  a.button4:hover {
+    border-color: rgba(255, 255, 255, 1);
+  }
+
+  @media all and (max-width:30em) {
+    a.button4 {
+      display: block;
+      margin: 0.2em auto;
+    }
+  }
+}
+
+.btnStylingPlusAndMinus {
+  display: flex;
+  justify-content: center;
+  padding: 0.3em 0.5em;
+  margin: 0 0.1em 0.1em 0;
+  border: 0.16em solid rgba(255, 255, 255, 0);
+  border-radius: 2em;
+  text-decoration: none;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1rem;
+  color: #FFFFFF;
+  text-align: center;
+  transition: all 0.2s;
+  background-color: #75A488;
+}
+
+a.button4:hover {
+  border-color: rgba(255, 255, 255, 1);
+}
+
+@media all and (max-width:30em) {
+  a.button4 {
+    display: block;
+    margin: 0.2em auto;
   }
 }
 
