@@ -1,5 +1,9 @@
 [
   {
+    "categoriId": "0",
+    "title": "Alla kategorier"
+  },
+  {
     "categoriId": "1",
     "title": "Psykologi"
   },

@@ -12,7 +12,7 @@ import "../headers/HeaderInloggStyle.scss";
 
 import MakeRequest from '../MakeRequest';
 
-
+// categoriId 0-5, title
 
 // hämta  alla , fltrerar med array på categoriID, lämna tillbaks och renderar
 const ITEM_HEIGHT = 48;
