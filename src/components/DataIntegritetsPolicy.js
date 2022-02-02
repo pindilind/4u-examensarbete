@@ -12,6 +12,9 @@ const StyledModal = styled(ModalUnstyled)`
   display: flex;
   align-items: center;
   justify-content: center;
+  
+ 
+  
 `;
 
 const Backdrop = styled('div')`
@@ -21,16 +24,19 @@ const Backdrop = styled('div')`
   bottom: 0;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
   -webkit-tap-highlight-color: transparent;
 `;
 
 const style = {
-  width: 400,
+  width: '60%',
+  height: '100%',
   //bgcolor: 'background.paper',
-  bgcolor: 'black',
+  bgcolor: 'grey',
   color: 'white',
-  border: '2px solid #000',
+  border: 'none',
+  overflowY: 'hidden',
+  overflow: 'auto',
+
   p: 2,
   px: 4,
   pb: 3,

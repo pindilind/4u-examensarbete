@@ -12,6 +12,7 @@ const StyledModal = styled(ModalUnstyled)`
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: scroll;
 `;
 
 const Backdrop = styled('div')`
@@ -21,16 +22,16 @@ const Backdrop = styled('div')`
   bottom: 0;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  
   -webkit-tap-highlight-color: transparent;
 `;
 
 const style = {
-  width: 400,
+  width: '60%',
   //bgcolor: 'background.paper',
-  bgcolor: 'black',
+  bgcolor: 'grey',
   color: 'white',
-  border: '2px solid #000',
+  border: 'none',
   p: 2,
   px: 4,
   pb: 3,
@@ -58,7 +59,7 @@ export default function CookieInfo() {
       >
         <Box sx={style}>
           <h5 id="unstyled-modal-title">Event4U - Information om Cookies</h5>
-          <p id="unstyled-modal-description">
+          <div id="unstyled-modal-description">
 
 
             <h3>På vår webbsida används cookies </h3>
@@ -89,7 +90,7 @@ export default function CookieInfo() {
 
             Linda Gustafsson & Susan Isaksson
             Event4U
-          </p>
+          </div>
         </Box>
       </StyledModal>
     </>

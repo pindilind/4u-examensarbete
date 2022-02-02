@@ -84,7 +84,7 @@ function StartPage() {
 
         <div className={"footerStyleStartPage"}>
           <div className={"pStyleStartPage"}>
-            &#169; Event4U | Tel 012-23 45 67 | Email: <a href=" mailto:order@event4u.online " > order@event4u.online</a> | <ModalAboutUs /> | <CookieInfo /> | <DataIntegritetsPolicy /> | <ModalVillkor />
+            &#169; Event4U | Tel 0705-69 40 64 | Email: <a href=" mailto:order@event4u.online " > order@event4u.online</a> | <ModalAboutUs /> | <CookieInfo /> | <DataIntegritetsPolicy /> | <ModalVillkor />
           </div>
         </div>
       </div>

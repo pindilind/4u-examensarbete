@@ -53,37 +53,42 @@ function OrderPage(props) {
 
             //key={orders.orderID} 
           <> 
-            <div> 
+            <div>
 
             <tr key={cart.productTitle} style={{ 
-              width: "100%", 
-              display: "flex", 
-              justifyContent: "space-between" 
+              //width: "100%", 
+              //display: "flex", 
+              //justifyContent: "space-between", 
+              
             }}> 
 
               <td style={{
-                      width: "8em",
+                      width: "11em",
+                      paddingLeft: "1%",
                     }}>{order.customerId}</td> 
               <td style={{
-                      width: "20em",
+                      width: "18em",
                     }}>{cart.productTitle}</td> 
               <td style={{
                       width: "8em",
                     }}>{cart.date}</td> 
               <td style={{
-                      width: "6em",
+                      width: "8em",
                     }}>{cart.time}</td> 
               <td style={{
-                      width: "20em",
+                      width: "12em",
                     }}>{cart.link}</td> 
             </tr> 
 
             {/*HÄR KOMMER COLLAPS-DELEN */} 
 
-            <tr> 
-              <div>Orderinformation</div> 
+            <tr > 
+              <div style={{
+              marginBottom: "20%",
+              
+            }}><h6>Orderinformation</h6></div> 
 
-              <table> 
+              {/* <table> 
                 <tablehead> 
                   <tr> 
                     <th style={{
@@ -124,7 +129,7 @@ function OrderPage(props) {
                     </tr> 
                   </tablebody> 
                 </tr> 
-              </table> 
+              </table>  */}
             </tr> 
           </div> 
           </> 
@@ -143,31 +148,44 @@ function OrderPage(props) {
 
       <div className="wrappsAllContent"> 
 
-        <div className="flexCenterAll "> 
+        {/* <div className="flexCenterAll ">  */}
+        <div style={{
+          width: "92%",
+          marginLeft: "3%",
+          marginTop: "3%",
+          textAlign: "center",
+          //marginRight: "15%",
+          
+        }}>
 
           <h1>Dina Ordrar</h1> 
 
           <div classes="orderTable"> 
 
-            <table > 
+            <table style={{
+              width: "100%",
+              textAlign: "left",
+            }}> 
               <thead style={{ 
-                width: "100%", 
-                outerHeight: "8em", 
-                display: "flex", 
-                justifyContent: "space-around", 
-                padding: "1em", 
-                alignItems: "center", 
+                width: "90%", 
+                //outerHeight: "8em", 
+                //display: "flex", 
+                // justifyContent: "space-around", 
+                //padding: "1em", 
+                //alignItems: "left", 
                 backgroundColor: '#75A488', 
                 color: '#ffffff', 
-                fontWeight: 'bold', 
+                //fontWeight: 'bold', 
               }}> 
                 <tr style={{ 
-                  width: "100%", 
+                  width: "90%", 
                   display: "flex", 
-                  justifyContent: "space-between" 
+                  alignItems: "center",
+                  ///justifyContent: "space-between",
                 }}> 
                   <th style={{
-                      width: "8em",
+                      width: "12em",
+                      paddingLeft: "1%",
                     }}>Ordernummer </th> 
                   <th style={{
                       width: "20em",
@@ -176,10 +194,10 @@ function OrderPage(props) {
                       width: "8em",
                     }}>Event datum</th> 
                   <th style={{
-                      width: "6em",
+                      width: "8em",
                     }}>Event starttid</th> 
                   <th style={{
-                      width: "20em",
+                      width: "12em",
                     }}>Länk till event</th> 
                 </tr> 
               </thead> 
