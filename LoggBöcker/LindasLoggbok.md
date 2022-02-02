@@ -165,6 +165,8 @@ Fokus på styling. Vi fickc dessutom fixas stripe för tredje jäkla gången. De
 
 **ONSDAG | 2022-02-02**<br>
 Morgonmöte klockan 9.
+Fokus på att få iorning alla delar vi missat/har kvar. Några funktioner på sidan blev fixade idag , samt en del styling. Fortfarande en del styling kvar! Har haft fokus på cartPage som verkar vara omöjlig , samt att startsidan nu är HELT klar. Känns skönt! 
+Vi kommer att fortsätta att kämpa på imorgon , förhoppningvis blir allt klart!
 
 ---
 
