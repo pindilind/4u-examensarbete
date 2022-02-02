@@ -59,7 +59,7 @@ export default function CookieInfo() {
       >
         <Box sx={style}>
           <h5 id="unstyled-modal-title">Event4U - Information om Cookies</h5>
-          <p id="unstyled-modal-description">
+          <div id="unstyled-modal-description">
 
 
             <h3>På vår webbsida används cookies </h3>
@@ -90,7 +90,7 @@ export default function CookieInfo() {
 
             Linda Gustafsson & Susan Isaksson
             Event4U
-          </p>
+          </div>
         </Box>
       </StyledModal>
     </>
