@@ -20,7 +20,6 @@ const TAX_RATE = 0.20;
 const useStyles = makeStyles({
   table: {
     width: '100%',
-
   },
   cartTableHead: {
     width: "100%",
@@ -31,6 +30,12 @@ const useStyles = makeStyles({
     '@media (max-width: 480px)': {
       minWidth: '100%',
     },
+    tBody: {
+      width: '100%',
+    },
+    cartTableHeadValue: {
+
+    }
   },
   cartValuesTr: {
     backgroundColor: 'red',
@@ -39,6 +44,8 @@ const useStyles = makeStyles({
   },
   cartValues: {
     width: "20%",
+    margin: 0,
+    padding: 0,
     marginTop: '1rem',
     backgroundColor: 'blue',
   }
@@ -110,35 +117,27 @@ export default function CartPage(props) {
 
   function renderCart() {
 
-
     let cartArray = Object.values(cart);
-    console.log(cartArray)
 
     return cartArray.map((value, index) => {
-      console.log(value)
-
 
       return (
-        <>
-          <tr key={value.desc} className={classes.cartValuesTr}>
-            <td className={classes.cartValues}>{value.productTitle}</td>
-            <td className={classes.cartValues}>{value.date}</td>
-            <td className={classes.cartValues}>{value.time}</td>
-            <td className={classes.cartValues}>{cart.link}</td>
-            <td className={classes.cartValues}>{(counter)}</td>
-            <td className={classes.cartValues}>{(value.price)}</td>
-            <td className={classes.cartValues}>{(counter * value.price)}</td>
 
-            <td className={classes.cartValues}>
+        <tr key={value.desc} className={classes.cartValuesTr}>
+          <td className={classes.cartValues}>{value.productTitle}</td>
+          <td className={classes.cartValues}>{value.date}</td>
+          <td className={classes.cartValues}>{value.time}</td>
+          <td className={classes.cartValues}>{cart.link}</td>
+          <td className={classes.cartValues}>{(counter)}</td>
+          <td className={classes.cartValues}>{(value.price)}</td>
+          <td className={classes.cartValues}>{(counter * value.price)}</td>
+
+          <td className={classes.cartValues}>
             <Button onClick={() => setCounter(counter + 1)}>+</Button>
             <Button onClick={() => setCounter(Math.max(counter - 1, 1))}>-</Button>
-            </td>
-          </tr>
+          </td>
+        </tr>
 
-          <tr>
-
-          </tr>
-        </>
       );
     });
   }
@@ -159,7 +158,6 @@ export default function CartPage(props) {
       console.log(response)
       const { id } = await response.json();
       localStorage.setItem("session", id)
-      console.log(id)
 
       stripe.redirectToCheckout({ sessionId: id })
 
@@ -172,7 +170,6 @@ export default function CartPage(props) {
     async function getOrders() {
 
       let order = JSON.parse(localStorage.getItem("session"));
-      console.log(order)
 
       return order;
     }
@@ -194,41 +191,37 @@ export default function CartPage(props) {
           <div className="displayFlexDiv">
             <h1 className="titleRegisterAndLogin">Din varukorg</h1>
 
-            <div classes="orderTable">
-              <table className={classes.table}>
-                <tr className={classes.cartTableHead}>
-                  <th >
-                    Produkt/Titel
-                  </th>
-                  <th>Datum</th>
-                  <th>Tid</th>
-                  <th>Antal</th>
-                  <th>Pris</th>
-                  <th>Total, s:a</th>
-                </tr>
-                {renderCart()}
+            <table className={classes.table}>
+              <thead className={classes.cartTableHead}>
                 <tr>
-                  <td>Moms ingår med (25%): {`${(TAX_RATE * 650).toFixed(0)} SEK`}</td>
+                  <th className={classes.cartTableHeadValue}>
+                    Titel
+                  </th>
+                  <th className={classes.cartTableHeadValue}>Datum</th>
+                  <th className={classes.cartTableHeadValue}>Tid</th>
+                  <th className={classes.cartTableHeadValue}>Antal</th>
+                  <th className={classes.cartTableHeadValue}>Pris</th>
+                  <th className={classes.cartTableHeadValue}>Total, s:a</th>
+
                 </tr>
-                <tr style={{
-                  backgroundColor: '#75A488',
-                  color: '#ffffff',
-                  fontWeight: 'bold',
-                }}>
-                  <td style={{
-                    color: '#ffffff',
-                    fontWeight: 'bold',
-                  }} > Totalt pris att betala:
-                  </td>
-                  <td style={{
-                    color: '#ffffff',
-                    fontWeight: 'bold',
-                  }} >
-                    {`${(counter * 650).toFixed(0)} SEK`}
-                  </td>
-                </tr>
-              </table>
-            </div>
+              </thead>
+
+              <tbody className={classes.tBody}>
+                {renderCart()}
+              </tbody>
+
+              <tr>
+                <td>Moms ingår med (25%): {`${(TAX_RATE * 650).toFixed(0)} SEK`}</td>
+              </tr>
+              <tr>
+                <td>
+                  Totalt pris att betala:
+                </td>
+                <td>
+                  {`${(counter * 650).toFixed(0)} SEK`}
+                </td>
+              </tr>
+            </table>
 
           </div>
           <div style={{

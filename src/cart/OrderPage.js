@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 
-import Typography from '@mui/material/Typography';
-
 import HeaderInlogged from "../headers/HeaderInlogged";
 import Footer from "../footer/Footer";
 

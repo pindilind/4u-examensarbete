@@ -159,6 +159,7 @@ Lyckades få in våra kategorier i dropdown nu på kvällen. Nu ska rätt produk
 
 **TISDAG | 2022-02-01**<br>
 Morgonmöte klockan 9.
+Fokus på styling. Vi fickc dessutom fixas stripe för tredje jäkla gången. Denna gången hoppas jag på att det fungerar.
 
 ---
 

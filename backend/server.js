@@ -13,6 +13,7 @@ app.use(cors());
 app.use("/", express.json('public'));
 app.use("/images", express.static('images'));
 
+
 // Hämtar alla produkter
 app.get("/products", (req, res) => {
   let raw = fs.readFileSync("./database/productDB.json") //hämtar url till jsonfil
@@ -167,7 +168,6 @@ app.post('/session/verify', async (req, res) => {
   const session = await stripe.checkout.sessions.retrieve(req.body.sessionId)
 
   if (session.payment_status === 'paid') {
-
     const key = session.payment_intent;
 
     const raw = fs.readFileSync('./database/ordersDB.json')
