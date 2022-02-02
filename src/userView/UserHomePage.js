@@ -15,6 +15,7 @@ import MakeRequest from '../MakeRequest';
 import Footer from "../footer/Footer";
 import Search from './Search';
 
+document.title = 'Event4U';
 
 const style = {
   position: 'absolute',
