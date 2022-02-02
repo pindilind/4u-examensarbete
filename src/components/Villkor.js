@@ -3,7 +3,7 @@ import { styled, Box } from '@mui/system';
 import ModalUnstyled from '@mui/base/ModalUnstyled';
 
 const StyledModal = styled(ModalUnstyled)`
-  position: fixed;
+    position: fixed;
   z-index: 1300;
   right: 0;
   bottom: 0;
@@ -21,19 +21,33 @@ const Backdrop = styled('div')`
   bottom: 0;
   top: 0;
   left: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  
   -webkit-tap-highlight-color: transparent;
+  
 `;
 
 const style = {
-    width: 400,
+    width: '60%',
+    height: '100%',
     //bgcolor: 'background.paper',
-    bgcolor: 'black',
+    bgcolor: 'grey',
     color: 'white',
     border: '2px solid #000',
+    
+    overflowY: 'hidden',
+    overflow: 'auto',
+    
     p: 2,
     px: 4,
     pb: 3,
+
+    '@media (max-width: 480px)': {
+        maxWidth: 300,
+
+       
+      }
+
+    
 };
 
 export default function ModalVillkor() {

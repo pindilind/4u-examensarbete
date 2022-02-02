@@ -12,6 +12,7 @@ const StyledModal = styled(ModalUnstyled)`
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: scroll;
 `;
 
 const Backdrop = styled('div')`
@@ -26,11 +27,11 @@ const Backdrop = styled('div')`
 `;
 
 const style = {
-  width: 400,
+  width: '60%',
   //bgcolor: 'background.paper',
-  bgcolor: 'black',
+  bgcolor: 'grey',
   color: 'white',
-  border: '2px solid #000',
+  border: 'none',
   p: 2,
   px: 4,
   pb: 3,
