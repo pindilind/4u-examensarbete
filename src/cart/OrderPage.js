@@ -1,216 +1,106 @@
-import React, { useEffect, useState } from "react"; 
-import Typography from '@mui/material/Typography'; 
-import HeaderInlogged from "../headers/HeaderInlogged"; 
-import Footer from "../footer/Footer"; 
-import MakeRequest from "../MakeRequest"; 
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-import "../App.scss"; 
-import "./CartPageStyle.scss"; 
+import HeaderInlogged from "../headers/HeaderInlogged";
+import Footer from "../footer/Footer";
+import MakeRequest from "../MakeRequest";
 
-import { TableBody } from "@mui/material"; 
- 
- 
+import "../App.scss";
+import "./CartPageStyle.scss";
 
-function OrderPage(props) { 
 
-  const [orders, setOrders] = useState([]); 
+function OrderPage(props) {
 
-  console.log(orders) 
+  const [orders, setOrders] = useState([]);
 
- 
-  useEffect(() => { 
 
-    async function getOrders() { 
+  useEffect(() => {
 
-      const status = await MakeRequest("http://localhost:3005/orders", "GET"); 
+    async function getOrders() {
+
+      const status = await MakeRequest("http://localhost:3005/orders", "GET");
       setOrders(status);
-      return status 
+      return status
 
-    } 
+    }
 
     getOrders();
-    
-   }, [setOrders]); 
 
-  console.log(orders); 
+  }, [setOrders]);
 
- 
-  function renderOrder() { 
 
-    let orderArray = (Object.values(orders)) 
-    console.log(orderArray) 
+  function renderOrder() {
 
-    return orderArray.map((order) => { 
-      console.log(order) 
+    let orderArray = (Object.values(orders))
 
-      let cart = order.cart; 
+    return orderArray.map((order) => {
+      console.log(order)
 
-      console.log(cart) 
+      let cart = order.cart;
 
-      return cart.map((cart) => { 
- 
-        return ( 
+      console.log(cart)
 
-            //key={orders.orderID} 
-          <> 
+      return cart.map((cart) => {
+
+        return (
+
+          <div key={cart.productTitle} style={{
+            width: "80%",
+            alignContent: "center",
+          }}>
+            
+              <div className="flex-container">
+                <div className="flex-item-orderM"><b>Ordernummer:</b>{order.customerId}</div>
+                <div className="flex-item-orderM"><b>Titel:</b>{cart.productTitle}</div>
+                <div className="flex-item-orderS"><b>Eventdatum:</b>{cart.date}</div>
+                <div className="flex-item-orderS"><b>Startid:</b> {cart.time}</div>
+                <div className="flex-item-orderL"><b>Länk till event:</b> {cart.link}</div>
+                {/* <Link to="/userHomePage"></Link> */}
+                
+              </div>
+              <div className="flex-header-two">Ytterligare orderinformation</div>
+              <div className="flex-container">
+                <div className="flex-item-orderS"><b>Orderdatum:</b> {order.orderDate}</div>
+                <div className="flex-item-orderS"><b>Status:</b> PAID</div>
+                <div className="flex-item-orderS"><b>Antal:</b>{cart.quantity}</div>
+                <div className="flex-item-orderS"><b>Pris, kr:</b> {cart.price}</div>
+                <div className="flex-item-orderS"><b>Totalt pris, kr:</b> {(cart.quantity * cart.price)}</div>
+                <div style={{
+                  height: "0.5em",
+                  width: "100%",
+                  backgroundColor: '#75A488',
+                  marginBottom: "0.6em",
+                }}></div>
+              </div>
+
+            
+          </div>
+        );
+      });
+    })
+  };
+    return (
+
+      <>
+        <HeaderInlogged />
+        <div className="wrappsAllContent">
+          <div className="flexCenterAll ">
+
+            <h1 className="titleRegisterAndLogin">Dina Ordrar</h1>
+
             <div>
 
-            <tr key={cart.productTitle} style={{ 
-              //width: "100%", 
-              //display: "flex", 
-              //justifyContent: "space-between", 
-              
-            }}> 
+              <div>
+                {renderOrder()}
+              </div>
+            </div>
+          </div>
+        </div>
 
-              <td style={{
-                      width: "11em",
-                      paddingLeft: "1%",
-                    }}>{order.customerId}</td> 
-              <td style={{
-                      width: "18em",
-                    }}>{cart.productTitle}</td> 
-              <td style={{
-                      width: "8em",
-                    }}>{cart.date}</td> 
-              <td style={{
-                      width: "8em",
-                    }}>{cart.time}</td> 
-              <td style={{
-                      width: "12em",
-                    }}>{cart.link}</td> 
-            </tr> 
+        <Footer />
+      </>
+    );
+  }
 
-            {/*HÄR KOMMER COLLAPS-DELEN */} 
+  export default OrderPage;
 
-            <tr > 
-              <div style={{
-              marginBottom: "20%",
-              
-            }}><h6>Orderinformation</h6></div> 
-
-              {/* <table> 
-                <tablehead> 
-                  <tr> 
-                    <th style={{
-                      width: "10em",
-                    }}>Orderdatum</th> 
-                    <th style={{
-                      width: "4em",
-                    }}>Status</th> 
-                    <th style={{
-                      width: "4em",
-                    }}>Antal</th> 
-                    <th style={{
-                      width: "4em",
-                    }}>Pris</th> 
-                    <th style={{
-                      width: "6em",
-                    }}>Totalt pris</th> 
-                  </tr> 
-                </tablehead> 
-                <tr> 
-                  <tablebody> 
-                    <tr> 
-                      <td style={{
-                      width: "10em",
-                    }} >{order.orderDate}</td> 
-                      <td style={{
-                      width: "4em",
-                    }}>PAID</td> 
-                      <td style={{
-                      width: "4em",
-                    }}>{cart.quantity}</td> 
-                      <td style={{
-                      width: "4em",
-                    }}>{cart.price}</td> 
-                      <td style={{
-                      width: "6em",
-                    }}>{(cart.quantity * cart.price)}</td> 
-                    </tr> 
-                  </tablebody> 
-                </tr> 
-              </table>  */}
-            </tr> 
-          </div> 
-          </> 
-
-        ); 
-
-      }); 
-
-    }); 
-  } 
-
-  return ( 
-
-    <> 
-      <HeaderInlogged /> 
-
-      <div className="wrappsAllContent"> 
-
-        {/* <div className="flexCenterAll ">  */}
-        <div style={{
-          width: "92%",
-          marginLeft: "3%",
-          marginTop: "3%",
-          textAlign: "center",
-          //marginRight: "15%",
-          
-        }}>
-
-          <h1>Dina Ordrar</h1> 
-
-          <div classes="orderTable"> 
-
-            <table style={{
-              width: "100%",
-              textAlign: "left",
-            }}> 
-              <thead style={{ 
-                width: "90%", 
-                //outerHeight: "8em", 
-                //display: "flex", 
-                // justifyContent: "space-around", 
-                //padding: "1em", 
-                //alignItems: "left", 
-                backgroundColor: '#75A488', 
-                color: '#ffffff', 
-                //fontWeight: 'bold', 
-              }}> 
-                <tr style={{ 
-                  width: "90%", 
-                  display: "flex", 
-                  alignItems: "center",
-                  ///justifyContent: "space-between",
-                }}> 
-                  <th style={{
-                      width: "12em",
-                      paddingLeft: "1%",
-                    }}>Ordernummer </th> 
-                  <th style={{
-                      width: "20em",
-                    }}>Event titel</th> 
-                  <th style={{
-                      width: "8em",
-                    }}>Event datum</th> 
-                  <th style={{
-                      width: "8em",
-                    }}>Event starttid</th> 
-                  <th style={{
-                      width: "12em",
-                    }}>Länk till event</th> 
-                </tr> 
-              </thead> 
-              <tbody> 
-                {renderOrder()} 
-              </tbody> 
-            </table> 
-          </div> 
-        </div> 
-      </div> 
-      <Footer /> 
-    </> 
-  ); 
-} 
-
-export default OrderPage; 
