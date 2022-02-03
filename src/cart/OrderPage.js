@@ -38,16 +38,16 @@ function OrderPage() {
 
   }, [setOrders]);
 
- 
+
 
 
   function renderOrder() {
 
     let orderArray = (Object.values(orders))
-   
+
 
     return orderArray.map((order) => {
-     
+
 
       let cart = order.cart;
       return cart.map((cart) => {
@@ -55,59 +55,59 @@ function OrderPage() {
         return (
 
           <div key={cart.productTitle}>
-            
-              <div className="flex-container">
-                <div className="flex-item-orderM"><b>Ordernummer:</b>{order.customerId}</div>
-                <div className="flex-item-orderM"><b>Titel:</b>{cart.productTitle}</div>
-                <div className="flex-item-orderS"><b>Eventdatum:</b>{cart.date}</div>
-                <div className="flex-item-orderS"><b>Startid:</b> {cart.time}</div>
-                <div className="flex-item-orderL"><b>Länk till event:</b> {cart.link}</div>
-                {/* <Link to="/userHomePage"></Link> */}
-                
-              </div>
-              <div className="flex-header-two">Ytterligare orderinformation</div>
-              <div className="flex-container">
-                <div className="flex-item-orderS"><b>Orderdatum:</b> {order.orderDate}</div>
-                <div className="flex-item-orderS"><b>Status:</b> PAID</div>
-                <div className="flex-item-orderS"><b>Antal:</b>{cart.quantity}</div>
-                <div className="flex-item-orderS"><b>Pris, kr:</b> {cart.price}</div>
-                <div className="flex-item-orderS"><b>Totalt pris, kr:</b> {(cart.quantity * cart.price)}</div>
-                <div style={{
-                  height: "0.5em",
-                  width: "100%",
-                  backgroundColor: '#75A488',
-                  marginBottom: "0.6em",
-                }}></div>
-              </div>
 
-            
+            <div className="flex-container">
+              <div className="flex-item-orderM"><b>Ordernummer:</b>{order.customerId}</div>
+              <div className="flex-item-orderM"><b>Titel:</b>{cart.productTitle}</div>
+              <div className="flex-item-orderS"><b>Eventdatum:</b>{cart.date}</div>
+              <div className="flex-item-orderS"><b>Startid:</b> {cart.time}</div>
+              <div className="flex-item-orderL"><b>Länk till event:</b> {cart.link}</div>
+              {/* <Link to="/userHomePage"></Link> */}
+
+            </div>
+            <div className="flex-header-two">Ytterligare orderinformation</div>
+            <div className="flex-container">
+              <div className="flex-item-orderS"><b>Orderdatum:</b> {order.orderDate}</div>
+              <div className="flex-item-orderS"><b>Status:</b> PAID</div>
+              <div className="flex-item-orderS"><b>Antal:</b>{cart.quantity}</div>
+              <div className="flex-item-orderS"><b>Pris, kr:</b> {cart.price}</div>
+              <div className="flex-item-orderS"><b>Totalt pris, kr:</b> {(cart.quantity * cart.price)}</div>
+              <div style={{
+                height: "0.5em",
+                width: "100%",
+                backgroundColor: '#75A488',
+                marginBottom: "0.6em",
+              }}></div>
+            </div>
+
+
           </div>
         );
       });
     })
   };
-    return (
+  return (
 
-      <>
-        <HeaderInlogged />
-        <div className="wrappsAllContent">
-          <div className="flexCenterAll ">
+    <>
+      <HeaderInlogged />
+      <div className="wrappsAllContent">
+        <div className="flexCenterAll ">
 
-            <h1 className="titleRegisterAndLogin">Dina Ordrar</h1>
+          <h1 className="titleRegisterAndLogin">Dina Ordrar</h1>
 
-            <div style={{
+          <div style={{
             width: "80%",
           }}>
-                {renderOrder()}
+            {renderOrder()}
 
-            </div>
           </div>
         </div>
+      </div>
 
-        <Footer />
-      </>
-    );
-  }
+      <Footer />
+    </>
+  );
+}
 
-  export default OrderPage;
+export default OrderPage;
 

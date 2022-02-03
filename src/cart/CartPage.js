@@ -29,14 +29,17 @@ const useStyles = makeStyles({
   },
 
   valuesDiv: {
+    borderRadius: '1rem',
     alignItems: 'center',
     display: 'flex',
     flexDirection: 'column',
-    width: '30%',
+    minWidth: '30%',
+    maxWidth: '30%',
     backgroundColor: '#75A488',
     color: '#ffffff',
     '@media (max-width: 480px)': {
-      width: '90%',
+      minWidth: '90%',
+      maxWidth: '90%',
       marginBottom: '0.7rem'
     }
   },

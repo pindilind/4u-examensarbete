@@ -75,11 +75,11 @@ const useStyles = makeStyles({
     padding: 0,
     color: '#ffffff',
     background: '#75A488',
+    borderRadius: '0.5rem',
 
-
-    '@media (max-width: 480px)': {
-      padding: 0,
-    }
+  },
+  datePriceP: {
+    marginBottom: '0',
   },
   p: {
     marginButtom: 0,
@@ -117,7 +117,7 @@ export default function ProductCardSmall(props) {
 
         <div className={classes.flexDirectionColumn}>
           <div className={classes.datePriceStyle}>
-            <p>
+            <p className={classes.datePriceP}>
               Tid: {product.time} •
               Pris: {product.price} kr
             </p>

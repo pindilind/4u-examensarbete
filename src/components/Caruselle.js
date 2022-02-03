@@ -9,22 +9,18 @@ import { makeStyles } from '@mui/styles';
 
 const useStylesLarge = makeStyles({
   caruselleWrapDiv: {
-    marginTop: '1rem',
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
   },
   caruselleDiv: {
     display: 'flex',
-    width: '90%',
+    width: '100%',
     justifyContent: 'center',
-
-    '@media (max-width: 480px)': {
-      width: '90%',
-    }
   },
   caruselleImg: {
     width: '100%',
+    borderRadius: '1.875rem 1.875rem 0 0',
   }
 
 });
@@ -51,17 +47,8 @@ export default function App() {
             alt="logo"
           />
         </Carousel.Item>
-
-        <Carousel.Item interval={2500}>
-          <img
-            className={classes.caruselleImg}
-            src={CaruselleMorgan}
-            alt="logo"
-          />
-        </Carousel.Item>
-
+        
       </Carousel>
     </div>
   );
 }
-

@@ -78,6 +78,7 @@ function Login() {
                   value={userName}
                   onChange={handleUserNameChange}
                   size="small"
+                  color="success"
                 />
               </div>
 
@@ -89,6 +90,7 @@ function Login() {
                   value={password}
                   onChange={handlePasswordChange}
                   size="small"
+                  color="success"
                 />
               </div>
 
