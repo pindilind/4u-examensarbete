@@ -165,8 +165,7 @@ function CreateAccount(props) {
 
             <button
               onClick={createAccount}
-              className="btnStylingGeneral"
-              disableElevation>
+              className="btnStylingGeneral">
               Skapa konto
             </button>
 

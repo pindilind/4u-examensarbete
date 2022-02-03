@@ -1,11 +1,8 @@
 import React, { useEffect, useState } from "react";
-
-import { makeStyles } from '@mui/styles';
-
+import { Redirect } from "react-router-dom";
 
 import HeaderInlogged from "../headers/HeaderInlogged";
 import ProductCardSmall from "../components/ProductCardSmall";
-import CalenderModal from '../components/CalenderModal';
 import Caruselle from '../components/Caruselle';
 import '../App.scss';
 import './UserHomeStyle.scss';
@@ -17,52 +14,44 @@ import Search from './Search';
 
 document.title = 'Event4U';
 
-const style = {
-  position: 'absolute',
-  top: '50%',
-  left: '50%',
-  transform: 'translate(-50%, -50%)',
-
-  p: 4,
-
-  '@media (max-width: 480px)': {
-    minWidth: 300,
-  }
-
-};
-
 function UserHomePage(props) {
 
   const [products, setProducts] = useState([]);
 
   const [counter, setCounter] = useState(0);
 
-  const [amount, setAmount] = useState(0);
-  
-  const [categoriId, setCategoriId] = useState(0)
+  const [categoriId, setCategoriId] = useState(1);
 
-  const product = props.product;
-  /* const categoriId = JSON.parse(props.location.state.categoriId); */
+  const [user, setUser] = useState('');
+
+  const [userName, setUserName] = useState('');
 
   useEffect(() => {
-    if(props.location.state && props.location.state.categoriId) {
-    setCategoriId(JSON.parse(props.location.state.categoriId));
+    const userId = sessionStorage.getItem("userId");
+    const userName = sessionStorage.getItem("userName");
+
+    setUser(userId);
+    setUserName(userName)
+
+  }, [setUser, setUserName, user])
+
+
+  useEffect(() => {
+    if (props.location.state && props.location.state.categoriId) {
+      setCategoriId(JSON.parse(props.location.state.categoriId));
     }
   }, [setCategoriId, props])
-  
+
+
   useEffect(() => {
 
     async function getProducts() {
       const status = await MakeRequest("http://localhost:3005/products", "GET")
-
+      setProducts(status);
       return status
     }
 
-    getProducts().then(result => {
-      setProducts(result);
-
-    });
-
+    getProducts();
     updateCounter();
 
   }, [setProducts]);
@@ -72,7 +61,6 @@ function UserHomePage(props) {
 
     let cart = JSON.parse(localStorage.getItem("cart"));
 
-    let amount = 0;
     let counter = 0;
 
     if (cart !== null) {
@@ -81,11 +69,9 @@ function UserHomePage(props) {
         if (Object.hasOwnProperty.call(cart, key)) {
           const cartRow = cart[key];
           counter += cartRow.quantity
-          amount += cartRow.price * cartRow.quantity
         }
       }
       setCounter(counter);
-      setAmount(amount);
     }
   }
 
@@ -93,10 +79,10 @@ function UserHomePage(props) {
   function renderProducts() {
 
     let filteredProducts;
-   
+
     if (categoriId) {
       filteredProducts = products.filter(product => {
-       
+
         if (product.categoriId.indexOf(categoriId) >= 0) {
           return true;
         } else {
@@ -106,7 +92,7 @@ function UserHomePage(props) {
     } else {
       filteredProducts = products;
     }
-  
+
     return filteredProducts.map((product, id) => {
       return (
         <ProductCardSmall key={id} product={product} updateCounter={updateCounter} />
@@ -114,9 +100,13 @@ function UserHomePage(props) {
     });
   }
 
+  if (user === null) {
+    return <Redirect to="/login" />
+  }
+
   return (
     <>
-      <HeaderInlogged product={product} counter={counter} />
+      <HeaderInlogged counter={counter} />
       <div className={"wrappsAllContent"}>
         <div className={"flexCenterAll"}>
 
@@ -128,12 +118,11 @@ function UserHomePage(props) {
           <Caruselle />
 
           <div className={"userTitle"}>
-            <h3>Good Afternoon</h3>
-            <h3>USER</h3>
+            <h3>Välkommen</h3>
+            <h3>{userName}</h3>
           </div>
 
           <div>
-            {/* <CalenderModal /> */}
             <div className="displayFlexDivAlign">
               {renderProducts()}
             </div>
