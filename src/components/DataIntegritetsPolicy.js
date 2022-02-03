@@ -52,10 +52,10 @@ export default function DataIntegritetsPolicy() {
 
   return (
     <div>
-      <p type="button" onClick={handleOpen}>
+      <div type="button" onClick={handleOpen}>
         Data- och Integritetspolicy
 
-      </p>
+      </div>
 
       <StyledModal
         aria-labelledby="unstyled-modal-title"
