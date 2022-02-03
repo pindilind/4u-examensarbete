@@ -57,9 +57,9 @@ export default function ModalVillkor() {
 
     return (
         <>
-            <p type="button" onClick={handleOpen}>
+            <div type="button" onClick={handleOpen}>
                 Användarvillkor
-            </p>
+            </div>
             <StyledModal
                 aria-labelledby="unstyled-modal-title"
                 aria-describedby="unstyled-modal-description"
