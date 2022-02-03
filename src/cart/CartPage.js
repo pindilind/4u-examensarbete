@@ -81,7 +81,7 @@ const useStyles = makeStyles({
       fontSize: '1.3rem',
     }
   },
- 
+
 });
 
 export default function CartPage(props) {
@@ -201,9 +201,9 @@ export default function CartPage(props) {
       const response = await fetch('http://localhost:3005/create-checkout-session', {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(
-          Object.values(cart),
-        ),
+        body: JSON.stringify({
+          cart: Object.values(cart)
+        }),
       });
 
       console.log(response)
@@ -244,7 +244,14 @@ export default function CartPage(props) {
               <button className={'btnStylingCartYes'}>Fortsätt handla</button>
             </Link>
 
-            <button className={'btnStylingCartYes'}>Töm varukorgen</button>
+            <button className={'btnStylingCartYes'} onClick={() => {
+              
+              localStorage.removeItem("cart");
+              setCart({});
+
+              updateCounter();
+            }}
+            >Töm varukorgen</button>
 
           </div>
 

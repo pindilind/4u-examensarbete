@@ -89,7 +89,7 @@ function SuccessPage() {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
-            sessionId, cart: Object.values(cart)
+            sessionId, cart: Object.values(cart), userId: sessionStorage.getItem("userId")
           })
         });
 

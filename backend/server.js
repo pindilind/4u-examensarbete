@@ -19,7 +19,6 @@ app.get("/products", (req, res) => {
   let raw = fs.readFileSync("./database/productDB.json") //hämtar url till jsonfil
   let productList = JSON.parse(raw)
   res.json(Object.values(productList));
-  /* res.json(productList)  */
 });
 
 // Hämtar ut produktkategorier
@@ -27,14 +26,14 @@ app.get("/categories", (req, res) => {
   let raw = fs.readFileSync("./database/categoryDB.json") //hämtar url till jsonfil
   let productCategoryList = JSON.parse(raw)
   res.json(Object.values(productCategoryList));
-  console.log(productCategoryList);
+
 });
 
 // Hämtar ut User
 app.get('/users', async (req, res) => {
   // Hämtar
   let raw = fs.readFileSync("./database/userDB.json") //hämtar url till jsonfil
-  console.log(raw)
+
   let userList = JSON.parse(raw);
 
   // Kollar om det finns ett ID
@@ -48,8 +47,7 @@ app.get('/users', async (req, res) => {
 
     // Lämnar tillbaka svar ( hela listan med användare )
     res.json(Object.values(userList));
-    console.log(userList);
-
+    
   }
 
 });
@@ -60,8 +58,7 @@ app.post('/users/create', async (req, res) => {
   try {
     let raw = fs.readFileSync("./database/userDB.json") //hämtar url till jsonfil
     let userData = JSON.parse(raw)
-    console.log(userData)
-
+  
     let newUser;
 
     // Kollar om det finns en body i requesten
@@ -81,7 +78,6 @@ app.post('/users/create', async (req, res) => {
 
     // Hashar lösenordet
     const hash = await argon2.hash(req.body.password);
-    console.log(hash)
 
     // Lägger till ny kund i databasen
     userData.highestId++;
@@ -94,7 +90,6 @@ app.post('/users/create', async (req, res) => {
       email: req.body.email,
       phoneNumber: req.body.phoneNumber,
     };
-    console.log(userData)
 
     // Skickar ett OK meddekande till respons
     fs.writeFileSync("./database/userDB.json", JSON.stringify(userData));
@@ -114,9 +109,8 @@ app.post('/users/create', async (req, res) => {
 // Loggar in kunden
 app.post('/users/login', async (req, res) => {
 
-  let raw = fs.readFileSync("./database/userDB.json") //hämtar url till jsonfil
-  let userData = JSON.parse(raw)
-  console.log(userData)
+  let raw = fs.readFileSync("./database/userDB.json"); //hämtar url till jsonfil
+  let userData = JSON.parse(raw);
 
   for (const user of Object.values(userData)) {
 
@@ -153,12 +147,20 @@ app.post('/users/login', async (req, res) => {
 // Hämtar filen från "orders.json" - se även i server.post/verify
 app.get('/orders', async (req, res) => {
 
-  let raw = fs.readFileSync('database/ordersDB.json')
-  console.log(raw)
-  let orderList = JSON.parse(raw);
+  let userId = req.query.userId;
 
-  res.json(Object.values(orderList));
-  console.log(orderList);
+  let raw = fs.readFileSync('database/ordersDB.json')
+  let orderList = Object.values(JSON.parse(raw));
+
+  let filteredOrders = orderList.filter((order) => {
+    if (order.userId === userId) {
+      return true;
+    } else {
+      return false;
+    }
+  });
+
+  res.json(Object.values(filteredOrders));
 
 })
 
@@ -172,7 +174,6 @@ app.post('/session/verify', async (req, res) => {
 
     const raw = fs.readFileSync('./database/ordersDB.json')
     const orderList = JSON.parse(raw)
-    console.log(req.body.cart)
 
     if (!orderList[key]) {
       orderList[key] = {
@@ -180,6 +181,7 @@ app.post('/session/verify', async (req, res) => {
         customerId: session.customer,
         customerEmail: session.customer_details.email,
         cart: req.body.cart,
+        userId: req.body.userId,
         orderDate: new Date().toLocaleString(),
       }
       res.status(200).json({ paid: true, customerId: session.customer })
@@ -198,7 +200,7 @@ app.post('/session/verify', async (req, res) => {
 // Ny session skapas
 app.post('/create-checkout-session', async (req, res) => {
 
-  const cart = req.body;
+  const cart = req.body.cart;
 
   const lineItems = [];
 

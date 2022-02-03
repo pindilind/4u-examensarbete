@@ -1,22 +1,22 @@
 [
   {
-    "categoriId": 0,
+    "categoriId": 1,
     "title": "Alla kategorier"
   },
   {
-    "categoriId": 1,
+    "categoriId": 2,
     "title": "Psykologi"
   },
   {
-    "categoriId": 2,
+    "categoriId": 3,
     "title": "Inspiration"
   },
   {
-    "categoriId": 3,
+    "categoriId": 4,
     "title": "Affärsutveckling"
   },
   {
-    "categoriId": 4,
+    "categoriId": 5,
     "title": "Underhållning"
   },
   {

@@ -10,6 +10,7 @@ import { Elements } from "@stripe/react-stripe-js";
 
 import CreateAccount from "./login/CreateAccount";
 import Login from "./login/Login";
+import LogOut from "./login/LogOut";
 import StartPage from "./start/StartPage";
 
 import CartPage from "./cart/CartPage";
@@ -38,19 +39,20 @@ function App() {
 
       <Switch>
         <Route exact path="/">
+          
         <CookieConsent 
         location="top"
           debug={true}
           style={{ background: 'red'}}
-          buttonStyle={{ background: '#75A488', color: '#fff' }}
+          buttonStyle={{ background: '#000', color: '#fff' }}
           buttonText="Stäng"
           > EN DEMOBUTIK I UTBILDNINGSSYFTE</CookieConsent> 
           <StartPage />
-          <CookieConsent 
-          debug={true}
-          style={{ background: '#000'}}
-          buttonStyle={{ background: '#75A488', color: '#fff' }}
-          buttonText="Acceptera"
+          <CookieConsent
+            debug={true}
+            style={{ background: '#000' }}
+            buttonStyle={{ background: '#75A488', color: '#fff' }}
+            buttonText="Acceptera"
           >
             Denna webbplats använder cookies för att förbättra användarupplevelsen. Se vår integritetspolicy, genom att acceptera detta meddelande.</CookieConsent>
         </Route>
@@ -59,9 +61,9 @@ function App() {
           <CreateAccount />
         </Route>
 
-        <Route exact path="/login" component={Login}>
-          <Login />
-        </Route>
+        <Route exact path="/login" component={Login} />
+
+        <Route exact path="/logOut" component={LogOut} />
 
         <Route exact path="/cartPage">
           <Elements stripe={stripePromise}>

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Redirect } from "react-router-dom";
 import { Link } from "react-router-dom";
 
 import HeaderInlogged from "../headers/HeaderInlogged";
@@ -8,35 +9,47 @@ import MakeRequest from "../MakeRequest";
 import "../App.scss";
 import "./CartPageStyle.scss";
 
+function OrderPage() {
 
-function OrderPage(props) {
+  const [user, setUser] = useState('')
 
   const [orders, setOrders] = useState([]);
+
+  useEffect(() => {
+    const userId = sessionStorage.getItem("userId");
+
+    setUser(userId);
+
+  }, [setUser, user])
 
 
   useEffect(() => {
 
+    let userId = sessionStorage.getItem("userId");
+
     async function getOrders() {
 
-      const status = await MakeRequest("http://localhost:3005/orders", "GET");
+      const status = await MakeRequest("http://localhost:3005/orders?userId=" + userId, "GET");
       setOrders(status);
       return status
-
     }
 
     getOrders();
 
   }, [setOrders]);
 
+ 
+
 
   function renderOrder() {
 
     let orderArray = (Object.values(orders))
+   
 
     return orderArray.map((order) => {
-      
-      let cart = order.cart;
+     
 
+      let cart = order.cart;
       return cart.map((cart) => {
 
         return (

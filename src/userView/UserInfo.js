@@ -61,10 +61,8 @@ function UserInfo() {
     async function getUser() {
 
       const userId = sessionStorage.getItem("userId");
-      console.log(userId)
 
       const status = await MakeRequest("http://localhost:3005/users?id=" + userId, "GET")
-      console.log(status)
 
       if (status) {
         setFirstnameChange(status.firstname)
@@ -183,8 +181,7 @@ function UserInfo() {
                   className="btnStylingUserInfo"
                   /* onClick={} */
                   size="small"
-                  variant="contained"
-                  disableElevation>
+                  variant="contained">
                   Spara
                 </button>
 
@@ -193,9 +190,7 @@ function UserInfo() {
               <div>
 
                 <button
-                  /*  onClick={} */
                   className="btnStylingDelete"
-                  disableElevation
                   size="small">
                   Radera användare
                 </button>
