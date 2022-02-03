@@ -85,7 +85,7 @@ function SuccessPage() {
           throw new Error("inget session ID");
         }
 
-        const response = await fetch('https://event4u.online/session/verify', {
+        const response = await fetch('https://event4u.online:3005/session/verify', {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
