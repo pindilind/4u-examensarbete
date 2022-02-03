@@ -48,7 +48,7 @@ function UserHomePage(props) {
   useEffect(() => {
 
     async function getProducts() {
-      const status = await MakeRequest("https://localhost:3005/products", "GET")
+      const status = await MakeRequest("http://localhost:3005/products", "GET")
       setProducts(status);
       return status
     }
