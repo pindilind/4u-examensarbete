@@ -100,3 +100,114 @@ a.button4:hover {
   justify-content: space-between;
 
 }
+
+.orderheadDiv { 
+
+  display: flex; 
+
+  flex-direction: column; 
+
+  justify-content: space-between; 
+
+  padding: 1%; 
+
+  flex-wrap: wrap; 
+
+  background-color: #75A488; 
+
+  //color: #ffffff; 
+
+ 
+ 
+
+  /* @media (max-width: 767px) { 
+
+    flex-direction: column; 
+
+  } 
+
+ 
+ 
+
+  @media (max-width: 400px) { 
+
+    flex-direction: row; 
+
+  } */ 
+
+} 
+
+ 
+ 
+
+.flex-container { 
+  
+  display: flex; 
+  justify-content: center;
+  text-align: center;
+  flex-wrap: wrap; 
+  font-size: 1em;
+
+} 
+
+.orderDiv {
+  width: 80%;
+  margin-top: 1em,
+}
+
+.flex-item-orderS { 
+
+  background-color: #f1f1f1; 
+  padding: 1%; 
+  flex: 8%; 
+  text-align: left;
+
+} 
+ 
+
+.flex-item-orderM { 
+
+  background-color: #f1f1f1; 
+  padding: 1%; 
+  flex: 20%; 
+  text-align: left;
+
+} 
+
+.flex-item-orderL { 
+
+  background-color: #f1f1f1; 
+  padding: 1%; 
+  flex: 20%; 
+  text-align: left;
+
+} 
+
+.flex-header-two {
+  height: 2em;
+  margin-top: 1em;
+  padding-left: 2%;
+
+}
+
+.line-orders {
+  height: 1em;
+  width: "100%";
+  background-color: #75A488;
+
+}
+
+ 
+ 
+
+//Responsive layout - makes a one column-layout instead of a two-column layout */ 
+
+@media (max-width: 800px) { 
+
+  .flex-item-orderS, .flex-item-orderM, .flex-item-orderL { 
+
+    flex: 100%; 
+
+  } 
+
+} 

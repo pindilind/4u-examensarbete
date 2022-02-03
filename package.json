@@ -35,7 +35,6 @@
     "react-router-dom": "^5.2.0",
     "sass": "^1.45.0",
     "stripe": "^8.198.0",
-    "type": "module",
     "web-vitals": "^1.1.2"
   },
   "devDependencies": {
