@@ -1,6 +1,5 @@
 import React from "react";
 import Card from '@mui/material/Card';
-import Box from '@mui/material/Box';
 import Modal from '@mui/material/Modal';
 
 import { makeStyles } from '@mui/styles';
@@ -133,7 +132,7 @@ export default function ProductCardSmall(props) {
               open={open}
               onClose={handleClose}
             >
-              <ProductCardLarge product={product} updateCounter={props.updateCounter} />
+              <><ProductCardLarge product={product} updateCounter={props.updateCounter} /></>
             </Modal>
           </div>
 
@@ -143,6 +142,4 @@ export default function ProductCardSmall(props) {
 
     </Card >
   )
-
-
 }

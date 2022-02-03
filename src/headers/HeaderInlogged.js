@@ -53,7 +53,6 @@ export default function ElevateAppBar(props) {
               <LongMenu product={product} id="colorIcons" />
             </div>
 
-
             <Link to="/userHomePage">
               <div className={'divTwo'}>
                 <img

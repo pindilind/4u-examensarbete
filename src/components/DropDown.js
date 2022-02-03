@@ -53,7 +53,7 @@ export default function DropDown(props) {
     getCategories()
 
   }, [setCategories]);
-  
+
 
   return (
     <div>

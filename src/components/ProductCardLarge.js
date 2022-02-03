@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React  from 'react';
 
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
@@ -8,8 +8,6 @@ import Typography from '@mui/material/Typography';
 import { makeStyles } from '@mui/styles';
 
 import './CalenderStyle.scss';
-
-import CartCounter from './CartCounter';
 
 const useStylesLarge = makeStyles({
   cardStylingLarge: {
@@ -74,10 +72,6 @@ export default function ProductCardLarge(props) {
 
   const classes = useStylesLarge();
 
-  const [cart, setCart] = useState([]);
-
-  const [itemIndex, setItemIndex] = useState(1);
-
   const product = props.product;
 
   const productKey = product.productTitle;
@@ -134,12 +128,10 @@ export default function ProductCardLarge(props) {
 
           <button
             onClick={addProduct}
-            className="btnStylingGeneralTwo"
-            disableElevation>
+            className="btnStylingGeneralTwo">
             Lägg till i varukorgen
           </button>
         </div>
-
 
       </div>
     </Card>

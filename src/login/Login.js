@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, Redirect } from "react-router-dom";
-import { useState } from 'react';
 
 import TextField from '@mui/material/TextField';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -36,18 +35,18 @@ function Login() {
       "POST",
       { userName, password }
     );
-    console.log(status)
+    
 
     if (status.customerLogin === true) {
 
       sessionStorage.setItem("userId", status.user.id);
+      sessionStorage.setItem("userName", status.user.userName);
       setUserId(status.user.id)
 
     } else {
       setError(true);
     }
   }
-
 
   if (userId) {
     return <Redirect to="/userHomePage" />
@@ -106,8 +105,7 @@ function Login() {
 
             <button
               onClick={signIn}
-              className="btnStylingGeneral"
-              disableElevation>
+              className="btnStylingGeneral">
               Logga in
             </button>
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
@@ -9,12 +9,14 @@ import { BsFillHouseDoorFill } from 'react-icons/bs';
 import { FaDoorOpen } from 'react-icons/fa';
 
 export default function FooterStartPage() {
+
   const [value, setValue] = React.useState('recents');
 
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
 
+ 
   return (
     <>
       <BottomNavigation
@@ -42,8 +44,8 @@ export default function FooterStartPage() {
         />
         <BottomNavigationAction
           component={Link}
-          to="/"
-          value="logout"
+          to="/logOut"
+          value="logOut"
           icon={<FaDoorOpen />} />
       </BottomNavigation>
 
