@@ -62,7 +62,7 @@ function UserInfo() {
 
       const userId = sessionStorage.getItem("userId");
 
-      const status = await MakeRequest("https://localhost:3005/users?id=" + userId, "GET")
+      const status = await MakeRequest("http://localhost:3005/users?id=" + userId, "GET")
 
       if (status) {
         setFirstnameChange(status.firstname)
