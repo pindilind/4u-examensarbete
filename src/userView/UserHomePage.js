@@ -2,15 +2,17 @@ import React, { useEffect, useState } from "react";
 import { Redirect } from "react-router-dom";
 
 import HeaderInlogged from "../headers/HeaderInlogged";
+import CalenderModal from "../components/CalenderModal";
+import Search from './Search';
 import ProductCardSmall from "../components/ProductCardSmall";
 import Caruselle from '../components/Caruselle';
-import '../App.scss';
-import './UserHomeStyle.scss';
 
 import MakeRequest from '../MakeRequest';
 
 import Footer from "../footer/Footer";
-import Search from './Search';
+
+import '../App.scss';
+import './UserHomeStyle.scss';
 
 document.title = 'Event4U';
 
@@ -110,16 +112,16 @@ function UserHomePage(props) {
       <div className={"wrappsAllContent"}>
         <div className={"flexCenterAll"}>
 
-
-          <div className={"longAndSearchDiv"}>
-            <Search />
-          </div>
-
           <Caruselle />
 
           <div className={"userTitle"}>
-            <h3>Välkommen</h3>
-            <h3>{userName}</h3>
+            <h3 className={"val"}>Välkommen</h3>
+            <h3 className={"userN"}>{userName}</h3>
+          </div>
+
+          <div className={"longAndSearchDiv"}>
+            <CalenderModal />
+            <Search />
           </div>
 
           <div>

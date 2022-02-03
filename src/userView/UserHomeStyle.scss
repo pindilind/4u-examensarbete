@@ -1,8 +1,12 @@
 .longAndSearchDiv {
   display: flex;
-  width: 90%;
-  margin-top: 2rem;
+  width: 63%;
+  margin-top: 1rem;
   align-self: center;
+  margin-bottom: 1rem;
+  @media screen and (max-width: 480px) {
+    width: 95%;
+  }
 }
 
 .caruselleDiv {
@@ -23,6 +27,32 @@
     background-color: #75A488;
     margin: 0.5rem;
     width: 95%;
+  }
+}
+
+.userTitle {
+  width: 100%;
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+
+  .val {
+    font-size: 3rem;
+    margin-bottom: 0;
+    @media screen and (max-width: 480px) {
+      font-size: 2rem;
+    }
+  
+  }
+
+  .userN {
+    font-size: 3rem;
+    margin-top: 0;
+    font-weight: bold;
+    @media screen and (max-width: 480px) {
+      font-size: 2rem;
+    }
+  
   }
 }
 
@@ -93,3 +123,4 @@
     }
   }
 }
+

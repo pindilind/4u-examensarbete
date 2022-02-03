@@ -172,6 +172,8 @@ Vi kommer att fortsätta att kämpa på imorgon , förhoppningvis blir allt klar
 
 **TORSDAG | 2022-02-03**<br>
 Morgonmöte klockan 9.
+Stressig dag! och lång dag. Vi har lyckats få till det sista, även stylingen. Men vi bestämde oss för att de som inte riktigt blev som vi tänkt inte blir som vi tänkt.
+Nu ska vi fortsätta med rapporten!
 
 ---
 

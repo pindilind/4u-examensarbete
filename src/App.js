@@ -39,14 +39,14 @@ function App() {
 
       <Switch>
         <Route exact path="/">
-          
-        <CookieConsent 
-        location="top"
-          debug={true}
-          style={{ background: 'red'}}
-          buttonStyle={{ background: '#000', color: '#fff' }}
-          buttonText="Stäng"
-          > EN DEMOBUTIK I UTBILDNINGSSYFTE</CookieConsent> 
+
+          <CookieConsent
+            location="top"
+            debug={true}
+            style={{ background: 'red' }}
+            buttonStyle={{ background: '#000', color: '#fff' }}
+            buttonText="Stäng"
+          > EN DEMOBUTIK I UTBILDNINGSSYFTE</CookieConsent>
           <StartPage />
           <CookieConsent
             debug={true}
