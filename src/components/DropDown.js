@@ -45,7 +45,7 @@ export default function DropDown(props) {
   useEffect(() => {
 
     async function getCategories() {
-      const cat = await MakeRequest("https://event4u.online/categories", "GET")
+      const cat = await MakeRequest("https://event4u.online:3005/categories", "GET")
       setCategories(cat);
       return cat
     }
