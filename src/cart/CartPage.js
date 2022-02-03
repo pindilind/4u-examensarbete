@@ -201,7 +201,7 @@ export default function CartPage(props) {
 
     try {
 
-      const response = await fetch('https://localhost:3005/create-checkout-session', {
+      const response = await fetch('http://localhost:3005/create-checkout-session', {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
