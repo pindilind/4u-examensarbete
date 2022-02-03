@@ -44,7 +44,7 @@ function App() {
           style={{ background: 'red'}}
           buttonStyle={{ background: '#75A488', color: '#fff' }}
           buttonText="Stäng"
-          > EN DEMOBUTIK I UTBILDNINGSSYTE</CookieConsent> 
+          > EN DEMOBUTIK I UTBILDNINGSSYFTE</CookieConsent> 
           <StartPage />
           <CookieConsent 
           debug={true}
