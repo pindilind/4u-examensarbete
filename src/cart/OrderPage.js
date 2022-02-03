@@ -29,7 +29,7 @@ function OrderPage() {
 
     async function getOrders() {
 
-      const status = await MakeRequest("https://event4u.online:3005/orders?userId=" + userId, "GET");
+      const status = await MakeRequest("https://localhost:3005/orders?userId=" + userId, "GET");
       setOrders(status);
       return status
     }
