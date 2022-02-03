@@ -34,20 +34,14 @@ function OrderPage(props) {
     let orderArray = (Object.values(orders))
 
     return orderArray.map((order) => {
-      console.log(order)
-
+      
       let cart = order.cart;
-
-      console.log(cart)
 
       return cart.map((cart) => {
 
         return (
 
-          <div key={cart.productTitle} style={{
-            width: "80%",
-            alignContent: "center",
-          }}>
+          <div key={cart.productTitle}>
             
               <div className="flex-container">
                 <div className="flex-item-orderM"><b>Ordernummer:</b>{order.customerId}</div>
@@ -88,11 +82,11 @@ function OrderPage(props) {
 
             <h1 className="titleRegisterAndLogin">Dina Ordrar</h1>
 
-            <div>
-
-              <div>
+            <div style={{
+            width: "80%",
+          }}>
                 {renderOrder()}
-              </div>
+
             </div>
           </div>
         </div>
