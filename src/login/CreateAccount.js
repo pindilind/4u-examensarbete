@@ -9,6 +9,8 @@ import './CreateLoginUserInfoStyling.scss';
 import MakeRequest from '../MakeRequest';
 
 import HeaderLogga from '../headers/HeaderLogga';
+import ModalVillkor from '../components/Villkor';
+import DataIntegritetsPolicy from '../components/DataIntegritetsPolicy';
 
 function CreateAccount(props) {
 
@@ -162,7 +164,9 @@ function CreateAccount(props) {
               </div>
 
             </div>
-
+            <div>
+              <div className='acceptanceVillkor'>Genom att gå vidare och Skapa konto, godkänner jag härmed Event4U's < b><ModalVillkor /></b> och <b ><DataIntegritetsPolicy/></b>.</div>
+            </div>
             <button
               onClick={createAccount}
               className="btnStylingGeneral">
