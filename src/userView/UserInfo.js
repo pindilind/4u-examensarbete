@@ -62,7 +62,7 @@ function UserInfo() {
 
       const userId = sessionStorage.getItem("userId");
 
-      const status = await MakeRequest("https://event4u.online/users?id=" + userId, "GET")
+      const status = await MakeRequest("https://event4u.online:3005/users?id=" + userId, "GET")
 
       if (status) {
         setFirstnameChange(status.firstname)
