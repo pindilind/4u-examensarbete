@@ -1,6 +1,21 @@
-Project name: Event 4U
-Team: Linda Gustafsson, Susan Isaksson
-# Getting Started with Create React App
+# Event 4U - Examensarbete<br>
+
+**Team: Linda Gustafsson | Susan Isaksson**
+
+Länk till Github: https://github.com/pindilind/4u-examensarbete
+Länk till våran hemsida: https://event4u.online/
+
+## Beskrivning<br>
+Vårt mål är att skapa en tjänst som erbjuder möjligheten att delta och uppleva digitala föreläsningar och event, antingen live eller som en play-tjänst.  
+
+Våra ledord är Utvecklas, Utbildas, Underhållas och Umgås och vårt namn på denna tjänst blev Event 4U som tydliggör att vi tillhandahåller event som är knutna till våra fyra ledord som börjar på bokstaven U (4U) och som på engelska blir “for you” - vilket blir “event för dig” / Event4U. 
+
+För att få tillgång till våra tjänster har vi valt att ett personligt konto behöver skapas. 
+
+Genom att samla intressanta och aktuella föreläsningar och event inom olika kategorier, gör vi det möjligt att överskådligt se aktuellt utbud, enkelt boka en eller flera biljett/er och betala via utvald betaltjänst. I det personliga kontot finns därefter information om senaste biljettköp, länk till aktuellt event och historik på tidigare biljettköp, men även möjlighet att uppdatera/redigera kontaktuppgifter.
+
+<br><br>
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
@@ -13,7 +28,8 @@ In the project directory, you can run:
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open FrontEnd: http://localhost:3000
+BackEnd: http://localhost:3005 to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
