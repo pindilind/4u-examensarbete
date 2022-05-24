@@ -2,7 +2,7 @@ GET http://localhost:3005/
 
 ###
 
-POST http://localhost:3005/
+POST https://event4u.online/
 Content-Type: application/json
 
 {
@@ -12,4 +12,4 @@ Content-Type: application/json
   "email": "hej@hejsan.se",
   "phoneNumber": "0"
 }
-}
+

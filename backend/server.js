@@ -227,8 +227,8 @@ app.post('/create-checkout-session', async (req, res) => {
     metadata: {
     },
 
-    success_url: 'http://localhost:3000/succsessPage?session_id={CHECKOUT_SESSION_ID}',
-    cancel_url: "http://localhost:3000/cancelPage",
+    success_url: 'https://event4u.online/succsessPage?session_id={CHECKOUT_SESSION_ID}',
+    cancel_url: "https://event4u.online/cancelPage",
   });
 
   res.status(200).json({ id: session.id })
